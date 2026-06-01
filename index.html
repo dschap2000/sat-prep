@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAT Practice Module</title>
   
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
@@ -309,7 +308,6 @@
     /* ======================================================================
       QUESTION DATABASE 
       Math syntax uses LaTeX formatting inside \\( and \\). 
-      E.g., \\( \\frac{1}{8} \\) creates a vertical fraction.
     ====================================================================== */
     const questionBank = {
       reading: [
@@ -408,7 +406,6 @@
 
     window.onload = renderInProgress;
 
-    // Trigger MathJax to re-process dynamically injected math
     function renderMath() {
       if (window.MathJax) {
         MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err.message));
@@ -605,7 +602,6 @@
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      // Check correctness (clean mathjax tags out of strings if necessary, but simple string matching works here as user free response is plaintext)
       const isCorrect = String(userAnswer).toLowerCase() === String(q.correctAnswer).replace(/\\\(|\\\)/g, '').trim().toLowerCase();
       if (isCorrect) score++;
 
