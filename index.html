@@ -602,7 +602,8 @@
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      const isCorrect = String(userAnswer).toLowerCase() === String(q.correctAnswer).replace(/\\\(|\\\)/g, '').trim().toLowerCase();
+      const cleanText = (str) => String(str).replace(/\\\(|\\\)/g, '').trim().toLowerCase();
+      const isCorrect = cleanText(userAnswer) === cleanText(q.correctAnswer);
       if (isCorrect) score++;
 
       const feedbackArea = document.getElementById('feedback-area');
