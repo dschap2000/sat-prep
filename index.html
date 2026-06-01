@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAT Practice Module</title>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
     /* Modern, Readable Typography & Variables */
     :root {
@@ -68,7 +72,7 @@
       margin-top: 40px;
       padding-top: 20px;
       border-top: 2px solid var(--border);
-      display: none; /* Hidden by default */
+      display: none;
     }
     .saved-test-item {
       display: flex;
@@ -123,7 +127,7 @@
       cursor: pointer;
       font-weight: bold;
       font-size: 14px;
-      text-decoration: none; /* For the Desmos link */
+      text-decoration: none; 
     }
     .util-btn:hover { background: #e2e8f0; }
     
@@ -151,6 +155,7 @@
       align-items: center;
       transition: 0.2s;
       background: #f8fafc;
+      font-size: 17px;
     }
     .option-label:hover { border-color: #cbd5e1; background: #f1f5f9; }
     .option-label input { margin-right: 15px; transform: scale(1.2); }
@@ -232,35 +237,26 @@
     
     <div class="ref-section">
       <h3>Area (A) & Circumference (C)</h3>
-      <span class="formula">Circle Area: A = πr²</span>
-      <span class="formula">Circle Circ: C = 2πr</span>
-      <span class="formula">Rectangle: A = lw</span>
-      <span class="formula">Triangle: A = ½bh</span>
+      <span class="formula">Circle Area: \(A = \pi r^2\)</span>
+      <span class="formula">Circle Circ: \(C = 2\pi r\)</span>
+      <span class="formula">Rectangle: \(A = lw\)</span>
+      <span class="formula">Triangle: \(A = \frac{1}{2}bh\)</span>
     </div>
     
     <div class="ref-section">
       <h3>Right Triangles</h3>
-      <span class="formula">Pythagorean: a² + b² = c²</span>
-      <span class="formula">30-60-90: x, x√3, 2x</span>
-      <span class="formula">45-45-90: s, s, s√2</span>
+      <span class="formula">Pythagorean: \(a^2 + b^2 = c^2\)</span>
+      <span class="formula">30-60-90: \(x, x\sqrt{3}, 2x\)</span>
+      <span class="formula">45-45-90: \(s, s, s\sqrt{2}\)</span>
     </div>
 
     <div class="ref-section">
       <h3>Volume (V)</h3>
-      <span class="formula">Rectangular Prism: V = lwh</span>
-      <span class="formula">Cylinder: V = πr²h</span>
-      <span class="formula">Sphere: V = (4/3)πr³</span>
-      <span class="formula">Cone: V = (1/3)πr²h</span>
-      <span class="formula">Pyramid: V = (1/3)lwh</span>
-    </div>
-
-    <div class="ref-section">
-      <h3>Circles & Angles</h3>
-      <ul>
-        <li>Degrees of arc in a circle: 360</li>
-        <li>Radians of arc in a circle: 2π</li>
-        <li>Sum of degrees in a triangle: 180</li>
-      </ul>
+      <span class="formula">Rect. Prism: \(V = lwh\)</span>
+      <span class="formula">Cylinder: \(V = \pi r^2h\)</span>
+      <span class="formula">Sphere: \(V = \frac{4}{3}\pi r^3\)</span>
+      <span class="formula">Cone: \(V = \frac{1}{3}\pi r^2h\)</span>
+      <span class="formula">Pyramid: \(V = \frac{1}{3}lwh\)</span>
     </div>
   </div>
 
@@ -311,7 +307,9 @@
 
   <script>
     /* ======================================================================
-      QUESTION DATABASE (Keep adding your questions here!)
+      QUESTION DATABASE 
+      Math syntax uses LaTeX formatting inside \\( and \\). 
+      E.g., \\( \\frac{1}{8} \\) creates a vertical fraction.
     ====================================================================== */
     const questionBank = {
       reading: [
@@ -330,23 +328,71 @@
           options: ['a prudently', 'an overtly', 'a cordially', 'an inadvertently'],
           correctAnswer: 'an overtly',
           explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> "Overtly" means openly or without concealment.</li><li><strong>Contrast Clue:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden).</li><li><strong>Conclusion:</strong> Therefore, the 1970s writing must have been the opposite of hidden—it was overtly feminist.</li></ul>`
+        },
+        {
+          category: 'reading',
+          type: 'multiple-choice',
+          text: '______ the long-standing trend of overemphasizing teenagers and young adults in research on social media use, scholars have recently begun to expand their focus to include the fastest-growing cohort of social media users: senior citizens.',
+          options: ['Exacerbating', 'Redressing', 'Epitomizing', 'Precluding'],
+          correctAnswer: 'Redressing',
+          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> "Redressing" means remedying or setting right an unfair situation.</li><li><strong>Context:</strong> The text states researchers are expanding their focus to fix an existing problem (overemphasizing youth).</li><li><strong>Conclusion:</strong> By including seniors, they are redressing (fixing) the historical imbalance in the research.</li></ul>`
+        },
+        {
+          category: 'reading',
+          type: 'multiple-choice',
+          text: 'In 1934, physicist Eugene Wigner posited the existence of a crystal consisting entirely of electrons in a honeycomb-like structure. The so-called Wigner crystal remained a theoretical construct until 2021, when researchers successfully ______ the crystal in a laboratory setting.',
+          options: ['synthesized', 'discounted', 'anticipated', 'bypassed'],
+          correctAnswer: 'synthesized',
+          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> To "synthesize" means to create or produce something artificially.</li><li><strong>Context Clue:</strong> The text says the crystal was just a "theoretical construct" (an idea) until 2021, when researchers did something to it "in a laboratory setting."</li><li><strong>Conclusion:</strong> If it went from being just a theory to existing in a lab, it means the researchers finally created (synthesized) it.</li></ul>`
+        },
+        {
+          category: 'reading',
+          type: 'multiple-choice',
+          text: 'The following text is from Charlotte Brontë\'s 1847 novel <em>Jane Eyre</em>. Jane, the narrator, works as a governess at Thornfield Hall.<br><br>"I went on with my day\'s business tranquilly; but ever and anon vague suggestions kept wandering across my brain of reasons why I should quit Thornfield; and I kept involuntarily framing advertisements and pondering chances."<br><br>Which choice best states the main purpose of the text?',
+          options: ['To convey Jane\'s growing desire to seek a new living situation.', 'To suggest that Jane is struggling to complete her daily tasks.', 'To emphasize the repetitive nature of Jane\'s work as a governess.', 'To reveal that Jane has received a better employment offer.'],
+          correctAnswer: 'To convey Jane\'s growing desire to seek a new living situation.',
+          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Evidence 1:</strong> Jane states that "suggestions kept wandering across my brain of reasons why I should quit Thornfield."</li><li><strong>Evidence 2:</strong> She mentions "framing advertisements and pondering chances," which means she is thinking about putting an ad in the paper to find a new job.</li><li><strong>Conclusion:</strong> The passage is fundamentally about her increasing urge to leave her current home and find a new position.</li></ul>`
         }
       ],
       math: [
         {
           category: 'math',
           type: 'multiple-choice',
-          text: '(p + 3) + 8 = 10<br><br>What value of p is the solution to the given equation?',
-          options: ['-1', '5', '15', '21'],
-          correctAnswer: '-1',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Step 1:</strong> Simplify the left side: p + 3 + 8 = 10</li><li><strong>Step 2:</strong> Combine like terms: p + 11 = 10</li><li><strong>Step 3:</strong> Subtract 11 from both sides: p = -1</li></ul>`
+          text: 'What value of \\( p \\) is the solution to the given equation?<br><br> \\( (p + 3) + 8 = 10 \\)',
+          options: ['\\( -1 \\)', '\\( 5 \\)', '\\( 15 \\)', '\\( 21 \\)'],
+          correctAnswer: '\\( -1 \\)',
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Step 1:</strong> Simplify the left side by removing the parentheses: \\( p + 3 + 8 = 10 \\)</li><li><strong>Step 2:</strong> Combine the numbers: \\( p + 11 = 10 \\)</li><li><strong>Step 3:</strong> Subtract 11 from both sides: \\( p = 10 - 11 \\)</li><li><strong>Result:</strong> \\( p = -1 \\)</li></ul>`
+        },
+        {
+          category: 'math',
+          type: 'multiple-choice',
+          text: 'What is the positive solution to the given equation?<br><br> \\( k^2 - 53 = 91 \\)',
+          options: ['\\( 144 \\)', '\\( 72 \\)', '\\( 38 \\)', '\\( 12 \\)'],
+          correctAnswer: '\\( 12 \\)',
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Step 1:</strong> Isolate the variable by adding 53 to both sides: \\( k^2 = 91 + 53 \\)</li><li><strong>Step 2:</strong> Add the numbers: \\( k^2 = 144 \\)</li><li><strong>Step 3:</strong> Take the square root of both sides. \\( k = 12 \\) or \\( k = -12 \\).</li><li><strong>Result:</strong> Since the question asks for the positive solution, the answer is \\( 12 \\).</li></ul>`
+        },
+        {
+          category: 'math',
+          type: 'multiple-choice',
+          text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation, where \\( s \\) is the cruising speed, in miles per hour, during this portion of the flight?',
+          options: ['\\( s \\le 20 \\)', '\\( s \\le 150 \\)', '\\( s \\le 170 \\)', '\\( 150 \\le s \\le 170 \\)'],
+          correctAnswer: '\\( 150 \\le s \\le 170 \\)',
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Lower Bound:</strong> The speed was at least 150 mph, meaning \\( s \\ge 150 \\).</li><li><strong>Upper Bound:</strong> The speed was at most 170 mph, meaning \\( s \\le 170 \\).</li><li><strong>Result:</strong> Combining these bounds creates the compound inequality \\( 150 \\le s \\le 170 \\).</li></ul>`
         },
         {
           category: 'math',
           type: 'free-response',
-          text: 'A system of two linear equations in two variables, <em>x</em> and <em>y</em>, has no solution. The first equation is 48x - 64y = 48y + 24. The second equation is ry = 1/8 - 12x. What is the value of <em>r</em>?',
+          text: 'A system of two linear equations in two variables, \\( x \\) and \\( y \\), has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?',
           correctAnswer: '-28',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>The Rule:</strong> A system has "no solution" when the lines are parallel. Written in standard form (Ax + By = C), their <em>x</em> and <em>y</em> coefficients must be proportional.</li><li><strong>Step 1:</strong> Convert Eq 1: 48x - 64y = 48y + 24 &rarr; <strong>48x - 112y = 24</strong></li><li><strong>Step 2:</strong> Convert Eq 2: ry = 1/8 - 12x &rarr; <strong>12x + ry = 1/8</strong></li><li><strong>Step 3:</strong> The proportion from 48x to 12x is <strong>1/4</strong>.</li><li><strong>Step 4:</strong> Apply proportion to y: -112 &times; (1/4) = <strong>-28</strong>.</li></ul>`
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>The Rule:</strong> A system has "no solution" when the lines are parallel. Written in standard form \\( (Ax + By = C) \\), their \\( x \\) and \\( y \\) coefficients must be proportional.</li><li><strong>Step 1:</strong> Convert Eq 1: \\( 48x - 64y = 48y + 24 \\) &rarr; Subtract \\( 48y \\) &rarr; <strong>\\( 48x - 112y = 24 \\)</strong></li><li><strong>Step 2:</strong> Convert Eq 2: \\( ry = \\frac{1}{8} - 12x \\) &rarr; Add \\( 12x \\) &rarr; <strong>\\( 12x + ry = \\frac{1}{8} \\)</strong></li><li><strong>Step 3:</strong> The proportion to get from \\( 48x \\) (in Eq 1) to \\( 12x \\) (in Eq 2) is <strong>\\( \\frac{1}{4} \\)</strong>.</li><li><strong>Step 4:</strong> Apply that same proportion to the y-coefficient: \\( -112 \\times \\frac{1}{4} = -28 \\). Therefore, <strong>\\( r = -28 \\)</strong>.</li></ul>`
+        },
+        {
+          category: 'math',
+          type: 'multiple-choice',
+          text: 'If \\( 5x + 3 = 18 \\), what is the value of \\( 10x + 6 \\) ?',
+          options: ['\\( 3 \\)', '\\( 15 \\)', '\\( 30 \\)', '\\( 36 \\)'],
+          correctAnswer: '\\( 36 \\)',
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>The Shortcut:</strong> Notice the relationship between the two expressions. \\( 10x + 6 \\) is exactly twice the value of \\( 5x + 3 \\).</li><li><strong>Step 1:</strong> If \\( (5x + 3) = 18 \\), then multiply both sides of that equation by 2.</li><li><strong>Step 2:</strong> \\( 2(5x + 3) = 2(18) \\)</li><li><strong>Result:</strong> \\( 10x + 6 = 36 \\)</li></ul>`
         }
       ]
     };
@@ -357,13 +403,17 @@
     let activeQueue = [];
     let currentIndex = 0;
     let score = 0;
-    
-    // Tracking current session
     let currentSessionId = null;
     let currentMode = null;
 
-    // Load In-Progress tests when the page loads
     window.onload = renderInProgress;
+
+    // Trigger MathJax to re-process dynamically injected math
+    function renderMath() {
+      if (window.MathJax) {
+        MathJax.typesetPromise().catch((err) => console.log('MathJax error: ', err.message));
+      }
+    }
 
     function shuffleArray(array) {
       let shuffled = [...array];
@@ -381,7 +431,7 @@
     /* ---------- CORE NAVIGATION ---------- */
 
     function startActivity(mode) {
-      currentSessionId = Date.now(); // Create unique ID for new session
+      currentSessionId = Date.now(); 
       currentMode = mode;
       score = 0;
       currentIndex = 0;
@@ -415,9 +465,7 @@
       };
 
       let savedSessions = JSON.parse(localStorage.getItem('satSessions') || '[]');
-      // Remove older version of this exact session if it exists
       savedSessions = savedSessions.filter(s => s.id !== currentSessionId);
-      // Save current state
       savedSessions.push(sessionData);
       localStorage.setItem('satSessions', JSON.stringify(savedSessions));
 
@@ -446,7 +494,6 @@
       container.style.display = 'block';
       list.innerHTML = '';
       
-      // Sort so newest are at the top
       savedSessions.sort((a, b) => b.id - a.id).forEach(session => {
         const wrapper = document.createElement('div');
         wrapper.className = 'saved-test-item';
@@ -505,7 +552,7 @@
       const sectionName = q.category === 'math' ? "Math" : "Reading & Writing";
       document.getElementById('q-counter').innerText = `${sectionName} | Question ${currentIndex + 1} of ${activeQueue.length}`;
       
-      // Contextual Tools (Only show Desmos and Formulas on Math questions)
+      // Contextual Tools 
       const mathBtn = document.getElementById('math-toggle-btn');
       const desmosBtn = document.getElementById('desmos-btn');
       
@@ -540,6 +587,9 @@
       document.getElementById('feedback-area').style.display = 'none';
       document.getElementById('submit-btn').style.display = 'block';
       document.getElementById('next-btn').style.display = 'none';
+
+      // Tell MathJax to re-render the newly injected text
+      renderMath();
     }
 
     function checkAnswer() {
@@ -555,7 +605,8 @@
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      const isCorrect = String(userAnswer).toLowerCase() === String(q.correctAnswer).toLowerCase();
+      // Check correctness (clean mathjax tags out of strings if necessary, but simple string matching works here as user free response is plaintext)
+      const isCorrect = String(userAnswer).toLowerCase() === String(q.correctAnswer).replace(/\\\(|\\\)/g, '').trim().toLowerCase();
       if (isCorrect) score++;
 
       const feedbackArea = document.getElementById('feedback-area');
@@ -578,6 +629,9 @@
       const nextBtn = document.getElementById('next-btn');
       nextBtn.style.display = 'block';
       nextBtn.innerText = (currentIndex === activeQueue.length - 1) ? 'See Final Score' : 'Next Question';
+
+      // Re-render math inside the explanation area
+      renderMath();
     }
 
     function nextQuestion() {
@@ -590,7 +644,7 @@
     }
 
     function showSummary() {
-      clearSessionOnComplete(); // Remove from saved tests since it's done
+      clearSessionOnComplete(); 
       document.getElementById('math-sidebar').classList.remove('open');
       document.querySelector('.utility-bar').style.display = 'none';
 
@@ -604,7 +658,7 @@
       homeBtn.className = 'mode-btn';
       homeBtn.innerText = 'Return to Home Screen';
       homeBtn.onclick = () => {
-        document.querySelector('.utility-bar').style.display = 'flex'; // restore for next time
+        document.querySelector('.utility-bar').style.display = 'flex'; 
         document.getElementById('quiz-screen').style.display = 'none';
         document.getElementById('welcome-screen').style.display = 'block';
         renderInProgress();
