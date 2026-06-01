@@ -110,7 +110,7 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    .nav-group, .tool-group { display: flex; gap: 10px; }
+    .nav-group, .tool-group { display: flex; gap: 10px; flex-wrap: wrap; }
     .util-btn {
       background: #edf2f7;
       border: 2px solid #cbd5e1;
@@ -253,7 +253,12 @@
     
     <div id="welcome-screen" class="card">
       <h1>SAT Practice Interactive</h1>
-      <p>Select a practice module to begin. Questions are randomly pulled from the Master Bank.</p>
+      <p>Select a practice module to begin. The Smart Memory Engine ensures you only see new questions until the bank is exhausted.</p>
+      
+      <div class="nav-group" style="justify-content: center; margin-bottom: 20px;">
+        <button class="util-btn" style="background: #fed7d7; color: #c53030; border-color: #feb2b2;" onclick="resetQuestionHistory()">&#8634; Reset Smart Memory</button>
+      </div>
+
       <button class="mode-btn" onclick="startActivity('math')">Math Module</button>
       <button class="mode-btn" onclick="startActivity('reading')">Reading & Writing Module</button>
       <button class="mode-btn" style="background: #805ad5;" onclick="startActivity('combo')">Full Combo (Both Sections)</button>
@@ -297,9 +302,7 @@
   <script>
     /* ======================================================================
       TEST SETTINGS
-      This controls how many random questions are pulled from the bank.
-      For the actual test, change these to 22 and 27.
-      Right now, they are set to 5 so you can test the randomizer!
+      This controls how many random questions are pulled per section.
     ====================================================================== */
     const MATH_Q_LIMIT = 5;
     const READING_Q_LIMIT = 5;
@@ -364,6 +367,20 @@
           options: ['those', 'that', 'this', 'these'],
           correctAnswer: 'those',
           explanation: `<strong>Why this is correct:</strong> "Those" correctly acts as a plural pronoun referring back to "robins."`
+        },
+        {
+          category: 'reading', type: 'multiple-choice',
+          text: 'Although often confused with its sister ships, the <em>Olympic</em> and the <em>Britannic</em>, the RMS ______ remains the most infamous vessel of the White Star Line due to its tragic sinking on its maiden voyage in 1912.',
+          options: ['Carpathia', 'Lusitania', 'Titanic', 'Queen Mary'],
+          correctAnswer: 'Titanic',
+          explanation: `<strong>Why this is correct:</strong> The text specifically mentions the sinking on its maiden voyage in 1912 and its sister ships the Olympic and Britannic, which exclusively identifies the RMS Titanic. The Carpathia was the rescue ship, and the Lusitania belonged to a rival passenger line.`
+        },
+        {
+          category: 'reading', type: 'multiple-choice',
+          text: 'Urban planners in Curitiba, Brazil, revolutionized mass transit in the 1970s with the introduction of the Bus Rapid Transit (BRT) system. To maximize passenger capacity without the massive infrastructure costs of a train network, engineers designed the ______, a high-capacity vehicle with three passenger compartments connected by two flexible joints.',
+          options: ['standard articulated bus', 'light rail train', 'bi-articulated bus', 'double-decker bus'],
+          correctAnswer: 'bi-articulated bus',
+          explanation: `<strong>Why this is correct:</strong> The text describes a high-capacity transit vehicle with three compartments and two flexible joints designed specifically as an alternative to a train. This precisely defines a bi-articulated bus.`
         }
       ],
       math: [
@@ -390,7 +407,7 @@
         },
         {
           category: 'math', type: 'free-response',
-          text: 'A system of two linear equations... has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?',
+          text: 'A system of two linear equations has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?',
           correctAnswer: '-28',
           explanation: `<strong>Step-by-step:</strong> Eq 1 becomes \\( 48x - 112y = 24 \\). Eq 2 becomes \\( 12x + ry = 1/8 \\). The x-proportion is 1/4. Applying to y: \\( -112 \\times (1/4) = -28 \\).`
         },
@@ -416,6 +433,19 @@
           explanation: `<strong>Step-by-step:</strong> Substitute -2 for x: \\( f(-2) = -3(-2) + 5 = 6 + 5 = 11 \\).`
         },
         {
+          category: 'math', type: 'multiple-choice',
+          text: 'What is the slope of the line in the xy-plane defined by the equation \\( 2x - 3y = 6 \\)?',
+          options: ['\\( -\\frac{3}{2} \\)', '\\( -\\frac{2}{3} \\)', '\\( \\frac{2}{3} \\)', '\\( \\frac{3}{2} \\)'],
+          correctAnswer: '\\( \\frac{2}{3} \\)',
+          explanation: `<strong>Step-by-step:</strong> Convert to slope-intercept form \\( (y = mx + b) \\). Subtract \\( 2x \\) from both sides to get \\( -3y = -2x + 6 \\). Divide by \\( -3 \\) to get \\( y = \\frac{2}{3}x - 2 \\). The slope \\( m \\) is \\( \\frac{2}{3} \\).`
+        },
+        {
+          category: 'math', type: 'free-response',
+          text: 'The Aviation Club at UW-Madison is organizing a field trip to Milwaukee Mitchell International Airport. They are renting vans that hold 8 students each. If 45 students sign up for the trip, what is the minimum number of vans they must rent?',
+          correctAnswer: '6',
+          explanation: `<strong>Step-by-step:</strong> Divide 45 students by 8 seats per van: \\( \\frac{45}{8} = 5.625 \\). Since you cannot rent a fraction of a van, the club must round up to the next whole number, which is 6 vans.`
+        },
+        {
           category: 'math', type: 'free-response',
           text: 'If \\( 4x = 20 \\), what is the value of \\( x - 1 \\)?',
           correctAnswer: '4',
@@ -425,7 +455,7 @@
     };
 
     /* ======================================================================
-      APPLICATION & SAVE LOGIC
+      APPLICATION & SMART SHUFFLE LOGIC
     ====================================================================== */
     let activeQueue = [];
     let currentIndex = 0;
@@ -433,7 +463,15 @@
     let currentSessionId = null;
     let currentMode = null;
 
-    window.onload = renderInProgress;
+    // Dynamically assign IDs so the app can track what has been seen
+    window.onload = () => {
+      ['reading', 'math'].forEach(category => {
+        questionBank[category].forEach((q, idx) => {
+          q.id = category + '_q' + idx;
+        });
+      });
+      renderInProgress();
+    };
 
     function renderMath() {
       if (window.MathJax) {
@@ -454,6 +492,44 @@
       document.getElementById('math-sidebar').classList.toggle('open');
     }
 
+    // SMART MEMORY LOGIC
+    function getSmartSubset(category, limit) {
+      let seenIds = JSON.parse(localStorage.getItem('satSeenQuestions') || '[]');
+      let bank = questionBank[category];
+      
+      // Split bank into completely fresh questions vs questions already seen
+      let unseen = bank.filter(q => !seenIds.includes(q.id));
+      let seen = bank.filter(q => seenIds.includes(q.id));
+      
+      unseen = shuffleArray(unseen);
+      seen = shuffleArray(seen);
+      
+      let selected = [];
+      
+      // Prioritize unseen questions
+      if (unseen.length >= limit) {
+        selected = unseen.slice(0, limit);
+      } else {
+        selected = [...unseen];
+        let needed = limit - unseen.length;
+        selected = selected.concat(seen.slice(0, needed));
+      }
+      
+      // Record the newly selected questions as 'seen' in the browser
+      let newlySeen = selected.map(q => q.id);
+      let updatedSeen = [...new Set([...seenIds, ...newlySeen])];
+      localStorage.setItem('satSeenQuestions', JSON.stringify(updatedSeen));
+      
+      return shuffleArray(selected); // Give them one final shuffle
+    }
+
+    function resetQuestionHistory() {
+      if(confirm('Are you sure you want to clear the memory of seen questions? This will make all questions available as new again.')) {
+        localStorage.removeItem('satSeenQuestions');
+        alert('Smart Memory cleared! All questions are fresh.');
+      }
+    }
+
     /* ---------- CORE NAVIGATION ---------- */
 
     function startActivity(mode) {
@@ -463,14 +539,14 @@
       currentIndex = 0;
       activeQueue = [];
 
-      // NEW RANDOMIZED SUBSET LOGIC
+      // Use the Smart Subset feature instead of pure random
       if (mode === 'math') {
-        activeQueue = shuffleArray(questionBank.math).slice(0, MATH_Q_LIMIT);
+        activeQueue = getSmartSubset('math', MATH_Q_LIMIT);
       } else if (mode === 'reading') {
-        activeQueue = shuffleArray(questionBank.reading).slice(0, READING_Q_LIMIT);
+        activeQueue = getSmartSubset('reading', READING_Q_LIMIT);
       } else if (mode === 'combo') {
-        const rwSubset = shuffleArray(questionBank.reading).slice(0, READING_Q_LIMIT);
-        const mathSubset = shuffleArray(questionBank.math).slice(0, MATH_Q_LIMIT);
+        const rwSubset = getSmartSubset('reading', READING_Q_LIMIT);
+        const mathSubset = getSmartSubset('math', MATH_Q_LIMIT);
         activeQueue = rwSubset.concat(mathSubset);
       }
 
