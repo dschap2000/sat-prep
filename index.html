@@ -8,7 +8,6 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
-    /* Modern, Readable Typography & Variables */
     :root {
       --primary: #2b6cb0;
       --primary-hover: #2c5282;
@@ -49,7 +48,6 @@
 
     h1, h2, h3 { color: #1a202c; }
     
-    /* Welcome Screen & In-Progress Section */
     #welcome-screen { text-align: center; }
     .mode-btn {
       display: block;
@@ -102,7 +100,6 @@
     }
     .delete-btn:hover { background: #fed7d7; }
 
-    /* Quiz Screen & Top Utility Bar */
     #quiz-screen { display: none; }
     
     .utility-bar {
@@ -113,10 +110,7 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    .nav-group, .tool-group {
-      display: flex;
-      gap: 10px;
-    }
+    .nav-group, .tool-group { display: flex; gap: 10px; }
     .util-btn {
       background: #edf2f7;
       border: 2px solid #cbd5e1;
@@ -143,7 +137,6 @@
     
     .question-text { font-size: 18px; margin-bottom: 30px; }
 
-    /* Input Areas */
     .options-grid { display: flex; flex-direction: column; gap: 12px; }
     .option-label {
       padding: 15px;
@@ -168,7 +161,6 @@
       box-sizing: border-box;
     }
 
-    /* Primary Buttons */
     .submit-btn, .next-btn {
       margin-top: 25px;
       padding: 15px 30px;
@@ -185,7 +177,6 @@
     .next-btn { background: #4a5568; display: none; }
     .next-btn:hover { background: #2d3748; }
 
-    /* Feedback */
     .feedback {
       margin-top: 25px;
       padding: 20px;
@@ -197,7 +188,6 @@
     .explanation ul { margin-top: 10px; padding-left: 20px; }
     .explanation li { margin-bottom: 8px; }
 
-    /* Math Reference Sheet Sidebar */
     #math-sidebar {
       position: fixed;
       top: 0;
@@ -263,7 +253,7 @@
     
     <div id="welcome-screen" class="card">
       <h1>SAT Practice Interactive</h1>
-      <p>Select a practice module to begin. Questions will be shuffled automatically.</p>
+      <p>Select a practice module to begin. Questions are randomly pulled from the Master Bank.</p>
       <button class="mode-btn" onclick="startActivity('math')">Math Module</button>
       <button class="mode-btn" onclick="startActivity('reading')">Reading & Writing Module</button>
       <button class="mode-btn" style="background: #805ad5;" onclick="startActivity('combo')">Full Combo (Both Sections)</button>
@@ -306,91 +296,130 @@
 
   <script>
     /* ======================================================================
+      TEST SETTINGS
+      This controls how many random questions are pulled from the bank.
+      For the actual test, change these to 22 and 27.
+      Right now, they are set to 5 so you can test the randomizer!
+    ====================================================================== */
+    const MATH_Q_LIMIT = 5;
+    const READING_Q_LIMIT = 5;
+
+    /* ======================================================================
       QUESTION DATABASE 
-      Math syntax uses LaTeX formatting inside \\( and \\). 
     ====================================================================== */
     const questionBank = {
       reading: [
         {
-          category: 'reading',
-          type: 'multiple-choice',
-          text: 'Though not closely related, the hedgehog tenrecs of Madagascar share basic ______ true hedgehogs, including protective spines, pointed snouts, and small body size—traits the two groups of mammals independently developed in response to equivalent roles in their respective habitats.',
+          category: 'reading', type: 'multiple-choice',
+          text: 'Though not closely related, the hedgehog tenrecs of Madagascar share basic ______ true hedgehogs, including protective spines, pointed snouts, and small body size...',
           options: ['examples of', 'concerns about', 'indications of', 'similarities with'],
           correctAnswer: 'similarities with',
-          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Context:</strong> The text establishes a comparison between two groups of mammals.</li><li><strong>Evidence:</strong> It states that although they aren't closely related, they play similar roles in their habitats and independently developed the exact same physical traits.</li><li><strong>Conclusion:</strong> "Similarities with" captures the idea that they resemble each other despite their different origins.</li></ul>`
+          explanation: `<strong>Why this is correct:</strong> "Similarities with" captures the idea that they resemble each other despite their different origins.`
         },
         {
-          category: 'reading',
-          type: 'multiple-choice',
+          category: 'reading', type: 'multiple-choice',
           text: 'In editor Lisa Yaszek\'s introduction to her anthology <em>The Future Is Female!</em>, Yaszek identifies an increasing sense of ______ feminist mode of writing in the 1970s, in contrast to many woman-authored science fiction stories of the 1920s to 1960s whose politics were less deliberately signaled.',
           options: ['a prudently', 'an overtly', 'a cordially', 'an inadvertently'],
           correctAnswer: 'an overtly',
-          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> "Overtly" means openly or without concealment.</li><li><strong>Contrast Clue:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden).</li><li><strong>Conclusion:</strong> Therefore, the 1970s writing must have been the opposite of hidden—it was overtly feminist.</li></ul>`
+          explanation: `<strong>Why this is correct:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden). Therefore, the 1970s writing was overtly feminist.`
         },
         {
-          category: 'reading',
-          type: 'multiple-choice',
+          category: 'reading', type: 'multiple-choice',
           text: '______ the long-standing trend of overemphasizing teenagers and young adults in research on social media use, scholars have recently begun to expand their focus to include the fastest-growing cohort of social media users: senior citizens.',
           options: ['Exacerbating', 'Redressing', 'Epitomizing', 'Precluding'],
           correctAnswer: 'Redressing',
-          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> "Redressing" means remedying or setting right an unfair situation.</li><li><strong>Context:</strong> The text states researchers are expanding their focus to fix an existing problem (overemphasizing youth).</li><li><strong>Conclusion:</strong> By including seniors, they are redressing (fixing) the historical imbalance in the research.</li></ul>`
+          explanation: `<strong>Why this is correct:</strong> By including seniors, they are redressing (fixing) the historical imbalance in the research.`
         },
         {
-          category: 'reading',
-          type: 'multiple-choice',
+          category: 'reading', type: 'multiple-choice',
           text: 'In 1934, physicist Eugene Wigner posited the existence of a crystal consisting entirely of electrons in a honeycomb-like structure. The so-called Wigner crystal remained a theoretical construct until 2021, when researchers successfully ______ the crystal in a laboratory setting.',
           options: ['synthesized', 'discounted', 'anticipated', 'bypassed'],
           correctAnswer: 'synthesized',
-          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> To "synthesize" means to create or produce something artificially.</li><li><strong>Context Clue:</strong> The text says the crystal was just a "theoretical construct" (an idea) until 2021, when researchers did something to it "in a laboratory setting."</li><li><strong>Conclusion:</strong> If it went from being just a theory to existing in a lab, it means the researchers finally created (synthesized) it.</li></ul>`
+          explanation: `<strong>Why this is correct:</strong> If it went from being just a theory to existing in a lab, it means the researchers finally created (synthesized) it.`
         },
         {
-          category: 'reading',
-          type: 'multiple-choice',
+          category: 'reading', type: 'multiple-choice',
           text: 'The following text is from Charlotte Brontë\'s 1847 novel <em>Jane Eyre</em>. Jane, the narrator, works as a governess at Thornfield Hall.<br><br>"I went on with my day\'s business tranquilly; but ever and anon vague suggestions kept wandering across my brain of reasons why I should quit Thornfield; and I kept involuntarily framing advertisements and pondering chances."<br><br>Which choice best states the main purpose of the text?',
           options: ['To convey Jane\'s growing desire to seek a new living situation.', 'To suggest that Jane is struggling to complete her daily tasks.', 'To emphasize the repetitive nature of Jane\'s work as a governess.', 'To reveal that Jane has received a better employment offer.'],
           correctAnswer: 'To convey Jane\'s growing desire to seek a new living situation.',
-          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Evidence 1:</strong> Jane states that "suggestions kept wandering across my brain of reasons why I should quit Thornfield."</li><li><strong>Evidence 2:</strong> She mentions "framing advertisements and pondering chances," which means she is thinking about putting an ad in the paper to find a new job.</li><li><strong>Conclusion:</strong> The passage is fundamentally about her increasing urge to leave her current home and find a new position.</li></ul>`
+          explanation: `<strong>Why this is correct:</strong> She mentions "framing advertisements and pondering chances," which means she is thinking about putting an ad in the paper to find a new job.`
+        },
+        {
+          category: 'reading', type: 'multiple-choice',
+          text: 'A 2017 study of sign language learners tested the role of iconicity—the similarity of a sign to the thing it represents—in language acquisition. The study found that the greater the iconicity of a sign, the more likely it was to be learned. ______ the correlation between acquisition and iconicity was lower for fluent signers.',
+          options: ['By contrast,', 'Specifically,', 'In fact,', 'As a result,'],
+          correctAnswer: 'By contrast,',
+          explanation: `<strong>Why this is correct:</strong> The first sentence describes a positive correlation for *learners*, while the second describes a lower correlation for *fluent signers*. "By contrast" establishes this difference.`
+        },
+        {
+          category: 'reading', type: 'multiple-choice',
+          text: 'Which choice completes the text so that it conforms to the conventions of Standard English?<br><br>The city of Xian, China, is famous for its Terracotta Army, a collection of thousands of life-size sculptures ______ the armies of Qin Shi Huang, the first emperor of China.',
+          options: ['depicting', 'to depict', 'depict', 'depicted'],
+          correctAnswer: 'depicting',
+          explanation: `<strong>Why this is correct:</strong> The participial phrase "depicting the armies..." correctly modifies "sculptures".`
+        },
+        {
+          category: 'reading', type: 'multiple-choice',
+          text: 'While researching the effects of urban noise on bird communication, scientists found that robins in cities sing at a higher pitch than ______ in rural areas. This adaptation prevents their songs from being masked by low-frequency traffic noise.',
+          options: ['those', 'that', 'this', 'these'],
+          correctAnswer: 'those',
+          explanation: `<strong>Why this is correct:</strong> "Those" correctly acts as a plural pronoun referring back to "robins."`
         }
       ],
       math: [
         {
-          category: 'math',
-          type: 'multiple-choice',
+          category: 'math', type: 'multiple-choice',
           text: 'What value of \\( p \\) is the solution to the given equation?<br><br> \\( (p + 3) + 8 = 10 \\)',
           options: ['\\( -1 \\)', '\\( 5 \\)', '\\( 15 \\)', '\\( 21 \\)'],
           correctAnswer: '\\( -1 \\)',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Step 1:</strong> Simplify the left side by removing the parentheses: \\( p + 3 + 8 = 10 \\)</li><li><strong>Step 2:</strong> Combine the numbers: \\( p + 11 = 10 \\)</li><li><strong>Step 3:</strong> Subtract 11 from both sides: \\( p = 10 - 11 \\)</li><li><strong>Result:</strong> \\( p = -1 \\)</li></ul>`
+          explanation: `<strong>Step-by-step:</strong> \\( p + 11 = 10 \\) &rarr; \\( p = -1 \\)`
         },
         {
-          category: 'math',
-          type: 'multiple-choice',
+          category: 'math', type: 'multiple-choice',
           text: 'What is the positive solution to the given equation?<br><br> \\( k^2 - 53 = 91 \\)',
           options: ['\\( 144 \\)', '\\( 72 \\)', '\\( 38 \\)', '\\( 12 \\)'],
           correctAnswer: '\\( 12 \\)',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Step 1:</strong> Isolate the variable by adding 53 to both sides: \\( k^2 = 91 + 53 \\)</li><li><strong>Step 2:</strong> Add the numbers: \\( k^2 = 144 \\)</li><li><strong>Step 3:</strong> Take the square root of both sides. \\( k = 12 \\) or \\( k = -12 \\).</li><li><strong>Result:</strong> Since the question asks for the positive solution, the answer is \\( 12 \\).</li></ul>`
+          explanation: `<strong>Step-by-step:</strong> \\( k^2 = 144 \\) &rarr; \\( k = 12 \\)`
         },
         {
-          category: 'math',
-          type: 'multiple-choice',
-          text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation, where \\( s \\) is the cruising speed, in miles per hour, during this portion of the flight?',
+          category: 'math', type: 'multiple-choice',
+          text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation?',
           options: ['\\( s \\le 20 \\)', '\\( s \\le 150 \\)', '\\( s \\le 170 \\)', '\\( 150 \\le s \\le 170 \\)'],
           correctAnswer: '\\( 150 \\le s \\le 170 \\)',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Lower Bound:</strong> The speed was at least 150 mph, meaning \\( s \\ge 150 \\).</li><li><strong>Upper Bound:</strong> The speed was at most 170 mph, meaning \\( s \\le 170 \\).</li><li><strong>Result:</strong> Combining these bounds creates the compound inequality \\( 150 \\le s \\le 170 \\).</li></ul>`
+          explanation: `<strong>Why this is correct:</strong> Combining the lower bound (150) and upper bound (170) creates the compound inequality \\( 150 \\le s \\le 170 \\).`
         },
         {
-          category: 'math',
-          type: 'free-response',
-          text: 'A system of two linear equations in two variables, \\( x \\) and \\( y \\), has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?',
+          category: 'math', type: 'free-response',
+          text: 'A system of two linear equations... has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?',
           correctAnswer: '-28',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>The Rule:</strong> A system has "no solution" when the lines are parallel. Written in standard form \\( (Ax + By = C) \\), their \\( x \\) and \\( y \\) coefficients must be proportional.</li><li><strong>Step 1:</strong> Convert Eq 1: \\( 48x - 64y = 48y + 24 \\) &rarr; Subtract \\( 48y \\) &rarr; <strong>\\( 48x - 112y = 24 \\)</strong></li><li><strong>Step 2:</strong> Convert Eq 2: \\( ry = \\frac{1}{8} - 12x \\) &rarr; Add \\( 12x \\) &rarr; <strong>\\( 12x + ry = \\frac{1}{8} \\)</strong></li><li><strong>Step 3:</strong> The proportion to get from \\( 48x \\) (in Eq 1) to \\( 12x \\) (in Eq 2) is <strong>\\( \\frac{1}{4} \\)</strong>.</li><li><strong>Step 4:</strong> Apply that same proportion to the y-coefficient: \\( -112 \\times \\frac{1}{4} = -28 \\). Therefore, <strong>\\( r = -28 \\)</strong>.</li></ul>`
+          explanation: `<strong>Step-by-step:</strong> Eq 1 becomes \\( 48x - 112y = 24 \\). Eq 2 becomes \\( 12x + ry = 1/8 \\). The x-proportion is 1/4. Applying to y: \\( -112 \\times (1/4) = -28 \\).`
         },
         {
-          category: 'math',
-          type: 'multiple-choice',
-          text: 'If \\( 5x + 3 = 18 \\), what is the value of \\( 10x + 6 \\) ?',
+          category: 'math', type: 'multiple-choice',
+          text: 'If \\( 5x + 3 = 18 \\), what is the value of \\( 10x + 6 \\)?',
           options: ['\\( 3 \\)', '\\( 15 \\)', '\\( 30 \\)', '\\( 36 \\)'],
           correctAnswer: '\\( 36 \\)',
-          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>The Shortcut:</strong> Notice the relationship between the two expressions. \\( 10x + 6 \\) is exactly twice the value of \\( 5x + 3 \\).</li><li><strong>Step 1:</strong> If \\( (5x + 3) = 18 \\), then multiply both sides of that equation by 2.</li><li><strong>Step 2:</strong> \\( 2(5x + 3) = 2(18) \\)</li><li><strong>Result:</strong> \\( 10x + 6 = 36 \\)</li></ul>`
+          explanation: `<strong>Shortcut:</strong> \\( 10x + 6 \\) is exactly twice the value of \\( 5x + 3 \\). Therefore, \\( 18 \\times 2 = 36 \\).`
+        },
+        {
+          category: 'math', type: 'multiple-choice',
+          text: 'What is the y-intercept of the graph of \\( y = 4x + 12 \\) in the xy-plane?',
+          options: ['\\( (0, 4) \\)', '\\( (0, 12) \\)', '\\( (4, 0) \\)', '\\( (12, 0) \\)'],
+          correctAnswer: '\\( (0, 12) \\)',
+          explanation: `<strong>Step-by-step:</strong> The y-intercept occurs where \\( x = 0 \\). Plugging in 0 yields \\( y = 12 \\). The coordinate is \\( (0, 12) \\).`
+        },
+        {
+          category: 'math', type: 'multiple-choice',
+          text: 'The function \\( f \\) is defined by \\( f(x) = -3x + 5 \\). What is the value of \\( f(-2) \\)?',
+          options: ['\\( -1 \\)', '\\( 1 \\)', '\\( 11 \\)', '\\( 13 \\)'],
+          correctAnswer: '\\( 11 \\)',
+          explanation: `<strong>Step-by-step:</strong> Substitute -2 for x: \\( f(-2) = -3(-2) + 5 = 6 + 5 = 11 \\).`
+        },
+        {
+          category: 'math', type: 'free-response',
+          text: 'If \\( 4x = 20 \\), what is the value of \\( x - 1 \\)?',
+          correctAnswer: '4',
+          explanation: `<strong>Step-by-step:</strong> Solve for x by dividing by 4: \\( x = 5 \\). Then subtract 1: \\( 5 - 1 = 4 \\).`
         }
       ]
     };
@@ -434,9 +463,16 @@
       currentIndex = 0;
       activeQueue = [];
 
-      if (mode === 'math') activeQueue = shuffleArray(questionBank.math);
-      else if (mode === 'reading') activeQueue = shuffleArray(questionBank.reading);
-      else if (mode === 'combo') activeQueue = shuffleArray(questionBank.math.concat(questionBank.reading));
+      // NEW RANDOMIZED SUBSET LOGIC
+      if (mode === 'math') {
+        activeQueue = shuffleArray(questionBank.math).slice(0, MATH_Q_LIMIT);
+      } else if (mode === 'reading') {
+        activeQueue = shuffleArray(questionBank.reading).slice(0, READING_Q_LIMIT);
+      } else if (mode === 'combo') {
+        const rwSubset = shuffleArray(questionBank.reading).slice(0, READING_Q_LIMIT);
+        const mathSubset = shuffleArray(questionBank.math).slice(0, MATH_Q_LIMIT);
+        activeQueue = rwSubset.concat(mathSubset);
+      }
 
       transitionToQuiz();
     }
@@ -549,7 +585,6 @@
       const sectionName = q.category === 'math' ? "Math" : "Reading & Writing";
       document.getElementById('q-counter').innerText = `${sectionName} | Question ${currentIndex + 1} of ${activeQueue.length}`;
       
-      // Contextual Tools 
       const mathBtn = document.getElementById('math-toggle-btn');
       const desmosBtn = document.getElementById('desmos-btn');
       
@@ -585,7 +620,6 @@
       document.getElementById('submit-btn').style.display = 'block';
       document.getElementById('next-btn').style.display = 'none';
 
-      // Tell MathJax to re-render the newly injected text
       renderMath();
     }
 
@@ -602,6 +636,7 @@
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
+      // Safe evaluation that strips out math tags for comparison
       const cleanText = (str) => String(str).replace(/\\\(|\\\)/g, '').trim().toLowerCase();
       const isCorrect = cleanText(userAnswer) === cleanText(q.correctAnswer);
       if (isCorrect) score++;
@@ -627,7 +662,6 @@
       nextBtn.style.display = 'block';
       nextBtn.innerText = (currentIndex === activeQueue.length - 1) ? 'See Final Score' : 'Next Question';
 
-      // Re-render math inside the explanation area
       renderMath();
     }
 
