@@ -32,7 +32,7 @@
 
     .container {
       width: 100%;
-      max-width: 800px;
+      max-width: 850px;
       padding: 40px 20px;
       position: relative;
     }
@@ -40,13 +40,13 @@
     .card {
       background: var(--card-bg);
       border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       padding: 40px;
     }
 
-    h1, h2 { color: #1a202c; }
+    h1, h2, h3 { color: #1a202c; }
     
-    /* Welcome Screen */
+    /* Welcome Screen & In-Progress Section */
     #welcome-screen { text-align: center; }
     .mode-btn {
       display: block;
@@ -64,8 +64,69 @@
     }
     .mode-btn:hover { background: var(--primary-hover); }
 
-    /* Quiz Screen */
+    #in-progress-container {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid var(--border);
+      display: none; /* Hidden by default */
+    }
+    .saved-test-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .resume-btn {
+      flex-grow: 1;
+      padding: 15px;
+      background: #edf2f7;
+      color: var(--text);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.2s;
+    }
+    .resume-btn:hover { background: #e2e8f0; border-color: #cbd5e1; }
+    .delete-btn {
+      padding: 15px;
+      background: #fff5f5;
+      color: var(--error);
+      border: 2px solid #fed7d7;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .delete-btn:hover { background: #fed7d7; }
+
+    /* Quiz Screen & Top Utility Bar */
     #quiz-screen { display: none; }
+    
+    .utility-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .nav-group, .tool-group {
+      display: flex;
+      gap: 10px;
+    }
+    .util-btn {
+      background: #edf2f7;
+      border: 2px solid #cbd5e1;
+      color: #4a5568;
+      padding: 8px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      text-decoration: none; /* For the Desmos link */
+    }
+    .util-btn:hover { background: #e2e8f0; }
+    
     .question-meta {
       font-size: 14px;
       color: var(--text-light);
@@ -74,9 +135,7 @@
       margin-bottom: 20px;
       border-bottom: 2px solid var(--border);
       padding-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-weight: bold;
     }
     
     .question-text { font-size: 18px; margin-bottom: 30px; }
@@ -105,7 +164,7 @@
       box-sizing: border-box;
     }
 
-    /* Buttons */
+    /* Primary Buttons */
     .submit-btn, .next-btn {
       margin-top: 25px;
       padding: 15px 30px;
@@ -135,18 +194,6 @@
     .explanation li { margin-bottom: 8px; }
 
     /* Math Reference Sheet Sidebar */
-    #math-toggle-btn {
-      background: #edf2f7;
-      border: 2px solid #cbd5e1;
-      color: #4a5568;
-      padding: 8px 15px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      display: none; /* Hidden by default */
-    }
-    #math-toggle-btn:hover { background: #e2e8f0; }
-
     #math-sidebar {
       position: fixed;
       top: 0;
@@ -175,7 +222,6 @@
     .ref-section { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
     .ref-section h3 { margin-top: 0; font-size: 16px; color: var(--primary); }
     .formula { font-family: monospace; font-size: 16px; background: #f8fafc; padding: 5px; border-radius: 4px; display: block; margin-bottom: 5px;}
-
   </style>
 </head>
 <body>
@@ -226,13 +272,28 @@
       <button class="mode-btn" onclick="startActivity('math')">Math Module</button>
       <button class="mode-btn" onclick="startActivity('reading')">Reading & Writing Module</button>
       <button class="mode-btn" style="background: #805ad5;" onclick="startActivity('combo')">Full Combo (Both Sections)</button>
+
+      <div id="in-progress-container">
+        <h3>In-Progress Tests</h3>
+        <p style="font-size: 14px; color: var(--text-light);">Pick up right where you left off.</p>
+        <div id="in-progress-list"></div>
+      </div>
     </div>
 
     <div id="quiz-screen" class="card">
-      <div class="question-meta">
-        <span id="q-counter">Question 1 of X</span>
-        <button id="math-toggle-btn" onclick="toggleMathRef()">View Formulas</button>
+      
+      <div class="utility-bar">
+        <div class="nav-group">
+          <button class="util-btn" onclick="promptReturnHome()">&larr; Home</button>
+          <button class="util-btn" onclick="saveSession(true)">&#128190; Save Progress</button>
+        </div>
+        <div class="tool-group">
+          <button id="math-toggle-btn" class="util-btn" onclick="toggleMathRef()">&#128208; Formulas</button>
+          <a id="desmos-btn" class="util-btn" href="https://www.desmos.com/calculator" target="_blank">&#128306; Desmos Calculator</a>
+        </div>
       </div>
+
+      <div class="question-meta" id="q-counter">Question 1 of X</div>
       
       <div id="q-text" class="question-text">Loading...</div>
       <div id="input-area"></div>
@@ -250,11 +311,8 @@
 
   <script>
     /* ======================================================================
-      QUESTION DATABASE
-      Add your transcribed questions into these arrays. 
-      Use HTML tags like <em> for italics, <sup> for exponents.
-    ======================================================================
-    */
+      QUESTION DATABASE (Keep adding your questions here!)
+    ====================================================================== */
     const questionBank = {
       reading: [
         {
@@ -263,14 +321,7 @@
           text: 'Though not closely related, the hedgehog tenrecs of Madagascar share basic ______ true hedgehogs, including protective spines, pointed snouts, and small body size—traits the two groups of mammals independently developed in response to equivalent roles in their respective habitats.',
           options: ['examples of', 'concerns about', 'indications of', 'similarities with'],
           correctAnswer: 'similarities with',
-          explanation: `
-            <strong>Why this is correct:</strong>
-            <ul>
-              <li><strong>Context:</strong> The text establishes a comparison between two groups of mammals.</li>
-              <li><strong>Evidence:</strong> It states that although they aren't closely related, they play similar roles in their habitats and independently developed the exact same physical traits.</li>
-              <li><strong>Conclusion:</strong> "Similarities with" captures the idea that they resemble each other despite their different origins.</li>
-            </ul>
-          `
+          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Context:</strong> The text establishes a comparison between two groups of mammals.</li><li><strong>Evidence:</strong> It states that although they aren't closely related, they play similar roles in their habitats and independently developed the exact same physical traits.</li><li><strong>Conclusion:</strong> "Similarities with" captures the idea that they resemble each other despite their different origins.</li></ul>`
         },
         {
           category: 'reading',
@@ -278,29 +329,7 @@
           text: 'In editor Lisa Yaszek\'s introduction to her anthology <em>The Future Is Female!</em>, Yaszek identifies an increasing sense of ______ feminist mode of writing in the 1970s, in contrast to many woman-authored science fiction stories of the 1920s to 1960s whose politics were less deliberately signaled.',
           options: ['a prudently', 'an overtly', 'a cordially', 'an inadvertently'],
           correctAnswer: 'an overtly',
-          explanation: `
-            <strong>Why this is correct:</strong>
-            <ul>
-              <li><strong>Definition:</strong> "Overtly" means openly or without concealment.</li>
-              <li><strong>Contrast Clue:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden).</li>
-              <li><strong>Conclusion:</strong> Therefore, the 1970s writing must have been the opposite of hidden—it was overtly feminist.</li>
-            </ul>
-          `
-        },
-        {
-          category: 'reading',
-          type: 'multiple-choice',
-          text: '______ the long-standing trend of overemphasizing teenagers and young adults in research on social media use, scholars have recently begun to expand their focus to include the fastest-growing cohort of social media users: senior citizens.',
-          options: ['Exacerbating', 'Redressing', 'Epitomizing', 'Precluding'],
-          correctAnswer: 'Redressing',
-          explanation: `
-            <strong>Why this is correct:</strong>
-            <ul>
-              <li><strong>Definition:</strong> "Redressing" means remedying or compensating for.</li>
-              <li><strong>Context:</strong> The text states scholars are expanding their focus to older adults to fix an existing problem (overemphasizing youth).</li>
-              <li><strong>Conclusion:</strong> By including senior citizens, they are redressing (fixing) the long-standing imbalance.</li>
-            </ul>
-          `
+          explanation: `<strong>Why this is correct:</strong><ul><li><strong>Definition:</strong> "Overtly" means openly or without concealment.</li><li><strong>Contrast Clue:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden).</li><li><strong>Conclusion:</strong> Therefore, the 1970s writing must have been the opposite of hidden—it was overtly feminist.</li></ul>`
         }
       ],
       math: [
@@ -310,80 +339,32 @@
           text: '(p + 3) + 8 = 10<br><br>What value of p is the solution to the given equation?',
           options: ['-1', '5', '15', '21'],
           correctAnswer: '-1',
-          explanation: `
-            <strong>Step-by-step breakdown:</strong>
-            <ul>
-              <li><strong>Step 1:</strong> Simplify the left side by removing the parentheses: p + 3 + 8 = 10</li>
-              <li><strong>Step 2:</strong> Combine like terms: p + 11 = 10</li>
-              <li><strong>Step 3:</strong> Subtract 11 from both sides: p = 10 - 11</li>
-              <li><strong>Result:</strong> p = -1</li>
-            </ul>
-          `
-        },
-        {
-          category: 'math',
-          type: 'multiple-choice',
-          text: 'k<sup>2</sup> - 53 = 91<br><br>What is the positive solution to the given equation?',
-          options: ['144', '72', '38', '12'],
-          correctAnswer: '12',
-          explanation: `
-            <strong>Step-by-step breakdown:</strong>
-            <ul>
-              <li><strong>Step 1:</strong> Isolate the variable by adding 53 to both sides: k<sup>2</sup> = 91 + 53</li>
-              <li><strong>Step 2:</strong> Add the numbers: k<sup>2</sup> = 144</li>
-              <li><strong>Step 3:</strong> Take the square root of both sides. k = 12 or k = -12.</li>
-              <li><strong>Result:</strong> Since the question asks for the positive solution, the answer is 12.</li>
-            </ul>
-          `
-        },
-        {
-          category: 'math',
-          type: 'multiple-choice',
-          text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation, where <em>s</em> is the cruising speed, in miles per hour, during this portion of the flight?',
-          options: ['s &le; 20', 's &le; 150', 's &le; 170', '150 &le; s &le; 170'],
-          correctAnswer: '150 &le; s &le; 170',
-          explanation: `
-            <strong>Step-by-step breakdown:</strong>
-            <ul>
-              <li><strong>Lower Bound:</strong> The speed was at least 150 mph, meaning s &ge; 150.</li>
-              <li><strong>Upper Bound:</strong> The speed was at most 170 mph, meaning s &le; 170.</li>
-              <li><strong>Result:</strong> Combining these bounds creates the compound inequality 150 &le; s &le; 170.</li>
-            </ul>
-          `
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>Step 1:</strong> Simplify the left side: p + 3 + 8 = 10</li><li><strong>Step 2:</strong> Combine like terms: p + 11 = 10</li><li><strong>Step 3:</strong> Subtract 11 from both sides: p = -1</li></ul>`
         },
         {
           category: 'math',
           type: 'free-response',
           text: 'A system of two linear equations in two variables, <em>x</em> and <em>y</em>, has no solution. The first equation is 48x - 64y = 48y + 24. The second equation is ry = 1/8 - 12x. What is the value of <em>r</em>?',
           correctAnswer: '-28',
-          explanation: `
-            <strong>Step-by-step breakdown:</strong>
-            <ul>
-              <li><strong>The Rule:</strong> A system has "no solution" when the lines are parallel. Written in standard form (Ax + By = C), their <em>x</em> and <em>y</em> coefficients must be proportional.</li>
-              <li><strong>Step 1:</strong> Convert Equation 1 to standard form.<br> 
-                  48x - 64y = 48y + 24 &rarr; Subtract 48y from both sides &rarr; <strong>48x - 112y = 24</strong>
-              </li>
-              <li><strong>Step 2:</strong> Convert Equation 2 to standard form.<br> 
-                  ry = 1/8 - 12x &rarr; Add 12x to both sides &rarr; <strong>12x + ry = 1/8</strong>
-              </li>
-              <li><strong>Step 3:</strong> Find the proportion. To go from 48x (in Eq 1) to 12x (in Eq 2), you multiply by <strong>1/4</strong>.</li>
-              <li><strong>Step 4:</strong> Apply the exact same proportion to the <em>y</em> coefficients. <br>
-                  -112 &times; (1/4) = -28. Therefore, <strong>r = -28</strong>.</li>
-            </ul>
-          `
+          explanation: `<strong>Step-by-step breakdown:</strong><ul><li><strong>The Rule:</strong> A system has "no solution" when the lines are parallel. Written in standard form (Ax + By = C), their <em>x</em> and <em>y</em> coefficients must be proportional.</li><li><strong>Step 1:</strong> Convert Eq 1: 48x - 64y = 48y + 24 &rarr; <strong>48x - 112y = 24</strong></li><li><strong>Step 2:</strong> Convert Eq 2: ry = 1/8 - 12x &rarr; <strong>12x + ry = 1/8</strong></li><li><strong>Step 3:</strong> The proportion from 48x to 12x is <strong>1/4</strong>.</li><li><strong>Step 4:</strong> Apply proportion to y: -112 &times; (1/4) = <strong>-28</strong>.</li></ul>`
         }
       ]
     };
 
     /* ======================================================================
-      APPLICATION LOGIC
-    ======================================================================
-    */
+      APPLICATION & SAVE LOGIC
+    ====================================================================== */
     let activeQueue = [];
     let currentIndex = 0;
     let score = 0;
+    
+    // Tracking current session
+    let currentSessionId = null;
+    let currentMode = null;
 
-    // Fisher-Yates Shuffle Algorithm
+    // Load In-Progress tests when the page loads
+    window.onload = renderInProgress;
+
     function shuffleArray(array) {
       let shuffled = [...array];
       for (let i = shuffled.length - 1; i > 0; i--) {
@@ -393,60 +374,157 @@
       return shuffled;
     }
 
-    // Toggle Math Reference Sheet
     function toggleMathRef() {
-      const sidebar = document.getElementById('math-sidebar');
-      sidebar.classList.toggle('open');
+      document.getElementById('math-sidebar').classList.toggle('open');
     }
 
+    /* ---------- CORE NAVIGATION ---------- */
+
     function startActivity(mode) {
-      document.getElementById('welcome-screen').style.display = 'none';
-      document.getElementById('quiz-screen').style.display = 'block';
-      
+      currentSessionId = Date.now(); // Create unique ID for new session
+      currentMode = mode;
       score = 0;
       currentIndex = 0;
       activeQueue = [];
 
-      // Build and Shuffle the Queue based on selection
-      if (mode === 'math') {
-        activeQueue = shuffleArray(questionBank.math);
-      } else if (mode === 'reading') {
-        activeQueue = shuffleArray(questionBank.reading);
-      } else if (mode === 'combo') {
-        // Combine both arrays, then shuffle the combined list
-        const combined = questionBank.math.concat(questionBank.reading);
-        activeQueue = shuffleArray(combined);
-      }
+      if (mode === 'math') activeQueue = shuffleArray(questionBank.math);
+      else if (mode === 'reading') activeQueue = shuffleArray(questionBank.reading);
+      else if (mode === 'combo') activeQueue = shuffleArray(questionBank.math.concat(questionBank.reading));
 
+      transitionToQuiz();
+    }
+
+    function transitionToQuiz() {
+      document.getElementById('welcome-screen').style.display = 'none';
+      document.getElementById('quiz-screen').style.display = 'block';
       loadQuestion();
     }
+
+    /* ---------- SAVING & RESUMING ---------- */
+
+    function saveSession(showAlert = false) {
+      if (!currentSessionId) return;
+
+      const sessionData = {
+        id: currentSessionId,
+        mode: currentMode,
+        activeQueue: activeQueue,
+        currentIndex: currentIndex,
+        score: score,
+        date: new Date().toLocaleDateString() + ' at ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+      };
+
+      let savedSessions = JSON.parse(localStorage.getItem('satSessions') || '[]');
+      // Remove older version of this exact session if it exists
+      savedSessions = savedSessions.filter(s => s.id !== currentSessionId);
+      // Save current state
+      savedSessions.push(sessionData);
+      localStorage.setItem('satSessions', JSON.stringify(savedSessions));
+
+      if (showAlert) alert('Your progress has been saved securely to your browser!');
+    }
+
+    function promptReturnHome() {
+      const wantToSave = confirm("Would you like to save your current progress before returning to the home screen?");
+      if (wantToSave) saveSession(false);
+      
+      document.getElementById('quiz-screen').style.display = 'none';
+      document.getElementById('welcome-screen').style.display = 'block';
+      renderInProgress();
+    }
+
+    function renderInProgress() {
+      let savedSessions = JSON.parse(localStorage.getItem('satSessions') || '[]');
+      const container = document.getElementById('in-progress-container');
+      const list = document.getElementById('in-progress-list');
+
+      if (savedSessions.length === 0) {
+        container.style.display = 'none';
+        return;
+      }
+
+      container.style.display = 'block';
+      list.innerHTML = '';
+      
+      // Sort so newest are at the top
+      savedSessions.sort((a, b) => b.id - a.id).forEach(session => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'saved-test-item';
+
+        const modeDisplay = session.mode.charAt(0).toUpperCase() + session.mode.slice(1);
+        
+        const resumeBtn = document.createElement('button');
+        resumeBtn.className = 'resume-btn';
+        resumeBtn.innerHTML = `<strong>Resume ${modeDisplay} Test</strong><br><span style="font-size:13px; font-weight:normal;">Question ${session.currentIndex + 1} of ${session.activeQueue.length} &bull; Saved ${session.date}</span>`;
+        resumeBtn.onclick = () => resumeSession(session);
+
+        const delBtn = document.createElement('button');
+        delBtn.className = 'delete-btn';
+        delBtn.innerText = 'Discard';
+        delBtn.onclick = () => {
+          if(confirm('Are you sure you want to permanently delete this saved test?')) {
+            deleteSession(session.id);
+          }
+        };
+
+        wrapper.appendChild(resumeBtn);
+        wrapper.appendChild(delBtn);
+        list.appendChild(wrapper);
+      });
+    }
+
+    function resumeSession(session) {
+      currentSessionId = session.id;
+      currentMode = session.mode;
+      activeQueue = session.activeQueue;
+      currentIndex = session.currentIndex;
+      score = session.score;
+      transitionToQuiz();
+    }
+
+    function deleteSession(id) {
+      let savedSessions = JSON.parse(localStorage.getItem('satSessions') || '[]');
+      savedSessions = savedSessions.filter(s => s.id !== id);
+      localStorage.setItem('satSessions', JSON.stringify(savedSessions));
+      renderInProgress();
+    }
+
+    function clearSessionOnComplete() {
+      if (currentSessionId) {
+        let savedSessions = JSON.parse(localStorage.getItem('satSessions') || '[]');
+        savedSessions = savedSessions.filter(s => s.id !== currentSessionId);
+        localStorage.setItem('satSessions', JSON.stringify(savedSessions));
+      }
+    }
+
+    /* ---------- QUIZ ENGINE ---------- */
 
     function loadQuestion() {
       const q = activeQueue[currentIndex];
       
-      // Update Meta Header
       const sectionName = q.category === 'math' ? "Math" : "Reading & Writing";
       document.getElementById('q-counter').innerText = `${sectionName} | Question ${currentIndex + 1} of ${activeQueue.length}`;
       
-      // Show/Hide Math Reference Button
+      // Contextual Tools (Only show Desmos and Formulas on Math questions)
       const mathBtn = document.getElementById('math-toggle-btn');
+      const desmosBtn = document.getElementById('desmos-btn');
+      
       if (q.category === 'math') {
-        mathBtn.style.display = 'block';
+        mathBtn.style.display = 'inline-block';
+        desmosBtn.style.display = 'inline-block';
       } else {
         mathBtn.style.display = 'none';
-        document.getElementById('math-sidebar').classList.remove('open'); // close it if open
+        desmosBtn.style.display = 'none';
+        document.getElementById('math-sidebar').classList.remove('open'); 
       }
 
-      // Render Question Text
       document.getElementById('q-text').innerHTML = q.text;
-
-      // Render Inputs
       const inputArea = document.getElementById('input-area');
       inputArea.innerHTML = ''; 
 
       if (q.type === 'multiple-choice') {
         let optionsHtml = '';
-        q.options.forEach((opt, idx) => {
+        q.options.forEach((opt) => {
           optionsHtml += `
             <label class="option-label">
               <input type="radio" name="answer" value="${opt}">
@@ -459,7 +537,6 @@
         inputArea.innerHTML = `<input type="text" id="fr-answer" class="free-response" placeholder="Type your answer here">`;
       }
 
-      // Reset UI state
       document.getElementById('feedback-area').style.display = 'none';
       document.getElementById('submit-btn').style.display = 'block';
       document.getElementById('next-btn').style.display = 'none';
@@ -469,7 +546,6 @@
       const q = activeQueue[currentIndex];
       let userAnswer = '';
 
-      // Get user's answer
       if (q.type === 'multiple-choice') {
         const selected = document.querySelector('input[name="answer"]:checked');
         if (!selected) { alert('Please select an answer!'); return; }
@@ -479,11 +555,9 @@
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      // Check correctness (case-insensitive string comparison)
       const isCorrect = String(userAnswer).toLowerCase() === String(q.correctAnswer).toLowerCase();
       if (isCorrect) score++;
 
-      // UI Feedback Updates
       const feedbackArea = document.getElementById('feedback-area');
       const statusTitle = document.getElementById('feedback-status');
       
@@ -500,7 +574,6 @@
 
       document.getElementById('explanation').innerHTML = q.explanation;
       
-      // Toggle Buttons
       document.getElementById('submit-btn').style.display = 'none';
       const nextBtn = document.getElementById('next-btn');
       nextBtn.style.display = 'block';
@@ -517,12 +590,12 @@
     }
 
     function showSummary() {
-      // Hide Sidebar if open
+      clearSessionOnComplete(); // Remove from saved tests since it's done
       document.getElementById('math-sidebar').classList.remove('open');
-      document.getElementById('math-toggle-btn').style.display = 'none';
+      document.querySelector('.utility-bar').style.display = 'none';
 
       document.getElementById('q-counter').innerText = 'Activity Complete';
-      document.getElementById('q-text').innerHTML = `<h2>You scored ${score} out of ${activeQueue.length}!</h2>`;
+      document.getElementById('q-text').innerHTML = `<h2 style="text-align:center;">You scored ${score} out of ${activeQueue.length}!</h2>`;
       document.getElementById('input-area').innerHTML = '';
       document.getElementById('feedback-area').style.display = 'none';
       document.getElementById('submit-btn').style.display = 'none';
@@ -531,8 +604,10 @@
       homeBtn.className = 'mode-btn';
       homeBtn.innerText = 'Return to Home Screen';
       homeBtn.onclick = () => {
+        document.querySelector('.utility-bar').style.display = 'flex'; // restore for next time
         document.getElementById('quiz-screen').style.display = 'none';
         document.getElementById('welcome-screen').style.display = 'block';
+        renderInProgress();
       };
       document.getElementById('input-area').appendChild(homeBtn);
     }
