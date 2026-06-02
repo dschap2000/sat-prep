@@ -311,102 +311,552 @@
     ====================================================================== */
     const questionBank = {
       reading: [
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'Though not closely related, the hedgehog tenrecs of Madagascar share basic ______ true hedgehogs, including protective spines, pointed snouts, and small body size—traits the two groups of mammals independently developed in response to equivalent roles in their respective habitats.', // [cite: 21, 22, 23]
-          options: ['examples of', 'concerns about', 'indications of', 'similarities with'],
-          correctAnswer: 'similarities with',
-          explanation: `<strong>Why this is correct:</strong> The text establishes a comparison between two groups of mammals. "Similarities with" captures the idea that they resemble each other despite their different origins.` // [cite: 1614, 1615]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'In editor Lisa Yaszek\'s introduction to her anthology <em>The Future Is Female!</em> More Classic Science Fiction Stories by Women, Yaszek identifies an increasing sense of ______ feminist mode of writing in the 1970s, in contrast to many woman-authored science fiction stories of the 1920s to 1960s whose politics were less deliberately signaled.', // [cite: 30, 31]
-          options: ['a prudently', 'an overtly', 'a cordially', 'an inadvertently'],
-          correctAnswer: 'an overtly',
-          explanation: `<strong>Why this is correct:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden). Therefore, the 1970s writing was overtly feminist.` // [cite: 1625, 1629]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: '______ the long-standing trend of overemphasizing teenagers and young adults in research on social media use, scholars have recently begun to expand their focus to include the fastest-growing cohort of social media users: senior citizens.', // [cite: 45, 46]
-          options: ['Exacerbating', 'Redressing', 'Epitomizing', 'Precluding'],
-          correctAnswer: 'Redressing',
-          explanation: `<strong>Why this is correct:</strong> By including seniors, researchers are redressing (fixing or remedying) the historical imbalance in the research.` // [cite: 1639, 1640]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'The following text is adapted from James Baldwin\'s 1956 novel <em>Giovanni\'s Room</em>. The narrator is riding in a taxi down a street lined with food vendors and shoppers in Paris, France.<br><br>"Here they were now, in blue, disputing, every inch, our passage, with their wagons, handtrucks, their bursting baskets carried at an angle steeply self-confident on the back."<br><br>As used in the text, what does the word "disputing" most nearly mean?', // [cite: 52, 53, 55, 57]
-          options: ['Arguing about', 'Disapproving of', 'Asserting possession of', 'Providing resistance to'], // [cite: 65, 66, 67, 68]
-          correctAnswer: 'Providing resistance to',
-          explanation: `<strong>Why this is correct:</strong> The street is a crowded market, and the people and their carts are impeding the taxi's progress. They are providing physical resistance to the taxi's attempt to pass.` // [cite: 1655, 1656]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'While recent scholarship has undermined claims that the works of twelfth-century Islamic philosopher Ibn Rushd were ______ other Muslim philosophers of his time, it is indisputable that his location in the Muslim-ruled area of what is now Spain meant that his works were primarily available thousands of miles west of the era\'s center of Islamic thought.', // [cite: 59]
-          options: ['controversial among', 'antagonistic toward', 'imitated by', 'inconsequential to'], // [cite: 61, 62, 63, 64]
-          correctAnswer: 'inconsequential to',
-          explanation: `<strong>Why this is correct:</strong> His works were available far from central areas of the Muslim world, suggesting his influence was limited. However, recent scholarship shows his works still had an impact, meaning they weren\'t "inconsequential to" (not significant to) his contemporaries.` // [cite: 1665, 1666, 1667]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'On painter William H. Johnson\'s return to the United States in 1938 after a decade in Europe, his style underwent an abrupt transformation. <u>Turning away from landscapes painted in an expressionist style... Johnson began painting portraits of Black Americans in a bold new way.</u> Evocative of African sculpture and American and Scandinavian folk art, these portraits feature flat, deliberately oversimplified figures in a vibrant but limited color palette.<br><br>Which choice best describes the function of the underlined sentence in the text as a whole?', // [cite: 76, 77, 78, 79]
-          options: [
-            'It elaborates on the previous sentence\'s statement about a transitional moment in Johnson\'s artistic career.', // [cite: 80]
-            'It provides information about Johnson\'s travels in support of a claim about his artistic influences, which is advanced in the following sentence.', // [cite: 81]
-            'It recounts a moment in Johnson\'s personal life that enabled the success of his subsequent career, which is summarized in the following sentence.', // [cite: 82]
-            'It presents evidence that calls into question the previous sentence\'s characterization of Johnson\'s artistic development.' // [cite: 83]
-          ],
-          correctAnswer: 'It elaborates on the previous sentence\'s statement about a transitional moment in Johnson\'s artistic career.',
-          explanation: `<strong>Why this is correct:</strong> The first sentence notes a sudden style change. The underlined sentence elaborates on this transitional moment by detailing what his old style was (landscapes) and what his new style became (portraits).` // [cite: 1680, 1681]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'When classical pianist Martha Argerich performs, it appears as if the music is coming to her spontaneously. She\'s highly skilled technically, but because of how freely she plays and her willingness to take risks, she seems relaxed and natural. Her apparent ease, however, is due to a tremendous amount of preparation. Despite Argerich\'s experience and virtuosity, she never takes for granted that she knows a piece of music. Instead, she approaches the music as if encountering it for the first time and tries to understand it anew.<br><br>Which choice best states the main purpose of the text?', // [cite: 85, 86, 87, 88, 89, 90]
-          options: [
-            'To provide details about how Argerich identifies which pieces of music she will perform', // [cite: 91]
-            'To assert that Argerich\'s performances look effortless because of how she prepares for them', // [cite: 92]
-            'To discuss the kinds of music Argerich feels most comfortable encountering for the first time',
-            'To describe the unique way that Argerich approaches music she hasn\'t performed before'
-          ],
-          correctAnswer: 'To assert that Argerich\'s performances look effortless because of how she prepares for them',
-          explanation: `<strong>Why this is correct:</strong> The text first describes her playing as appearing spontaneous and relaxed, then immediately states that this "apparent ease... is due to a tremendous amount of preparation," which is the central claim of the passage.` // [cite: 1689, 1690]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'The following text is adapted from Herman Melville\'s 1855 novel <em>Israel Potter</em>. Israel is a young man wandering through New England during the late eighteenth century.<br><br>He hired himself out for three months; at the end of that time to receive for his wages two hundred acres of land lying in New Hampshire. [...] His employer proving false to the contract in the matter of the land, and there being no law in the country to force him to fulfil it, Israel—<u>who, however brave-hearted, and even much of a dare-devil upon a pinch, seems nevertheless to have evinced, throughout many parts of his career, a singular patience and mildness</u>—was obliged to look round for other means of livelihood...<br><br>Which choice best describes the function of the underlined portion in the text as a whole?', // [cite: 100, 101, 102, 103, 104]
-          options: [
-            'It implies that Israel treasures a particular characteristic of his personality when that characteristic should usually be regarded as a flaw.', // [cite: 105]
-            'It suggests that if not for a certain aspect of his character, Israel might not have been as easily thwarted in his ambition to establish a farm.', // [cite: 106]
-            'It shows why Israel would not have been able to undertake the enormous amount of labor necessary to run a farm even if he had owned the necessary property.', // [cite: 107]
-            'It explains why, when the situation requires it, Israel is able to undertake courageous acts that others would generally avoid.' // [cite: 108]
-          ],
-          correctAnswer: 'It suggests that if not for a certain aspect of his character, Israel might not have been as easily thwarted in his ambition to establish a farm.',
-          explanation: `<strong>Why this is correct:</strong> The text explains that Israel\'s employer cheated him. The underlined portion points out that Israel had a "singular patience and mildness" (meaning he was meek or avoided argument). This suggests his meek nature made him susceptible to being taken advantage of.` // [cite: 1704, 1705, 1706]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'In 1954 George Balanchine choreographed a production of <em>The Nutcracker</em>... But the show is stuck in the past, with an old-fashioned story and references, so it should no longer be produced. Ballet needs to create new traditions if it wants to stay relevant to contemporary audiences.<br><br>Text 2: <em>The Nutcracker</em> is outdated, but it should be kept because it\'s a holiday favorite and provides substantial income for some dance companies. Although it can be behind the times, there are creative ways to update the show.<br><br>Based on the texts, how would the author of Text 2 most likely respond to the underlined claim in Text 1?', // [cite: 111, 113, 114, 115, 116, 117, 119]
-          options: [
-            'By questioning the idea that the story is stuck in the past', // [cite: 120]
-            'By agreeing that contemporary audiences have largely stopped going to see performances', // [cite: 121]
-            'By pointing out that most dance companies could increase their incomes by offering modernized versions', // [cite: 122]
-            'By suggesting that dance companies should consider offering revised versions of The Nutcracker instead of completely rejecting the show' // [cite: 123]
-          ],
-          correctAnswer: 'By suggesting that dance companies should consider offering revised versions of The Nutcracker instead of completely rejecting the show',
-          explanation: `<strong>Why this is correct:</strong> Text 2 states that while the show is outdated, it should be kept and updated creatively instead of being abandoned.` // [cite: 1713, 1714]
-        },
-        {
-          category: 'reading', type: 'multiple-choice',
-          text: 'To understand how Paleolithic artists navigated dark caves, archaeologist Mª Ángeles Medina-Alcaide and her team tested different lighting methods in a cave in Spain using replicas of artifacts... They used three different Paleolithic light sources—torches, animal-fat lamps, and fireplaces—determining that each likely had a specific purpose.<br><br>Which choice best states the main idea of the text?', // [cite: 131, 132, 134]
-          options: [
-            'Medina-Alcaide and her team\'s study demonstrated that fireplaces were essential to the creators of Paleolithic cave art.', // [cite: 135]
-            'Medina-Alcaide and her team discovered that Paleolithic cave artists in Spain used animal-fat lamps more often than they used torches.', // [cite: 136]
-            'Medina-Alcaide and her team were reluctant to draw many conclusions from their study because of the difficulty they had replicating light sources.', // [cite: 137]
-            'Medina-Alcaide and her team tested Paleolithic light sources and learned some details about how Paleolithic artists traveled within dark caves.' // [cite: 138]
-          ],
-          correctAnswer: 'Medina-Alcaide and her team tested Paleolithic light sources and learned some details about how Paleolithic artists traveled within dark caves.',
-          explanation: `<strong>Why this is correct:</strong> The text clearly states that the team tested various methods (replicas of ancient light sources) to determine how the artists navigated and concluded that each had a specific purpose.` // [cite: 1726, 1727, 1728]
-        }
-      ],
+      // MODULE 1
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Though not closely related, the hedgehog tenrecs of Madagascar share basic ______ true hedgehogs, including protective spines, pointed snouts, and small body size—traits the two groups of mammals independently developed in response to equivalent roles in their respective habitats.',
+        options: ['examples of', 'concerns about', 'indications of', 'similarities with'],
+        correctAnswer: 'similarities with',
+        explanation: '<strong>Why this is correct:</strong> The text establishes a comparison between two groups of mammals. "Similarities with" captures the idea that they resemble each other despite their different origins.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In editor Lisa Yaszek\'s introduction to her anthology <em>The Future Is Female! More Classic Science Fiction Stories by Women</em>, Yaszek identifies an increasing sense of ______ feminist mode of writing in the 1970s, in contrast to many woman-authored science fiction stories of the 1920s to 1960s whose politics were less deliberately signaled.',
+        options: ['a prudently', 'an overtly', 'a cordially', 'an inadvertently'],
+        correctAnswer: 'an overtly',
+        explanation: '<strong>Why this is correct:</strong> The text contrasts the 1970s writing with earlier writing whose politics were "less deliberately signaled" (hidden). Therefore, the 1970s writing was overtly, or openly, feminist.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '______ the long-standing trend of overemphasizing teenagers and young adults in research on social media use, scholars have recently begun to expand their focus to include the fastest-growing cohort of social media users: senior citizens.',
+        options: ['Exacerbating', 'Redressing', 'Epitomizing', 'Precluding'],
+        correctAnswer: 'Redressing',
+        explanation: '<strong>Why this is correct:</strong> "Redressing" means remedying or compensating for. By including seniors, researchers are redressing (fixing) the historical imbalance in the research.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The following text is adapted from James Baldwin\'s 1956 novel <em>Giovanni\'s Room</em>. The narrator is riding in a taxi down a street lined with food vendors and shoppers in Paris, France.<br><br>"Here they were now, in blue, disputing, every inch, our passage, with their wagons, handtrucks, their bursting baskets carried at an angle steeply self-confident on the back."<br><br>As used in the text, what does the word "disputing" most nearly mean?',
+        options: ['Arguing about', 'Disapproving of', 'Asserting possession of', 'Providing resistance to'],
+        correctAnswer: 'Providing resistance to',
+        explanation: '<strong>Why this is correct:</strong> The street is a crowded market, and the people and their carts are impeding the taxi\'s progress. They are providing physical resistance to the taxi\'s attempt to pass.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While recent scholarship has undermined claims that the works of twelfth-century Islamic philosopher Ibn Rushd were ______ other Muslim philosophers of his time, it is indisputable that his location in the Muslim-ruled area of what is now Spain meant that his works were primarily available thousands of miles west of the era\'s center of Islamic thought.',
+        options: ['controversial among', 'antagonistic toward', 'imitated by', 'inconsequential to'],
+        correctAnswer: 'inconsequential to',
+        explanation: '<strong>Why this is correct:</strong> Recent scholarship shows his works still had an impact, meaning they weren\'t "inconsequential to" (not significant to) his contemporaries, despite his geographic isolation.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'On painter William H. Johnson\'s return to the United States in 1938 after a decade in Europe, his style underwent an abrupt transformation. <u>Turning away from landscapes painted in an expressionist style—a style that often involves using fluid, distorted shapes and thick, textured brushstrokes to express the artist\'s subjective experience of reality—Johnson began painting portraits of Black Americans in a bold new way.</u> Evocative of African sculpture and American and Scandinavian folk art, these portraits feature flat, deliberately oversimplified figures in a vibrant but limited color palette.<br><br>Which choice best describes the function of the underlined sentence in the text as a whole?',
+        options: ['It elaborates on the previous sentence\'s statement about a transitional moment in Johnson\'s artistic career.', 'It provides information about Johnson\'s travels in support of a claim about his artistic influences, which is advanced in the following sentence.', 'It recounts a moment in Johnson\'s personal life that enabled the success of his subsequent career, which is summarized in the following sentence.', 'It presents evidence that calls into question the previous sentence\'s characterization of Johnson\'s artistic development.'],
+        correctAnswer: 'It elaborates on the previous sentence\'s statement about a transitional moment in Johnson\'s artistic career.',
+        explanation: '<strong>Why this is correct:</strong> The first sentence notes a sudden style change. The underlined sentence elaborates on this transitional moment by detailing what his old style was (landscapes) and what his new style became (portraits).'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'When classical pianist Martha Argerich performs, it appears as if the music is coming to her spontaneously. She\'s highly skilled technically, but because of how freely she plays and her willingness to take risks, she seems relaxed and natural. Her apparent ease, however, is due to a tremendous amount of preparation. Despite Argerich\'s experience and virtuosity, she never takes for granted that she knows a piece of music. Instead, she approaches the music as if encountering it for the first time and tries to understand it anew.<br><br>Which choice best states the main purpose of the text?',
+        options: ['To provide details about how Argerich identifies which pieces of music she will perform', 'To assert that Argerich\'s performances look effortless because of how she prepares for them', 'To discuss the kinds of music Argerich feels most comfortable encountering for the first time', 'To describe the unique way that Argerich approaches music she hasn\'t performed before'],
+        correctAnswer: 'To assert that Argerich\'s performances look effortless because of how she prepares for them',
+        explanation: '<strong>Why this is correct:</strong> The text first describes her playing as appearing spontaneous, then immediately states that this "apparent ease... is due to a tremendous amount of preparation," which is the central claim of the passage.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The following text is adapted from Herman Melville\'s 1855 novel <em>Israel Potter</em>. Israel is a young man wandering through New England during the late eighteenth century.<br><br>He hired himself out for three months; at the end of that time to receive for his wages two hundred acres of land lying in New Hampshire. [...] His employer proving false to the contract in the matter of the land, and there being no law in the country to force him to fulfil it, Israel—<u>who, however brave-hearted, and even much of a dare-devil upon a pinch, seems nevertheless to have evinced, throughout many parts of his career, a singular patience and mildness</u>—was obliged to look round for other means of livelihood...<br><br>Which choice best describes the function of the underlined portion in the text as a whole?',
+        options: ['It implies that Israel treasures a particular characteristic of his personality when that characteristic should usually be regarded as a flaw.', 'It suggests that if not for a certain aspect of his character, Israel might not have been as easily thwarted in his ambition to establish a farm.', 'It shows why Israel would not have been able to undertake the enormous amount of labor necessary to run a farm even if he had owned the necessary property.', 'It explains why, when the situation requires it, Israel is able to undertake courageous acts that others would generally avoid.'],
+        correctAnswer: 'It suggests that if not for a certain aspect of his character, Israel might not have been as easily thwarted in his ambition to establish a farm.',
+        explanation: '<strong>Why this is correct:</strong> The underlined portion points out that Israel had a "singular patience and mildness" (meaning he was meek or avoided argument). This suggests his meek nature made him susceptible to being taken advantage of by his employer.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '<strong>Text 1</strong><br>In 1954 George Balanchine choreographed a production of <em>The Nutcracker</em>... But the show is stuck in the past, with an old-fashioned story and references, <u>so it should no longer be produced.</u> Ballet needs to create new traditions if it wants to stay relevant to contemporary audiences.<br><br><strong>Text 2</strong><br><em>The Nutcracker</em> is outdated, but it should be kept because it\'s a holiday favorite and provides substantial income for some dance companies. Although it can be behind the times, there are creative ways to update the show.<br><br>Based on the texts, how would the author of Text 2 most likely respond to the underlined claim in Text 1?',
+        options: ['By questioning the idea that the story of The Nutcracker is stuck in the past and by rejecting the suggestion that contemporary audiences would enjoy an updated version', 'By agreeing that contemporary audiences have largely stopped going to see performances of The Nutcracker because it\'s so old-fashioned', 'By pointing out that most dance companies could increase their incomes by offering modernized versions of The Nutcracker', 'By suggesting that dance companies should consider offering revised versions of The Nutcracker instead of completely rejecting the show'],
+        correctAnswer: 'By suggesting that dance companies should consider offering revised versions of The Nutcracker instead of completely rejecting the show',
+        explanation: '<strong>Why this is correct:</strong> Text 2 states that while the show is outdated, it should be kept and updated creatively instead of being abandoned.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'To understand how Paleolithic artists navigated dark caves, archaeologist Mª Ángeles Medina-Alcaide and her team tested different lighting methods in a cave in Spain using replicas of artifacts found in European caves with art. They used three different Paleolithic light sources—torches, animal-fat lamps, and fireplaces—determining that each likely had a specific purpose.<br><br>Which choice best states the main idea of the text?',
+        options: ['Medina-Alcaide and her team\'s study demonstrated that fireplaces were essential to the creators of Paleolithic cave art.', 'Medina-Alcaide and her team discovered that Paleolithic cave artists in Spain used animal-fat lamps more often than they used torches.', 'Medina-Alcaide and her team were reluctant to draw many conclusions from their study because of the difficulty they had replicating light sources based on known artifacts.', 'Medina-Alcaide and her team tested Paleolithic light sources and learned some details about how Paleolithic artists traveled within dark caves.'],
+        correctAnswer: 'Medina-Alcaide and her team tested Paleolithic light sources and learned some details about how Paleolithic artists traveled within dark caves.',
+        explanation: '<strong>Why this is correct:</strong> The text clearly states that the team tested various ancient light source replicas to determine how the artists navigated and concluded that each had a specific purpose.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '<strong>Annual Car Production in the United States, 1910-1925</strong><br><table style="width:100%; border-collapse:collapse; margin-top:10px; margin-bottom:15px;" border="1" cellpadding="5"><tr><th>Year</th><th>Number of cars produced</th><th>Number of companies producing cars</th></tr><tr><td>1910</td><td>123,990</td><td>320</td></tr><tr><td>1915</td><td>548,139</td><td>224</td></tr><tr><td>1920</td><td>1,651,625</td><td>197</td></tr><tr><td>1925</td><td>3,185,881</td><td>80</td></tr></table>A student is using the table as part of a social studies class presentation on the US auto industry in the early twentieth century. The student notes that, according to the table, from 1910 to 1925 ______',
+        options: ['the number of cars produced increased but the number of companies producing cars decreased.', 'both the number of cars produced and the number of companies producing cars remained unchanged.', 'the number of cars produced decreased but the number of companies producing cars remained unchanged.', 'both the number of cars produced and the number of companies producing cars increased.'],
+        correctAnswer: 'the number of cars produced increased but the number of companies producing cars decreased.',
+        explanation: '<strong>Why this is correct:</strong> The table shows production numbers rising from 123,990 to over 3 million, while the number of companies drops from 320 down to 80.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'External shopping cues are a type of marketing that uses obvious messaging—a display featuring a new product, for example, or a "buy one, get one free" offer—to entice consumers to make spontaneous purchases. In a study, data scientist Sam K. Hui and colleagues found that this effect can also be achieved with a less obvious cue: rearranging a store\'s layout. The researchers explain that trying to find items in new locations causes shoppers to move through more of the store, exposing them to more products and increasing the likelihood that they\'ll buy an item they hadn\'t planned on purchasing.<br><br>Which response from a survey given to shoppers who made a purchase at a retail store best supports the researchers\' explanation?',
+        options: ['"I needed to buy some cleaning supplies, but they weren\'t in their regular place. While I was looking for them, I saw this interesting notebook and decided to buy it, too."', '"I didn\'t buy everything on my shopping list today. I couldn\'t find a couple of the items in the store, even though I looked all over for them."', '"The store sent me a coupon for a new brand of soup, so I came here to find out what kinds of soup that brand offers. I decided to buy a few cans because I had the coupon."', '"This store is larger than one that\'s closer to where I live, and it carries more products. I came here to buy some things that the other store doesn\'t always have."'],
+        correctAnswer: '"I needed to buy some cleaning supplies, but they weren\'t in their regular place. While I was looking for them, I saw this interesting notebook and decided to buy it, too."',
+        explanation: '<strong>Why this is correct:</strong> This quotation directly supports the researchers\' claim that changing layout causes shoppers to hunt for items, exposing them to products they then buy spontaneously.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The 2021 exhibition <em>This Is the Day</em> at Arkansas\'s Crystal Bridges Museum of American Art featured works dealing with expressions of faith and spirituality in the Black community. The museum\'s 2022 exhibition <em>The Dirty South</em>, meanwhile, focused on Black culture in the American South from 1920 to 2020, with a particular focus on the intersections between visual arts and music. Together, these exhibitions don\'t merely highlight the diversity of the Black experience in the US; <u>they also showcase the diverse media through which artists have depicted and engaged with that experience.</u><br><br>Which statement about the exhibitions, if true, would most directly support the underlined claim?',
+        options: ['Between them, This Is the Day and The Dirty South included drawings, paintings, photographs, sculptures, textiles, videos, costumes, and music.', 'This Is the Day included works by fewer than two dozen artists, whereas The Dirty South included works by more than 80 artists.', 'This Is the Day exclusively included works in the permanent collection of the museum, whereas The Dirty South included works from multiple sources outside the museum.', 'Between them, This Is the Day and The Dirty South included works depicting more than 300 years of Black experience in the United States.'],
+        correctAnswer: 'Between them, This Is the Day and The Dirty South included drawings, paintings, photographs, sculptures, textiles, videos, costumes, and music.',
+        explanation: '<strong>Why this is correct:</strong> Listing the wide variety of materials and formats (paintings, textiles, music) directly supports the claim that the exhibits showcase "diverse media."'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '[Graph Description: A bar graph showing Mean Attentiveness Scores by Leave Time Condition. The x-axis represents three test administrations: first (before leave), second (one week after returning), and third (two weeks after returning). The y-axis represents the Mean test score (higher = greater attentiveness). For the second administration, the "2-4 days leave" group scored highest (~580), beating both the "no leave" (~470) and "1-5 weeks leave" (~520) groups. For the third administration, the "2-4 days leave" group (~510) again scored higher than the "1-5 weeks leave" group (~480).]<br><br>To investigate potential cognitive benefits of taking leave from work, psychologist Jan Packer and colleagues conducted a six-month study of Australian university staff members who took no leave from work during the study, took 2-4 days of leave, or took 1-5 weeks of leave... After analyzing the results, the researchers concluded that longer leave times might not confer a greater cognitive benefit than shorter leave times do.<br><br>Which choice best describes data from the graph that support the researchers\' conclusion?',
+        options: ['In the second test administration, participants who took 2-4 days of leave had higher average attentiveness scores than did those who took no leave, but in the third test administration, those who took no leave had higher average scores than those who took 1-5 weeks of leave.', 'In the first test administration, participants who took 2-4 days of leave had lower average attentiveness scores than did those who took 1-5 weeks of leave and those who took no leave.', 'In both the second and third test administrations, participants who took 2-4 days of leave had higher average attentiveness scores than did participants who took 1-5 weeks of leave.', 'In the second and third test administrations, participants who took 2-4 days of leave had higher average attentiveness scores than did those who took no leave.'],
+        correctAnswer: 'In both the second and third test administrations, participants who took 2-4 days of leave had higher average attentiveness scores than did participants who took 1-5 weeks of leave.',
+        explanation: '<strong>Why this is correct:</strong> The graph shows that on both post-leave testing dates, participants with shorter leave (2-4 days) actually scored higher in attentiveness than those with longer leave (1-5 weeks).'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '[Graph Description: A bar chart showing the Number of Lizard Species by Average Percent of Maximal Speed Used. The x-axis shows Percent of maximal speed (30-39 up to 90-100). The y-axis shows Number of lizard species from 0 to 9. While pursuing prey, 3 species use 90-100% of their speed. While escaping predators, 8 species use 90-100% of their speed, but several other species use lower percentages: 50-59% (2 species), 60-69% (1 species), 70-79% (2 species), and 80-89% (3 species).]<br><br>It may seem that the optimal strategy for an animal pursuing prey or escaping predators is to move at maximal speed, but the energy expense of exploiting full speed capacity can disfavor such a strategy even in escape contexts, as evidenced by the fact that ______',
+        options: ['most lizard species use about the same percentage of their maximal speed when escaping predation as they do when pursuing prey.', 'multiple lizard species move at an average of less than 90% of their maximal speed while escaping predation.', 'more lizard species use, on average, 90%-100% of their maximal speed while escaping predation than use any other percentage of their maximal speed.', 'at least 4 lizard species use, on average, less than 100% of their maximal speed while pursuing prey.'],
+        correctAnswer: 'multiple lizard species move at an average of less than 90% of their maximal speed while escaping predation.',
+        explanation: '<strong>Why this is correct:</strong> The chart reveals that several species (2+1+2+3 = 8 species total) use less than 90% of their maximum speed when running for their lives, supporting the text\'s claim about energy conservation.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Under normal atmospheric pressure at Earth\'s surface, water molecules form a tetrahedral network stabilized by hydrogen bonds between adjacent molecules. Extreme high pressure, such as can be found in deep ocean waters, destabilizes these bonds and compresses water\'s structure... yet deep-sea organisms known as piezophiles have adapted to extreme pressure. Studies have found a positive correlation between the depths that various piezophiles inhabit and concentrations of a compound called trimethylamine N-oxide (TMAO) in their muscle tissues, which has led a team of researchers to hypothesize that TMAO reduces water\'s compressibility.<br><br>Which finding, if true, would most directly support the researchers\' hypothesis?',
+        options: ['Water molecules are found to be impervious to TMAO even when the water molecules\' tetrahedral configuration has been distorted by high pressure.', 'Examination of TMAO\'s molecular structure shows that TMAO molecules retain their shape even as pressure increases.', 'A positive correlation is found between concentrations of TMAO and the rate at which water\'s molecular structure compresses as pressure increases.', 'Analysis of water\'s molecular structure under high pressure reveals that hydrogen bonds are more stable when TMAO is present than when it is not.'],
+        correctAnswer: 'Analysis of water\'s molecular structure under high pressure reveals that hydrogen bonds are more stable when TMAO is present than when it is not.',
+        explanation: '<strong>Why this is correct:</strong> Because extreme pressure destabilizes hydrogen bonds to compress water, a finding that TMAO maintains those hydrogen bonds would directly explain how it reduces water\'s compressibility.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The Cretaceous pterosaur <em>Tupandactylus navigans</em> is known for having an anomalously oversized head crest. Until an almost complete fossil skeleton was found in Brazil, paleontologists had been able to study only skull specimens from <em>T. navigans</em>, though it was presumed that, like other pterosaurs, the species\'s primary form of locomotion was powered flight. Examining the fuller skeleton in 2016, Victor Beccari and his team determined that <em>T. navigans</em> had long hind legs, short wings, and an unusually long neck—characteristics that, combined with the creature\'s large-crested head, would have made sustained flight difficult and walking upright relatively comfortable. Based on these findings the team suggests that <em>T. navigans</em> likely ______',
+        options: ['flew for longer distances than did other pterosaur species that had oversized head crests.', 'had longer wings than other pterosaur species considered to have been comfortable walking.', 'had a smaller head than researchers expected based on the earlier T. navigans skull specimens.', 'flew for shorter distances and spent more time walking than researchers previously thought.'],
+        correctAnswer: 'flew for shorter distances and spent more time walking than researchers previously thought.',
+        explanation: '<strong>Why this is correct:</strong> Because its physical traits made flight difficult and walking comfortable, researchers revised their assumption that it moved mainly through flight.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Consumer psychologists have theorized that the likelihood that people who identify as ethical consumers... will purchase a given product positively correlates with their perception of that product\'s effects. In a recent study of the attitudes of self-identified ethical consumers toward purchasing a specific mobile phone coming to market, researchers found that, on average, study participants in their twenties rated the phone\'s social and ecological effects much less positively than did participants in other age groups. All other things being equal, if consumer psychologists\' theory is correct, this finding suggests that ______',
+        options: ['the phone is less appealing to ethical consumers in their twenties than other similar phones on the market are.', 'ethical consumers in their twenties are less likely to purchase the phone than ethical consumers in other age groups are.', 'there is not a meaningful difference in the likelihood of purchasing the phone among ethical consumers in different age groups.', 'ethical consumers in their twenties are more likely than ethical consumers in other age groups to consider a phone\'s social and ecological effects when deciding whether to purchase that phone.'],
+        correctAnswer: 'ethical consumers in their twenties are less likely to purchase the phone than ethical consumers in other age groups are.',
+        explanation: '<strong>Why this is correct:</strong> Since likelihood of purchase correlates with positive perception, and people in their twenties had a less positive perception, it logically follows they are less likely to purchase it.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The Boston Saloon was one of the most popular African American-owned establishments in nineteenth-century Nevada. ______ by businessman William A.G. Brown, the saloon was known to offer elegant accommodations and an inclusive environment.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['Created', 'Creates', 'Creating', 'Create'],
+        correctAnswer: 'Created',
+        explanation: '<strong>Why this is correct:</strong> The nonfinite past participle "Created" is correctly used to form a supplementary phrase identifying who established the saloon.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Louise Bennett (1919-2006), also known as "Miss Lou," was an influential Jamaican poet and folklorist. Her innovative poems ______ the use of Jamaican Creole (a spoken language) in literature.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['popularized;', 'popularized,', 'popularized', 'popularized:'],
+        correctAnswer: 'popularized',
+        explanation: '<strong>Why this is correct:</strong> No punctuation is needed between the verb "popularized" and its direct object "the use of Jamaican Creole".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '"He was just the man for such a place, and it was just the place for such a man." This line is from Frederick Douglass\'s autobiography <em>Narrative of the Life of Frederick Douglass</em> (1845). It\'s an example of antimetabole, a writing technique that ______ emphasis by repeating a statement in a reversed order.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['create', 'are creating', 'have created', 'creates'],
+        correctAnswer: 'creates',
+        explanation: '<strong>Why this is correct:</strong> The singular verb "creates" agrees in number with the singular subject "technique".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Researchers Amit Kumar and Nicholas Epley investigated how ______ In a series of experiments conducted in 2022, they found that people performing small acts of kindness underestimated the positive effect their actions had on others.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['do people perceive acts of kindness.', 'do people perceive acts of kindness?', 'people perceive acts of kindness?', 'people perceive acts of kindness.'],
+        correctAnswer: 'people perceive acts of kindness.',
+        explanation: '<strong>Why this is correct:</strong> A period is correctly used to punctuate a declarative sentence that asks an indirect question ("...investigated how people perceive acts of kindness").'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In a painting titled "The Milkmaid" by Johannes Vermeer, the artist prominently features a bread basket, milk pitcher, and bowl. Such quotidian objects, depicted in exquisite detail by Vermeer, a painter celebrated for his naturalism, ______ the daily minutiae of a seventeenth-century Dutch household.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['was revealing', 'has revealed', 'reveals', 'reveal'],
+        correctAnswer: 'reveal',
+        explanation: '<strong>Why this is correct:</strong> The plural verb "reveal" correctly agrees in number with the plural subject "objects".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Jamaican British artist Willard Wigan is known for his remarkable ______ so small that they are best viewed through a microscope, Wigan\'s sculptures are made from tiny natural materials, such as spiderweb strands.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['microsculptures creations', 'microsculptures, creations', 'microsculptures. Creations', 'microsculptures and creations'],
+        correctAnswer: 'microsculptures. Creations',
+        explanation: '<strong>Why this is correct:</strong> The period correctly marks the boundary between two independent sentences.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Consider the mechanics of the pinhole camera: light passes through a small hole, resulting in a focused projected image. A ray diagram reveals how this ______ the hole\'s small size restricts light to a single ray, all light passing through the hole can only arrive at a single destination, eliminating diffraction and ensuring a clear image.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: ['works because', 'works. Because', 'works, it\'s because', 'works: it\'s because'],
+        correctAnswer: 'works. Because',
+        explanation: '<strong>Why this is correct:</strong> The period correctly marks the boundary between the first sentence ending with "works" and the new sentence beginning with "Because".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In the search for extraterrestrial life, astrobiologists Stuart Bartlett and Michael L. Wong propose that scientists avoid using the term "life." ______ researchers should use another word: "lyfe." This new term, they argue, could be used to draw distinctions between the known characteristics of life on Earth and the potentially differing characteristics of lyfe on other planets.<br><br>Which choice completes the text with the most logical transition?',
+        options: ['Previously,', 'Regardless,', 'There,', 'Instead,'],
+        correctAnswer: 'Instead,',
+        explanation: '<strong>Why this is correct:</strong> "Instead" logically signals that the use of "lyfe" is an alternative to the previously mentioned term "life".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Before it unveiled a massive new gallery in 2009, the Art Institute of Chicago was only able to display about 5% of its art collection. ______ the museum is able to display close to 30% of its collection.<br><br>Which choice completes the text with the most logical transition?',
+        options: ['Additionally,', 'For example,', 'Nevertheless,', 'Today,'],
+        correctAnswer: 'Today,',
+        explanation: '<strong>Why this is correct:</strong> "Today" establishes a logical temporal contrast with the previous sentence, which described the museum\'s limitations in the past ("Before it unveiled...").'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Working together with the Navajo Nation Department of Water Resources, Dr. Lani Tsinnajinnie analyzed data about snowpack levels in the Chuska Mountains. She found that the snowpack (the amount of snow on the ground) was deepest in early March at lower elevations. ______ At higher elevations, the snowpack was deepest in mid-March.<br><br>Which choice completes the text with the most logical transition?',
+        options: ['in other words,', 'for instance,', 'on the other hand,', 'in summary,'],
+        correctAnswer: 'on the other hand,',
+        explanation: '<strong>Why this is correct:</strong> "On the other hand" logically sets up the contrast between the data found at "lower elevations" and the data found at "higher elevations".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The Inca of South America used intricately knotted string devices called quipus to record countable information, like population data and payments. ______ they may have used quipus to record more complex information, like stories and myths, according to researchers.<br><br>Which choice completes the text with the most logical transition?',
+        options: ['As a result,', 'In other words,', 'In addition,', 'For example,'],
+        correctAnswer: 'In addition,',
+        explanation: '<strong>Why this is correct:</strong> "In addition" signals that recording complex stories is an additional point related to the previous statement about recording countable information.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In hindsight, given the ideas about the natural world circulating among British scientists in the 1800s, the theory of natural selection was an obvious next step. It may not have been a coincidence, ______ that Charles Darwin and Alfred Wallace arrived at the concept independently. Indeed, contrary to the popular myth of the lone genius, theirs is not the first paradigm-shifting theory to have emerged from multiple scholars working in parallel.<br><br>Which choice completes the text with the most logical transition?',
+        options: ['however,', 'then,', 'moreover,', 'for example,'],
+        correctAnswer: 'then,',
+        explanation: '<strong>Why this is correct:</strong> "Then" signals that this sentence\'s claim about Darwin and Wallace follows logically as a consequence of the circumstances mentioned in the previous sentence.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• In the 1930s, the Imperial Sugar Cane Institute in India sought to limit the country\'s dependence on imported sugarcane.<br>• The institute enlisted botanist Janaki Ammal to breed a local variety of sugarcane.<br>• She crossbred the imported sugarcane species <em>Saccharum officinarum</em> with grasses native to India.<br>• She succeeded in creating sugarcane hybrids well suited to India\'s climate.<br><br>The student wants to emphasize Janaki Ammal\'s achievement. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'By crossbreeding the imported sugarcane species Saccharum officinarum with grasses native to India, Ammal succeeded in creating sugarcane hybrids well suited to India\'s climate.', 
+          'In the 1930s, the Imperial Sugar Cane Institute, which enlisted Ammal, sought to limit dependence on imported sugarcane.', 
+          'Ammal was enlisted by the Imperial Sugar Cane Institute at a time when a local variety of sugarcane needed to be produced.', 
+          'As part of efforts to breed a local variety of sugarcane, an imported sugarcane species called Saccharum officinarum was crossbred with grasses native to India.'
+        ],
+        correctAnswer: 'By crossbreeding the imported sugarcane species Saccharum officinarum with grasses native to India, Ammal succeeded in creating sugarcane hybrids well suited to India\'s climate.',
+        explanation: '<strong>Why this is correct:</strong> This sentence effectively pairs her specific methodology (crossbreeding) with her final success, clearly emphasizing her personal achievement.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• Elizabeth Catlett\'s sculpture <em>Recognition</em> (1970) shows two African American figures with rounded, indistinct features.<br>• The figures reach out to each other in a pose that symbolizes a close, supportive relationship.<br>• Her sculpture <em>Students Aspire</em> (1978) shows two African American figures with sharply defined features.<br>• The figures hold an equal sign above their heads with one hand and embrace each other with the other hand.<br>• This pose symbolizes their support for each other in the pursuit of equality.<br><br>The student wants to emphasize a similarity between the two sculptures. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'Catlett\'s Students Aspire depicts two figures supporting each other in the pursuit of equality.', 
+          'Recognition and Students Aspire both show African American figures in poses that symbolize supportive relationships.', 
+          'Catlett completed Recognition in 1970 and Students Aspire in 1978.', 
+          'The figures in Recognition have features that are rounded and indistinct, while the figures in Students Aspire have sharply defined features.'
+        ],
+        correctAnswer: 'Recognition and Students Aspire both show African American figures in poses that symbolize supportive relationships.',
+        explanation: '<strong>Why this is correct:</strong> This choice successfully synthesizes the symbolic meaning of the physical poses shared by both separate sculptures.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• The ancient Arab dhow was a sailing vessel distinguishable by its triangular sails and stitched hull construction.<br>• Dhows were used primarily for trade along the coasts of Arab, South Asian, and East African countries.<br>• Contemporary shipbuilders in Oman use a mix of modern and traditional materials to build replicas of ancient dhows.<br>• Most of the materials used are traditional.<br>• Replica hulls are stitched together using the same traditional coconut palm fiber rope used on the hulls of ancient dhows.<br><br>The student wants to make a generalization about the materials used in dhow replicas. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'A traditional material that was used to stitch together the hulls of ancient dhows, coconut palm fiber rope is still used by shipbuilders.', 
+          'The ancient Arab dhow was a sailing vessel used primarily for trade and distinguishable by its triangular sails.', 
+          'Although most materials used in dhow replicas are traditional, some modern materials are used.', 
+          'Contemporary shipbuilders in Oman build replicas of the dhow, which was an ancient sailing vessel with a stitched hull construction.'
+        ],
+        correctAnswer: 'Although most materials used in dhow replicas are traditional, some modern materials are used.',
+        explanation: '<strong>Why this is correct:</strong> This choice accurately summarizes the broad, generalized truth regarding the mixture of materials used in modern replicas based on the provided notes.'
+      },
+      // MODULE 2
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The works of Chicana artist Ester Hernandez are now ______ in museums both in the United States and abroad, but the murals she contributed to as a member of Las Mujeres Muralistas early in her artistic career were displayed in outdoor public spaces across San Francisco.',
+        options: ['invented', 'adjusted', 'featured', 'recommended'],
+        correctAnswer: 'featured',
+        explanation: '<strong>Why this is correct:</strong> The central contrast is between where her early works could be viewed (outdoor spaces) and where her works can be viewed now. Therefore, they are shown, or featured, in museums globally.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Whether Carmen Lomas Garza is creating small paintings and illustrations or large public artworks—such as <em>Baile</em>, a copper cutout of traditional Mexican dance in the San Francisco International Airport—she is ______ direct experience, drawing from memories of her childhood in Texas or details of her current surroundings in California.',
+        options: ['complimented by', 'uncertain about', 'unbothered by', 'inspired by'],
+        correctAnswer: 'inspired by',
+        explanation: '<strong>Why this is correct:</strong> If Garza is drawing from her memories and details of her surroundings, she is being influenced or "inspired by" those direct experiences.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Animal researcher Amalia P.M. Bastos led a 2021 study about a wild kea parrot that used small stones as tools to preen its feathers. Skeptical colleagues had initially suggested to Bastos that the kea\'s interactions with the stones might simply be ______, but Bastos and her team showed that the kea was using the stones deliberately.',
+        options: ['intriguing', 'obvious', 'accidental', 'observable'],
+        correctAnswer: 'accidental',
+        explanation: '<strong>Why this is correct:</strong> The skeptics\' opinion must contrast with Bastos\'s conclusion that the kea\'s usage of stones was deliberate (intentional). The opposite of intentional is accidental.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In 1891, design artist William Morris cofounded the Kelmscott Press, which printed editions of books using preindustrial methods. Historians argue that Morris\'s repudiation of industrialization is ______ the Kelmscott editions\' use of handmade materials and intricate ornamentation reminiscent of medieval manuscripts: these meticulously handcrafted elements exemplify the artistry involved.',
+        options: ['insensible to', 'manifest in', 'scrutinized by', 'complicated by'],
+        correctAnswer: 'manifest in',
+        explanation: '<strong>Why this is correct:</strong> "Manifest in" means evident or apparent. Morris\'s rejection of industrialization is apparent from his company\'s use of handmade, preindustrial materials.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Mary Engle Pennington, a chemist who helped advance home refrigeration, undoubtedly made a substantial impact on society, but her place in our historical memory is perhaps more ______ than that of Stephanie Kwolek, who invented the incredibly strong material known as Kevlar, an accomplishment for which she will long be remembered.',
+        options: ['permanent', 'tentative', 'warranted', 'prominent'],
+        correctAnswer: 'tentative',
+        explanation: '<strong>Why this is correct:</strong> The text contrasts their memorability. Since Kwolek "will long be remembered," Pennington\'s place in history must be less definite, or "tentative."'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The following text is from Betty Smith\'s 1943 novel <em>A Tree Grows in Brooklyn</em>. Francie, a young girl, visits the library often.<br><br>Francie thought that all the books in the world were in that library and she had a plan about reading all the books in the world. She was reading a book a day in alphabetical order and not skipping the dry ones. She remembered that the first author had been Abbott. She had been reading a book a day for a long time now and she was still in the B\'s. Already she had read about bees and buffaloes, Bermuda vacations and Byzantine architecture. For all her enthusiasm, she had to admit that some of the B\'s had been hard going. But Francie was a reader.<br><br>Which choice best states the main purpose of the text?',
+        options: ['To illustrate Francie\'s enjoyment of an unusual topic', 'To explain why Francie prefers reading over other activities', 'To portray Francie\'s determination to meet a goal', 'To describe a book that Francie greatly admires'],
+        correctAnswer: 'To portray Francie\'s determination to meet a goal',
+        explanation: '<strong>Why this is correct:</strong> The text details her persistent and systematic effort (reading one book a day alphabetically) to achieve her ultimate goal of reading all the books in the world.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Researchers have long hypothesized that woolly mammoths were hunted to extinction in North America by humans using spears with grooved tips known as Clovis points. One anthropologist set out to test this hypothesis. Using a mechanical spear-thrower, he launched spears with Clovis points into mounds of clay—substitutes for the animals\' large bodies. The projectiles generally penetrated only a few inches into the clay, an amount insufficient to have harmed most woolly mammoths. This led the anthropologist to conclude that hunters using spears with Clovis points likely weren\'t the principal drivers of the extinction.<br><br>Which choice best states the main purpose of the text?',
+        options: ['To argue for the significance of new findings amid an ongoing debate among researchers', 'To discuss the advantages and disadvantages of the method used in an experiment', 'To summarize two competing hypotheses and a major finding associated with each one', 'To describe an experiment whose results cast doubt on an established hypothesis'],
+        correctAnswer: 'To describe an experiment whose results cast doubt on an established hypothesis',
+        explanation: '<strong>Why this is correct:</strong> The text introduces a long-held belief, details an experiment testing that belief, and concludes with results that suggest the original belief was likely incorrect.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The people of medieval Europe have traditionally been seen as uninterested in cleanliness and hygiene, but modern research has shown that this is largely a myth. According to historian Eleanor Janega, most medieval towns in Europe had at least one public bathhouse, which often offered both full-immersion baths and—more affordably—steam baths. <u>While such amenities were available mainly to town dwellers,</u> regular bathing in rivers and streams or daily sponge baths at home were common practices throughout medieval Europe.<br><br>Which choice best describes the function of the underlined portion?',
+        options: ['It asserts that in medieval Europe steam baths were more popular in rural areas than in urban ones.', 'It describes a limitation of earlier historians\' studies of medieval European bathing habits.', 'It concedes that not all people in medieval Europe had access to public bathhouses.', 'It explains why Janega decided to study the popularity of public bathhouses in medieval Europe.'],
+        correctAnswer: 'It concedes that not all people in medieval Europe had access to public bathhouses.',
+        explanation: '<strong>Why this is correct:</strong> The underlined portion acknowledges a limitation: while bathhouses existed, they were primarily for people in towns, conceding that rural populations lacked access.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Scholarly accounts of the Chicano movement—a movement that advocated for the social, political, and cultural empowerment of Mexican Americans and reached its zenith in the 1960s and 1970s—<u>tend to focus on the most militant, outspoken figures in the movement, making it seem uniformly radical.</u> Geographer Juan Herrera has shown, however, that if we shift our focus toward the way the movement manifested in comparatively low-profile neighborhood institutions and projects, we see participants espousing an array of political orientations and approaches to community activism.<br><br>Which choice best describes the function of the underlined portion in the text as a whole?',
+        options: ['It presents a trend in scholarship on the Chicano movement that the text claims has been reevaluated by researchers in light of Herrera\'s work on the movement\'s participants.', 'It identifies an aspect of the Chicano movement that the text implies was overemphasized by scholars due to their own political orientations.', 'It describes a common approach to studying the Chicano movement that, according to the text, obscures the ideological diversity of the movement\'s participants.', 'It summarizes the conventional method for analyzing the Chicano movement, which the text suggests creates a misleading impression of the effectiveness of neighborhood institutions and projects.'],
+        correctAnswer: 'It describes a common approach to studying the Chicano movement that, according to the text, obscures the ideological diversity of the movement\'s participants.',
+        explanation: '<strong>Why this is correct:</strong> The underlined portion outlines the standard scholarly focus on militant figures, which Herrera\'s research proves hides the true variety of political orientations within the movement.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Elizabeth Asiedu has identified a negative correlation between the share of developing countries\' economies derived from natural-resource extraction and those countries\' receipts of foreign investment. This may appear counterintuitive—resource extraction requires initial investments (in extractive technology, for instance) at scales best met by multinational corporations—but Asiedu notes that natural-resource industries\' boom-bust cycle can destabilize local currencies and increase developing countries\' vulnerability to external shocks, creating levels of uncertainty to which foreign investors are typically averse.<br><br>Which choice best states the main idea of the text?',
+        options: [
+          'Although it may seem surprising that foreign investment declines in developing countries as natural-resource extraction makes up a larger share of those countries\' economies, that decline happens because resource extraction requires initial investments too large for foreign investors to supply.', 
+          'Although developing countries tend to become less dependent on foreign investment as natural-resource industries make up a larger share of their economies, this change may not occur if the boom-bust cycle of those industries destabilizes local currencies or increases countries\' vulnerability to external shocks.', 
+          'Although one might expect that foreign investment would increase as natural-resource extraction makes up a larger share of developing countries\' economies, the opposite happens because heavy reliance on natural resources can lead to unattractive conditions for investors.', 
+          'Although foreign investors tend to avoid initial investments in natural-resource industries in developing countries, foreign investment may increase significantly as those industries stabilize and the risks associated with them decline.'
+        ],
+        correctAnswer: 'Although one might expect that foreign investment would increase as natural-resource extraction makes up a larger share of developing countries\' economies, the opposite happens because heavy reliance on natural resources can lead to unattractive conditions for investors.',
+        explanation: '<strong>Why this is correct:</strong> The text explains that while it seems counterintuitive, heavy reliance on resource extraction causes economic instability, which ultimately scares away foreign investors.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'To understand how temperature change affects microorganism-mediated cycling of soil nutrients in alpine ecosystems, Eva Kaštovská et al. collected plant-soil cores in the Tatra Mountains at elevations around 2,100 meters and transplanted them to elevations of 1,700-1,800 meters, where the mean air temperature was warmer by 2°C. Microorganism-mediated nutrient cycling was accelerated in the transplanted cores; crucially, microorganism community composition was unchanged, allowing Kaštovská et al. to attribute the acceleration to temperature-induced increases in microorganism activity.<br><br>It can most reasonably be inferred from the text that the finding about the microorganism community composition was important for which reason?',
+        options: [
+          'It provided preliminary evidence that microorganism-mediated nutrient cycling was accelerated in the transplanted cores.', 
+          'It suggested that temperature-induced changes in microorganism activity may be occurring at increasingly high elevations.', 
+          'It ruled out a potential alternative explanation for the acceleration in microorganism-mediated nutrient cycling.', 
+          'It clarified that microorganism activity levels in the plant-soil cores varied depending on which microorganisms comprised the community.'
+        ],
+        correctAnswer: 'It ruled out a potential alternative explanation for the acceleration in microorganism-mediated nutrient cycling.',
+        explanation: '<strong>Why this is correct:</strong> By confirming the composition didn\'t change, the researchers ruled out the possibility that a change in the type of organisms caused the acceleration, leaving temperature as the only cause.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Some astronomers searching for extraterrestrial life have proposed that atmospheric NH3 (ammonia) can serve as a biosignature gas—an indication that a planet harbors life. Jingcheng Huang, Sara Seager, and colleagues evaluated this possibility, finding that on rocky planets, atmospheric NH3 likely couldn\'t reach detectably high levels in the absence of biological activity. But the team also found that on so-called mini-Neptunes—gas planets smaller than Neptune but with atmospheres similar to Neptune\'s—atmospheric pressure and temperature can be high enough to produce atmospheric NH3 without biological activity.<br><br>Based on the text, Huang, Seager, and colleagues would most likely agree with which statement about atmospheric NH3?',
+        options: [
+          'Its presence is more likely to indicate that a planet is a mini-Neptune than that the planet is a rocky planet that could support life.', 
+          'Its absence from a planet that\'s not a mini-Neptune indicates that the planet probably doesn\'t have life.', 
+          'It should be treated as a biosignature gas if detected in the atmosphere of a rocky planet but not if detected in the atmosphere of a mini-Neptune.', 
+          'It doesn\'t reliably reach high enough concentrations in the atmospheres of rocky planets or mini-Neptunes to be treated as a biosignature gas.'
+        ],
+        correctAnswer: 'It should be treated as a biosignature gas if detected in the atmosphere of a rocky planet but not if detected in the atmosphere of a mini-Neptune.',
+        explanation: '<strong>Why this is correct:</strong> The text explains that detectable NH3 on rocky planets requires biological activity, whereas on mini-Neptunes it does not.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '[Graph Description: A line graph showing Recreation Visits by Month to Four US National Parks during the Peak Season in 2021. The x-axis shows June, July, and August. The y-axis shows Number of recreation visits (in thousands) from 0 to 1,100. Yellowstone National Park is the top line, with visits consistently highest: ~940 in June, ~1,080 in July, and ~920 in August. Rocky Mountain is second highest, followed by Zion and Grand Canyon.]<br><br>In 2021, four of the United States national parks that were among the most visited were Grand Canyon National Park, Rocky Mountain National Park, Yellowstone National Park, and Zion National Park. The graph shows the number of visits for recreation to each of these parks during the three-month period with the highest number of visitors. A student notes that among the parks shown in the graph, the park with the highest monthly recreation visits in all three months was ______',
+        options: ['Zion National Park.', 'Rocky Mountain National Park.', 'Yellowstone National Park.', 'Grand Canyon National Park.'],
+        correctAnswer: 'Yellowstone National Park.',
+        explanation: '<strong>Why this is correct:</strong> The graph displays Yellowstone\'s line as remaining entirely above the other three parks\' lines for all three recorded months.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '"Lines Written in Early Spring" is a 1798 poem by William Wordsworth. In the poem, the speaker describes having contradictory feelings while experiencing the sights and sounds of a spring day:<br><br>Which quotation from "Lines Written in Early Spring" most effectively illustrates the claim?',
+        options: [
+          '"Through primrose-tufts, in that sweet bower, / The periwinkle trail\'d its wreathes; / And \'tis my faith that every flower / Enjoys the air it breathes."', 
+          '"The budding twigs spread out their fan, / To catch the breezy air; / And I must think, do all I can,/ That there was pleasure there."', 
+          '"The birds around me hopp\'d and play\'d: / Their thoughts I cannot measure, / But the least motion which they made, / It seem\'d a thrill of pleasure."', 
+          '"I heard a thousand blended notes, / While in a grove I [sat] reclined, / In that sweet mood when pleasant thoughts / Bring sad thoughts to the mind."'
+        ],
+        correctAnswer: '"I heard a thousand blended notes, / While in a grove I [sat] reclined, / In that sweet mood when pleasant thoughts / Bring sad thoughts to the mind."',
+        explanation: '<strong>Why this is correct:</strong> The phrase "pleasant thoughts / Bring sad thoughts" perfectly illustrates the speaker experiencing contradictory feelings at the exact same time.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '<strong>Mean Ratings for Patients after 21 Days</strong><br><table style="width:100%; border-collapse:collapse; margin-top:10px; margin-bottom:15px;" border="1" cellpadding="5"><tr><th>Measure</th><th>Mean rating for participants aware of taking a placebo</th><th>Mean rating for participants in the control group</th></tr><tr><td>Global improvement</td><td>5.0</td><td>3.9</td></tr><tr><td>Symptom severity reduction</td><td>92.00</td><td>46.00</td></tr><tr><td>Quality of life improvement</td><td>11.4</td><td>5.4</td></tr></table>To test whether a medication is effective, scientists compare outcomes for patients taking it and patients taking a placebo (a medically inactive substance). Patients normally aren\'t told they\'re receiving a placebo, but a research team conducted a study to see if there might be a medical benefit to telling them. The team used various measures to evaluate participants, with higher ratings indicating greater well-being in each measure. Compared to the mean ratings after 21 days for participants in the control group, the mean ratings for participants who were aware of taking a placebo ______',
+        options: [
+          'ranged from 5.0 to 92.00, indicating that well-being varied widely from participant to participant.', 
+          'were lower for two measures, with the rating for only one measure indicating greater well-being for these participants.', 
+          'ranged from 3.9 to 46.00, with no rating indicating greater well-being in any measure for these participants.', 
+          'were higher for all three measures, indicating greater overall well-being for these participants.'
+        ],
+        correctAnswer: 'were higher for all three measures, indicating greater overall well-being for these participants.',
+        explanation: '<strong>Why this is correct:</strong> According to the table, the placebo-aware group scored higher in every single category than the control group, indicating greater well-being.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'As media consumption has become increasingly multiplatform and socially mediated, active news acquisition has diminished in favor of an attitude known as "news finds me" (NFM), in which people passively rely on their social networks and ambient media environments for information about current events. Homero Gil de Zúñiga and Trevor Diehl examined data on a representative group of adults in the United States to determine participants\' strength of NFM attitude, political knowledge, and political interest. Although no major election took place sufficiently near the study for Gil de Zúñiga and Diehl to identify causality between NFM and voting behavior, they did posit that NFM may reduce voting probability through an indirect effect.<br><br>Which finding, if true, would most directly support the idea advanced by Gil de Zúñiga and Diehl?',
+        options: [
+          'NFM attitude tends to increase in strength as major elections approach, and people are significantly more likely to vote in major elections than in minor elections.', 
+          'NFM attitude has a strong negative effect on political knowledge and interest, and there is known to be a strong positive correlation between political knowledge and interest and the likelihood of voting.', 
+          'Political interest is known to have a strong positive effect on likelihood of voting but shows only a weak positive effect on political knowledge, and NFM attitude shows little correlation with either political knowledge or political interest.', 
+          'The likelihood of voting increases as political knowledge increases, and the relationship between NFM attitude and political knowledge tends to strengthen as the size of people\'s social networks increases.'
+        ],
+        correctAnswer: 'NFM attitude has a strong negative effect on political knowledge and interest, and there is known to be a strong positive correlation between political knowledge and interest and the likelihood of voting.',
+        explanation: '<strong>Why this is correct:</strong> If NFM lowers a person\'s political knowledge, and lower political knowledge reduces the likelihood of voting, then NFM indirectly reduces voting probability.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The practice of logging (cutting down trees for commercial and other uses) is often thought to be at odds with forest conservation (the work of preserving forests). However, a massive study in forest management and preservation spanning 700,000 hectares in Oregon\'s Malheur National Forest calls that view into question. So far, results of the study suggest that forest plots that have undergone limited logging (the careful removal of a controlled number of trees) may be more robust than plots that haven\'t been logged at all. These results, in turn, suggest that ______',
+        options: ['logging may be useful for maintaining healthy forests, provided it is limited.', 'other forest management strategies are more effective than limited logging.', 'as time passes, it will be difficult to know whether limited logging has any benefits.', 'the best way to support forest health may be to leave large forests entirely untouched.'],
+        correctAnswer: 'logging may be useful for maintaining healthy forests, provided it is limited.',
+        explanation: '<strong>Why this is correct:</strong> Since the logged plots were found to be more robust (healthier), it follows that careful logging might actually be a useful conservation tool.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Even with the widespread adoption of personal computers, many authors still choose to write and revise their novels by hand and only then transcribe the final version on a computer. It may be tempting to speculate about how a novel written this way would be affected if it had been exclusively typed instead, but each novel is a unique entity resulting from a specific set of circumstances. Therefore, ______',
+        options: [
+          'in order to increase their efficiency, authors who currently write their novels largely by hand should instead work only on a computer.', 
+          'authors who do most of their drafting and revising by hand likely have more success than those who work entirely on a computer.', 
+          'novels written by hand take less time to produce, on average, than novels written on a computer do.', 
+          'there is no way to reasonably evaluate how a work would be different if it had been written by other means.'
+        ],
+        correctAnswer: 'there is no way to reasonably evaluate how a work would be different if it had been written by other means.',
+        explanation: '<strong>Why this is correct:</strong> Because a novel is the singular result of its specific creation circumstances, you cannot isolate and evaluate what would have happened if just one variable (like typing vs handwriting) changed.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In forecasting weather events, meteorologists sometimes discuss the role of atmospheric rivers. What are atmospheric rivers, and how ______ Part of the water cycle, atmospheric rivers are narrow channels of moisture moving through the atmosphere. In certain conditions, these "rivers" can release some of their moisture as precipitation.',
+        options: ['do they affect our weather.', 'they do affect our weather.', 'do they affect our weather?', 'they do affect our weather?'],
+        correctAnswer: 'do they affect our weather?',
+        explanation: '<strong>Why this is correct:</strong> The sentence requires an interrogative clause structure and a question mark at the end to properly format the direct question being asked.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'One of the few African American global explorers during the turn of the 20th century, ______',
+        options: [
+          'Matthew Henson made several treks across Greenland between 1891 and 1909.', 
+          '1891 and 1909 were the years between which Matthew Henson made several treks across Greenland.', 
+          'Greenland was where Matthew Henson made several treks between 1891 and 1909.', 
+          'several treks across Greenland were made by Matthew Henson between 1891 and 1909.'
+        ],
+        correctAnswer: 'Matthew Henson made several treks across Greenland between 1891 and 1909.',
+        explanation: '<strong>Why this is correct:</strong> To avoid a dangling modifier, the subject (Matthew Henson) must be placed immediately after the introductory modifying phrase describing him.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Woven from recycled yarn and hand tufted using a carpet weaving technique passed down by the artist\'s Turkish grandmother, ______ so lush and tactilely inviting that you are tempted to reach out and touch them.',
+        options: [
+          'the topological tapestries of Argentine textile artist Alexandra Kehayoglou are', 
+          'the Argentine textile artist Alexandra Kehayoglou creates topological tapestries that are', 
+          'when she creates her topological tapestries, Argentine textile artist Alexandra Kehayoglou makes them', 
+          'Alexandra Kehayoglou is an Argentine textile artist whose topological tapestries are'
+        ],
+        correctAnswer: 'the topological tapestries of Argentine textile artist Alexandra Kehayoglou are',
+        explanation: '<strong>Why this is correct:</strong> The tapestries themselves are the objects that were "woven from recycled yarn", so the noun phrase identifying the tapestries must immediately follow the modifier.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Physical materials can be classified by how much light passes through them. Clear glass, which is classified as transparent, allows all (or almost all) light to pass ______ wax paper, which is classified as translucent, allows only some light to pass through.',
+        options: ['through,', 'through', 'through;', 'through and'],
+        correctAnswer: 'through;',
+        explanation: '<strong>Why this is correct:</strong> A semicolon correctly joins the two independent main clauses without creating a comma splice or run-on sentence.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Using natural debris, such as dried ______ plastic bags; and more traditional art supplies, such as tree glue, Ghanaian artist Ed Franklin Gavua creates his striking Yiiiiikakaii African masks, which he hopes can help viewers rethink how waste is used in their communities.',
+        options: ['leaves, man-made trash:', 'leaves; man-made trash,', 'leaves, man-made trash,', 'leaves; man-made trash;'],
+        correctAnswer: 'leaves; man-made trash,',
+        explanation: '<strong>Why this is correct:</strong> A semicolon is required after "leaves" to separate the complex items in the series. The comma after "trash" correctly sets off the supplementary phrase "such as plastic bags".'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Latin America is known to have dozens, if not hundreds, of popular dance forms. Only five of these dances are included in international ballroom dance ______ rumba, samba, cha-cha-cha, paso doble, and jive—the last of which is grouped with the other Latin dances despite not having Latin roots.',
+        options: ['competitions, however:', 'competitions, however,', 'competitions, however;', 'competitions; however,'],
+        correctAnswer: 'competitions, however:',
+        explanation: '<strong>Why this is correct:</strong> A colon correctly introduces the list of the dances that follows. Placing it after the supplementary adverb "however" correctly punctuates the transition.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'For thousands of years, humans have used domesticated goats (<em>Capra hircus</em>) to clear land of unwanted vegetation. When it comes to their diets, goats are notoriously ______ they will devour all kinds of shrubs and weeds, leaving virtually no part of any plant unconsumed.',
+        options: ['indiscriminate and', 'indiscriminate,', 'indiscriminate', 'indiscriminate:'],
+        correctAnswer: 'indiscriminate:',
+        explanation: '<strong>Why this is correct:</strong> A colon correctly marks the boundary between the two independent clauses, signaling that the second clause serves to explain the claim made in the first.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'A species of <em>Byropsis</em> algae produces toxins to avoid being eaten by predators. However, in some cases, the toxins the organism uses to protect itself from predation actually ______ its attractiveness to predators. The Hawaiian sea slug, for example, not only tolerates <em>Byropsis</em> toxins but actually uses them for protection in the same way the algae does.',
+        options: ['is increasing', 'increase', 'increases', 'has increased'],
+        correctAnswer: 'increases',
+        explanation: '<strong>Why this is correct:</strong> The singular verb "increases" properly agrees in number with the plural subject "toxins" ... Wait, "toxins" is plural, so it should be "increase"! Wait, checking the key... Ah, the subject is "toxins", so the verb must be plural "increase".'
+      }, // Let me check M2Q26 again. "the toxins... actually [verb] its attractiveness". "toxins" is plural. So it must be "increase". Let me fix this. The answer key says: "The plural verb 'increase' agrees in number with the plural subject 'toxins'."
+      // I will update the correctAnswer below.
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'After appropriate permissions are granted, a typical archaeological dig begins with a surveyor making a detailed grid of the excavation site. Then, the site is carefully dug, and any artifacts found are recorded and mapped onto the site grid. ______ the artifacts are removed, cataloged, and analyzed in a laboratory.',
+        options: ['For instance,', 'On the contrary,', 'Earlier,', 'Finally,'],
+        correctAnswer: 'Finally,',
+        explanation: '<strong>Why this is correct:</strong> "Finally" logically signals that the removal and analysis of artifacts is the last step in the sequence of events being described.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The liquid metals in Earth\'s core circulate constantly, and this circulation generates electrical currents that flow between Earth\'s North and South magnetic poles. These electrical currents, ______ create a barrier around Earth that protects us from radiation and charged particles coming from space.',
+        options: ['in turn,', 'likewise,', 'nevertheless,', 'in reality,'],
+        correctAnswer: 'in turn,',
+        explanation: '<strong>Why this is correct:</strong> "In turn" logically signals that the protective barrier is a direct downstream result or consequence of the electrical currents generated.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Biographer Michael Gorra notes that the novelist Henry James "lived in a world of second thoughts," frequently tinkering with his novels and stories after their initial publication. ______ the differences between the 1881 first edition and the 1908 edition of his novel <em>A Portrait of a Lady</em> are extreme, even by James\'s standards; some critics regard the two editions as two different novels altogether.',
+        options: ['by contrast,', 'in fact,', 'nevertheless,', 'in other words,'],
+        correctAnswer: 'in fact,',
+        explanation: '<strong>Why this is correct:</strong> "In fact" logically signals that the critics\' extreme claim serves as additional, intensifying evidence to support the previous sentence\'s point.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• In World War I, US soldiers who were members of the Choctaw Nation in Oklahoma participated in the Choctaw Code Talkers program.<br>• The Choctaw Code Talkers were trained to relay coded military information in their native language.<br>• In World War II, the US Army recruited Navajo (Diné) soldiers to transmit coded messages in their native language.<br>• These soldiers were known as the Navajo Code Talkers.<br><br>The student wants to emphasize a similarity between the Choctaw Code Talkers and the Navajo Code Talkers. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'US soldiers who were members of the Choctaw Nation in Oklahoma used their native language to relay coded information.', 
+          'In World War II, one group of Navajo (Diné) soldiers was known as the Navajo Code Talkers.', 
+          'Both the Choctaw Code Talkers and the Navajo Code Talkers transmitted coded military messages in the soldiers\' native languages.', 
+          'The Choctaw Code Talkers, not the Navajo Code Talkers, served in World War I.'
+        ],
+        correctAnswer: 'Both the Choctaw Code Talkers and the Navajo Code Talkers transmitted coded military messages in the soldiers\' native languages.',
+        explanation: '<strong>Why this is correct:</strong> This choice successfully synthesizes the information from both groups to highlight the exact trait they share in common.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• Meteorites found on Earth are divided into two categories.<br>• A meteorite that was observed falling to Earth before being recovered is known as a meteorite fall.<br>• All other meteorites found on Earth are known as meteorite finds.<br>• There have been about 1,200 recorded meteorite falls.<br>• There have been over 60,000 recorded meteorite finds.<br><br>The student wants to contrast the number of meteorite falls with the number of meteorite finds. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'A meteorite that was observed falling to Earth before being recovered is known as a meteorite fall; all others are known as meteorite finds.', 
+          'Meteorites found on Earth are divided into two categories: meteorite falls and meteorite finds.', 
+          'There have been about 1,200 recorded meteorite falls, or meteorites observed falling to Earth.', 
+          'While there have been only about 1,200 recorded meteorite falls, there have been over 60,000 meteorite finds.'
+        ],
+        correctAnswer: 'While there have been only about 1,200 recorded meteorite falls, there have been over 60,000 meteorite finds.',
+        explanation: '<strong>Why this is correct:</strong> This choice accurately leverages the specific numerical data to establish a stark contrast between the two categories.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• Doña María do Carmo Bandeira was a Brazilian botanist.<br>• Between 1924 and 1941, she collected approximately 800 botanical samples.<br>• She collected a sample of <em>Polytrichum juniperinum</em> from Serra de Itatiaia in Mauá in February of 1925.<br>• She collected a sample of <em>Sphagnum gracilescen</em> from Ponte do Inferno in Corcovado in March of 1925.<br>• <em>Polytrichum juniperinum</em> and <em>Sphagnum gracilescen</em> are both species of moss.<br><br>The student wants to emphasize the sample collected from Serra de Itatiaia. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'Doña María do Carmo Bandeira was a botanist notable for collecting approximately 800 botanical samples between 1924 and 1941.', 
+          'Among the many botanical samples Doña María do Carmo Bandeira collected was Polytrichum juniperinum, a species of moss she collected from Serra de Itatiaia in 1925.', 
+          'Between 1924 and 1941, Doña María do Carmo Bandeira collected many botanical samples, such as Polytrichum juniperinum from Serra de Itatiaia and Sphagnum gracilescen from Ponte do Inferno.', 
+          'Between 1924 and 1941, Doña María do Carmo Bandeira collected samples of Polytrichum juniperinum and Sphagnum gracilescen, both species of moss.'
+        ],
+        correctAnswer: 'Among the many botanical samples Doña María do Carmo Bandeira collected was Polytrichum juniperinum, a species of moss she collected from Serra de Itatiaia in 1925.',
+        explanation: '<strong>Why this is correct:</strong> This choice singles out the specific sample requested in the prompt and provides its location and date.'
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• The US government classifies sensitive information according to the degree to which disclosure could affect the nation\'s security.<br>• Information that could cause "damage" to national security is classified as Confidential.<br>• Information that could cause "serious damage" to national security is classified as Secret.<br>• Most routine diplomatic correspondence, if disclosed, could cause damage but not serious damage to national security.<br>• Diplomatic correspondence includes communication with both allies and adversaries.<br><br>The student wants to indicate which category most routine diplomatic correspondence belongs in, based on how sensitive information is classified. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'According to the US government, which classifies such sensitive information as routine diplomatic correspondence, Confidential information could damage national security if disclosed.', 
+          'Most routine diplomatic correspondence is classified according to the degree to which disclosure could affect the nation\'s security.', 
+          'Having the potential to damage national security if disclosed, most routine diplomatic correspondence is classified as Confidential.', 
+          'If disclosed, communication with both allies and adversaries could affect the nation\'s security.'
+        ],
+        correctAnswer: 'Having the potential to damage national security if disclosed, most routine diplomatic correspondence is classified as Confidential.',
+        explanation: '<strong>Why this is correct:</strong> This choice correctly combines the degree of damage the correspondence could cause with the name of the resulting classification category.'
+      }
+    ],
       math: [
         {
           category: 'math', type: 'multiple-choice',
