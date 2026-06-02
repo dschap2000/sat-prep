@@ -1530,13 +1530,21 @@
       if (q.type === 'multiple-choice') {
         const selected = document.querySelector('input[name="answer"]:checked');
         if (!selected) { alert('Please select an answer!'); return; }
-        userAnswer = selected.value;
+        userAnswer = q.options[selected.value]; // Retrieves the text using the hidden number
       } else {
         userAnswer = document.getElementById('fr-answer').value.trim();
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      const cleanText = (str) => String(str).replace(/\\\(|\\\)/g, '').trim().toLowerCase();
+      // --- NEW BULLETPROOF MATCHING LOGIC ---
+      const cleanText = (str) => {
+        return String(str)
+          .replace(/\\+\(/g, '') 
+          .replace(/\\+\)/g, '') 
+          .replace(/\s+/g, '')   
+          .toLowerCase();        
+      };
+
       const isCorrect = cleanText(userAnswer) === cleanText(q.correctAnswer);
       if (isCorrect) score++;
 
