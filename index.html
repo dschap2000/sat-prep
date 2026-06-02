@@ -1503,10 +1503,10 @@
 
       if (q.type === 'multiple-choice') {
         let optionsHtml = '';
-        q.options.forEach((opt) => {
+        q.options.forEach((opt, index) => {
           optionsHtml += `
             <label class="option-label">
-              <input type="radio" name="answer" value="${opt}">
+              <input type="radio" name="answer" value="${index}">
               <span>${opt}</span>
             </label>
           `;
