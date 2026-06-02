@@ -858,86 +858,221 @@
       }
     ],
       math: [
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'What value of \\( p \\) is the solution to the given equation?<br><br> \\( (p + 3) + 8 = 10 \\)', // [cite: 918, 919]
-          options: ['\\( -1 \\)', '\\( 5 \\)', '\\( 15 \\)', '\\( 21 \\)'], // [cite: 920, 921, 922, 923]
-          correctAnswer: '\\( -1 \\)',
-          explanation: `<strong>Step-by-step:</strong> \\( p + 11 = 10 \\) &rarr; \\( p = -1 \\)` // [cite: 2341]
-        },
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'What is the positive solution to the given equation?<br><br> \\( k^2 - 53 = 91 \\)', // [cite: 1002, 1003]
-          options: ['\\( 144 \\)', '\\( 72 \\)', '\\( 38 \\)', '\\( 12 \\)'], // [cite: 1004, 1005, 1006, 1007]
-          correctAnswer: '\\( 12 \\)',
-          explanation: `<strong>Step-by-step:</strong> Add 53 to both sides to get \\( k^2 = 144 \\). Taking the square root gives \\( k = \\pm12 \\). The positive solution is 12.` // [cite: 2354]
-        },
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation, where \\( s \\) is the cruising speed, in miles per hour, during this portion of the flight?', // [cite: 1019, 1020]
-          options: ['\\( s \\le 20 \\)', '\\( s \\le 150 \\)', '\\( s \\le 170 \\)', '\\( 150 \\le s \\le 170 \\)'], // [cite: 1021, 1022, 1023, 1024]
-          correctAnswer: '\\( 150 \\le s \\le 170 \\)',
-          explanation: `<strong>Why this is correct:</strong> The speed was at least 150 (\\( s \\ge 150 \\)) and at most 170 (\\( s \\le 170 \\)). Combining these bounds creates the compound inequality \\( 150 \\le s \\le 170 \\).` // [cite: 2364]
-        },
-        {
-          category: 'math', type: 'free-response',
-          text: 'How many yards are equivalent to 1,116 inches? (1 yard = 36 inches)', // [cite: 1035]
-          correctAnswer: '31',
-          explanation: `<strong>Step-by-step:</strong> Since 1 yard is equal to 36 inches, divide the total inches by 36: \\( \\frac{1,116}{36} = 31 \\). Therefore, it is equivalent to 31 yards.` // [cite: 2376]
-        },
-        {
-          category: 'math', type: 'free-response',
-          text: 'The function \\( f(x) = 14 + 4x \\) represents the total cost, in dollars, of attending an arcade when \\( x \\) games are played. How many games can be played for a total cost of $58?', // [cite: 1045, 1046, 1047]
-          correctAnswer: '11',
-          explanation: `<strong>Step-by-step:</strong> Substitute 58 for \\( f(x) \\): \\( 58 = 14 + 4x \\). Subtract 14 from both sides: \\( 44 = 4x \\). Divide by 4: \\( x = 11 \\). Therefore, 11 games can be played.` // [cite: 2379, 2380, 2381]
-        },
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'For the linear function \\( f \\), \\( b \\) is a constant. When \\( x = 0 \\), \\( f(x) = 30 \\). What is the value of \\( b \\) if \\( f(x) = x + b \\)?', // [cite: 1048, 1049]
-          options: ['\\( -30 \\)', '\\( -\\frac{1}{30} \\)', '\\( \\frac{1}{30} \\)', '\\( 30 \\)'], // [cite: 1050, 1053, 1054, 1055]
-          correctAnswer: '\\( 30 \\)',
-          explanation: `<strong>Step-by-step:</strong> Substitute 0 for \\( x \\) and 30 for \\( f(x) \\) in the given function: \\( 30 = 0 + b \\), which simplifies to \\( 30 = b \\).` // [cite: 2384]
-        },
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'The function \\( P \\) defined by \\( P(t) = 1,800(1.02)^t \\) gives the estimated number of marine mammals in a certain area, where \\( t \\) is the number of years since a study began. What is the best interpretation of \\( P(0) = 1,800 \\) in this context?', // [cite: 1056, 1057, 1058]
-          options: [
-            'The estimated number of marine mammals in the area was 102 when the study began.', // [cite: 1059]
-            'The estimated number of marine mammals in the area was 1,800 when the study began.', // [cite: 1060]
-            'The estimated number of marine mammals in the area increased by 102 each year during the study.', // [cite: 1061]
-            'The estimated number of marine mammals in the area increased by 1,800 each year during the study.' // [cite: 1062]
-          ],
-          correctAnswer: 'The estimated number of marine mammals in the area was 1,800 when the study began.',
-          explanation: `<strong>Why this is correct:</strong> \\( t=0 \\) represents 0 years since the study began (the start of the study). Therefore, \\( P(0)=1,800 \\) means the population was 1,800 when the study began.` // [cite: 2394, 2395]
-        },
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'A manager is responsible for ordering supplies for a shaved ice shop. The shop\'s inventory starts with 4,500 paper cups, and the manager estimates that 70 of these paper cups are used each day. Based on this estimate, in how many days will the supply of paper cups reach 1,700?', // [cite: 1064, 1065, 1066]
-          options: ['\\( 20 \\)', '\\( 40 \\)', '\\( 60 \\)', '\\( 80 \\)'], // [cite: 1067, 1068, 1069, 1070]
-          correctAnswer: '\\( 40 \\)',
-          explanation: `<strong>Step-by-step:</strong> Let \\( x \\) represent the number of days. The equation is \\( 4,500 - 70x = 1,700 \\). Subtract 4,500 from both sides: \\( -70x = -2,800 \\). Divide by -70: \\( x = 40 \\).` // [cite: 2402]
-        },
-        {
-          category: 'math', type: 'multiple-choice',
-          text: 'Which expression is equivalent to \\( (x^2 + 11)^2 + (x - 5)(x + 5) \\)?', // [cite: 1094, 1095]
-          options: [
-            '\\( x^4 + 23x^2 - 14 \\)', // [cite: 1096]
-            '\\( x^4 + 23x^2 + 96 \\)', // [cite: 1097]
-            '\\( x^4 + 12x^2 + 121 \\)', // [cite: 1098]
-            '\\( x^4 + x^2 + 146 \\)' // [cite: 1099]
-          ],
-          correctAnswer: '\\( x^4 + 23x^2 + 96 \\)',
-          explanation: `<strong>Step-by-step:</strong> Expand \\( (x^2 + 11)^2 \\) to \\( x^4 + 22x^2 + 121 \\). Expand \\( (x - 5)(x + 5) \\) to \\( x^2 - 25 \\). Adding them together: \\( x^4 + 22x^2 + 121 + x^2 - 25 = x^4 + 23x^2 + 96 \\).` // [cite: 2420]
-        },
-        {
-          category: 'math', type: 'free-response',
-          text: 'A system of two linear equations has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?', // [cite: 1568, 1569, 1570, 1571]
-          correctAnswer: '-28',
-          explanation: `<strong>Step-by-step:</strong> Eq 1 becomes \\( 48x - 112y = 24 \\). Eq 2 becomes \\( 12x + ry = 1/8 \\). For the lines to be parallel (no solution), their coefficients must be proportional. To get from 48x to 12x, you multiply by 1/4. Applying this to y: \\( -112 \\times (1/4) = -28 \\). Thus, \\( r = -28 \\).` // [cite: 2771, 2772, 2773]
-        }
-      ]
-    };
-
+      // MODULE 1 & 2
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'What value of \\( p \\) is the solution to the given equation?<br><br> \\( (p + 3) + 8 = 10 \\)',
+        options: ['\\( -1 \\)', '\\( 5 \\)', '\\( 15 \\)', '\\( 21 \\)'],
+        correctAnswer: '\\( -1 \\)',
+        explanation: '<strong>Step-by-step:</strong> Simplify the left side by removing the parentheses to get \\( p + 11 = 10 \\). Subtract 11 from both sides to find \\( p = -1 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'What is the positive solution to the given equation?<br><br> \\( k^2 - 53 = 91 \\)',
+        options: ['\\( 144 \\)', '\\( 72 \\)', '\\( 38 \\)', '\\( 12 \\)'],
+        correctAnswer: '\\( 12 \\)',
+        explanation: '<strong>Step-by-step:</strong> Isolate the variable by adding 53 to both sides: \\( k^2 = 144 \\). Take the square root of both sides to get \\( k = \\pm 12 \\). The positive solution is 12.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation, where \\( s \\) is the cruising speed, in miles per hour, during this portion of the flight?',
+        options: ['\\( s \\le 20 \\)', '\\( s \\le 150 \\)', '\\( s \\le 170 \\)', '\\( 150 \\le s \\le 170 \\)'],
+        correctAnswer: '\\( 150 \\le s \\le 170 \\)',
+        explanation: '<strong>Why this is correct:</strong> The speed was at least 150 (\\( s \\ge 150 \\)) and at most 170 (\\( s \\le 170 \\)). Combining these bounds creates the compound inequality \\( 150 \\le s \\le 170 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A system of two linear equations in two variables, \\( x \\) and \\( y \\), has no solution. The first equation is \\( 48x - 64y = 48y + 24 \\). The second equation is \\( ry = \\frac{1}{8} - 12x \\). What is the value of \\( r \\)?',
+        correctAnswer: '-28',
+        explanation: '<strong>Step-by-step:</strong> A system has no solution if the lines are parallel (coefficients must be proportional). Convert Eq 1: \\( 48x - 112y = 24 \\). Convert Eq 2: \\( 12x + ry = \\frac{1}{8} \\). The proportion to get from \\( 48x \\) to \\( 12x \\) is multiplying by \\( \\frac{1}{4} \\). Apply this to the y-coefficient: \\( -112 \\times \\frac{1}{4} = -28 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'If \\( 5x + 3 = 18 \\), what is the value of \\( 10x + 6 \\) ?',
+        options: ['\\( 3 \\)', '\\( 15 \\)', '\\( 30 \\)', '\\( 36 \\)'],
+        correctAnswer: '\\( 36 \\)',
+        explanation: '<strong>Shortcut:</strong> Notice the relationship between the two expressions. \\( 10x + 6 \\) is exactly twice the value of \\( 5x + 3 \\). Therefore, simply multiply 18 by 2 to get 36.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'What is the y-intercept of the graph of \\( y = 4x + 12 \\) in the xy-plane?',
+        options: ['\\( (0, 4) \\)', '\\( (0, 12) \\)', '\\( (4, 0) \\)', '\\( (12, 0) \\)'],
+        correctAnswer: '\\( (0, 12) \\)',
+        explanation: '<strong>Step-by-step:</strong> The equation is in slope-intercept form, \\( y = mx + b \\), where \\( b \\) is the y-intercept. The y-intercept occurs where \\( x = 0 \\). Plugging in 0 yields \\( y = 12 \\). The coordinate is \\( (0, 12) \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( h \\) is defined by \\( h(x) = 8^x + 6 \\). What is the value of \\( h(2) \\)?',
+        options: ['\\( 22 \\)', '\\( 64 \\)', '\\( 70 \\)', '\\( 134 \\)'],
+        correctAnswer: '\\( 70 \\)',
+        explanation: '<strong>Step-by-step:</strong> Substitute 2 for x in the function: \\( h(2) = 8^2 + 6 \\). Evaluate the exponent to get \\( 64 + 6 \\), which equals \\( 70 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'If \\( 4x = 20 \\), what is the value of \\( x - 1 \\)?',
+        correctAnswer: '4',
+        explanation: '<strong>Step-by-step:</strong> Solve for x by dividing both sides of the equation by 4 to get \\( x = 5 \\). Then substitute 5 into the second expression: \\( 5 - 1 = 4 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( (x^2 + 11)^2 + (x - 5)(x + 5) \\)?',
+        options: ['\\( x^4 + 23x^2 - 14 \\)', '\\( x^4 + 23x^2 + 96 \\)', '\\( x^4 + 12x^2 + 121 \\)', '\\( x^4 + x^2 + 146 \\)'],
+        correctAnswer: '\\( x^4 + 23x^2 + 96 \\)',
+        explanation: '<strong>Step-by-step:</strong> Expand \\( (x^2 + 11)^2 \\) to get \\( x^4 + 22x^2 + 121 \\). Expand \\( (x - 5)(x + 5) \\) using the difference of squares to get \\( x^2 - 25 \\). Combine like terms: \\( x^4 + 22x^2 + x^2 + 121 - 25 = x^4 + 23x^2 + 96 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The relationship between two variables, \\( x \\) and \\( y \\), is linear. For every increase in the value of \\( x \\) by 1, the value of \\( y \\) increases by 8. When the value of \\( x \\) is 2, the value of \\( y \\) is 18. Which equation represents this relationship?',
+        options: ['\\( y = 2x + 18 \\)', '\\( y = 2x + 8 \\)', '\\( y = 8x + 2 \\)', '\\( y = 8x + 26 \\)'],
+        correctAnswer: '\\( y = 8x + 2 \\)',
+        explanation: '<strong>Step-by-step:</strong> The rate of change (slope) is 8. Using the point-slope form with point (2, 18): \\( y - 18 = 8(x - 2) \\). Distribute the 8: \\( y - 18 = 8x - 16 \\). Add 18 to both sides: \\( y = 8x + 2 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which of the following is a solution to the given equation?<br><br> \\( w^2 + 12w - 40 = 0 \\)',
+        options: ['\\( 6 - 2\\sqrt{19} \\)', '\\( 2\\sqrt{19} \\)', '\\( \\sqrt{19} \\)', '\\( -6 + 2\\sqrt{19} \\)'],
+        correctAnswer: '\\( -6 + 2\\sqrt{19} \\)',
+        explanation: '<strong>Step-by-step:</strong> Use the quadratic formula. \\( w = \\frac{-12 \\pm \\sqrt{144 - 4(1)(-40)}}{2} \\). This simplifies to \\( \\frac{-12 \\pm \\sqrt{304}}{2} \\). Since \\( \\sqrt{304} = 4\\sqrt{19} \\), the solutions are \\( -6 \\pm 2\\sqrt{19} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'If \\( 2x + 10 = 16 \\), what is the value of \\( 2x - 10 \\)?',
+        options: ['\\( -4 \\)', '\\( -3 \\)', '\\( 3 \\)', '\\( 4 \\)'],
+        correctAnswer: '\\( -4 \\)',
+        explanation: '<strong>Step-by-step:</strong> Subtract 10 from both sides of the given equation to isolate \\( 2x \\), yielding \\( 2x = 6 \\). Then substitute 6 into the second expression: \\( 6 - 10 = -4 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'If \\( f(3) = 6 \\) and \\( f(4) = 13 \\), then which of the following could be \\( f(x) \\)?',
+        options: ['\\( x + 3 \\)', '\\( 2x \\)', '\\( 3x + 1 \\)', '\\( x^2 - 3 \\)'],
+        correctAnswer: '\\( x^2 - 3 \\)',
+        explanation: '<strong>Why this is correct:</strong> Test the coordinate pairs (3, 6) and (4, 13) in the answer choices. For \\( x^2 - 3 \\), plugging in 3 yields \\( 3^2 - 3 = 6 \\). Plugging in 4 yields \\( 4^2 - 3 = 13 \\). Both points satisfy this function.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A rectangular box has a height of 4.5 inches and a base with an area of 18 square inches. What is the volume of the rectangular box in cubic inches?',
+        correctAnswer: '81',
+        explanation: '<strong>Step-by-step:</strong> The volume of a rectangular box is calculated by multiplying the area of the base by the height. \\( V = 18 \\times 4.5 = 81 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'If \\( 5x - 4 = x - 1 \\), what is the value of \\( x \\)?',
+        correctAnswer: '0.75', // Accepted alternative to 3/4 since user types it in
+        explanation: '<strong>Step-by-step:</strong> Subtract \\( x \\) from both sides to get \\( 4x - 4 = -1 \\). Add 4 to both sides to get \\( 4x = 3 \\). Divide by 4 to get \\( x = \\frac{3}{4} \\), or \\( 0.75 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The graphs of the equations in the given system intersect at the point \\( (x, y) \\) in the xy-plane. What is a possible value of \\( x \\)?<br><br>\\( 21x + y = 10 \\)<br>\\( 3x^2 = y + 170 \\)',
+        options: ['\\( -12 \\)', '\\( -5 \\)', '\\( 5 \\)', '\\( 12 \\)'],
+        correctAnswer: '\\( -12 \\)',
+        explanation: '<strong>Step-by-step:</strong> Isolate \\( y \\) in the first equation: \\( y = 10 - 21x \\). Substitute this into the second equation: \\( 3x^2 = (10 - 21x) + 170 \\). Rearrange into standard form: \\( 3x^2 + 21x - 180 = 0 \\). Divide by 3: \\( x^2 + 7x - 60 = 0 \\). Factor: \\( (x + 12)(x - 5) = 0 \\). The possible values for x are -12 and 5.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'An isosceles right triangle has a hypotenuse of length 64 inches. What is the perimeter, in inches, of this triangle?',
+        options: ['\\( 32\\sqrt{2} \\)', '\\( 64\\sqrt{2} \\)', '\\( 64 + 32\\sqrt{2} \\)', '\\( 64 + 64\\sqrt{2} \\)'],
+        correctAnswer: '\\( 64 + 64\\sqrt{2} \\)',
+        explanation: '<strong>Step-by-step:</strong> In a 45-45-90 triangle, the hypotenuse is \\( s\\sqrt{2} \\). So, \\( s\\sqrt{2} = 64 \\), which means the legs are \\( s = \\frac{64}{\\sqrt{2}} = 32\\sqrt{2} \\). The perimeter is the sum of all sides: \\( 32\\sqrt{2} + 32\\sqrt{2} + 64 \\), which simplifies to \\( 64 + 64\\sqrt{2} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For the given equation \\( r = \\frac{4s}{t-2} \\), which equation correctly expresses \\( s \\) in terms of \\( r \\) and \\( t \\)?',
+        options: ['\\( s = \\frac{r(t-2)}{4} \\)', '\\( s = \\frac{4r}{t-2} \\)', '\\( s = \\frac{4t}{r-2} \\)', '\\( s = \\frac{r+2}{4t} \\)'],
+        correctAnswer: '\\( s = \\frac{r(t-2)}{4} \\)',
+        explanation: '<strong>Step-by-step:</strong> Multiply both sides by \\( (t - 2) \\) to get \\( r(t - 2) = 4s \\). Then, divide both sides by 4 to isolate \\( s \\), yielding \\( s = \\frac{r(t-2)}{4} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'If \\( 3\\sqrt{x} = b \\), what is \\( x \\) in terms of \\( b \\)?',
+        options: ['\\( \\frac{b^2}{9} \\)', '\\( \\frac{b^2}{3} \\)', '\\( 9b^2 \\)', '\\( 3b^2 \\)'],
+        correctAnswer: '\\( \\frac{b^2}{9} \\)',
+        explanation: '<strong>Step-by-step:</strong> Isolate the square root by dividing both sides by 3: \\( \\sqrt{x} = \\frac{b}{3} \\). Then, square both sides to remove the radical: \\( x = \\frac{b^2}{9} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The minimum value of \\( a \\) is 7 less than 4 times another number \\( b \\). Which inequality shows the possible values of \\( a \\)?',
+        options: ['\\( a \\le 4b - 7 \\)', '\\( a \\ge 4b - 7 \\)', '\\( a \\le 7 - 4b \\)', '\\( a \\ge 7 - 4b \\)'],
+        correctAnswer: '\\( a \\ge 4b - 7 \\)',
+        explanation: '<strong>Why this is correct:</strong> "7 less than 4 times b" translates to \\( 4b - 7 \\). If this is the *minimum* value of \\( a \\), then \\( a \\) must be greater than or equal to this amount, hence \\( a \\ge 4b - 7 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The initial investment for a company was $20,000 in 2010. The model predicts that each year for the next 4 years, the value of the investment \\( v \\), in dollars, will increase by 5% of the previous year\'s investment value. Which equation best represents this model, where \\( x \\) is the number of years after 2010?',
+        options: ['\\( v = 0.95(20,000)^x \\)', '\\( v = 1.05(20,000)^x \\)', '\\( v = 20,000(0.95)^x \\)', '\\( v = 20,000(1.05)^x \\)'],
+        correctAnswer: '\\( v = 20,000(1.05)^x \\)',
+        explanation: '<strong>Why this is correct:</strong> This is an exponential growth equation. The starting amount is 20,000. An increase of 5% means the new value is 105% of the previous value, making the growth multiplier 1.05.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'How many even integers are there between 2 and 100, not including 2 and 100?',
+        correctAnswer: '48',
+        explanation: '<strong>Step-by-step:</strong> The first even integer is 4, and the last is 98. To find the number of integers in this arithmetic sequence, use the formula: \\( \\frac{Last - First}{Step} + 1 \\). That gives \\( \\frac{98 - 4}{2} + 1 \\), which equals \\( 47 + 1 = 48 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( \\frac{3}{6x-2} + \\frac{1}{1-2x} \\) ?',
+        options: ['\\( \\frac{4}{4x-1} \\)', '\\( \\frac{1}{(6x-2)(1-2x)} \\)', '\\( \\frac{3}{(6x-2)(1-2x)} \\)', '\\( \\frac{2}{(6x-2)(1-2x)} \\)'],
+        correctAnswer: '\\( \\frac{1}{(6x-2)(1-2x)} \\)',
+        explanation: '<strong>Step-by-step:</strong> Find a common denominator: \\( (6x-2)(1-2x) \\). Multiply the numerator of the first fraction by \\( (1-2x) \\) and the numerator of the second fraction by \\( (6x-2) \\). Adding them together: \\( 3(1-2x) + 1(6x-2) = 3 - 6x + 6x - 2 = 1 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'How many yards are equivalent to 1,116 inches? (1 yard = 36 inches)',
+        correctAnswer: '31',
+        explanation: '<strong>Step-by-step:</strong> Since 1 yard is equal to 36 inches, divide the total inches by 36: \\( \\frac{1,116}{36} = 31 \\). Therefore, it is equivalent to 31 yards.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The function \\( f(x) = 14 + 4x \\) represents the total cost, in dollars, of attending an arcade when \\( x \\) games are played. How many games can be played for a total cost of $58?',
+        correctAnswer: '11',
+        explanation: '<strong>Step-by-step:</strong> Substitute 58 for \\( f(x) \\): \\( 58 = 14 + 4x \\). Subtract 14 from both sides: \\( 44 = 4x \\). Divide by 4: \\( x = 11 \\). Therefore, 11 games can be played.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For the linear function \\( f \\), \\( b \\) is a constant. When \\( x = 0 \\), \\( f(x) = 30 \\). What is the value of \\( b \\) if \\( f(x) = x + b \\)?',
+        options: ['\\( -30 \\)', '\\( -\\frac{1}{30} \\)', '\\( \\frac{1}{30} \\)', '\\( 30 \\)'],
+        correctAnswer: '\\( 30 \\)',
+        explanation: '<strong>Step-by-step:</strong> Substitute 0 for \\( x \\) and 30 for \\( f(x) \\) in the given function: \\( 30 = 0 + b \\), which immediately simplifies to \\( 30 = b \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( P \\) defined by \\( P(t) = 1,800(1.02)^t \\) gives the estimated number of marine mammals in a certain area, where \\( t \\) is the number of years since a study began. What is the best interpretation of \\( P(0) = 1,800 \\) in this context?',
+        options: [
+          'The estimated number of marine mammals in the area was 102 when the study began.', 
+          'The estimated number of marine mammals in the area was 1,800 when the study began.', 
+          'The estimated number of marine mammals in the area increased by 102 each year during the study.', 
+          'The estimated number of marine mammals in the area increased by 1,800 each year during the study.'
+        ],
+        correctAnswer: 'The estimated number of marine mammals in the area was 1,800 when the study began.',
+        explanation: '<strong>Why this is correct:</strong> \\( t=0 \\) represents 0 years since the study began (the start of the study). Therefore, \\( P(0)=1,800 \\) means the population was exactly 1,800 when the study first started.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A manager is responsible for ordering supplies for a shaved ice shop. The shop\'s inventory starts with 4,500 paper cups, and the manager estimates that 70 of these paper cups are used each day. Based on this estimate, in how many days will the supply of paper cups reach 1,700?',
+        options: ['\\( 20 \\)', '\\( 40 \\)', '\\( 60 \\)', '\\( 80 \\)'],
+        correctAnswer: '\\( 40 \\)',
+        explanation: '<strong>Step-by-step:</strong> Let \\( x \\) represent the number of days. Set up the equation: \\( 4,500 - 70x = 1,700 \\). Subtract 4,500 from both sides: \\( -70x = -2,800 \\). Divide by -70 to find \\( x = 40 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For which of the following tables are all the values of \\( x \\) and their corresponding values of \\( y \\) solutions to the given inequality?<br><br> \\( y > 4x + 8 \\)',
+        options: [
+          'x=2, y=19 | x=4, y=30 | x=6, y=41', 
+          'x=2, y=8 | x=4, y=16 | x=6, y=24', 
+          'x=2, y=13 | x=4, y=18 | x=6, y=23', 
+          'x=2, y=13 | x=4, y=21 | x=6, y=29'
+        ],
+        correctAnswer: 'x=2, y=19 | x=4, y=30 | x=6, y=41',
+        explanation: '<strong>Step-by-step:</strong> Test the values. If \\( x=2 \\), \\( 4(2)+8 = 16 \\), so \\( y \\) must be greater than 16. Only the first option has a y-value (19) greater than 16. Checking the rest of the table confirms it: 30 > 24, and 41 > 32.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The only way to purchase Brand X muffins is to buy one or more boxes that each contain 6 muffins. Each box costs $1.50. If Alejandro needs at least 20 muffins, what is the least amount of money he could spend?',
+        correctAnswer: '6.00',
+        explanation: '<strong>Step-by-step:</strong> Since he needs at least 20 muffins and they come in boxes of 6, he must buy 4 boxes (3 boxes is only 18 muffins, which is not enough). 4 boxes multiplied by $1.50 per box equals $6.00.'
+      }
+    ];
+    
     /* ======================================================================
       APPLICATION & SMART SHUFFLE LOGIC
     ====================================================================== */
