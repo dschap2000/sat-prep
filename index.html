@@ -216,7 +216,8 @@
     .ref-section { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
     .ref-section h3 { margin-top: 0; font-size: 16px; color: var(--primary); }
     .formula { font-family: monospace; font-size: 16px; background: #f8fafc; padding: 5px; border-radius: 4px; display: block; margin-bottom: 5px;}
-    /* Custom Exit Modal Styles */
+    
+    /* Custom Modal Styles */
     .modal-overlay {
       display: none;
       position: fixed;
@@ -257,6 +258,7 @@
     .modal-discard:hover { background: #fed7d7; }
     .modal-cancel { background: #edf2f7; color: var(--text); border: 2px solid #cbd5e1; }
     .modal-cancel:hover { background: #e2e8f0; }
+
     /* --- ANNOTATION MENU STYLES --- */
     #annotation-menu {
       display: none;
@@ -286,7 +288,8 @@
   </style>
 </head>
 <body>
-<div id="exit-modal" class="modal-overlay">
+
+  <div id="exit-modal" class="modal-overlay">
     <div class="modal-content">
       <h2 style="margin-top: 0;">Return to Home</h2>
       <p>Would you like to save your current progress before leaving?</p>
@@ -297,9 +300,6 @@
       </div>
     </div>
   </div>
-  <div id="math-sidebar">
-    <button class="close-sidebar" onclick="toggleMathRef()">×</button>
-    <h2>SAT Math Reference</h2>
 
   <div id="reset-modal" class="modal-overlay">
     <div class="modal-content" id="reset-content-question">
@@ -310,6 +310,14 @@
         <button class="modal-btn modal-cancel" onclick="handleReset('cancel')">Cancel</button>
       </div>
     </div>
+    <div class="modal-content" id="reset-content-success" style="display: none;">
+      <h2 style="margin-top: 0; color: var(--success);">Memory Cleared!</h2>
+      <p>All questions are fresh and ready for practice.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-cancel" onclick="closeResetModal()">Awesome</button>
+      </div>
+    </div>
+  </div>
 
   <div id="save-modal" class="modal-overlay">
     <div class="modal-content">
@@ -320,15 +328,10 @@
       </div>
     </div>
   </div>
-    
-    <div class="modal-content" id="reset-content-success" style="display: none;">
-      <h2 style="margin-top: 0; color: var(--success);">Memory Cleared!</h2>
-      <p>All questions are fresh and ready for practice.</p>
-      <div class="modal-buttons">
-        <button class="modal-btn modal-cancel" onclick="closeResetModal()">Awesome</button>
-      </div>
-    </div>
-  </div>
+
+  <div id="math-sidebar">
+    <button class="close-sidebar" onclick="toggleMathRef()">×</button>
+    <h2>SAT Math Reference</h2>
     
     <div class="ref-section">
       <h3>Area (A) & Circumference (C)</h3>
@@ -361,6 +364,7 @@
       <button class="anno-btn anno-ul" onclick="applyAnnotation('underline')">Underline</button>
       <button class="anno-btn anno-clear" onclick="applyAnnotation('clear')">Clear</button>
     </div>
+    
     <div id="welcome-screen" class="card">
       <h1>SAT Practice Interactive</h1>
       <p>Select a practice module to begin. The Smart Memory Engine ensures you only see new questions until the bank is exhausted.</p>
@@ -2657,3 +2661,4 @@
   </script>
 </body>
 </html>
+}}
