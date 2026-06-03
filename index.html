@@ -1797,8 +1797,21 @@
           .toLowerCase();        
       };
 
-      const isCorrect = cleanText(userAnswer) === cleanText(q.correctAnswer);
+      let cleanUser = cleanText(userAnswer);
+      let cleanCorrect = cleanText(q.correctAnswer);
+      
+      let isCorrect = (cleanUser === cleanCorrect);
+
+      // Numeric Fallback: If they don't match as text, check if they match as values!
+      if (!isCorrect && !isNaN(cleanUser) && !isNaN(cleanCorrect)) {
+        // We only do this if both inputs are clean numbers (no letters/variables)
+        if (Number(cleanUser) === Number(cleanCorrect)) {
+          isCorrect = true;
+        }
+      }
+      
       if (isCorrect) score++;
+      // --------------------------------------
 
       const feedbackArea = document.getElementById('feedback-area');
       const statusTitle = document.getElementById('feedback-status');
