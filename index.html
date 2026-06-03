@@ -289,6 +289,17 @@
 </head>
 <body>
 
+  <div id="discard-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 style="margin-top: 0; color: var(--error);">Delete Saved Test?</h2>
+      <p>Are you sure you want to permanently delete this saved test?</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-discard" onclick="confirmDiscard()">Yes, Delete Test</button>
+        <button class="modal-btn modal-cancel" onclick="closeDiscardModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
   <div id="exit-modal" class="modal-overlay">
     <div class="modal-content">
       <h2 style="margin-top: 0;">Return to Home</h2>
@@ -2166,6 +2177,7 @@
     let score = 0;
     let currentSessionId = null;
     let currentMode = null;
+    let sessionToDelete = null;
 
     // Dynamically assign IDs so the app can track what has been seen
     window.onload = () => {
@@ -2358,9 +2370,9 @@
         delBtn.className = 'delete-btn';
         delBtn.innerText = 'Discard';
         delBtn.onclick = () => {
-          if(confirm('Are you sure you want to permanently delete this saved test?')) {
-            deleteSession(session.id);
-          }
+          // Open the custom modal and remember the ID
+          sessionToDelete = session.id;
+          document.getElementById('discard-modal').style.display = 'flex';
         };
 
         wrapper.appendChild(resumeBtn);
@@ -2383,6 +2395,19 @@
       savedSessions = savedSessions.filter(s => s.id !== id);
       localStorage.setItem('satSessions', JSON.stringify(savedSessions));
       renderInProgress();
+    }
+
+    function confirmDiscard() {
+      if (sessionToDelete) {
+        deleteSession(sessionToDelete);
+        sessionToDelete = null; // Clear it out after deleting
+      }
+      closeDiscardModal();
+    }
+
+    function closeDiscardModal() {
+      document.getElementById('discard-modal').style.display = 'none';
+      sessionToDelete = null;
     }
 
     function clearSessionOnComplete() {
