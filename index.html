@@ -260,7 +260,17 @@
   </style>
 </head>
 <body>
-
+<div id="exit-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 style="margin-top: 0;">Return to Home</h2>
+      <p>Would you like to save your current progress before leaving?</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-save" onclick="handleExit('save')">&#128190; Save & Return Home</button>
+        <button class="modal-btn modal-discard" onclick="handleExit('discard')">Return Without Saving</button>
+        <button class="modal-btn modal-cancel" onclick="handleExit('cancel')">Cancel (Stay on Quiz)</button>
+      </div>
+    </div>
+  </div>
   <div id="math-sidebar">
     <button class="close-sidebar" onclick="toggleMathRef()">×</button>
     <h2>SAT Math Reference</h2>
@@ -1699,9 +1709,23 @@
     }
 
     function promptReturnHome() {
-      const wantToSave = confirm("Would you like to save your current progress before returning to the home screen?");
-      if (wantToSave) saveSession(false);
-      
+      // Show the custom modal instead of the native browser popup
+      document.getElementById('exit-modal').style.display = 'flex';
+    }
+
+    function handleExit(action) {
+      // Hide the modal
+      document.getElementById('exit-modal').style.display = 'none';
+
+      if (action === 'cancel') {
+        return; // Do nothing, let the student stay right where they are
+      }
+
+      if (action === 'save') {
+        saveSession(false);
+      }
+
+      // If they chose 'save' or 'discard', return to the home screen
       document.getElementById('quiz-screen').style.display = 'none';
       document.getElementById('welcome-screen').style.display = 'block';
       renderInProgress();
