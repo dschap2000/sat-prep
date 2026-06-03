@@ -2656,28 +2656,35 @@
    // SMART MEMORY LOGIC
     function getSmartSubset(category, limit) {
       let seenIds = JSON.parse(localStorage.getItem('satSeenQuestions') || '[]');
+      let missedIds = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
       let bank = questionBank[category];
       
+      // 1. Prioritize missed questions from this category
+      let missedInCategory = bank.filter(q => missedIds.includes(q.id));
+      
+      // 2. Fallback to unseen questions
       let unseen = bank.filter(q => !seenIds.includes(q.id));
       
-      // If the bank is completely empty for this category, auto-reset it!
-      if (unseen.length === 0) {
-        alert(`You have answered every ${category} question in the bank! Resetting this section's memory so you can continue practicing.`);
-        seenIds = seenIds.filter(id => !id.startsWith(category));
-        unseen = [...bank]; 
+      let selected = [];
+      
+      // Fill the test with missed questions first
+      if (missedInCategory.length > 0) {
+        selected = shuffleArray(missedInCategory).slice(0, limit);
       }
       
-      unseen = shuffleArray(unseen);
+      // If we still have room in our limit, fill the rest with new unseen questions
+      if (selected.length < limit) {
+        let needed = limit - selected.length;
+        let newQuestions = shuffleArray(unseen).slice(0, needed);
+        selected = selected.concat(newQuestions);
+      }
       
-      // Grab up to the limit. If there are fewer left than the limit, just give a shorter test! No repeats!
-      let selected = unseen.slice(0, limit);
-      
-      // Record the newly selected questions as 'seen' in the browser
+      // Record new selections as seen
       let newlySeen = selected.map(q => q.id);
       let updatedSeen = [...new Set([...seenIds, ...newlySeen])];
       localStorage.setItem('satSeenQuestions', JSON.stringify(updatedSeen));
       
-      return selected; 
+      return selected;
     }
 
     function resetQuestionHistory() {
@@ -2920,6 +2927,20 @@
       } else {
         userAnswer = document.getElementById('fr-answer').value.trim();
         if (!userAnswer) { alert('Please type an answer!'); return; }
+      }
+
+      if (!isCorrect) {
+        // Track the incorrect ID
+        let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
+        if (!missedQuestions.includes(q.id)) {
+            missedQuestions.push(q.id);
+            localStorage.setItem('satMissedQuestions', JSON.stringify(missedQuestions));
+        }
+      } else {
+        // If they get it right, remove it from the 'missed' list in case it was there
+        let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
+        let updatedMissed = missedQuestions.filter(id => id !== q.id);
+        localStorage.setItem('satMissedQuestions', JSON.stringify(updatedMissed));
       }
 
       // --- STRICT MATCHING LOGIC (REJECTS UNSIMPLIFIED FRACTIONS) ---
