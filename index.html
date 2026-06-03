@@ -2514,7 +2514,13 @@
       document.querySelector('.utility-bar').style.display = 'none';
 
       document.getElementById('q-counter').innerText = 'Activity Complete';
-      document.getElementById('q-text').innerHTML = `<h2 style="text-align:center;">You scored ${score} out of ${activeQueue.length}!</h2>`;
+      
+      // --- ADDED LARGE TROPHY EMOJI HERE ---
+      document.getElementById('q-text').innerHTML = `
+        <div style="text-align: center; font-size: 80px; margin-bottom: 15px;">🏆</div>
+        <h2 style="text-align: center; margin-top: 0;">You scored ${score} out of ${activeQueue.length}!</h2>
+      `;
+      
       document.getElementById('input-area').innerHTML = '';
       document.getElementById('feedback-area').style.display = 'none';
       document.getElementById('submit-btn').style.display = 'none';
@@ -2530,6 +2536,7 @@
       };
       document.getElementById('input-area').appendChild(homeBtn);
     }
+    
     /* ======================================================================
       BLUEBOOK ANNOTATION TOOLS (HIGHLIGHT & UNDERLINE)
     ====================================================================== */
