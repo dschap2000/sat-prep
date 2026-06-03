@@ -2515,9 +2515,22 @@
 
       document.getElementById('q-counter').innerText = 'Activity Complete';
       
-      // --- ADDED LARGE TROPHY EMOJI HERE ---
+      // --- DYNAMIC EMOJI LOGIC ---
+      let emoji = '';
+      let scorePercentage = score / activeQueue.length;
+      
+      if (scorePercentage === 1.0) {
+        emoji = '🏆'; // 100% 
+      } else if (scorePercentage >= 0.9) {
+        emoji = '🥈'; // 90% or higher (9/10)
+      } else if (scorePercentage >= 0.8) {
+        emoji = '🥉'; // 80% or higher (8/10)
+      } else {
+        emoji = '👏'; // Default for other scores
+      }
+
       document.getElementById('q-text').innerHTML = `
-        <div style="text-align: center; font-size: 90px; margin-bottom: 15px;">🏆</div>
+        <div style="text-align: center; font-size: 90px; margin-bottom: 15px;">${emoji}</div>
         <h2 style="text-align: center; margin-top: 0;">You scored ${score} out of ${activeQueue.length}!</h2>
       `;
       
