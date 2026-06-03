@@ -2214,13 +2214,13 @@
       if (q.type === 'multiple-choice') {
         const selected = document.querySelector('input[name="answer"]:checked');
         if (!selected) { alert('Please select an answer!'); return; }
-        userAnswer = q.options[selected.value]; // Retrieves the text using the hidden number
+        userAnswer = q.options[selected.value]; 
       } else {
         userAnswer = document.getElementById('fr-answer').value.trim();
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      // --- NEW BULLETPROOF MATCHING LOGIC ---
+      // --- NEW BULLETPROOF MATCHING LOGIC (NOW WITH FRACTIONS!) ---
       const cleanText = (str) => {
         return String(str)
           .replace(/\\+\(/g, '') 
@@ -2234,15 +2234,29 @@
       
       let isCorrect = (cleanUser === cleanCorrect);
 
-      // Numeric Fallback: If they don't match as text, check if they match as values!
-      if (!isCorrect && !isNaN(cleanUser) && !isNaN(cleanCorrect)) {
-        // We only do this if both inputs are clean numbers (no letters/variables)
-        if (Number(cleanUser) === Number(cleanCorrect)) {
-          isCorrect = true;
+      // Fraction parsing helper
+      const parseValue = (str) => {
+        if (str.includes('/')) {
+          const [num, den] = str.split('/');
+          if (num && den && !isNaN(num) && !isNaN(den)) {
+            return Number(num) / Number(den);
+          }
+        }
+        return Number(str);
+      };
+
+      // Numeric Fallback: Handles decimals AND fractions like "3/4"
+      if (!isCorrect) {
+        let userVal = parseValue(cleanUser);
+        let correctVal = parseValue(cleanCorrect);
+        
+        if (!isNaN(userVal) && !isNaN(correctVal)) {
+          // Check if they are mathematically equal
+          if (Math.abs(userVal - correctVal) < 0.000001) {
+            isCorrect = true;
+          }
         }
       }
-      
-      if (isCorrect) score++;
       // --------------------------------------
 
       const feedbackArea = document.getElementById('feedback-area');
