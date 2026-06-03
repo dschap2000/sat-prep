@@ -300,6 +300,25 @@
   <div id="math-sidebar">
     <button class="close-sidebar" onclick="toggleMathRef()">×</button>
     <h2>SAT Math Reference</h2>
+
+  <div id="reset-modal" class="modal-overlay">
+    <div class="modal-content" id="reset-content-question">
+      <h2 style="margin-top: 0;">Reset Smart Memory</h2>
+      <p>Are you sure you want to clear the memory of seen questions? This will make all questions available as new again.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-discard" onclick="handleReset('confirm')">Yes, Reset Memory</button>
+        <button class="modal-btn modal-cancel" onclick="handleReset('cancel')">Cancel</button>
+      </div>
+    </div>
+    
+    <div class="modal-content" id="reset-content-success" style="display: none;">
+      <h2 style="margin-top: 0; color: var(--success);">Memory Cleared!</h2>
+      <p>All questions are fresh and ready for practice.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-cancel" onclick="closeResetModal()">Awesome</button>
+      </div>
+    </div>
+  </div>
     
     <div class="ref-section">
       <h3>Area (A) & Circumference (C)</h3>
