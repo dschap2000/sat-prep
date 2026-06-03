@@ -310,6 +310,16 @@
         <button class="modal-btn modal-cancel" onclick="handleReset('cancel')">Cancel</button>
       </div>
     </div>
+
+  <div id="save-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 style="margin-top: 0; color: var(--success);">Progress Saved!</h2>
+      <p>Your current session has been saved securely to your browser.</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-cancel" onclick="closeSaveModal()">Awesome</button>
+      </div>
+    </div>
+  </div>
     
     <div class="modal-content" id="reset-content-success" style="display: none;">
       <h2 style="margin-top: 0; color: var(--success);">Memory Cleared!</h2>
@@ -2283,9 +2293,16 @@
       savedSessions.push(sessionData);
       localStorage.setItem('satSessions', JSON.stringify(savedSessions));
 
-      if (showAlert) alert('Your progress has been saved securely to your browser!');
+      // Trigger the custom modal instead of the browser alert
+      if (showAlert) {
+        document.getElementById('save-modal').style.display = 'flex';
+      }
     }
-
+    
+    function closeSaveModal() {
+      document.getElementById('save-modal').style.display = 'none';
+    }
+    
     function promptReturnHome() {
       // Show the custom modal instead of the native browser popup
       document.getElementById('exit-modal').style.display = 'flex';
