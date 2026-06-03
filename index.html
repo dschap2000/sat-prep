@@ -2516,17 +2516,15 @@
       document.getElementById('q-counter').innerText = 'Activity Complete';
       
       // --- DYNAMIC EMOJI LOGIC ---
-      let emoji = '';
+      let emoji = '👏'; // Default for other scores
       let scorePercentage = score / activeQueue.length;
       
-      if (scorePercentage === 1.0) {
-        emoji = '🏆'; // 100% 
-      } else if (scorePercentage >= 0.9) {
+      if (scorePercentage >= 0.99) {
+        emoji = '🏆'; // 100% (10/10)
+      } else if (scorePercentage >= 0.89) {
         emoji = '🥈'; // 90% or higher (9/10)
-      } else if (scorePercentage >= 0.8) {
+      } else if (scorePercentage >= 0.79) {
         emoji = '🥉'; // 80% or higher (8/10)
-      } else {
-        emoji = '👏'; // Default for other scores
       }
 
       document.getElementById('q-text').innerHTML = `
