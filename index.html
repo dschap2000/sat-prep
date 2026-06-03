@@ -1573,32 +1573,31 @@
       document.getElementById('math-sidebar').classList.toggle('open');
     }
 
-    // SMART MEMORY LOGIC
+   // SMART MEMORY LOGIC
     function getSmartSubset(category, limit) {
       let seenIds = JSON.parse(localStorage.getItem('satSeenQuestions') || '[]');
       let bank = questionBank[category];
       
       let unseen = bank.filter(q => !seenIds.includes(q.id));
-      let seen = bank.filter(q => seenIds.includes(q.id));
       
-      unseen = shuffleArray(unseen);
-      seen = shuffleArray(seen);
-      
-      let selected = [];
-      
-      if (unseen.length >= limit) {
-        selected = unseen.slice(0, limit);
-      } else {
-        selected = [...unseen];
-        let needed = limit - unseen.length;
-        selected = selected.concat(seen.slice(0, needed));
+      // If the bank is completely empty for this category, auto-reset it!
+      if (unseen.length === 0) {
+        alert(`You have answered every ${category} question in the bank! Resetting this section's memory so you can continue practicing.`);
+        seenIds = seenIds.filter(id => !id.startsWith(category));
+        unseen = [...bank]; 
       }
       
+      unseen = shuffleArray(unseen);
+      
+      // Grab up to the limit. If there are fewer left than the limit, just give a shorter test! No repeats!
+      let selected = unseen.slice(0, limit);
+      
+      // Record the newly selected questions as 'seen' in the browser
       let newlySeen = selected.map(q => q.id);
       let updatedSeen = [...new Set([...seenIds, ...newlySeen])];
       localStorage.setItem('satSeenQuestions', JSON.stringify(updatedSeen));
       
-      return shuffleArray(selected); 
+      return selected; 
     }
 
     function resetQuestionHistory() {
