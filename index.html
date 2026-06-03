@@ -2210,10 +2210,30 @@
     }
 
     function resetQuestionHistory() {
-      if(confirm('Are you sure you want to clear the memory of seen questions? This will make all questions available as new again.')) {
+      // Reset the modal back to the question state in case they are opening it again
+      document.getElementById('reset-content-question').style.display = 'block';
+      document.getElementById('reset-content-success').style.display = 'none';
+      
+      // Show the modal overlay
+      document.getElementById('reset-modal').style.display = 'flex';
+    }
+
+    function handleReset(action) {
+      if (action === 'confirm') {
+        // Clear the memory
         localStorage.removeItem('satSeenQuestions');
-        alert('Smart Memory cleared! All questions are fresh.');
+        
+        // Swap out the modal text to show the success message
+        document.getElementById('reset-content-question').style.display = 'none';
+        document.getElementById('reset-content-success').style.display = 'block';
+      } else {
+        // They clicked cancel, so just close it
+        closeResetModal();
       }
+    }
+
+    function closeResetModal() {
+      document.getElementById('reset-modal').style.display = 'none';
     }
 
     /* ---------- CORE NAVIGATION ---------- */
