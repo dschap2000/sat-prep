@@ -257,6 +257,32 @@
     .modal-discard:hover { background: #fed7d7; }
     .modal-cancel { background: #edf2f7; color: var(--text); border: 2px solid #cbd5e1; }
     .modal-cancel:hover { background: #e2e8f0; }
+    /* --- ANNOTATION MENU STYLES --- */
+    #annotation-menu {
+      display: none;
+      position: absolute;
+      background: #1e293b;
+      padding: 5px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 9999;
+      gap: 5px;
+    }
+    .anno-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+    .anno-btn:hover { background: #334155; }
+    .anno-hl { border-bottom: 3px solid #fef08a; }
+    .anno-ul { text-decoration: underline; }
+    .anno-clear { color: #f87171; }
   </style>
 </head>
 <body>
@@ -301,7 +327,11 @@
   </div>
 
   <div class="container">
-    
+    <div id="annotation-menu">
+      <button class="anno-btn anno-hl" onclick="applyAnnotation('highlight')">Highlight</button>
+      <button class="anno-btn anno-ul" onclick="applyAnnotation('underline')">Underline</button>
+      <button class="anno-btn anno-clear" onclick="applyAnnotation('clear')">Clear</button>
+    </div>
     <div id="welcome-screen" class="card">
       <h1>SAT Practice Interactive</h1>
       <p>Select a practice module to begin. The Smart Memory Engine ensures you only see new questions until the bank is exhausted.</p>
@@ -1944,6 +1974,56 @@
         renderInProgress();
       };
       document.getElementById('input-area').appendChild(homeBtn);
+    }
+    /* ======================================================================
+      BLUEBOOK ANNOTATION TOOLS (HIGHLIGHT & UNDERLINE)
+    ====================================================================== */
+    const annoMenu = document.getElementById('annotation-menu');
+
+    // Listen for mouse release to check for selected text
+    document.addEventListener('mouseup', function(e) {
+      // Don't trigger if they are clicking the menu itself
+      if (annoMenu.contains(e.target)) return;
+
+      const selection = window.getSelection();
+      const selectedText = selection.toString().trim();
+      const qText = document.getElementById('q-text');
+
+      // Check if text is selected AND if the selection is inside the question block
+      if (selectedText.length > 0 && qText.contains(selection.anchorNode)) {
+        // Position the menu slightly above where the mouse was released
+        annoMenu.style.display = 'flex';
+        annoMenu.style.left = e.pageX + 'px';
+        annoMenu.style.top = (e.pageY - 50) + 'px';
+      } else {
+        // Hide the menu if they click away
+        annoMenu.style.display = 'none';
+      }
+    });
+
+    // The function that applies the styles
+    function applyAnnotation(type) {
+      // Temporarily turn on document editing to apply native formatting
+      document.designMode = "on";
+      
+      if (type === 'highlight') {
+        // Some browsers use hiliteColor, others use backColor for background highlighting
+        if (!document.execCommand("hiliteColor", false, "#fef08a")) {
+          document.execCommand("backColor", false, "#fef08a");
+        }
+      } else if (type === 'underline') {
+        document.execCommand("underline", false);
+      } else if (type === 'clear') {
+        document.execCommand("removeFormat", false);
+        document.execCommand("backColor", false, "transparent");
+      }
+
+      // Instantly turn editing back off so they can't delete the test text
+      document.designMode = "off";
+      
+      // Hide the menu and clear the blue selection highlight
+      annoMenu.style.display = 'none';
+      window.getSelection().removeAllRanges();
     }
   </script>
 </body>
