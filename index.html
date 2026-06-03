@@ -2186,6 +2186,87 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'A right circular cylinder has a volume of 432 cubic centimeters. The area of the base of the cylinder is 24 square centimeters. What is the height, in centimeters, of the cylinder?',
+        options: ['\\( 18 \\)', '\\( 24 \\)', '\\( 216 \\)', '\\( 10,368 \\)'],
+        correctAnswer: '\\( 18 \\)',
+        explanation: '<strong>Step-by-step:</strong> The volume, \\( V \\), of a right circular cylinder is given by the formula \\( V = \\pi r^2 h \\), where \\( \\pi r^2 \\) is the area of the base of the cylinder and \\( h \\) is the height. It is given that the volume is 432 and the area of the base is 24. Substituting 432 for \\( V \\) and 24 for the base area in the formula yields \\( 432 = 24h \\). Dividing both sides of this equation by 24 yields \\( h = 18 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'How many distinct real solutions does the given equation have?<br><br>\\( x^2 = -841 \\)',
+        options: ['Exactly one', 'Exactly two', 'Infinitely many', 'Zero'],
+        correctAnswer: 'Zero',
+        explanation: '<strong>Step-by-step:</strong> Since the square of any real number is always zero or positive, it can never be negative. Therefore, the given equation is not true for any real value of \\( x \\). It has zero distinct real solutions.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Line \\( k \\) is defined by \\( y = 7x + \\frac{1}{8} \\). Line \\( j \\) is perpendicular to line \\( k \\) in the xy-plane. What is the slope of line \\( j \\)?',
+        options: [
+          '\\( -8 \\)', 
+          '\\( -\\frac{1}{7} \\)', 
+          '\\( \\frac{1}{8} \\)', 
+          '\\( 7 \\)'
+        ],
+        correctAnswer: '\\( -\\frac{1}{7} \\)',
+        explanation: '<strong>Step-by-step:</strong> The equation for line \\( k \\) is in slope-intercept form (\\( y = mx + b \\)), which means its slope is 7. Because line \\( j \\) is perpendicular to line \\( k \\), its slope must be the negative reciprocal of 7. The negative reciprocal of 7 is \\( -\\frac{1}{7} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The table shows the linear relationship between the number of cars, \\( c \\), on a commuter train and the maximum number of passengers and crew, \\( p \\), that the train can carry.<br><br><table border="1" cellpadding="5" style="border-collapse:collapse; margin-top:10px; margin-bottom:15px; width:100%; max-width: 400px; text-align: center;"><tr><th>Number of cars (\\( c \\))</th><th>Maximum passengers/crew (\\( p \\))</th></tr><tr><td>3</td><td>174</td></tr><tr><td>5</td><td>284</td></tr><tr><td>10</td><td>559</td></tr></table><br>Which equation represents the linear relationship between \\( c \\) and \\( p \\)?',
+        options: [
+          '\\( 55c - p = -9 \\)', 
+          '\\( 55c - p = 9 \\)', 
+          '\\( 55p - c = -9 \\)', 
+          '\\( 55p - c = 9 \\)'
+        ],
+        correctAnswer: '\\( 55c - p = -9 \\)',
+        explanation: '<strong>Step-by-step:</strong> Because the relationship is linear, it can be represented by \\( p = mc + b \\). First, find the rate of change (\\( m \\)) using two points from the table: \\( \\frac{284 - 174}{5 - 3} = \\frac{110}{2} = 55 \\). Now substitute 55 for \\( m \\) and one of the points (like \\( c=3 \\) and \\( p=174 \\)) into the equation: \\( 174 = 55(3) + b \\). This yields \\( 174 = 165 + b \\), so \\( b = 9 \\). The equation is \\( p = 55c + 9 \\). To match the answer choices, rearrange the terms by subtracting \\( p \\) and \\( 9 \\) from both sides to get \\( 55c - p = -9 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'If \\( 4^{8c} = \\sqrt[3]{4^7} \\), what is the value of \\( c \\)?',
+        correctAnswer: '7/24',
+        explanation: '<strong>Step-by-step:</strong> A radical expression in the form \\( \\sqrt[m]{a^n} \\) can be rewritten with a fractional exponent as \\( a^{\\frac{n}{m}} \\). Therefore, the right side of the equation can be rewritten as \\( 4^{\\frac{7}{3}} \\). Since the bases are now the same, you can set the exponents equal to each other: \\( 8c = \\frac{7}{3} \\). Dividing both sides by 8 (which is the same as multiplying by \\( \\frac{1}{8} \\)) yields \\( c = \\frac{7}{24} \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The solution to the given system of equations is \\( (x, y) \\). What is the value of \\( 6(x - 2) \\)?<br><br>\\( (x - 2) - 4(y + 7) = 117 \\)<br>\\( (x - 2) + 4(y + 7) = 442 \\)',
+        correctAnswer: '1677',
+        explanation: '<strong>Step-by-step:</strong> Notice that the \\( y \\) terms in both equations are exactly the same but have opposite signs (\\( -4(y+7) \\) and \\( +4(y+7) \\)). By adding the two equations together vertically, the \\( y \\) terms perfectly cancel out, leaving \\( 2(x - 2) = 559 \\). The question asks for the value of \\( 6(x - 2) \\). Since \\( 6(x - 2) \\) is exactly three times larger than \\( 2(x - 2) \\), simply multiply both sides by 3 to get \\( 1677 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'In triangle ABC, angle B is a right angle. The length of side AB is \\( 10\\sqrt{37} \\) and the length of side BC is \\( 24\\sqrt{37} \\). What is the length of side AC?',
+        options: [
+          '\\( 14\\sqrt{37} \\)', 
+          '\\( 26\\sqrt{37} \\)', 
+          '\\( 34\\sqrt{37} \\)', 
+          '\\( 34\\sqrt{3} \\)'
+        ],
+        correctAnswer: '\\( 26\\sqrt{37} \\)',
+        explanation: '<strong>Step-by-step:</strong> Use the Pythagorean theorem (\\( a^2 + b^2 = c^2 \\)). The legs are \\( 10\\sqrt{37} \\) and \\( 24\\sqrt{37} \\). Plugging them in yields \\( (10\\sqrt{37})^2 + (24\\sqrt{37})^2 = c^2 \\). This simplifies to \\( 100(37) + 576(37) = c^2 \\). You can factor out the 37 to make addition easier: \\( 37(100 + 576) = c^2 \\), which becomes \\( 37(676) = c^2 \\). Taking the square root of both sides gives \\( c = \\sqrt{676} \\cdot \\sqrt{37} \\). Since the square root of 676 is 26, the length of the hypotenuse AC is \\( 26\\sqrt{37} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is defined by the given equation. The equation can be rewritten as \\( f(x) = (1 + \\frac{p}{100})^x \\), where \\( p \\) is a constant. Which of the following is closest to the value of \\( p \\)?<br><br>\\( f(x) = (1.84)^{\\frac{x}{4}} \\)',
+        options: ['\\( 16 \\)', '\\( 21 \\)', '\\( 46 \\)', '\\( 96 \\)'],
+        correctAnswer: '\\( 16 \\)',
+        explanation: '<strong>Step-by-step:</strong> Using the rules of exponents, the expression \\( (1.84)^{\\frac{x}{4}} \\) can be rewritten as \\( (1.84^{\\frac{1}{4}})^x \\). Calculating \\( 1.84^{\\frac{1}{4}} \\) (or the fourth root of 1.84) gives approximately 1.16467. Therefore, the function can be rewritten as \\( f(x) \\approx (1.16467)^x \\). Setting the bases equal yields \\( 1 + \\frac{p}{100} = 1.16467 \\). Subtracting 1 yields \\( \\frac{p}{100} = 0.16467 \\). Multiplying by 100 yields \\( p \\approx 16.467 \\). Of the choices provided, 16 is the closest value.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is defined by \\( f(x) = a\\sqrt{x + b} \\), where \\( a \\) and \\( b \\) are constants. In the xy-plane, the graph of \\( y = f(x) \\) passes through the point (-24, 0), and \\( f(24) < 0 \\). Which of the following must be true?',
+        options: [
+          '\\( f(0) = 24 \\)', 
+          '\\( f(0) = -24 \\)', 
+          '\\( a > b \\)', 
+          '\\( a < b \\)'
+        ],
+        correctAnswer: '\\( a < b \\)',
+        explanation: '<strong>Step-by-step:</strong> Since the graph passes through (-24, 0), we know \\( f(-24) = 0 \\). Substituting this into the function yields \\( 0 = a\\sqrt{-24 + b} \\). Because \\( f(24) < 0 \\), we know \\( a \\) cannot be 0. Thus, \\( -24 + b \\) must equal 0, meaning \\( b = 24 \\). The function is now \\( f(x) = a\\sqrt{x + 24} \\). We are also given that \\( f(24) < 0 \\). Substituting 24 yields \\( a\\sqrt{24 + 24} < 0 \\), or \\( a\\sqrt{48} < 0 \\). Since \\( \\sqrt{48} \\) is positive, \\( a \\) must be a negative number (\\( a < 0 \\)). Because \\( a \\) is a negative number and \\( b \\) is 24, it must be true that \\( a < b \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'Kaylani used fabric measuring 5 yards in length to make each suit for a men\'s choir. The relationship between the number of suits that Kaylani made, \\( x \\), and the total length of fabric that she purchased \\( y \\), in yards, is represented by the equation \\( y - 5x = 6 \\). What is the best interpretation of 6 in this context?',
         options: [
           'Kaylani made 6 suits.', 
