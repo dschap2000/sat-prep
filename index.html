@@ -216,6 +216,47 @@
     .ref-section { margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
     .ref-section h3 { margin-top: 0; font-size: 16px; color: var(--primary); }
     .formula { font-family: monospace; font-size: 16px; background: #f8fafc; padding: 5px; border-radius: 4px; display: block; margin-bottom: 5px;}
+    /* Custom Exit Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(2px);
+    }
+    .modal-content {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .modal-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 25px;
+    }
+    .modal-btn {
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .modal-save { background: var(--primary); color: white; }
+    .modal-save:hover { background: var(--primary-hover); }
+    .modal-discard { background: #fff5f5; color: var(--error); border: 2px solid #fed7d7; }
+    .modal-discard:hover { background: #fed7d7; }
+    .modal-cancel { background: #edf2f7; color: var(--text); border: 2px solid #cbd5e1; }
+    .modal-cancel:hover { background: #e2e8f0; }
   </style>
 </head>
 <body>
