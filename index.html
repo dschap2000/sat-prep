@@ -2394,12 +2394,12 @@
 
       // --- STRICT MATCHING LOGIC (REJECTS UNSIMPLIFIED FRACTIONS) ---
       
-      // Strip all spaces, LaTeX wrappers, and force lowercase
+      // Strip all spaces, COMMAS, LaTeX wrappers, and force lowercase
       const cleanText = (str) => {
         return String(str)
           .replace(/\\+\(/g, '') 
           .replace(/\\+\)/g, '') 
-          .replace(/\s+/g, '')   
+          .replace(/[\s,]+/g, '') // <-- Added comma here!
           .toLowerCase();        
       };
 
