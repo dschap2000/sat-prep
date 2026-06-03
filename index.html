@@ -2220,7 +2220,9 @@
         if (!userAnswer) { alert('Please type an answer!'); return; }
       }
 
-      // --- NEW BULLETPROOF MATCHING LOGIC (NOW WITH FRACTIONS!) ---
+      // --- STRICT MATCHING LOGIC (REJECTS UNSIMPLIFIED FRACTIONS) ---
+      
+      // Strip all spaces, LaTeX wrappers, and force lowercase
       const cleanText = (str) => {
         return String(str)
           .replace(/\\+\(/g, '') 
@@ -2233,31 +2235,67 @@
       let cleanCorrect = cleanText(q.correctAnswer);
       
       let isCorrect = (cleanUser === cleanCorrect);
+      let isUnsimplified = false;
 
-      // Fraction parsing helper
-      const parseValue = (str) => {
+      // Helper function to find the Greatest Common Divisor
+      const getGCD = (a, b) => {
+        a = Math.abs(a); 
+        b = Math.abs(b);
+        while (b) { 
+          let temp = b; 
+          b = a % b; 
+          a = temp; 
+        }
+        return a;
+      };
+
+      // Helper to parse fractions or decimals safely
+      const getDecimalValue = (str) => {
         if (str.includes('/')) {
-          const [num, den] = str.split('/');
-          if (num && den && !isNaN(num) && !isNaN(den)) {
-            return Number(num) / Number(den);
+          const parts = str.split('/');
+          const num = Number(parts[0]);
+          const den = Number(parts[1]);
+          if (!isNaN(num) && !isNaN(den) && den !== 0) {
+            return num / den;
           }
         }
         return Number(str);
       };
 
-      // Numeric Fallback: Handles decimals AND fractions like "3/4"
+      // Numeric Fallback: Checks math values AND fraction simplicity
       if (!isCorrect) {
-        let userVal = parseValue(cleanUser);
-        let correctVal = parseValue(cleanCorrect);
+        let isUserValidFormat = true;
+        let userVal = getDecimalValue(cleanUser);
+
+        // If the user typed a fraction, check if it is fully simplified
+        if (cleanUser.includes('/')) {
+          const parts = cleanUser.split('/');
+          const num = Number(parts[0]);
+          const den = Number(parts[1]);
+          
+          if (!isNaN(num) && !isNaN(den)) {
+             if (getGCD(num, den) !== 1) {
+                isUserValidFormat = false; // Flag as unsimplified
+             }
+          }
+        }
+
+        let correctVal = getDecimalValue(cleanCorrect);
         
+        // Mark correct ONLY if the math matches AND the fraction is simplified
         if (!isNaN(userVal) && !isNaN(correctVal)) {
-          // Check if they are mathematically equal
           if (Math.abs(userVal - correctVal) < 0.000001) {
-            isCorrect = true;
+            if (isUserValidFormat) {
+              isCorrect = true;
+            } else {
+              // They got the math right, but didn't simplify it
+              isUnsimplified = true;
+            }
           }
         }
       }
-      // --------------------------------------
+
+      // --- FEEDBACK & UI UPDATES ---
 
       const feedbackArea = document.getElementById('feedback-area');
       const statusTitle = document.getElementById('feedback-status');
@@ -2268,6 +2306,9 @@
       if (isCorrect) {
         statusTitle.innerText = '✅ Correct!';
         statusTitle.style.color = 'var(--success)';
+      } else if (isUnsimplified) {
+        statusTitle.innerHTML = `❌ Almost! Your fraction is not simplified. The fully simplified answer is: <strong>${q.correctAnswer}</strong>`;
+        statusTitle.style.color = 'var(--error)';
       } else {
         statusTitle.innerHTML = `❌ Incorrect. The correct answer is: <strong>${q.correctAnswer}</strong>`;
         statusTitle.style.color = 'var(--error)';
