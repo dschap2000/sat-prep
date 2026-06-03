@@ -1501,6 +1501,18 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( \\frac{42a}{k} + 42ak \\), where \\( k > 0 \\)?',
+        options: [
+          '\\( \\frac{84a}{k} \\)', 
+          '\\( \\frac{84ak^2}{k} \\)', 
+          '\\( \\frac{42a(k + 1)}{k} \\)', 
+          '\\( \\frac{42a(k^2 + 1)}{k} \\)'
+        ],
+        correctAnswer: '\\( \\frac{42a(k^2 + 1)}{k} \\)',
+        explanation: '<strong>Step-by-step:</strong> Two fractions can be added together when they have a common denominator. Since \\( k > 0 \\), multiply the second term by \\( \\frac{k}{k} \\) to get \\( \\frac{42ak^2}{k} \\). The expression can now be written as \\( \\frac{42a}{k} + \\frac{42ak^2}{k} \\), which combines to \\( \\frac{42a + 42ak^2}{k} \\). Since each term in the numerator has a factor of \\( 42a \\), you can factor it out to get \\( \\frac{42a(1 + k^2)}{k} \\), which is equivalent to \\( \\frac{42a(k^2 + 1)}{k} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'The minimum value of \\( a \\) is 7 less than 4 times another number \\( b \\). Which inequality shows the possible values of \\( a \\)?',
         options: ['\\( a \\le 4b - 7 \\)', '\\( a \\ge 4b - 7 \\)', '\\( a \\le 7 - 4b \\)', '\\( a \\ge 7 - 4b \\)'],
         correctAnswer: '\\( a \\ge 4b - 7 \\)',
