@@ -1649,6 +1649,30 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'In the xy-plane, a circle has center \\( C \\) with coordinates \\( (h, k) \\). Points \\( A \\) and \\( B \\) lie on the circle. Point \\( A \\) has coordinates \\( (h + 1, k + \\sqrt{102}) \\), and \\( \\angle ACB \\) is a right angle. What is the length of \\( AB \\)?',
+        options: [
+          '\\( \\sqrt{206} \\)', 
+          '\\( \\sqrt{2} \\cdot 102 \\)', 
+          '\\( 103\\sqrt{2} \\)', 
+          '\\( 103 \\)'
+        ],
+        correctAnswer: '\\( \\sqrt{206} \\)',
+        explanation: '<strong>Step-by-step:</strong> Points \\( A \\) and \\( B \\) lie on the circle, so \\( AC \\) and \\( BC \\) are radii. Using the distance formula between \\( A(h+1, k+\\sqrt{102}) \\) and \\( C(h, k) \\):<br>\\( AC = \\sqrt{((h+1)-h)^2 + ((k+\\sqrt{102})-k)^2} \\)<br>\\( AC = \\sqrt{1^2 + (\\sqrt{102})^2} = \\sqrt{1 + 102} = \\sqrt{103} \\).<br>Since \\( \\triangle ACB \\) is a right triangle with legs of length \\( \\sqrt{103} \\), we use the Pythagorean theorem: \\( AB^2 = AC^2 + BC^2 \\).<br>\\( AB^2 = (\\sqrt{103})^2 + (\\sqrt{103})^2 = 103 + 103 = 206 \\).<br>Thus, \\( AB = \\sqrt{206} \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The scatterplot shows the relationship between two variables, \\( x \\) and \\( y \\), for data set E. Data set F is created by multiplying the y-coordinate of each data point from data set E by 3.9. Which of the following could be an equation of a line of best fit for data set F?<br><br><img src="data-set-E.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
+        options: [
+          '\\( y = 46.8 + 5.9x \\)', 
+          '\\( y = 46.8 + 1.5x \\)', 
+          '\\( y = 12 + 5.9x \\)', 
+          '\\( y = 12 + 1.5x \\)'
+        ],
+        correctAnswer: '\\( y = 46.8 + 5.9x \\)',
+        explanation: '<strong>Step-by-step:</strong> Let the line of best fit for data set E be \\( y = mx + b \\). From the graph, the y-intercept \\( b \\) is approximately 12 and the slope \\( m \\) is approximately 1.5 (using points like (0, 12) and (2, 15)).<br><br>Data set F multiplies all y-coordinates by 3.9. This scales both the y-intercept and the slope by 3.9:<br>New y-intercept: \\( 12 \\times 3.9 = 46.8 \\)<br>New slope: \\( 1.5 \\times 3.9 = 5.85 \\)<br><br>Rounding the slope, the equation becomes \\( y = 46.8 + 5.85x \\), which is closest to \\( y = 46.8 + 5.9x \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'An object was launched upward from a platform. The graph shown models the height above ground, \\( y \\), in meters, of the object \\( x \\) seconds after it was launched. For which of the following intervals of time was the height of the object increasing for the entire interval?<br><br><img src="launched-object-graph.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
         options: [
           'From \\( x = 0 \\) to \\( x = 2 \\)', 
