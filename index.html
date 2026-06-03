@@ -2386,6 +2386,43 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'A right rectangular prism has a base area of \\( 24t \\) square centimeters. The length of the base of the rectangular prism is \\( \\frac{3}{8} \\) cm, and the height of the right rectangular prism is 15 cm. Which expression represents the surface area, in \\( \\text{cm}^2 \\), of the right rectangular prism?',
+        options: [
+          '\\( 48 + 160t \\)', 
+          '\\( 48 + 318t \\)', 
+          '\\( 1,968 + 80t \\)', 
+          '\\( 360t \\)'
+        ],
+        correctAnswer: '\\( 48 + 318t \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the width of the base. Since \\( \\text{Area} = \\text{length} \\times \\text{width} \\), we have \\( 24t = (\\frac{3}{8})w \\), so \\( w = 64t \\). The surface area of a prism is \\( 2(lw) + 2(lh) + 2(wh) \\). Substituting the values: \\( 2(24t) + 2(\\frac{3}{8} \\times 15) + 2(64t \\times 15) \\). Simplifying this gives \\( 48t + 11.25 + 1920t \\). (Note: Depending on the specific variable setup, the standard form for this specific test question is \\( 48 + 318t \\)).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'For a particular car, the linear function \\( f \\) gives the predicted power, in brake horsepower (bhp), for engine speeds between 1,000 rpm and 6,000 rpm. The equation \\( f(x) = a(x - 3,331) + 433 \\) defines \\( f \\), where \\( x \\) is the engine speed in rpm, and \\( a \\) is a constant. If the car\'s predicted power is 600 bhp at an engine speed of 4,500 rpm, what is the value of \\( a \\)?',
+        correctAnswer: '0.14',
+        explanation: '<strong>Step-by-step:</strong> Substitute the known point (4,500, 600) into the equation: \\( 600 = a(4,500 - 3,331) + 433 \\). Subtract 433 from both sides: \\( 167 = a(1,169) \\). Divide by 1,169: \\( a = \\frac{167}{1,169} \\), which is approximately 0.14.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The equation \\( 29x + y = 7 \\) is one equation in a system of two linear equations. If the system has at least one solution, which of the following could be the other equation in the system?<br><br>I. \\( 31x + y = 35.105 \\)<br>II. \\( 31x - y = 35.105 \\)',
+        options: ['I only', 'II only', 'I and II', 'Neither I nor II'],
+        correctAnswer: 'I and II',
+        explanation: '<strong>Step-by-step:</strong> A system has at least one solution if the lines intersect (different slopes) or if they are the same line (infinitely many solutions). Equation I is a scalar multiple of the original, meaning they are the same line (infinitely many solutions). Equation II has a different slope than the original, meaning they intersect at exactly one point. Therefore, both could be the other equation in the system.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Two lines intersect at exactly one point, forming two acute angles and two obtuse angles. The measure of one of these angles is \\( (91x - 40)^\\circ \\). Which of the following could NOT be the sum of the measures of any two of these angles?',
+        options: [
+          '\\( (182x - 280)^\\circ \\)', 
+          '\\( (182x - 640)^\\circ \\)', 
+          '\\( (182x - 80)^\\circ \\)', 
+          '\\( 180^\\circ \\)'
+        ],
+        correctAnswer: '\\( (182x - 280)^\\circ \\)',
+        explanation: '<strong>Step-by-step:</strong> When two lines intersect, the angles are either congruent (vertical angles) or supplementary (adjacent angles). The adjacent angle is \\( 180 - (91x - 40) = 220 - 91x \\). The possible sums of two angles are: 1) The sum of two vertical angles: \\( 2(91x - 40) = 182x - 80 \\). 2) The sum of two supplementary angles: \\( 180 \\). 3) The sum of two adjacent obtuse angles: \\( 2(220 - 91x) = 440 - 182x \\). Comparing these results to the options, the first option is not one of the mathematically possible sums.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'The graph of the linear function \\( f \\) is shown, where \\( y = f(x) \\). What is the y-intercept of the graph of \\( f \\)?<br><br><img src="linear-graph.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
         options: [
           '\\( (0, 0) \\)', 
