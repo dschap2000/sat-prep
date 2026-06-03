@@ -1531,6 +1531,56 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'Rectangles ABCD and EFGH are similar. The length of each side of EFGH is 6 times the length of the corresponding side of ABCD. The area of ABCD is 54 square units. What is the area, in square units, of EFGH?',
+        options: [
+          '\\( 9 \\)', 
+          '\\( 36 \\)', 
+          '\\( 324 \\)', 
+          '\\( 1,944 \\)'
+        ],
+        correctAnswer: '\\( 1,944 \\)',
+        explanation: '<strong>Step-by-step:</strong> Let the dimensions of ABCD be \\( b \\) and \\( h \\), so its area is \\( bh = 54 \\). The dimensions of EFGH are 6 times as large, so its base is \\( 6b \\) and its height is \\( 6h \\). The area of EFGH is \\( (6b)(6h) = 36bh \\). Substituting 54 for \\( bh \\), the area of EFGH is \\( 36(54) = 1,944 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( P \\) models the population, in thousands, of a certain city \\( t \\) years after 2003. According to the model, the population is predicted to increase by 4% every \\( n \\) months. What is the value of \\( n \\)?<br><br>\\( P(t) = 260(1.04)^{\\frac{6}{4}t} \\)',
+        options: ['\\( 8 \\)', '\\( 12 \\)', '\\( 18 \\)', '\\( 72 \\)'],
+        correctAnswer: '\\( 8 \\)',
+        explanation: '<strong>Step-by-step:</strong> The base of 1.04 means a 4% increase occurs every time the exponent equals 1. Set the exponent equal to 1: \\( \\frac{6}{4}t = 1 \\). Multiply both sides by \\( \\frac{4}{6} \\) to get \\( t = \\frac{4}{6} = \\frac{2}{3} \\). This means the population increases by 4% every \\( \\frac{2}{3} \\) of a year. Since there are 12 months in a year, multiply \\( \\frac{2}{3} \\times 12 \\) to get 8 months. Therefore, \\( n = 8 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A circle in the xy-plane has its center at (-1, 1). Line \\( t \\) is tangent to this circle at the point (5, -4). Which of the following points also lies on line \\( t \\)?',
+        options: [
+          '\\( (0, \\frac{6}{5}) \\)', 
+          '\\( (4, 7) \\)', 
+          '\\( (10, 2) \\)', 
+          '\\( (11, 1) \\)'
+        ],
+        correctAnswer: '\\( (10, 2) \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the slope of the radius connecting the center (-1, 1) to the tangent point (5, -4). The slope formula is \\( \\frac{y_2 - y_1}{x_2 - x_1} \\), which gives \\( \\frac{-4 - 1}{5 - (-1)} = -\\frac{5}{6} \\). A tangent line is perpendicular to the radius at the point of tangency, so the slope of line \\( t \\) is the negative reciprocal, which is \\( \\frac{6}{5} \\). Since line \\( t \\) passes through (5, -4) with a slope of \\( \\frac{6}{5} \\), we can check the answer choices by finding which point creates that same slope with (5, -4). For Option C (10, 2): \\( \\frac{2 - (-4)}{10 - 5} = \\frac{6}{5} \\). This matches, so (10, 2) lies on line \\( t \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which quadratic equation has no real solutions?',
+        options: [
+          '\\( x^2 + 14x - 49 = 0 \\)', 
+          '\\( x^2 - 14x + 49 = 0 \\)', 
+          '\\( 5x^2 - 14x - 49 = 0 \\)', 
+          '\\( 5x^2 - 14x + 49 = 0 \\)'
+        ],
+        correctAnswer: '\\( 5x^2 - 14x + 49 = 0 \\)',
+        explanation: '<strong>Step-by-step:</strong> The number of real solutions to a quadratic equation \\( ax^2 + bx + c = 0 \\) is determined by its discriminant, \\( b^2 - 4ac \\). If the discriminant is less than zero, there are no real solutions. For the equation \\( 5x^2 - 14x + 49 = 0 \\), the discriminant is \\( (-14)^2 - 4(5)(49) = 196 - 980 = -784 \\). Since -784 is negative, this equation has no real solutions.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'If \\( 4\\sqrt{2x} = 16 \\), what is the value of \\( 6x \\)?',
+        options: ['\\( 24 \\)', '\\( 48 \\)', '\\( 72 \\)', '\\( 96 \\)'],
+        correctAnswer: '\\( 48 \\)',
+        explanation: '<strong>Step-by-step:</strong> First, divide each side of the given equation by 4 to get \\( \\sqrt{2x} = 4 \\). Next, square both sides of the equation to remove the radical, which yields \\( 2x = 16 \\). Finally, multiply each side of this equation by 3 to find \\( 6x = 48 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'What is the y-intercept of the graph of \\( y = 4x + 12 \\) in the xy-plane?',
         options: ['\\( (0, 4) \\)', '\\( (0, 12) \\)', '\\( (4, 0) \\)', '\\( (12, 0) \\)'],
         correctAnswer: '\\( (0, 12) \\)',
