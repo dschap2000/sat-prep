@@ -262,13 +262,16 @@
     /* --- ANNOTATION MENU STYLES --- */
     #annotation-menu {
       display: none;
-      position: absolute;
+      position: fixed; /* Changed from absolute */
+      bottom: 40px; /* Locks it to the bottom of the screen */
+      left: 50%; /* Centers it horizontally */
+      transform: translateX(-50%); /* Keeps it perfectly centered */
       background: #1e293b;
-      padding: 5px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      padding: 10px 15px;
+      border-radius: 50px; /* Gives it a sleek pill shape */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
       z-index: 9999;
-      gap: 5px;
+      gap: 10px;
     }
     .anno-btn {
       background: transparent;
@@ -2656,10 +2659,8 @@
 
       // Check if text is selected AND if the selection is inside the question block
       if (selectedText.length > 0 && qText.contains(selection.anchorNode)) {
-        // Position the menu slightly above where the mouse was released
+        // Just show the menu! CSS handles the fixed positioning now.
         annoMenu.style.display = 'flex';
-        annoMenu.style.left = e.pageX + 'px';
-        annoMenu.style.top = (e.pageY - 50) + 'px';
       } else {
         // Hide the menu if they click away
         annoMenu.style.display = 'none';
