@@ -1761,6 +1761,48 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'Circle A (shown) is defined by the equation \\( (x + 2)^2 + y^2 = 9 \\). Circle B (not shown) is the result of shifting circle A down 6 units and increasing the radius so that the radius of circle B is 2 times the radius of circle A. Which equation defines circle B?<br><br><img src="circle-graph.png" style="width: 100%; max-width: 400px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
+        options: [
+          '\\( (x + 2)^2 + (y + 6)^2 = (4)(9) \\)', 
+          '\\( 2(x + 2)^2 + 2(y + 6)^2 = 9 \\)', 
+          '\\( (x + 2)^2 + (y - 6)^2 = (4)(9) \\)', 
+          '\\( 2(x + 2)^2 + 2(y - 6)^2 = 9 \\)'
+        ],
+        correctAnswer: '\\( (x + 2)^2 + (y + 6)^2 = (4)(9) \\)',
+        explanation: '<strong>Step-by-step:</strong> According to the original equation \\( (x - h)^2 + (y - k)^2 = r^2 \\), the center of circle A is (-2, 0), and its radius is \\( \\sqrt{9} = 3 \\). Shifting the circle down 6 units changes the y-coordinate of the center from 0 to -6, making the new center (-2, -6). This changes the equation\'s left side to \\( (x + 2)^2 + (y + 6)^2 \\). Increasing the radius to 2 times its original size makes the new radius \\( 2(3) = 6 \\). Squaring this new radius gives the right side of the equation: \\( 6^2 = 36 \\). Note that \\( (4)(9) \\) is equal to 36. Therefore, the equation for circle B is \\( (x + 2)^2 + (y + 6)^2 = (4)(9) \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<em>Note: Figure not drawn to scale.</em><br><br>Right triangle ABC is shown. What is the value of \\( \\tan A \\)?<br><br><img src="tan-triangle-graph.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
+        options: [
+          '\\( \\frac{\\sqrt{3}}{54} \\)', 
+          '\\( \\frac{1}{\\sqrt{3}} \\)', 
+          '\\( \\sqrt{3} \\)', 
+          '\\( 27\\sqrt{3} \\)'
+        ],
+        correctAnswer: '\\( \\sqrt{3} \\)',
+        explanation: '<strong>Step-by-step:</strong> In the right triangle shown, angle B is 30&deg; and angle C is 90&deg;, which means angle A must be 60&deg; (since angles in a triangle sum to 180&deg;). The tangent of an angle is the ratio of the opposite leg to the adjacent leg (\\( \\frac{\\text{Opposite}}{\\text{Adjacent}} \\)). We are looking for \\( \\tan A \\), which is \\( \\tan(60^\\circ) \\). In any 30-60-90 triangle, the sides are in the ratio \\( 1 : \\sqrt{3} : 2 \\). The side opposite the 60&deg; angle is \\( x\\sqrt{3} \\), and the side adjacent is \\( x \\). Therefore, \\( \\tan(60^\\circ) = \\frac{x\\sqrt{3}}{x} = \\sqrt{3} \\). You do not even need to calculate the actual side lengths to find this ratio!'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'At the time that an article was first featured on the home page of a news website, there were 40 comments on the article. An exponential model estimates that at the end of each hour after the article was first featured on the home page, the number of comments on the article had increased by 190% of the number of comments on the article at the end of the previous hour. Which of the following equations best represents this model, where \\( C \\) is the estimated number of comments on the article \\( t \\) hours after the article was first featured on the home page and \\( t \\le 4 \\)?',
+        options: [
+          '\\( C = 40(1.19)^t \\)', 
+          '\\( C = 40(1.9)^t \\)', 
+          '\\( C = 40(19)^t \\)', 
+          '\\( C = 40(2.9)^t \\)'
+        ],
+        correctAnswer: '\\( C = 40(2.9)^t \\)',
+        explanation: '<strong>Step-by-step:</strong> The starting value is 40. The number of comments increases *by* 190% each hour. This means the new amount is the original 100% *plus* an additional 190%, totaling 290% of the previous hour\'s amount. Converting 290% to a decimal multiplier gives 2.9. The exponential equation is therefore \\( C = 40(2.9)^t \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'In right triangle ABC, angle C is the right angle and \\( BC = 162 \\). Point D on side AB is connected by a line segment with point E on side AC such that line segment DE is parallel to side BC and \\( CE = 2AE \\). What is the length of line segment DE?',
+        correctAnswer: '54',
+        explanation: '<strong>Step-by-step:</strong> Because DE is parallel to BC, triangle ADE is similar to triangle ABC. This means their side lengths are proportional. Side AC is made up of AE and CE. Since \\( CE = 2AE \\), the total length of \\( AC = AE + 2AE = 3AE \\). This means the small triangle (ADE) is exactly one-third the size of the large triangle (ABC), because \\( AE \\) is \\( \\frac{1}{3} \\) of \\( AC \\). The base of the large triangle (BC) is 162. Since the triangles are similar, the base of the small triangle (DE) is also one-third of BC. Calculate \\( \\frac{162}{3} = 54 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'Which expression is equivalent to \\( \\frac{42a}{k} + 42ak \\), where \\( k > 0 \\)?',
         options: [
           '\\( \\frac{84a}{k} \\)', 
