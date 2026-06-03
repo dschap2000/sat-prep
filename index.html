@@ -2994,108 +2994,110 @@
     }
 
     function checkAnswer() {
-      const q = activeQueue[currentIndex];
-      let userAnswer = '';
+      try {
+        const q = activeQueue[currentIndex];
+        let userAnswer = '';
 
-      // 1. Get the user's input
-      if (q.type === 'multiple-choice') {
-        const selected = document.querySelector('input[name="answer"]:checked');
-        if (!selected) { alert('Please select an answer!'); return; }
-        userAnswer = q.options[selected.value]; 
-      } else {
-        userAnswer = document.getElementById('fr-answer').value.trim();
-        if (!userAnswer) { alert('Please type an answer!'); return; }
-      }
-
-      // 2. Perform the matching logic
-      const cleanText = (str) => {
-        return String(str)
-          .replace(/\\+\(/g, '') 
-          .replace(/\\+\)/g, '') 
-          .replace(/[\s,]+/g, '')
-          .toLowerCase();        
-      };
-
-      let cleanUser = cleanText(userAnswer);
-      let cleanCorrect = cleanText(q.correctAnswer);
-      
-      let isCorrect = (cleanUser === cleanCorrect);
-      let isUnsimplified = false;
-
-      // Numeric fallback for math questions
-      const getGCD = (a, b) => {
-        a = Math.abs(a); b = Math.abs(b);
-        while (b) { let temp = b; b = a % b; a = temp; }
-        return a;
-      };
-
-      const getDecimalValue = (str) => {
-        if (str.includes('/')) {
-          const parts = str.split('/');
-          const num = Number(parts[0]);
-          const den = Number(parts[1]);
-          if (!isNaN(num) && !isNaN(den) && den !== 0) return num / den;
+        if (q.type === 'multiple-choice') {
+          const selected = document.querySelector('input[name="answer"]:checked');
+          if (!selected) { alert('Please select an answer!'); return; }
+          userAnswer = q.options[selected.value]; 
+        } else {
+          userAnswer = document.getElementById('fr-answer').value.trim();
+          if (!userAnswer) { alert('Please type an answer!'); return; }
         }
-        return Number(str);
-      };
 
-      if (!isCorrect) {
-        let isUserValidFormat = true;
-        let userVal = getDecimalValue(cleanUser);
-        if (cleanUser.includes('/')) {
-          const parts = cleanUser.split('/');
-          if (getGCD(Number(parts[0]), Number(parts[1])) !== 1) isUserValidFormat = false;
+        // Logic continues...
+        const cleanText = (str) => {
+          return String(str)
+            .replace(/\\+\(/g, '') 
+            .replace(/\\+\)/g, '') 
+            .replace(/[\s,]+/g, '')
+            .toLowerCase();        
+        };
+
+        let cleanUser = cleanText(userAnswer);
+        let cleanCorrect = cleanText(q.correctAnswer);
+        let isCorrect = (cleanUser === cleanCorrect);
+        let isUnsimplified = false;
+
+        // Numeric fallback logic
+        const getGCD = (a, b) => {
+          a = Math.abs(a); b = Math.abs(b);
+          while (b) { let temp = b; b = a % b; a = temp; }
+          return a;
+        };
+
+        const getDecimalValue = (str) => {
+          if (str.includes('/')) {
+            const parts = str.split('/');
+            const num = Number(parts[0]);
+            const den = Number(parts[1]);
+            if (!isNaN(num) && !isNaN(den) && den !== 0) return num / den;
+          }
+          return Number(str);
+        };
+
+        if (!isCorrect) {
+          let isUserValidFormat = true;
+          let userVal = getDecimalValue(cleanUser);
+          if (cleanUser.includes('/')) {
+            const parts = cleanUser.split('/');
+            if (getGCD(Number(parts[0]), Number(parts[1])) !== 1) isUserValidFormat = false;
+          }
+          let correctVal = getDecimalValue(cleanCorrect);
+          if (!isNaN(userVal) && !isNaN(correctVal) && Math.abs(userVal - correctVal) < 0.000001) {
+            if (isUserValidFormat) isCorrect = true;
+            else isUnsimplified = true;
+          }
         }
-        let correctVal = getDecimalValue(cleanCorrect);
-        if (!isNaN(userVal) && !isNaN(correctVal) && Math.abs(userVal - correctVal) < 0.000001) {
-          if (isUserValidFormat) isCorrect = true;
-          else isUnsimplified = true;
+
+        // Scoring
+        if (isCorrect) {
+          score++;
+          let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
+          localStorage.setItem('satMissedQuestions', JSON.stringify(missedQuestions.filter(id => id !== q.id)));
+        } else {
+          let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
+          if (!missedQuestions.includes(q.id)) {
+            missedQuestions.push(q.id);
+            localStorage.setItem('satMissedQuestions', JSON.stringify(missedQuestions));
+          }
         }
-      }
 
-      // 3. Update Scoring and Smart Memory
-      if (isCorrect) {
-        score++;
-        // Remove from missed list if they got it right this time
-        let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
-        let updatedMissed = missedQuestions.filter(id => id !== q.id);
-        localStorage.setItem('satMissedQuestions', JSON.stringify(updatedMissed));
-      } else {
-        // Track the incorrect ID
-        let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
-        if (!missedQuestions.includes(q.id)) {
-          missedQuestions.push(q.id);
-          localStorage.setItem('satMissedQuestions', JSON.stringify(missedQuestions));
+        // Update UI
+        const feedbackArea = document.getElementById('feedback-area');
+        const statusTitle = document.getElementById('feedback-status');
+        
+        feedbackArea.style.display = 'block';
+        feedbackArea.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+        
+        if (isCorrect) {
+          statusTitle.innerText = '✅ Correct!';
+          statusTitle.style.color = 'var(--success)';
+        } else if (isUnsimplified) {
+          statusTitle.innerHTML = `❌ Almost! Your fraction is not simplified. The fully simplified answer is: <strong>${q.correctAnswer}</strong>`;
+          statusTitle.style.color = 'var(--error)';
+        } else {
+          statusTitle.innerHTML = `❌ Incorrect. The correct answer is: <strong>${q.correctAnswer}</strong>`;
+          statusTitle.style.color = 'var(--error)';
         }
+
+        document.getElementById('explanation').innerHTML = q.explanation;
+        document.getElementById('submit-btn').style.display = 'none';
+        const nextBtn = document.getElementById('next-btn');
+        nextBtn.style.display = 'block';
+        nextBtn.innerText = (currentIndex === activeQueue.length - 1) ? 'See Final Score' : 'Next Question';
+
+        renderMath();
+
+      } catch (err) {
+        // If anything crashes, this will show you exactly what went wrong
+        alert("An error occurred: " + err.message);
+        console.error(err);
       }
-
-      // 4. Update UI
-      const feedbackArea = document.getElementById('feedback-area');
-      const statusTitle = document.getElementById('feedback-status');
-      
-      feedbackArea.style.display = 'block';
-      feedbackArea.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
-      
-      if (isCorrect) {
-        statusTitle.innerText = '✅ Correct!';
-        statusTitle.style.color = 'var(--success)';
-      } else if (isUnsimplified) {
-        statusTitle.innerHTML = `❌ Almost! Your fraction is not simplified. The fully simplified answer is: <strong>${q.correctAnswer}</strong>`;
-        statusTitle.style.color = 'var(--error)';
-      } else {
-        statusTitle.innerHTML = `❌ Incorrect. The correct answer is: <strong>${q.correctAnswer}</strong>`;
-        statusTitle.style.color = 'var(--error)';
-      }
-
-      document.getElementById('explanation').innerHTML = q.explanation;
-      document.getElementById('submit-btn').style.display = 'none';
-      const nextBtn = document.getElementById('next-btn');
-      nextBtn.style.display = 'block';
-      nextBtn.innerText = (currentIndex === activeQueue.length - 1) ? 'See Final Score' : 'Next Question';
-
-      renderMath();
     }
-
+    
     function nextQuestion() {
       currentIndex++;
       if (currentIndex < activeQueue.length) {
