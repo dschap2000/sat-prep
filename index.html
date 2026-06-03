@@ -1714,6 +1714,13 @@
       },
       {
         category: 'math', type: 'multiple-choice',
+        text: 'In \\( \\triangle RST \\), the measure of \\( \\angle R \\) is 63&deg;. Which of the following could be the measure, in degrees, of \\( \\angle S \\)?',
+        options: ['116', '118', '126', '180'],
+        correctAnswer: '116',
+        explanation: '<strong>Step-by-step:</strong> The sum of the measures of the angles of a triangle is 180&deg;. Therefore, the sum of the measures of \\( \\angle R \\), \\( \\angle S \\), and \\( \\angle T \\) is 180&deg;. It is given that the measure of \\( \\angle R \\) is 63&deg;. It follows that the sum of the measures of \\( \\angle S \\) and \\( \\angle T \\) is \\( 180&deg; - 63&deg; \\), or 117&deg;. Therefore, the measure of \\( \\angle S \\), in degrees, must be strictly less than 117. Of the given choices, only 116 is less than 117. Thus, the measure, in degrees, of \\( \\angle S \\) could be 116.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
         text: 'The kinetic energy, in joules, of an object with mass 9 kilograms traveling at a speed of \\( v \\) meters per second is given by the function \\( K \\), where \\( K(v) = \\frac{9}{2}v^2 \\). Which of the following is the best interpretation of \\( K(34) = 5202 \\) in this context?',
         options: [
           'The object traveling at 34 meters per second has a kinetic energy of 5,202 joules.', 
@@ -1737,6 +1744,18 @@
         options: ['\\( v = 0.95(20,000)^x \\)', '\\( v = 1.05(20,000)^x \\)', '\\( v = 20,000(0.95)^x \\)', '\\( v = 20,000(1.05)^x \\)'],
         correctAnswer: '\\( v = 20,000(1.05)^x \\)',
         explanation: '<strong>Why this is correct:</strong> This is an exponential growth equation. The starting amount is 20,000. An increase of 5% means the new value is 105% of the previous value, making the growth multiplier 1.05.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For which of the following tables are all the values of \\( x \\) and their corresponding values of \\( y \\) solutions to the given inequality?<br><br> \\( 2x - y > 883 \\)',
+        options: [
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>440</td><td>0</td></tr><tr><td>441</td><td>-2</td></tr><tr><td>442</td><td>-4</td></tr></table>', 
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>440</td><td>0</td></tr><tr><td>442</td><td>-2</td></tr><tr><td>441</td><td>-4</td></tr></table>', 
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>442</td><td>0</td></tr><tr><td>440</td><td>-2</td></tr><tr><td>441</td><td>-4</td></tr></table>', 
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>442</td><td>0</td></tr><tr><td>441</td><td>-2</td></tr><tr><td>440</td><td>-4</td></tr></table>'
+        ],
+        correctAnswer: '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>442</td><td>0</td></tr><tr><td>441</td><td>-2</td></tr><tr><td>440</td><td>-4</td></tr></table>',
+        explanation: '<strong>Step-by-step:</strong> All the tables have the same three values of \\( x \\) (440, 441, and 442). Substitute each into the inequality to find the acceptable \\( y \\)-values:<br><br>Substituting 440: \\( 2(440) - y > 883 \\) &rarr; \\( 880 - y > 883 \\) &rarr; \\( -y > 3 \\) &rarr; \\( y < -3 \\). When \\( x=440 \\), \\( y \\) must be less than -3.<br>Substituting 441: \\( 2(441) - y > 883 \\) &rarr; \\( 882 - y > 883 \\) &rarr; \\( -y > 1 \\) &rarr; \\( y < -1 \\). When \\( x=441 \\), \\( y \\) must be less than -1.<br>Substituting 442: \\( 2(442) - y > 883 \\) &rarr; \\( 884 - y > 883 \\) &rarr; \\( -y > -1 \\) &rarr; \\( y < 1 \\). When \\( x=442 \\), \\( y \\) must be less than 1.<br><br>Checking Choice D: When \\( x=440 \\), \\( y = -4 \\) (which is < -3). When \\( x=441 \\), \\( y = -2 \\) (which is < -1). When \\( x=442 \\), \\( y = 0 \\) (which is < 1). All values satisfy the inequality.'
       },
       {
         category: 'math', type: 'free-response',
