@@ -348,6 +348,16 @@
     </div>
   </div>
 
+  <div id="alert-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 style="margin-top: 0; color: var(--error);">Missing Answer</h2>
+      <p id="alert-message-text">Please provide an answer!</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-cancel" onclick="closeAlertModal()">OK</button>
+      </div>
+    </div>
+  </div>
+
   <div id="math-sidebar">
     <button class="close-sidebar" onclick="toggleMathRef()">×</button>
     <h2>SAT Math Reference</h2>
@@ -3573,6 +3583,15 @@
     function closeSaveModal() {
       document.getElementById('save-modal').style.display = 'none';
     }
+
+    function showAlertModal(message) {
+      document.getElementById('alert-message-text').innerText = message;
+      document.getElementById('alert-modal').style.display = 'flex';
+    }
+
+    function closeAlertModal() {
+      document.getElementById('alert-modal').style.display = 'none';
+    }
     
     function promptReturnHome() {
       // Show the custom modal instead of the native browser popup
@@ -3726,11 +3745,11 @@
 
         if (q.type === 'multiple-choice') {
           const selected = document.querySelector('input[name="answer"]:checked');
-          if (!selected) { alert('Please select an answer!'); return; }
+          if (!selected) { showAlertModal('Please select an answer!'); return; }
           userAnswer = q.options[selected.value]; 
         } else {
           userAnswer = document.getElementById('fr-answer').value.trim();
-          if (!userAnswer) { alert('Please type an answer!'); return; }
+          if (!userAnswer) { showAlertModal('Please type an answer!'); return; }
         }
 
         // Logic continues...
