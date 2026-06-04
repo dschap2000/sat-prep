@@ -3101,21 +3101,39 @@
         text: 'What value of \\( p \\) is the solution to the given equation?<br><br> \\( (p + 3) + 8 = 10 \\)',
         options: ['\\( -1 \\)', '\\( 5 \\)', '\\( 15 \\)', '\\( 21 \\)'],
         correctAnswer: '\\( -1 \\)',
-        explanation: '<strong>Step-by-step:</strong> Simplify the left side by removing the parentheses to get \\( p + 11 = 10 \\). Subtract 11 from both sides to find \\( p = -1 \\).'
+        explanation: '<strong>Step-by-step:</strong> Simplify the left side by removing the parentheses to get \\( p + 11 = 10 \\). Subtract 11 from both sides to find \\( p = -1 \\).',
+        incorrectExplanations: [
+          '',
+          'This might be the result of a sign error when subtracting 11 from 10, or incorrectly adding 3 and 8.',
+          'This is the result of adding 11 to 10 instead of subtracting.',
+          'This would be the answer if the equation were \\( p = 10 + 3 + 8 \\).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'What is the positive solution to the given equation?<br><br> \\( k^2 - 53 = 91 \\)',
         options: ['\\( 144 \\)', '\\( 72 \\)', '\\( 38 \\)', '\\( 12 \\)'],
         correctAnswer: '\\( 12 \\)',
-        explanation: '<strong>Step-by-step:</strong> Isolate the variable by adding 53 to both sides: \\( k^2 = 144 \\). Take the square root of both sides to get \\( k = \\pm 12 \\). The positive solution is 12.'
+        explanation: '<strong>Step-by-step:</strong> Isolate the variable by adding 53 to both sides: \\( k^2 = 144 \\). Take the square root of both sides to get \\( k = \\pm 12 \\). The positive solution is 12.',
+        incorrectExplanations: [
+          'This is the value of \\( k^2 \\). You forgot to take the square root to find \\( k \\).',
+          'This is half of 144. You must take the square root, not divide by 2.',
+          'This is the result of subtracting 53 from 91 instead of adding it.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'During a portion of a flight, a small airplane\'s cruising speed varied between 150 miles per hour and 170 miles per hour. Which inequality best represents this situation, where \\( s \\) is the cruising speed, in miles per hour, during this portion of the flight?',
         options: ['\\( s \\le 20 \\)', '\\( s \\le 150 \\)', '\\( s \\le 170 \\)', '\\( 150 \\le s \\le 170 \\)'],
         correctAnswer: '\\( 150 \\le s \\le 170 \\)',
-        explanation: '<strong>Why this is correct:</strong> The speed was at least 150 (\\( s \\ge 150 \\)) and at most 170 (\\( s \\le 170 \\)). Combining these bounds creates the compound inequality \\( 150 \\le s \\le 170 \\).'
+        explanation: '<strong>Why this is correct:</strong> The speed was at least 150 (\\( s \\ge 150 \\)) and at most 170 (\\( s \\le 170 \\)). Combining these bounds creates the compound inequality \\( 150 \\le s \\le 170 \\).',
+        incorrectExplanations: [
+          'This represents the difference between the two speeds, not the range of the speed itself.',
+          'This implies the speed was *always* less than or equal to 150, which contradicts the prompt.',
+          'This implies the speed could be anything below 170 (even 0), missing the 150 mph lower bound.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -3134,7 +3152,13 @@
         text: 'If \\( 5x + 3 = 18 \\), what is the value of \\( 10x + 6 \\) ?',
         options: ['\\( 3 \\)', '\\( 15 \\)', '\\( 30 \\)', '\\( 36 \\)'],
         correctAnswer: '\\( 36 \\)',
-        explanation: '<strong>Shortcut:</strong> Notice the relationship between the two expressions. \\( 10x + 6 \\) is exactly twice the value of \\( 5x + 3 \\). Therefore, simply multiply 18 by 2 to get 36.'
+        explanation: '<strong>Shortcut:</strong> Notice the relationship between the two expressions. \\( 10x + 6 \\) is exactly twice the value of \\( 5x + 3 \\). Therefore, simply multiply 18 by 2 to get 36.',
+        incorrectExplanations: [
+          'This is the value of \\( x \\). You correctly solved \\( 5x = 15 \\) to get \\( x = 3 \\), but you forgot to plug it into the second equation: \\( 10(3) + 6 \\).',
+          'This is the value of \\( 5x \\). You subtracted 3 from 18, but you need to find the value of the entire expression \\( 10x + 6 \\).',
+          'This is the value of \\( 10x \\). If \\( x = 3 \\), then \\( 10(3) = 30 \\), but you forgot to add the 6 at the end of the expression.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3146,14 +3170,26 @@
           '\\( 1,944 \\)'
         ],
         correctAnswer: '\\( 1,944 \\)',
-        explanation: '<strong>Step-by-step:</strong> Let the dimensions of ABCD be \\( b \\) and \\( h \\), so its area is \\( bh = 54 \\). The dimensions of EFGH are 6 times as large, so its base is \\( 6b \\) and its height is \\( 6h \\). The area of EFGH is \\( (6b)(6h) = 36bh \\). Substituting 54 for \\( bh \\), the area of EFGH is \\( 36(54) = 1,944 \\).'
+        explanation: '<strong>Step-by-step:</strong> Let the dimensions of ABCD be \\( b \\) and \\( h \\), so its area is \\( bh = 54 \\). The dimensions of EFGH are 6 times as large, so its base is \\( 6b \\) and its height is \\( 6h \\). The area of EFGH is \\( (6b)(6h) = 36bh \\). Substituting 54 for \\( bh \\), the area of EFGH is \\( 36(54) = 1,944 \\).',
+        incorrectExplanations: [
+          'This is the result of dividing the area by 6. The new area must be larger, not smaller.',
+          'This is the scale factor for the area (\\( 6^2 \\)), but you must multiply it by the original area.',
+          'This is the result of multiplying the area by the side length scale factor (6) instead of the area scale factor (36).',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The function \\( P \\) models the population, in thousands, of a certain city \\( t \\) years after 2003. According to the model, the population is predicted to increase by 4% every \\( n \\) months. What is the value of \\( n \\)?<br><br>\\( P(t) = 260(1.04)^{\\frac{6}{4}t} \\)',
         options: ['\\( 8 \\)', '\\( 12 \\)', '\\( 18 \\)', '\\( 72 \\)'],
         correctAnswer: '\\( 8 \\)',
-        explanation: '<strong>Step-by-step:</strong> The base of 1.04 means a 4% increase occurs every time the exponent equals 1. Set the exponent equal to 1: \\( \\frac{6}{4}t = 1 \\). Multiply both sides by \\( \\frac{4}{6} \\) to get \\( t = \\frac{4}{6} = \\frac{2}{3} \\). This means the population increases by 4% every \\( \\frac{2}{3} \\) of a year. Since there are 12 months in a year, multiply \\( \\frac{2}{3} \\times 12 \\) to get 8 months. Therefore, \\( n = 8 \\).'
+        explanation: '<strong>Step-by-step:</strong> The base of 1.04 means a 4% increase occurs every time the exponent equals 1. Set the exponent equal to 1: \\( \\frac{6}{4}t = 1 \\). Multiply both sides by \\( \\frac{4}{6} \\) to get \\( t = \\frac{4}{6} = \\frac{2}{3} \\). This means the population increases by 4% every \\( \\frac{2}{3} \\) of a year. Since there are 12 months in a year, multiply \\( \\frac{2}{3} \\times 12 \\) to get 8 months. Therefore, \\( n = 8 \\).',
+        incorrectExplanations: [
+          '',
+          'This is the number of months in a year, not the interval of the population increase.',
+          'This might come from calculating \\( 12 \\times 1.5 \\), but the correct calculation is \\( 12 \\div 1.5 \\).',
+          'This is the result of multiplying the numerator and denominator factors by 12 (6 &times; 12 = 72).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3165,7 +3201,13 @@
           '\\( (11, 1) \\)'
         ],
         correctAnswer: '\\( (10, 2) \\)',
-        explanation: '<strong>Step-by-step:</strong> First, find the slope of the radius connecting the center (-1, 1) to the tangent point (5, -4). The slope formula is \\( \\frac{y_2 - y_1}{x_2 - x_1} \\), which gives \\( \\frac{-4 - 1}{5 - (-1)} = -\\frac{5}{6} \\). A tangent line is perpendicular to the radius at the point of tangency, so the slope of line \\( t \\) is the negative reciprocal, which is \\( \\frac{6}{5} \\). Since line \\( t \\) passes through (5, -4) with a slope of \\( \\frac{6}{5} \\), we can check the answer choices by finding which point creates that same slope with (5, -4). For Option C (10, 2): \\( \\frac{2 - (-4)}{10 - 5} = \\frac{6}{5} \\). This matches, so (10, 2) lies on line \\( t \\).'
+        explanation: '<strong>Step-by-step:</strong> First, find the slope of the radius connecting the center (-1, 1) to the tangent point (5, -4). The slope formula is \\( \\frac{y_2 - y_1}{x_2 - x_1} \\), which gives \\( \\frac{-4 - 1}{5 - (-1)} = -\\frac{5}{6} \\). A tangent line is perpendicular to the radius at the point of tangency, so the slope of line \\( t \\) is the negative reciprocal, which is \\( \\frac{6}{5} \\). Since line \\( t \\) passes through (5, -4) with a slope of \\( \\frac{6}{5} \\), we can check the answer choices by finding which point creates that same slope with (5, -4). For Option C (10, 2): \\( \\frac{2 - (-4)}{10 - 5} = \\frac{6}{5} \\). This matches, so (10, 2) lies on line \\( t \\).',
+        incorrectExplanations: [
+          'This point has a y-intercept matching the slope, but it does not lie on the line.',
+          'This point does not form a slope of \\( \\frac{6}{5} \\) with the point of tangency.',
+          '',
+          'This point does not form a slope of \\( \\frac{6}{5} \\) with the point of tangency.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3177,28 +3219,52 @@
           '\\( 5x^2 - 14x + 49 = 0 \\)'
         ],
         correctAnswer: '\\( 5x^2 - 14x + 49 = 0 \\)',
-        explanation: '<strong>Step-by-step:</strong> The number of real solutions to a quadratic equation \\( ax^2 + bx + c = 0 \\) is determined by its discriminant, \\( b^2 - 4ac \\). If the discriminant is less than zero, there are no real solutions. For the equation \\( 5x^2 - 14x + 49 = 0 \\), the discriminant is \\( (-14)^2 - 4(5)(49) = 196 - 980 = -784 \\). Since -784 is negative, this equation has no real solutions.'
+        explanation: '<strong>Step-by-step:</strong> The number of real solutions to a quadratic equation \\( ax^2 + bx + c = 0 \\) is determined by its discriminant, \\( b^2 - 4ac \\). If the discriminant is less than zero, there are no real solutions. For the equation \\( 5x^2 - 14x + 49 = 0 \\), the discriminant is \\( (-14)^2 - 4(5)(49) = 196 - 980 = -784 \\). Since -784 is negative, this equation has no real solutions.',
+        incorrectExplanations: [
+          'The discriminant \\( 14^2 - 4(1)(-49) \\) is positive, meaning it has two real solutions.',
+          'The discriminant \\( (-14)^2 - 4(1)(49) \\) is exactly 0, meaning it has exactly one real solution.',
+          'The discriminant \\( (-14)^2 - 4(5)(-49) \\) is positive, meaning it has two real solutions.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'If \\( 4\\sqrt{2x} = 16 \\), what is the value of \\( 6x \\)?',
         options: ['\\( 24 \\)', '\\( 48 \\)', '\\( 72 \\)', '\\( 96 \\)'],
         correctAnswer: '\\( 48 \\)',
-        explanation: '<strong>Step-by-step:</strong> First, divide each side of the given equation by 4 to get \\( \\sqrt{2x} = 4 \\). Next, square both sides of the equation to remove the radical, which yields \\( 2x = 16 \\). Finally, multiply each side of this equation by 3 to find \\( 6x = 48 \\).'
+        explanation: '<strong>Step-by-step:</strong> First, divide each side of the given equation by 4 to get \\( \\sqrt{2x} = 4 \\). Next, square both sides of the equation to remove the radical, which yields \\( 2x = 16 \\). Finally, multiply each side of this equation by 3 to find \\( 6x = 48 \\).',
+        incorrectExplanations: [
+          'This is the value of \\( 3x \\), not \\( 6x \\).',
+          '',
+          'This is the value of \\( 9x \\).',
+          'This is the result of squaring 4 but forgetting to account for the 2 inside the radical (\\( 2x \\)).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'What is the y-intercept of the graph of \\( y = 4x + 12 \\) in the xy-plane?',
         options: ['\\( (0, 4) \\)', '\\( (0, 12) \\)', '\\( (4, 0) \\)', '\\( (12, 0) \\)'],
         correctAnswer: '\\( (0, 12) \\)',
-        explanation: '<strong>Step-by-step:</strong> The equation is in slope-intercept form, \\( y = mx + b \\), where \\( b \\) is the y-intercept. The y-intercept occurs where \\( x = 0 \\). Plugging in 0 yields \\( y = 12 \\). The coordinate is \\( (0, 12) \\).'
+        explanation: '<strong>Step-by-step:</strong> The equation is in slope-intercept form, \\( y = mx + b \\), where \\( b \\) is the y-intercept. The y-intercept occurs where \\( x = 0 \\). Plugging in 0 yields \\( y = 12 \\). The coordinate is \\( (0, 12) \\).',
+        incorrectExplanations: [
+          'The value 4 is the slope of the line, not the y-coordinate of the y-intercept.',
+          '',
+          'This represents the x-intercept if the equation were \\( y = -3x + 12 \\). The y-intercept must have an x-coordinate of 0.',
+          'This incorrectly places the y-intercept value (12) in the x-coordinate position.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The function \\( h \\) is defined by \\( h(x) = 8^x + 6 \\). What is the value of \\( h(2) \\)?',
         options: ['\\( 22 \\)', '\\( 64 \\)', '\\( 70 \\)', '\\( 134 \\)'],
         correctAnswer: '\\( 70 \\)',
-        explanation: '<strong>Step-by-step:</strong> Substitute 2 for x in the function: \\( h(2) = 8^2 + 6 \\). Evaluate the exponent to get \\( 64 + 6 \\), which equals \\( 70 \\).'
+        explanation: '<strong>Step-by-step:</strong> Substitute 2 for x in the function: \\( h(2) = 8^2 + 6 \\). Evaluate the exponent to get \\( 64 + 6 \\), which equals \\( 70 \\).',
+        incorrectExplanations: [
+          'This is the result of multiplying 8 by 2 instead of raising 8 to the power of 2.',
+          'This is the value of \\( 8^2 \\). You forgot to add 6.',
+          '',
+          'This is the result of calculating \\( 8^2 \\) and multiplying it by 2, plus 6.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3210,7 +3276,13 @@
           '\\( 103 \\)'
         ],
         correctAnswer: '\\( \\sqrt{206} \\)',
-        explanation: '<strong>Step-by-step:</strong> Points \\( A \\) and \\( B \\) lie on the circle, so \\( AC \\) and \\( BC \\) are radii. Using the distance formula between \\( A(h+1, k+\\sqrt{102}) \\) and \\( C(h, k) \\):<br>\\( AC = \\sqrt{((h+1)-h)^2 + ((k+\\sqrt{102})-k)^2} \\)<br>\\( AC = \\sqrt{1^2 + (\\sqrt{102})^2} = \\sqrt{1 + 102} = \\sqrt{103} \\).<br>Since \\( \\triangle ACB \\) is a right triangle with legs of length \\( \\sqrt{103} \\), we use the Pythagorean theorem: \\( AB^2 = AC^2 + BC^2 \\).<br>\\( AB^2 = (\\sqrt{103})^2 + (\\sqrt{103})^2 = 103 + 103 = 206 \\).<br>Thus, \\( AB = \\sqrt{206} \\).<br><br><strong>Interactive Visualization:</strong><br><iframe src="https://www.desmos.com/calculator/8atqqouaxe?embed" width="100%" height="400" frameborder="0" style="border: 1px solid #e2e8f0; border-radius: 8px; margin-top: 10px;"></iframe>'
+        explanation: '<strong>Step-by-step:</strong> Points \\( A \\) and \\( B \\) lie on the circle, so \\( AC \\) and \\( BC \\) are radii. Using the distance formula between \\( A(h+1, k+\\sqrt{102}) \\) and \\( C(h, k) \\):<br>\\( AC = \\sqrt{((h+1)-h)^2 + ((k+\\sqrt{102})-k)^2} \\)<br>\\( AC = \\sqrt{1^2 + (\\sqrt{102})^2} = \\sqrt{1 + 102} = \\sqrt{103} \\).<br>Since \\( \\triangle ACB \\) is a right triangle with legs of length \\( \\sqrt{103} \\), we use the Pythagorean theorem: \\( AB^2 = AC^2 + BC^2 \\).<br>\\( AB^2 = (\\sqrt{103})^2 + (\\sqrt{103})^2 = 103 + 103 = 206 \\).<br>Thus, \\( AB = \\sqrt{206} \\).',
+        incorrectExplanations: [
+          '',
+          'This incorrectly multiplies the terms instead of applying the Pythagorean theorem correctly.',
+          'This incorrectly factors out the square root.',
+          'This is the value of \\( AC^2 \\), which is the square of the radius, not the length of AB.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3222,7 +3294,13 @@
           '\\( y = 12 + 1.5x \\)'
         ],
         correctAnswer: '\\( y = 46.8 + 5.9x \\)',
-        explanation: '<strong>Step-by-step:</strong> Let the line of best fit for data set E be \\( y = mx + b \\). From the graph, the y-intercept \\( b \\) is approximately 12 and the slope \\( m \\) is approximately 1.5 (using points like (0, 12) and (2, 15)).<br><br>Data set F multiplies all y-coordinates by 3.9. This scales both the y-intercept and the slope by 3.9:<br>New y-intercept: \\( 12 \\times 3.9 = 46.8 \\)<br>New slope: \\( 1.5 \\times 3.9 = 5.85 \\)<br><br>Rounding the slope, the equation becomes \\( y = 46.8 + 5.85x \\), which is closest to \\( y = 46.8 + 5.9x \\).'
+        explanation: '<strong>Step-by-step:</strong> Let the line of best fit for data set E be \\( y = mx + b \\). From the graph, the y-intercept \\( b \\) is approximately 12 and the slope \\( m \\) is approximately 1.5 (using points like (0, 12) and (2, 15)).<br><br>Data set F multiplies all y-coordinates by 3.9. This scales both the y-intercept and the slope by 3.9:<br>New y-intercept: \\( 12 \\times 3.9 = 46.8 \\)<br>New slope: \\( 1.5 \\times 3.9 = 5.85 \\)<br><br>Rounding the slope, the equation becomes \\( y = 46.8 + 5.85x \\), which is closest to \\( y = 46.8 + 5.9x \\).',
+        incorrectExplanations: [
+          '',
+          'You scaled the y-intercept by 3.9, but you must also scale the slope by 3.9.',
+          'You scaled the slope by 3.9, but you must also scale the y-intercept by 3.9.',
+          'This is the original line of best fit for data set E before multiplying the y-coordinates.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3234,7 +3312,13 @@
           'From \\( x = 3 \\) to \\( x = 4 \\)'
         ],
         correctAnswer: 'From \\( x = 0 \\) to \\( x = 2 \\)',
-        explanation: '<strong>Step-by-step:</strong> It is given that the variable \\( y \\) represents the height, in meters, of the object above the ground. The graph shows that the height of the object was increasing from \\( x = 0 \\) to \\( x = 2 \\), and decreasing from \\( x = 2 \\) to \\( x = 4 \\). Therefore, the height of the object was increasing for the entire interval of time from \\( x = 0 \\) to \\( x = 2 \\).'
+        explanation: '<strong>Step-by-step:</strong> It is given that the variable \\( y \\) represents the height, in meters, of the object above the ground. The graph shows that the height of the object was increasing from \\( x = 0 \\) to \\( x = 2 \\), and decreasing from \\( x = 2 \\) to \\( x = 4 \\). Therefore, the height of the object was increasing for the entire interval of time from \\( x = 0 \\) to \\( x = 2 \\).',
+        incorrectExplanations: [
+          '',
+          'The object begins falling after \\( x = 2 \\), so it is not increasing for this entire interval.',
+          'The object is falling (height is decreasing) during this entire interval.',
+          'The object is falling (height is decreasing) during this entire interval.'
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -3247,35 +3331,65 @@
         text: 'Which expression is equivalent to \\( (x^2 + 11)^2 + (x - 5)(x + 5) \\)?',
         options: ['\\( x^4 + 23x^2 - 14 \\)', '\\( x^4 + 23x^2 + 96 \\)', '\\( x^4 + 12x^2 + 121 \\)', '\\( x^4 + x^2 + 146 \\)'],
         correctAnswer: '\\( x^4 + 23x^2 + 96 \\)',
-        explanation: '<strong>Step-by-step:</strong> Expand \\( (x^2 + 11)^2 \\) to get \\( x^4 + 22x^2 + 121 \\). Expand \\( (x - 5)(x + 5) \\) using the difference of squares to get \\( x^2 - 25 \\). Combine like terms: \\( x^4 + 22x^2 + x^2 + 121 - 25 = x^4 + 23x^2 + 96 \\).'
+        explanation: '<strong>Step-by-step:</strong> Expand \\( (x^2 + 11)^2 \\) to get \\( x^4 + 22x^2 + 121 \\). Expand \\( (x - 5)(x + 5) \\) using the difference of squares to get \\( x^2 - 25 \\). Combine like terms: \\( x^4 + 22x^2 + x^2 + 121 - 25 = x^4 + 23x^2 + 96 \\).',
+        incorrectExplanations: [
+          'This might be the result of a sign error when expanding the binomials.',
+          '',
+          'This is the result of evaluating \\( x^4 + x^2 \\) but ignoring the middle term \\( 22x^2 \\) in the expansion of \\( (x^2+11)^2 \\).',
+          'This is the result of incorrectly expanding \\( (x-5)(x+5) \\) as \\( x^2 + 25 \\) instead of \\( x^2 - 25 \\).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The relationship between two variables, \\( x \\) and \\( y \\), is linear. For every increase in the value of \\( x \\) by 1, the value of \\( y \\) increases by 8. When the value of \\( x \\) is 2, the value of \\( y \\) is 18. Which equation represents this relationship?',
         options: ['\\( y = 2x + 18 \\)', '\\( y = 2x + 8 \\)', '\\( y = 8x + 2 \\)', '\\( y = 8x + 26 \\)'],
         correctAnswer: '\\( y = 8x + 2 \\)',
-        explanation: '<strong>Step-by-step:</strong> The rate of change (slope) is 8. Using the point-slope form with point (2, 18): \\( y - 18 = 8(x - 2) \\). Distribute the 8: \\( y - 18 = 8x - 16 \\). Add 18 to both sides: \\( y = 8x + 2 \\).'
+        explanation: '<strong>Step-by-step:</strong> The rate of change (slope) is 8. Using the point-slope form with point (2, 18): \\( y - 18 = 8(x - 2) \\). Distribute the 8: \\( y - 18 = 8x - 16 \\). Add 18 to both sides: \\( y = 8x + 2 \\).',
+        incorrectExplanations: [
+          'This incorrectly uses 2 as the slope and 18 as the y-intercept.',
+          'This incorrectly uses 2 as the slope and 8 as the y-intercept.',
+          '',
+          'This uses the correct slope, but incorrectly adds 8 instead of subtracting 16 to find the y-intercept.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'Which of the following is a solution to the given equation?<br><br> \\( w^2 + 12w - 40 = 0 \\)',
         options: ['\\( 6 - 2\\sqrt{19} \\)', '\\( 2\\sqrt{19} \\)', '\\( \\sqrt{19} \\)', '\\( -6 + 2\\sqrt{19} \\)'],
         correctAnswer: '\\( -6 + 2\\sqrt{19} \\)',
-        explanation: '<strong>Step-by-step:</strong> Use the quadratic formula. \\( w = \\frac{-12 \\pm \\sqrt{144 - 4(1)(-40)}}{2} \\). This simplifies to \\( \\frac{-12 \\pm \\sqrt{304}}{2} \\). Since \\( \\sqrt{304} = 4\\sqrt{19} \\), the solutions are \\( -6 \\pm 2\\sqrt{19} \\).'
+        explanation: '<strong>Step-by-step:</strong> Use the quadratic formula. \\( w = \\frac{-12 \\pm \\sqrt{144 - 4(1)(-40)}}{2} \\). This simplifies to \\( \\frac{-12 \\pm \\sqrt{304}}{2} \\). Since \\( \\sqrt{304} = 4\\sqrt{19} \\), the solutions are \\( -6 \\pm 2\\sqrt{19} \\).',
+        incorrectExplanations: [
+          'This is the result of a sign error on the \\( -12 \\) term in the quadratic formula.',
+          'This is the value of the radical portion of the quadratic formula, but you forgot to include the \\( -b/2 \\) term.',
+          'This is the value of the square root divided by 4, completely missing the \\( -6 \\) term.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'If \\( 2x + 10 = 16 \\), what is the value of \\( 2x - 10 \\)?',
         options: ['\\( -4 \\)', '\\( -3 \\)', '\\( 3 \\)', '\\( 4 \\)'],
         correctAnswer: '\\( -4 \\)',
-        explanation: '<strong>Step-by-step:</strong> Subtract 10 from both sides of the given equation to isolate \\( 2x \\), yielding \\( 2x = 6 \\). Then substitute 6 into the second expression: \\( 6 - 10 = -4 \\).'
+        explanation: '<strong>Step-by-step:</strong> Subtract 10 from both sides of the given equation to isolate \\( 2x \\), yielding \\( 2x = 6 \\). Then substitute 6 into the second expression: \\( 6 - 10 = -4 \\).',
+        incorrectExplanations: [
+          '',
+          'This is the value of \\( x \\), not \\( 2x - 10 \\).',
+          'This is the result of a sign error.',
+          'This is the result of computing \\( 10 - 6 \\) instead of \\( 6 - 10 \\).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'If \\( f(3) = 6 \\) and \\( f(4) = 13 \\), then which of the following could be \\( f(x) \\)?',
         options: ['\\( x + 3 \\)', '\\( 2x \\)', '\\( 3x + 1 \\)', '\\( x^2 - 3 \\)'],
         correctAnswer: '\\( x^2 - 3 \\)',
-        explanation: '<strong>Why this is correct:</strong> Test the coordinate pairs (3, 6) and (4, 13) in the answer choices. For \\( x^2 - 3 \\), plugging in 3 yields \\( 3^2 - 3 = 6 \\). Plugging in 4 yields \\( 4^2 - 3 = 13 \\). Both points satisfy this function.'
+        explanation: '<strong>Why this is correct:</strong> Test the coordinate pairs (3, 6) and (4, 13) in the answer choices. For \\( x^2 - 3 \\), plugging in 3 yields \\( 3^2 - 3 = 6 \\). Plugging in 4 yields \\( 4^2 - 3 = 13 \\). Both points satisfy this function.',
+        incorrectExplanations: [
+          'This function works for \\( f(3) = 6 \\), but plugging in 4 gives 7, not 13.',
+          'This function works for \\( f(3) = 6 \\), but plugging in 4 gives 8, not 13.',
+          'This function fails for both points. \\( 3(3) + 1 = 10 \\), not 6.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -3286,7 +3400,7 @@
       {
         category: 'math', type: 'free-response',
         text: 'If \\( 5x - 4 = x - 1 \\), what is the value of \\( x \\)?',
-        correctAnswer: '0.75', // Accepted alternative to 3/4 since user types it in
+        correctAnswer: '0.75', 
         explanation: '<strong>Step-by-step:</strong> Subtract \\( x \\) from both sides to get \\( 4x - 4 = -1 \\). Add 4 to both sides to get \\( 4x = 3 \\). Divide by 4 to get \\( x = \\frac{3}{4} \\), or \\( 0.75 \\).'
       },
       {
@@ -3294,46 +3408,76 @@
         text: 'The graphs of the equations in the given system intersect at the point \\( (x, y) \\) in the xy-plane. What is a possible value of \\( x \\)?<br><br>\\( 21x + y = 10 \\)<br>\\( 3x^2 = y + 170 \\)',
         options: ['\\( -12 \\)', '\\( -5 \\)', '\\( 5 \\)', '\\( 12 \\)'],
         correctAnswer: '\\( -12 \\)',
-        explanation: '<strong>Step-by-step:</strong> Isolate \\( y \\) in the first equation: \\( y = 10 - 21x \\). Substitute this into the second equation: \\( 3x^2 = (10 - 21x) + 170 \\). Rearrange into standard form: \\( 3x^2 + 21x - 180 = 0 \\). Divide by 3: \\( x^2 + 7x - 60 = 0 \\). Factor: \\( (x + 12)(x - 5) = 0 \\). The possible values for x are -12 and 5.'
+        explanation: '<strong>Step-by-step:</strong> Isolate \\( y \\) in the first equation: \\( y = 10 - 21x \\). Substitute this into the second equation: \\( 3x^2 = (10 - 21x) + 170 \\). Rearrange into standard form: \\( 3x^2 + 21x - 180 = 0 \\). Divide by 3: \\( x^2 + 7x - 60 = 0 \\). Factor: \\( (x + 12)(x - 5) = 0 \\). The possible values for x are -12 and 5.',
+        incorrectExplanations: [
+          '',
+          'This is the value of the other x-intercept if the equation were \\( x^2 - 7x - 60 = 0 \\).',
+          'This is the other valid solution for \\( x \\), but it is not listed among the negative choices correctly.',
+          'This is the result of a sign error when factoring the quadratic equation.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'An isosceles right triangle has a hypotenuse of length 64 inches. What is the perimeter, in inches, of this triangle?',
         options: ['\\( 32\\sqrt{2} \\)', '\\( 64\\sqrt{2} \\)', '\\( 64 + 32\\sqrt{2} \\)', '\\( 64 + 64\\sqrt{2} \\)'],
         correctAnswer: '\\( 64 + 64\\sqrt{2} \\)',
-        explanation: '<strong>Step-by-step:</strong> In a 45-45-90 triangle, the hypotenuse is \\( s\\sqrt{2} \\). So, \\( s\\sqrt{2} = 64 \\), which means the legs are \\( s = \\frac{64}{\\sqrt{2}} = 32\\sqrt{2} \\). The perimeter is the sum of all sides: \\( 32\\sqrt{2} + 32\\sqrt{2} + 64 \\), which simplifies to \\( 64 + 64\\sqrt{2} \\).'
+        explanation: '<strong>Step-by-step:</strong> In a 45-45-90 triangle, the hypotenuse is \\( s\\sqrt{2} \\). So, \\( s\\sqrt{2} = 64 \\), which means the legs are \\( s = \\frac{64}{\\sqrt{2}} = 32\\sqrt{2} \\). The perimeter is the sum of all sides: \\( 32\\sqrt{2} + 32\\sqrt{2} + 64 \\), which simplifies to \\( 64 + 64\\sqrt{2} \\).',
+        incorrectExplanations: [
+          'This is the length of just one leg of the triangle.',
+          'This is the sum of the two legs, but you forgot to add the hypotenuse to get the full perimeter.',
+          'This adds the hypotenuse to only one leg, not both legs.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'For the given equation \\( r = \\frac{4s}{t-2} \\), which equation correctly expresses \\( s \\) in terms of \\( r \\) and \\( t \\)?',
         options: ['\\( s = \\frac{r(t-2)}{4} \\)', '\\( s = \\frac{4r}{t-2} \\)', '\\( s = \\frac{4t}{r-2} \\)', '\\( s = \\frac{r+2}{4t} \\)'],
         correctAnswer: '\\( s = \\frac{r(t-2)}{4} \\)',
-        explanation: '<strong>Step-by-step:</strong> Multiply both sides by \\( (t - 2) \\) to get \\( r(t - 2) = 4s \\). Then, divide both sides by 4 to isolate \\( s \\), yielding \\( s = \\frac{r(t-2)}{4} \\).'
+        explanation: '<strong>Step-by-step:</strong> Multiply both sides by \\( (t - 2) \\) to get \\( r(t - 2) = 4s \\). Then, divide both sides by 4 to isolate \\( s \\), yielding \\( s = \\frac{r(t-2)}{4} \\).',
+        incorrectExplanations: [
+          '',
+          'This incorrectly multiplies \\( r \\) by 4 and divides by \\( t-2 \\).',
+          'This is a completely incorrect algebraic rearrangement.',
+          'This incorrectly adds 2 to \\( r \\) and divides by \\( 4t \\).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'If \\( 3\\sqrt{x} = b \\), what is \\( x \\) in terms of \\( b \\)?',
         options: ['\\( \\frac{b^2}{9} \\)', '\\( \\frac{b^2}{3} \\)', '\\( 9b^2 \\)', '\\( 3b^2 \\)'],
         correctAnswer: '\\( \\frac{b^2}{9} \\)',
-        explanation: '<strong>Step-by-step:</strong> Isolate the square root by dividing both sides by 3: \\( \\sqrt{x} = \\frac{b}{3} \\). Then, square both sides to remove the radical: \\( x = \\frac{b^2}{9} \\).'
+        explanation: '<strong>Step-by-step:</strong> Isolate the square root by dividing both sides by 3: \\( \\sqrt{x} = \\frac{b}{3} \\). Then, square both sides to remove the radical: \\( x = \\frac{b^2}{9} \\).',
+        incorrectExplanations: [
+          '',
+          'You forgot to square the 3 in the denominator.',
+          'This is the result of multiplying by 3 instead of dividing by 3 before squaring.',
+          'This is the result of moving 3 to the other side incorrectly.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The function \\( f \\) is defined by \\( f(x) = ax^2 + bx + c \\), where \\( a, b, \\) and \\( c \\) are constants. The graph of \\( y = f(x) \\) in the xy-plane passes through the points \\( (7, 0) \\) and \\( (-3, 0) \\). If \\( a \\) is an integer greater than 1, which of the following could be the value of \\( a + b \\)?',
         options: ['\\( -6 \\)', '\\( -3 \\)', '\\( 4 \\)', '\\( 5 \\)'],
         correctAnswer: '\\( -6 \\)',
-        explanation: '<strong>Step-by-step:</strong> Since the graph passes through (7, 0) and (-3, 0), the roots are 7 and -3. In factored form, the function is \\( f(x) = a(x - 7)(x + 3) \\). Expanding this gives \\( f(x) = a(x^2 - 4x - 21) = ax^2 - 4ax - 21a \\). Comparing this to \\( ax^2 + bx + c \\), we see that \\( b = -4a \\). Thus, \\( a + b = a - 4a = -3a \\). Since \\( a > 1 \\), \\( a + b \\) must be a multiple of 3 that is less than -3. Of the choices provided, -6 is the only option that works.'
+        explanation: '<strong>Step-by-step:</strong> Since the graph passes through (7, 0) and (-3, 0), the roots are 7 and -3. In factored form, the function is \\( f(x) = a(x - 7)(x + 3) \\). Expanding this gives \\( f(x) = a(x^2 - 4x - 21) = ax^2 - 4ax - 21a \\). Comparing this to \\( ax^2 + bx + c \\), we see that \\( b = -4a \\). Thus, \\( a + b = a - 4a = -3a \\). Since \\( a > 1 \\), \\( a + b \\) must be a multiple of 3 that is less than -3. Of the choices provided, -6 is the only option that works.',
+        incorrectExplanations: [
+          '',
+          'This would be the value if \\( a = 1 \\), but the problem states \\( a \\) is an integer greater than 1.',
+          'This represents \\( -b/a \\), which is the sum of the roots.',
+          'This is an incorrect calculation based on the roots.'
+        ]
       },
       {
         category: 'math', type: 'free-response',
         text: 'The function \\( h \\) is defined by \\( h(x) = \\frac{8}{5x + 6} \\). What is the value of \\( h(2) \\)?',
-        correctAnswer: '0.5', // Accepted alternative to 1/2 since user types it in
+        correctAnswer: '0.5', 
         explanation: '<strong>Step-by-step:</strong> The value of \\( h(2) \\) is the value of \\( h(x) \\) when \\( x = 2 \\). Substituting 2 for \\( x \\) in the given equation yields \\( h(2) = \\frac{8}{5(2) + 6} \\), which is equivalent to \\( h(2) = \\frac{8}{10 + 6} \\), or \\( h(2) = \\frac{8}{16} \\). This simplifies to \\( \\frac{1}{2} \\) or 0.5.'
       },
       {
         category: 'math', type: 'free-response',
         text: '<em>Note: Figure not drawn to scale.</em><br><br>The figure shows the lengths, in inches, of two sides of a right triangle. What is the area of the triangle, in square inches?<br><br><img src="right-triangle.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
-        correctAnswer: '7.5', // Accepted alternative to 15/2 since user types it in
+        correctAnswer: '7.5',
         explanation: '<strong>Step-by-step:</strong> The area, \\( A \\), of a triangle is given by the formula \\( A = \\frac{1}{2}bh \\), where \\( b \\) is the length of the base of the triangle and \\( h \\) is the height. In the right triangle shown, the length of the base is 5 inches, and the height is 3 inches. It follows that \\( b = 5 \\) and \\( h = 3 \\). Substituting 5 for \\( b \\) and 3 for \\( h \\) in the formula yields \\( A = \\frac{1}{2}(5)(3) \\), which is equivalent to \\( A = \\frac{15}{2} \\), or 7.5. Therefore, the area of the triangle is 7.5 square inches.'
       },
       {
@@ -3346,7 +3490,13 @@
           '\\( 2(x + 2)^2 + 2(y - 6)^2 = 9 \\)'
         ],
         correctAnswer: '\\( (x + 2)^2 + (y + 6)^2 = (4)(9) \\)',
-        explanation: '<strong>Step-by-step:</strong> According to the original equation \\( (x - h)^2 + (y - k)^2 = r^2 \\), the center of circle A is (-2, 0), and its radius is \\( \\sqrt{9} = 3 \\). Shifting the circle down 6 units changes the y-coordinate of the center from 0 to -6, making the new center (-2, -6). This changes the equation\'s left side to \\( (x + 2)^2 + (y + 6)^2 \\). Increasing the radius to 2 times its original size makes the new radius \\( 2(3) = 6 \\). Squaring this new radius gives the right side of the equation: \\( 6^2 = 36 \\). Note that \\( (4)(9) \\) is equal to 36. Therefore, the equation for circle B is \\( (x + 2)^2 + (y + 6)^2 = (4)(9) \\).'
+        explanation: '<strong>Step-by-step:</strong> According to the original equation \\( (x - h)^2 + (y - k)^2 = r^2 \\), the center of circle A is (-2, 0), and its radius is \\( \\sqrt{9} = 3 \\). Shifting the circle down 6 units changes the y-coordinate of the center from 0 to -6, making the new center (-2, -6). This changes the equation\'s left side to \\( (x + 2)^2 + (y + 6)^2 \\). Increasing the radius to 2 times its original size makes the new radius \\( 2(3) = 6 \\). Squaring this new radius gives the right side of the equation: \\( 6^2 = 36 \\). Note that \\( (4)(9) \\) is equal to 36. Therefore, the equation for circle B is \\( (x + 2)^2 + (y + 6)^2 = (4)(9) \\).',
+        incorrectExplanations: [
+          '',
+          'You cannot double the radius by placing a 2 in front of the binomials; it must be squared on the right side.',
+          'Shifting the circle *down* 6 units means subtracting 6 from the y-coordinate, which makes the equation \\( (y - (-6))^2 \\), or \\( (y + 6)^2 \\).',
+          'This has the wrong y-shift and incorrectly attempts to double the radius by placing a 2 in front.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3358,7 +3508,13 @@
           '\\( 27\\sqrt{3} \\)'
         ],
         correctAnswer: '\\( \\sqrt{3} \\)',
-        explanation: '<strong>Step-by-step:</strong> In the right triangle shown, angle B is 30&deg; and angle C is 90&deg;, which means angle A must be 60&deg; (since angles in a triangle sum to 180&deg;). The tangent of an angle is the ratio of the opposite leg to the adjacent leg (\\( \\frac{\\text{Opposite}}{\\text{Adjacent}} \\)). We are looking for \\( \\tan A \\), which is \\( \\tan(60^\\circ) \\). In any 30-60-90 triangle, the sides are in the ratio \\( 1 : \\sqrt{3} : 2 \\). The side opposite the 60&deg; angle is \\( x\\sqrt{3} \\), and the side adjacent is \\( x \\). Therefore, \\( \\tan(60^\\circ) = \\frac{x\\sqrt{3}}{x} = \\sqrt{3} \\). You do not even need to calculate the actual side lengths to find this ratio!'
+        explanation: '<strong>Step-by-step:</strong> In the right triangle shown, angle B is 30&deg; and angle C is 90&deg;, which means angle A must be 60&deg; (since angles in a triangle sum to 180&deg;). The tangent of an angle is the ratio of the opposite leg to the adjacent leg (\\( \\frac{\\text{Opposite}}{\\text{Adjacent}} \\)). We are looking for \\( \\tan A \\), which is \\( \\tan(60^\\circ) \\). In any 30-60-90 triangle, the sides are in the ratio \\( 1 : \\sqrt{3} : 2 \\). The side opposite the 60&deg; angle is \\( x\\sqrt{3} \\), and the side adjacent is \\( x \\). Therefore, \\( \\tan(60^\\circ) = \\frac{x\\sqrt{3}}{x} = \\sqrt{3} \\). You do not even need to calculate the actual side lengths to find this ratio!',
+        incorrectExplanations: [
+          'This incorrectly incorporates the side lengths.',
+          'This is \\( \\tan(30^\\circ) \\), which is the tangent of angle B, not angle A.',
+          '',
+          'This incorrectly multiplies the tangent by 27.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3370,7 +3526,13 @@
           '\\( C = 40(2.9)^t \\)'
         ],
         correctAnswer: '\\( C = 40(2.9)^t \\)',
-        explanation: '<strong>Step-by-step:</strong> The starting value is 40. The number of comments increases *by* 190% each hour. This means the new amount is the original 100% *plus* an additional 190%, totaling 290% of the previous hour\'s amount. Converting 290% to a decimal multiplier gives 2.9. The exponential equation is therefore \\( C = 40(2.9)^t \\).'
+        explanation: '<strong>Step-by-step:</strong> The starting value is 40. The number of comments increases *by* 190% each hour. This means the new amount is the original 100% *plus* an additional 190%, totaling 290% of the previous hour\'s amount. Converting 290% to a decimal multiplier gives 2.9. The exponential equation is therefore \\( C = 40(2.9)^t \\).',
+        incorrectExplanations: [
+          'This represents a 19% increase, not 190%.',
+          'This represents a 90% increase. You must add the 190% increase to the original 100%.',
+          'This represents an 1800% increase (multiplier of 19).',
+          ''
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -3388,7 +3550,13 @@
           '\\( \\frac{42a(k^2 + 1)}{k} \\)'
         ],
         correctAnswer: '\\( \\frac{42a(k^2 + 1)}{k} \\)',
-        explanation: '<strong>Step-by-step:</strong> Two fractions can be added together when they have a common denominator. Since \\( k > 0 \\), multiply the second term by \\( \\frac{k}{k} \\) to get \\( \\frac{42ak^2}{k} \\). The expression can now be written as \\( \\frac{42a}{k} + \\frac{42ak^2}{k} \\), which combines to \\( \\frac{42a + 42ak^2}{k} \\). Since each term in the numerator has a factor of \\( 42a \\), you can factor it out to get \\( \\frac{42a(1 + k^2)}{k} \\), which is equivalent to \\( \\frac{42a(k^2 + 1)}{k} \\).'
+        explanation: '<strong>Step-by-step:</strong> Two fractions can be added together when they have a common denominator. Since \\( k > 0 \\), multiply the second term by \\( \\frac{k}{k} \\) to get \\( \\frac{42ak^2}{k} \\). The expression can now be written as \\( \\frac{42a}{k} + \\frac{42ak^2}{k} \\), which combines to \\( \\frac{42a + 42ak^2}{k} \\). Since each term in the numerator has a factor of \\( 42a \\), you can factor it out to get \\( \\frac{42a(1 + k^2)}{k} \\), which is equivalent to \\( \\frac{42a(k^2 + 1)}{k} \\).',
+        incorrectExplanations: [
+          'You cannot add terms with different denominators by simply adding their numerators.',
+          'This incorrectly multiplies the numerators instead of finding a common denominator.',
+          'You forgot to square the \\( k \\) when finding the common denominator for the second term.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3400,7 +3568,13 @@
           'There is not enough information to compare the means.'
         ],
         correctAnswer: 'The mean of the original data set is greater than the mean of the new data set.',
-        explanation: '<strong>Step-by-step:</strong> The original data set consists of 5 values (149, 144, 148, 136, 139). A sixth value, 121, is added to create a new data set. Because the additional value, 121, is strictly less than every single value in the original data set, adding it will automatically pull the average down. Therefore, the mean of the original data set must be greater than the mean of the new data set.'
+        explanation: '<strong>Step-by-step:</strong> The original data set consists of 5 values (149, 144, 148, 136, 139). A sixth value, 121, is added to create a new data set. Because the additional value, 121, is strictly less than every single value in the original data set, adding it will automatically pull the average down. Therefore, the mean of the original data set must be greater than the mean of the new data set.',
+        incorrectExplanations: [
+          '',
+          'Because the new value is significantly lower than all original values, it pulls the mean down, not up.',
+          'The mean would only remain equal if the new value added was exactly equal to the original mean.',
+          'We have all the data points, so we can calculate and compare the means exactly.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3412,21 +3586,39 @@
           'The diver hits the water at 0.2 seconds.'
         ],
         correctAnswer: 'The diver hits the water at 1.6 seconds.',
-        explanation: '<strong>Step-by-step:</strong> The graph shows the height above the water \\( y \\), in meters, of a diver \\( x \\) seconds after diving from a platform. The x-intercept of a graph is the point at which the graph intersects the x-axis, which is when the value of \\( y \\) is 0. This means the diver is 0 meters above the water (hitting the water). Since the intercept is between \\( x = 1 \\) and \\( x = 2 \\), the only interpretation that fits is that the diver hits the water at 1.6 seconds.'
+        explanation: '<strong>Step-by-step:</strong> The graph shows the height above the water \\( y \\), in meters, of a diver \\( x \\) seconds after diving from a platform. The x-intercept of a graph is the point at which the graph intersects the x-axis, which is when the value of \\( y \\) is 0. This means the diver is 0 meters above the water (hitting the water). Since the intercept is between \\( x = 1 \\) and \\( x = 2 \\), the only interpretation that fits is that the diver hits the water at 1.6 seconds.',
+        incorrectExplanations: [
+          'The maximum height is represented by the vertex of the parabola, not the x-intercept.',
+          '',
+          '0.2 seconds is approximately when the diver reaches maximum height, not the x-intercept.',
+          'The graph clearly crosses the x-axis past 1.0, not at 0.2.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The minimum value of \\( a \\) is 7 less than 4 times another number \\( b \\). Which inequality shows the possible values of \\( a \\)?',
         options: ['\\( a \\le 4b - 7 \\)', '\\( a \\ge 4b - 7 \\)', '\\( a \\le 7 - 4b \\)', '\\( a \\ge 7 - 4b \\)'],
         correctAnswer: '\\( a \\ge 4b - 7 \\)',
-        explanation: '<strong>Why this is correct:</strong> "7 less than 4 times b" translates to \\( 4b - 7 \\). If this is the *minimum* value of \\( a \\), then \\( a \\) must be greater than or equal to this amount, hence \\( a \\ge 4b - 7 \\).'
+        explanation: '<strong>Why this is correct:</strong> "7 less than 4 times b" translates to \\( 4b - 7 \\). If this is the *minimum* value of \\( a \\), then \\( a \\) must be greater than or equal to this amount, hence \\( a \\ge 4b - 7 \\).',
+        incorrectExplanations: [
+          'This represents \\( a \\) as the *maximum* value, not the minimum.',
+          '',
+          'This incorrectly subtracts \\( 4b \\) from 7 and represents a maximum value.',
+          'This incorrectly translates \'7 less than\' as \\( 7 - 4b \\) instead of \\( 4b - 7 \\).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'In \\( \\triangle RST \\), the measure of \\( \\angle R \\) is 63&deg;. Which of the following could be the measure, in degrees, of \\( \\angle S \\)?',
         options: ['116', '118', '126', '180'],
         correctAnswer: '116',
-        explanation: '<strong>Step-by-step:</strong> The sum of the measures of the angles of a triangle is 180&deg;. Therefore, the sum of the measures of \\( \\angle R \\), \\( \\angle S \\), and \\( \\angle T \\) is 180&deg;. It is given that the measure of \\( \\angle R \\) is 63&deg;. It follows that the sum of the measures of \\( \\angle S \\) and \\( \\angle T \\) is \\( 180&deg; - 63&deg; \\), or 117&deg;. Therefore, the measure of \\( \\angle S \\), in degrees, must be strictly less than 117. Of the given choices, only 116 is less than 117. Thus, the measure, in degrees, of \\( \\angle S \\) could be 116.'
+        explanation: '<strong>Step-by-step:</strong> The sum of the measures of the angles of a triangle is 180&deg;. Therefore, the sum of the measures of \\( \\angle R \\), \\( \\angle S \\), and \\( \\angle T \\) is 180&deg;. It is given that the measure of \\( \\angle R \\) is 63&deg;. It follows that the sum of the measures of \\( \\angle S \\) and \\( \\angle T \\) is \\( 180&deg; - 63&deg; \\), or 117&deg;. Therefore, the measure of \\( \\angle S \\), in degrees, must be strictly less than 117. Of the given choices, only 116 is less than 117. Thus, the measure, in degrees, of \\( \\angle S \\) could be 116.',
+        incorrectExplanations: [
+          '',
+          'If S is 118, then R + S = 181, which exceeds the 180&deg; limit for a triangle.',
+          'If S is 126, then R + S = 189, which exceeds the 180&deg; limit for a triangle.',
+          'A single angle in a triangle cannot be 180&deg;.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3438,21 +3630,39 @@
           'The object traveling at 23,409 meters per second has a kinetic energy of 34 joules.'
         ],
         correctAnswer: 'The object traveling at 34 meters per second has a kinetic energy of 5,202 joules.',
-        explanation: '<strong>Step-by-step:</strong> It is given that the kinetic energy, in joules, of an object traveling at a speed of \\( v \\) meters per second is given by the function \\( K(v) \\). It follows that in the equation \\( K(34) = 5202 \\), 34 is the value of \\( v \\), or the speed of the object in meters per second, and 5,202 is the output, representing the kinetic energy in joules at that speed.'
+        explanation: '<strong>Step-by-step:</strong> It is given that the kinetic energy, in joules, of an object traveling at a speed of \\( v \\) meters per second is given by the function \\( K(v) \\). It follows that in the equation \\( K(34) = 5202 \\), 34 is the value of \\( v \\), or the speed of the object in meters per second, and 5,202 is the output, representing the kinetic energy in joules at that speed.',
+        incorrectExplanations: [
+          '',
+          'The input \\( v \\) is 34, not 340.',
+          'This flips the input and output. The speed is 34 and the energy is 5,202.',
+          'This incorrectly uses the squared value.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: '<img src="scatterplot.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">The scatterplot shows the relationship between two variables \\( x \\) and \\( y \\). A line of best fit for the data is also shown. For how many of the 10 data points is the actual \\( y \\)-value greater than the \\( y \\)-value predicted by the line of best fit?',
         options: ['3', '4', '6', '7'],
         correctAnswer: '6',
-        explanation: '<strong>Step-by-step:</strong> The line of best fit represents the predicted \\( y \\)-values for any given \\( x \\). Any data point that is located physically above the line of best fit has an actual \\( y \\)-value that is greater than the predicted \\( y \\)-value. If you count the dots above the line in the scatterplot, there are exactly 6 of them.'
+        explanation: '<strong>Step-by-step:</strong> The line of best fit represents the predicted \\( y \\)-values for any given \\( x \\). Any data point that is located physically above the line of best fit has an actual \\( y \\)-value that is greater than the predicted \\( y \\)-value. If you count the dots above the line in the scatterplot, there are exactly 6 of them.',
+        incorrectExplanations: [
+          'This is the number of dots below the line.',
+          'This is an incorrect count.',
+          '',
+          'This is an incorrect count.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The initial investment for a company was $20,000 in 2010. The model predicts that each year for the next 4 years, the value of the investment \\( v \\), in dollars, will increase by 5% of the previous year\'s investment value. Which equation best represents this model, where \\( x \\) is the number of years after 2010?',
         options: ['\\( v = 0.95(20,000)^x \\)', '\\( v = 1.05(20,000)^x \\)', '\\( v = 20,000(0.95)^x \\)', '\\( v = 20,000(1.05)^x \\)'],
         correctAnswer: '\\( v = 20,000(1.05)^x \\)',
-        explanation: '<strong>Why this is correct:</strong> This is an exponential growth equation. The starting amount is 20,000. An increase of 5% means the new value is 105% of the previous value, making the growth multiplier 1.05.'
+        explanation: '<strong>Why this is correct:</strong> This is an exponential growth equation. The starting amount is 20,000. An increase of 5% means the new value is 105% of the previous value, making the growth multiplier 1.05.',
+        incorrectExplanations: [
+          'This represents a 5% decrease, and it incorrectly applies the exponent to the initial amount.',
+          'This incorrectly applies the exponent to the initial amount rather than the growth factor.',
+          'This represents a 5% annual decrease (decay), not an increase.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -3464,7 +3674,13 @@
           '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>442</td><td>0</td></tr><tr><td>441</td><td>-2</td></tr><tr><td>440</td><td>-4</td></tr></table>'
         ],
         correctAnswer: '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>442</td><td>0</td></tr><tr><td>441</td><td>-2</td></tr><tr><td>440</td><td>-4</td></tr></table>',
-        explanation: '<strong>Step-by-step:</strong> All the tables have the same three values of \\( x \\) (440, 441, and 442). Substitute each into the inequality to find the acceptable \\( y \\)-values:<br><br>Substituting 440: \\( 2(440) - y > 883 \\) &rarr; \\( 880 - y > 883 \\) &rarr; \\( -y > 3 \\) &rarr; \\( y < -3 \\). When \\( x=440 \\), \\( y \\) must be less than -3.<br>Substituting 441: \\( 2(441) - y > 883 \\) &rarr; \\( 882 - y > 883 \\) &rarr; \\( -y > 1 \\) &rarr; \\( y < -1 \\). When \\( x=441 \\), \\( y \\) must be less than -1.<br>Substituting 442: \\( 2(442) - y > 883 \\) &rarr; \\( 884 - y > 883 \\) &rarr; \\( -y > -1 \\) &rarr; \\( y < 1 \\). When \\( x=442 \\), \\( y \\) must be less than 1.<br><br>Checking Choice D: When \\( x=440 \\), \\( y = -4 \\) (which is < -3). When \\( x=441 \\), \\( y = -2 \\) (which is < -1). When \\( x=442 \\), \\( y = 0 \\) (which is < 1). All values satisfy the inequality.'
+        explanation: '<strong>Step-by-step:</strong> All the tables have the same three values of \\( x \\) (440, 441, and 442). Substitute each into the inequality to find the acceptable \\( y \\)-values:<br><br>Substituting 440: \\( 2(440) - y > 883 \\) &rarr; \\( 880 - y > 883 \\) &rarr; \\( -y > 3 \\) &rarr; \\( y < -3 \\). When \\( x=440 \\), \\( y \\) must be less than -3.<br>Substituting 441: \\( 2(441) - y > 883 \\) &rarr; \\( 882 - y > 883 \\) &rarr; \\( -y > 1 \\) &rarr; \\( y < -1 \\). When \\( x=441 \\), \\( y \\) must be less than -1.<br>Substituting 442: \\( 2(442) - y > 883 \\) &rarr; \\( 884 - y > 883 \\) &rarr; \\( -y > -1 \\) &rarr; \\( y < 1 \\). When \\( x=442 \\), \\( y \\) must be less than 1.<br><br>Checking Choice D: When \\( x=440 \\), \\( y = -4 \\) (which is < -3). When \\( x=441 \\), \\( y = -2 \\) (which is < -1). When \\( x=442 \\), \\( y = 0 \\) (which is < 1). All values satisfy the inequality.',
+        incorrectExplanations: [
+          'For \\( x=440, y=0 \\), the inequality gives \\( 880 > 883 \\), which is false.',
+          'For \\( x=440, y=0 \\), the inequality gives \\( 880 > 883 \\), which is false.',
+          'For \\( x=440, y=-2 \\), the inequality gives \\( 882 > 883 \\), which is false.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -3483,7 +3699,13 @@
         text: 'Which expression is equivalent to \\( \\frac{3}{6x-2} + \\frac{1}{1-2x} \\) ?',
         options: ['\\( \\frac{4}{4x-1} \\)', '\\( \\frac{1}{(6x-2)(1-2x)} \\)', '\\( \\frac{3}{(6x-2)(1-2x)} \\)', '\\( \\frac{2}{(6x-2)(1-2x)} \\)'],
         correctAnswer: '\\( \\frac{1}{(6x-2)(1-2x)} \\)',
-        explanation: '<strong>Step-by-step:</strong> Find a common denominator: \\( (6x-2)(1-2x) \\). Multiply the numerator of the first fraction by \\( (1-2x) \\) and the numerator of the second fraction by \\( (6x-2) \\). Adding them together: \\( 3(1-2x) + 1(6x-2) = 3 - 6x + 6x - 2 = 1 \\).'
+        explanation: '<strong>Step-by-step:</strong> Find a common denominator: \\( (6x-2)(1-2x) \\). Multiply the numerator of the first fraction by \\( (1-2x) \\) and the numerator of the second fraction by \\( (6x-2) \\). Adding them together: \\( 3(1-2x) + 1(6x-2) = 3 - 6x + 6x - 2 = 1 \\).',
+        incorrectExplanations: [
+          'You cannot simply add the numerators and denominators together.',
+          '',
+          'This is the result of multiplying the numerators instead of cross-multiplying to find a common denominator.',
+          'This is the result of a subtraction error.'
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -3502,7 +3724,13 @@
         text: 'For the linear function \\( f \\), \\( b \\) is a constant. When \\( x = 0 \\), \\( f(x) = 30 \\). What is the value of \\( b \\) if \\( f(x) = x + b \\)?',
         options: ['\\( -30 \\)', '\\( -\\frac{1}{30} \\)', '\\( \\frac{1}{30} \\)', '\\( 30 \\)'],
         correctAnswer: '\\( 30 \\)',
-        explanation: '<strong>Step-by-step:</strong> Substitute 0 for \\( x \\) and 30 for \\( f(x) \\) in the given function: \\( 30 = 0 + b \\), which immediately simplifies to \\( 30 = b \\).'
+        explanation: '<strong>Step-by-step:</strong> Substitute 0 for \\( x \\) and 30 for \\( f(x) \\) in the given function: \\( 30 = 0 + b \\), which immediately simplifies to \\( 30 = b \\).',
+        incorrectExplanations: [
+          'This is a sign error.',
+          'This incorrectly assumes \\( b \\) is multiplied by 30.',
+          'This incorrectly assumes \\( b \\) is multiplied by 30.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
