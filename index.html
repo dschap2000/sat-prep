@@ -5633,7 +5633,7 @@
       if (currentIndex < activeQueue.length) {
         loadQuestion();
       } else {
-        showSummary();
+        ;
       }
     }
 
@@ -5645,15 +5645,25 @@
       document.getElementById('q-counter').innerText = 'Activity Complete';
       
       // --- DYNAMIC EMOJI LOGIC ---
-      let emoji = '👏'; // Default for other scores
+      let emoji = ''; 
       let scorePercentage = score / activeQueue.length;
       
       if (scorePercentage >= 0.99) {
-        emoji = '🏆'; // 100% (10/10)
+        emoji = '🏆'; // 100% 
       } else if (scorePercentage >= 0.89) {
-        emoji = '🥈'; // 90% or higher (9/10)
+        emoji = '🥈'; // 90% - 99%
       } else if (scorePercentage >= 0.79) {
-        emoji = '🥉'; // 80% or higher (8/10)
+        emoji = '🥉'; // 80% - 89%
+      } else if (scorePercentage >= 0.69) {
+        emoji = '👏'; // 70% - 79%
+      } else if (scorePercentage >= 0.59) {
+        emoji = '🤔'; // 60% - 69%
+      } else if (scorePercentage >= 0.49) {
+        emoji = '😐'; // 50% - 59%
+      } else if (scorePercentage > 0) {
+        emoji = '😕'; // 10% - 49%
+      } else {
+        emoji = '😔'; // 0%
       }
 
       document.getElementById('q-text').innerHTML = `
