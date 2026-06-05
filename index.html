@@ -5766,6 +5766,366 @@
           'This is the total number of integers in the data sets, not the difference between their means.'
         ]
       },
+      // ==========================================
+      // SAT TEST 9: MODULE 1 MATH QUESTIONS
+      // ==========================================
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The lengths of two sides of a triangle are 4 centimeters and 6 centimeters. If the perimeter of the triangle is 18 centimeters, what is the length, in centimeters, of the third side of this triangle?',
+        options: ['\\( 2 \\)', '\\( 8 \\)', '\\( 10 \\)', '\\( 24 \\)'],
+        correctAnswer: '\\( 8 \\)',
+        explanation: '<strong>Step-by-step:</strong> The perimeter of a triangle is the sum of the lengths of all three of its sides. Let \\( x \\) represent the length of the third side. The sum of the lengths can be represented by \\( 4 + 6 + x \\). Since the perimeter is 18, we can set up the equation \\( 10 + x = 18 \\). Subtracting 10 from both sides yields \\( x = 8 \\).',
+        incorrectExplanations: [
+          'If the length of the third side were 2 centimeters, the perimeter would be 4 + 6 + 2 = 12, not 18.',
+          '',
+          'If the length of the third side were 10 centimeters, the perimeter would be 4 + 6 + 10 = 20, not 18.',
+          'If the length of the third side were 24 centimeters, the perimeter would be 4 + 6 + 24 = 34, not 18.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( 16x + 30 = 190 \\)<br><br>Which equation has the same solution as the given equation?',
+        options: [
+          '\\( 16x = 30 \\)', 
+          '\\( 16x = 130 \\)', 
+          '\\( 16x = 160 \\)', 
+          '\\( 16x = 190 \\)'
+        ],
+        correctAnswer: '\\( 16x = 160 \\)',
+        explanation: '<strong>Step-by-step:</strong> To isolate the variable term, subtract 30 from each side of the given equation: \\( 16x = 190 - 30 \\), which yields \\( 16x = 160 \\). Therefore, this equation is equivalent and has the same solution.',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          '',
+          'This leaves the right side unchanged instead of subtracting 30.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Ty set a goal to walk at least 24 kilometers every day to prepare for a multiday hike. On a certain day, Ty plans to walk at an average speed of 4 kilometers per hour. What is the minimum number of hours Ty must walk on that day to fulfill the daily goal?',
+        options: ['\\( 4 \\)', '\\( 6 \\)', '\\( 20 \\)', '\\( 24 \\)'],
+        correctAnswer: '\\( 6 \\)',
+        explanation: '<strong>Step-by-step:</strong> The distance Ty walks is the speed (4 km/h) multiplied by the time in hours (\\( s \\)), giving \\( 4s \\). Since the goal is *at least* 24 kilometers, we set up the inequality \\( 4s \\ge 24 \\). Dividing both sides by 4 yields \\( s \\ge 6 \\). The minimum number of hours is 6.',
+        incorrectExplanations: [
+          'This is the speed he walks, not the hours required to reach 24 km.',
+          '',
+          'This is the result of subtracting 4 from 24 instead of dividing.',
+          'This is his daily distance goal, not the number of hours.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( g \\) is defined by \\( g(x) = x^2 + 9 \\). For which value of \\( x \\) does \\( g(x) = 25 \\)?',
+        options: ['\\( 4 \\)', '\\( 5 \\)', '\\( 9 \\)', '\\( 13 \\)'],
+        correctAnswer: '\\( 4 \\)',
+        explanation: '<strong>Step-by-step:</strong> Substitute 25 for \\( g(x) \\) in the equation: \\( 25 = x^2 + 9 \\). Subtract 9 from both sides to get \\( 16 = x^2 \\). Taking the square root of both sides gives \\( x = \\pm 4 \\). Only 4 is listed among the choices.',
+        incorrectExplanations: [
+          '',
+          'This is the square root of 25, forgetting to subtract the 9 first.',
+          'This is the constant added in the function, not the solution for \\( x \\).',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( 9x^2 + 5x \\)?',
+        options: [
+          '\\( x(9x + 5) \\)', 
+          '\\( 5x(9x + 1) \\)', 
+          '\\( 9x(x + 5) \\)', 
+          '\\( x^2(9x + 5) \\)'
+        ],
+        correctAnswer: '\\( x(9x + 5) \\)',
+        explanation: '<strong>Step-by-step:</strong> Notice that both terms in the expression \\( 9x^2 + 5x \\) share a common factor of \\( x \\). Factoring out \\( x \\) yields \\( x(9x + 5) \\).',
+        incorrectExplanations: [
+          '',
+          'This expression is equivalent to \\( 45x^2 + 5x \\), not \\( 9x^2 + 5x \\).',
+          'This expression is equivalent to \\( 9x^2 + 45x \\), not \\( 9x^2 + 5x \\).',
+          'This expression is equivalent to \\( 9x^3 + 5x^2 \\), not \\( 9x^2 + 5x \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'Each value in the data set shown represents the height, in centimeters, of a plant.<br><br>6, 10, 13, 2, 15, 22, 10, 4, 4, 4<br><br>What is the mean height, in centimeters, of these plants?',
+        correctAnswer: '9',
+        explanation: '<strong>Step-by-step:</strong> The mean of a data set is the sum of the values divided by the number of values. The sum of the heights is \\( 6+10+13+2+15+22+10+4+4+4 = 90 \\). There are 10 plants in the set. Dividing 90 by 10 yields a mean of 9.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A student council group is selling school posters for a fundraiser. They use the function \\( p(x) = 5x - 220 \\) to determine their profit \\( p(x) \\), in dollars, for selling \\( x \\) school posters. In order to earn a profit of $900, how many school posters must they sell?',
+        correctAnswer: '224',
+        explanation: '<strong>Step-by-step:</strong> Substitute 900 for \\( p(x) \\) in the function to set up the equation: \\( 900 = 5x - 220 \\). Add 220 to each side to get \\( 1120 = 5x \\). Divide each side by 5 to find \\( x = 224 \\). They must sell 224 posters.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Jay walks at a speed of 3 miles per hour and runs at a speed of 5 miles per hour. He walks for \\( w \\) hours and runs for \\( r \\) hours for a combined total of 14 miles. Which equation represents this situation?',
+        options: [
+          '\\( 3w + 5r = 14 \\)', 
+          '\\( \\frac{1}{3}w + \\frac{1}{5}r = 14 \\)', 
+          '\\( \\frac{1}{3}w + \\frac{1}{5}r = 112 \\)', 
+          '\\( 3w + 5r = 112 \\)'
+        ],
+        correctAnswer: '\\( 3w + 5r = 14 \\)',
+        explanation: '<strong>Step-by-step:</strong> The distance Jay walks is his speed (3 mph) multiplied by his time (\\( w \\) hours), which is \\( 3w \\). The distance he runs is his speed (5 mph) multiplied by his time (\\( r \\) hours), which is \\( 5r \\). The total distance is the sum of these two parts, which is 14 miles. This gives the equation \\( 3w + 5r = 14 \\).',
+        incorrectExplanations: [
+          '',
+          'This incorrectly divides the time by the speed instead of multiplying them to find distance.',
+          'This divides the time by the speed and uses an incorrect total distance.',
+          'This uses an incorrect total distance.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'John paid a total of $165 for a microscope by making a down payment of $37 plus \\( p \\) monthly payments of $16 each. Which of the following equations represents this situation?',
+        options: [
+          '\\( 16p - 37 = 165 \\)', 
+          '\\( 37p - 16 = 165 \\)', 
+          '\\( 16p + 37 = 165 \\)', 
+          '\\( 37p + 16 = 165 \\)'
+        ],
+        correctAnswer: '\\( 16p + 37 = 165 \\)',
+        explanation: '<strong>Step-by-step:</strong> The total amount paid consists of the flat down payment ($37) plus the monthly payments ($16 per month for \\( p \\) months, which is \\( 16p \\)). Setting the sum of these payments equal to the total cost gives \\( 16p + 37 = 165 \\).',
+        incorrectExplanations: [
+          'This equation subtracts the down payment instead of adding it.',
+          'This equation multiplies the down payment by the number of months (\\( p \\)) and subtracts the monthly fee.',
+          '',
+          'This equation multiplies the down payment by the number of months instead of the $16 monthly payment.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( y - 57 = px \\)<br><br>The given equation relates the positive numbers \\( p \\), \\( x \\), and \\( y \\). Which equation correctly expresses \\( y \\) in terms of \\( p \\) and \\( x \\)?',
+        options: [
+          '\\( y = 57x + p \\)', 
+          '\\( y = px + 57 \\)', 
+          '\\( y = 57px \\)', 
+          '\\( y = \\frac{px}{57} \\)'
+        ],
+        correctAnswer: '\\( y = px + 57 \\)',
+        explanation: '<strong>Step-by-step:</strong> To express \\( y \\) in terms of the other variables, you need to isolate \\( y \\). Adding 57 to each side of the given equation yields \\( y = px + 57 \\).',
+        incorrectExplanations: [
+          'This incorrectly multiplies \\( x \\) by 57 instead of \\( p \\).',
+          '',
+          'This incorrectly multiplies all the terms together.',
+          'This incorrectly divides by 57 instead of adding it.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A company opens an account with an initial balance of $36,100.00. The account earns interest, and no additional deposits or withdrawals are made. The account balance is given by an exponential function \\( A \\), where \\( A(t) \\) is the account balance, in dollars, \\( t \\) years after the account is opened. The account balance after 13 years is $68,071.93. Which equation could define \\( A \\)?',
+        options: [
+          '\\( A(t) = 36,100.00(1.05)^t \\)', 
+          '\\( A(t) = 31,971.93(1.05)^t \\)', 
+          '\\( A(t) = 31,971.93(0.05)^t \\)', 
+          '\\( A(t) = 36,100.00(0.05)^t \\)'
+        ],
+        correctAnswer: '\\( A(t) = 36,100.00(1.05)^t \\)',
+        explanation: '<strong>Step-by-step:</strong> An exponential growth function is written as \\( A(t) = P(1+r)^t \\), where \\( P \\) is the initial starting balance. The problem states the initial balance is $36,100.00, meaning the coefficient in front of the base must be 36,100.00. This eliminates choices B and C. Between A and D, choice D represents a 95% annual decay (0.05 base), but the account is *earning* interest (growing). Therefore, choice A is the correct model.',
+        incorrectExplanations: [
+          '',
+          'Substituting \\( t=0 \\) indicates an initial balance of $31,971.93, rather than the true starting amount of $36,100.00.',
+          'Substituting \\( t=0 \\) indicates an initial balance of $31,971.93, and the base (0.05) indicates exponential decay, not growth.',
+          'This function has the right initial balance, but the base (0.05) indicates the account balance is decaying rapidly (dropping by 95% a year), rather than earning interest.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<em>Note: Figure not drawn to scale.</em><br><br><img src="circle-diameters.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>The circle shown has center O, circumference \\( 144\\pi \\), and diameters \\( \\overline{PR} \\) and \\( \\overline{QS} \\). The length of arc PS is twice the length of arc PQ. What is the length of arc QR?',
+        options: ['\\( 24\\pi \\)', '\\( 48\\pi \\)', '\\( 72\\pi \\)', '\\( 96\\pi \\)'],
+        correctAnswer: '\\( 48\\pi \\)',
+        explanation: '<strong>Step-by-step:</strong> Because PR and QS are diameters, they are straight lines that intersect at the center, creating vertical angles. Since vertical angles are equal, the arcs they intercept are also equal. Therefore, arc PS = arc QR, and arc PQ = arc SR. Let the length of arc PQ be \\( x \\). Since arc PS is twice arc PQ, arc PS = \\( 2x \\). That makes arc QR = \\( 2x \\) and arc SR = \\( x \\). The total circumference is the sum of these four arcs: \\( x + 2x + x + 2x = 6x \\). We know the circumference is \\( 144\\pi \\), so \\( 6x = 144\\pi \\). Dividing by 6 yields \\( x = 24\\pi \\). The question asks for the length of arc QR, which is \\( 2x \\). Thus, \\( 2(24\\pi) = 48\\pi \\).',
+        incorrectExplanations: [
+          'This is the length of arc PQ, not arc QR.',
+          '',
+          'This is an incorrect calculation (half the circumference).',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A system of equations is given below:<br><br>\\( y = -2x \\)<br>\\( 3x + y = 40 \\)<br><br>The solution to the given system of equations is \\( (x, y) \\). What is the value of \\( x \\)?',
+        correctAnswer: '40',
+        explanation: '<strong>Step-by-step:</strong> Substitute \\( -2x \\) for \\( y \\) in the second equation: \\( 3x + (-2x) = 40 \\). Combining like terms yields \\( x = 40 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The frequency table summarizes the 57 data values in a data set.<br><br><table border="1" cellpadding="5" style="border-collapse:collapse; margin-top:10px; margin-bottom:15px; width:100%; max-width: 300px; text-align: center;"><tr><th>Data value</th><th>Frequency</th></tr><tr><td>6</td><td>3</td></tr><tr><td>7</td><td>3</td></tr><tr><td>8</td><td>8</td></tr><tr><td>9</td><td>8</td></tr><tr><td>10</td><td>9</td></tr><tr><td>11</td><td>11</td></tr><tr><td>12</td><td>9</td></tr><tr><td>13</td><td>0</td></tr><tr><td>14</td><td>6</td></tr></table><br>What is the maximum data value in the data set?',
+        correctAnswer: '14',
+        explanation: '<strong>Step-by-step:</strong> The maximum value is simply the largest "Data value" present in the set. Looking at the "Data value" column, the numbers range from 6 to 14. Since 14 has a frequency of 6, it is present in the data set. Therefore, 14 is the maximum data value.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'One leg of a right triangle has a length of 43.2 millimeters. The hypotenuse of the triangle has a length of 196.8 millimeters. What is the length of the other leg of the triangle, in millimeters?',
+        options: ['\\( 43.2 \\)', '\\( 120 \\)', '\\( 192 \\)', '\\( 201.5 \\)'],
+        correctAnswer: '\\( 192 \\)',
+        explanation: '<strong>Step-by-step:</strong> Use the Pythagorean theorem: \\( a^2 + b^2 = c^2 \\), where \\( c \\) is the hypotenuse. We know one leg is 43.2 and the hypotenuse is 196.8. Setting up the equation: \\( (43.2)^2 + b^2 = (196.8)^2 \\), which evaluates to \\( 1,866.24 + b^2 = 38,730.24 \\). Subtract 1,866.24 from both sides: \\( b^2 = 36,864 \\). Taking the square root of both sides gives \\( b = 192 \\).',
+        incorrectExplanations: [
+          'This is the length of the *other* leg, assuming an isosceles triangle. However, \\( 43.2^2 + 43.2^2 \\) does not equal \\( 196.8^2 \\).',
+          'This is an incorrect calculation.',
+          '',
+          'This is the result of incorrectly adding the squares (\\( 196.8^2 + 43.2^2 \\)) instead of subtracting.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A wire with a length of 106 inches is cut into two parts. One part has a length of \\( x \\) inches, and the other part has a length of \\( y \\) inches. The value of \\( x \\) is 6 more than 4 times the value of \\( y \\). What is the value of \\( x \\)?',
+        options: ['\\( 25 \\)', '\\( 28 \\)', '\\( 56 \\)', '\\( 86 \\)'],
+        correctAnswer: '\\( 86 \\)',
+        explanation: '<strong>Step-by-step:</strong> Set up a system of equations based on the word problem. The total length is 106, so \\( x + y = 106 \\). The value of \\( x \\) is 6 more than 4 times \\( y \\), so \\( x = 4y + 6 \\). Substitute \\( 4y + 6 \\) for \\( x \\) in the first equation: \\( (4y + 6) + y = 106 \\). Simplify to get \\( 5y + 6 = 106 \\). Subtract 6 to get \\( 5y = 100 \\), so \\( y = 20 \\). We need the value of \\( x \\), so plug \\( y=20 \\) back in: \\( x = 4(20) + 6 = 86 \\).',
+        incorrectExplanations: [
+          'This value represents less than half of the total length, but \\( x \\) is clearly the larger piece.',
+          'This value represents less than half of the total length, but \\( x \\) is clearly the larger piece.',
+          'This is the value of \\( x \\) if it were exactly 6 more than the other piece (\\( x=y+6 \\)), not 4 times the piece.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is given by \\( f(x) = (x+6)(x+5)(x-4) \\). Which table of values represents \\( y = f(x) - 3 \\)?',
+        options: [
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>-6</td><td>-9</td></tr><tr><td>-5</td><td>-8</td></tr><tr><td>4</td><td>1</td></tr></table>',
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>-6</td><td>-3</td></tr><tr><td>-5</td><td>-3</td></tr><tr><td>4</td><td>-3</td></tr></table>',
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>-6</td><td>-3</td></tr><tr><td>-5</td><td>-2</td></tr><tr><td>4</td><td>7</td></tr></table>',
+          '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>-6</td><td>3</td></tr><tr><td>-5</td><td>3</td></tr><tr><td>4</td><td>3</td></tr></table>'
+        ],
+        correctAnswer: '<table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr><th style="padding: 0 15px;">\\( x \\)</th><th style="padding: 0 15px;">\\( y \\)</th></tr><tr><td>-6</td><td>-3</td></tr><tr><td>-5</td><td>-3</td></tr><tr><td>4</td><td>-3</td></tr></table>',
+        explanation: '<strong>Step-by-step:</strong> First, look at the \\( x \\)-values in the tables: -6, -5, and 4. These are the exact roots (zeros) of the original function \\( f(x) \\). That means \\( f(-6) = 0 \\), \\( f(-5) = 0 \\), and \\( f(4) = 0 \\). We are looking for the table representing \\( y = f(x) - 3 \\). Since the original function outputs 0 for all these inputs, subtracting 3 means the new output for all of them must be \\( -3 \\). The only table where \\( y = -3 \\) for all inputs is Choice B.',
+        incorrectExplanations: [
+          'This table represents \\( y = x - 3 \\), not \\( y = f(x) - 3 \\).',
+          '',
+          'This table represents \\( y = x + 3 \\), not \\( y = f(x) - 3 \\).',
+          'This table represents \\( y = f(x) + 3 \\), not \\( y = f(x) - 3 \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A landscaper uses a hose that puts \\( 88x \\) ounces of water in a bucket in \\( 5y \\) minutes. Which expression represents the number of ounces of water the hose puts in the bucket in \\( 9y \\) minutes at this rate?',
+        options: [
+          '\\( \\frac{9x}{440} \\)', 
+          '\\( \\frac{440x}{9} \\)', 
+          '\\( \\frac{5x}{792} \\)', 
+          '\\( \\frac{792x}{5} \\)'
+        ],
+        correctAnswer: '\\( \\frac{792x}{5} \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the rate of water flow in ounces per minute. The rate is \\( \\frac{88x}{5y} \\). To find the total amount of water pumped in \\( 9y \\) minutes, multiply this rate by the time: \\( \\frac{88x}{5y} \\times 9y \\). The \\( y \\) variables cancel out, leaving \\( \\frac{88x \\times 9}{5} \\), which simplifies to \\( \\frac{792x}{5} \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          'This represents the time it would take to fill a specific amount, not the volume produced in \\( 9y \\) minutes.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A system of equations is given below:<br><br>\\( 4x - 9y = 9y + 5 \\)<br>\\( hy = 2 + 4x \\)<br><br>In the given system of equations, \\( h \\) is a constant. If the system has no solution, what is the value of \\( h \\)?',
+        options: ['\\( -9 \\)', '\\( 0 \\)', '\\( 9 \\)', '\\( 18 \\)'],
+        correctAnswer: '\\( 18 \\)',
+        explanation: '<strong>Step-by-step:</strong> A system has no solution if the lines are parallel, meaning their coefficients for \\( x \\) and \\( y \\) are proportional. Let\'s put both equations into standard form (\\( Ax + By = C \\)).<br>Equation 1: Subtract \\( 9y \\) from both sides to get \\( 4x - 18y = 5 \\).<br>Equation 2: Subtract \\( 4x \\) from both sides to get \\( -4x + hy = 2 \\).<br>Since the x-coefficient in Eq 2 (-4) is exactly -1 times the x-coefficient in Eq 1 (4), the y-coefficients must share that same ratio. Thus, \\( h \\) must be -1 times -18. \\( -1(-18) = 18 \\).',
+        incorrectExplanations: [
+          'This is incorrect.',
+          'If \\( h = 0 \\), the lines would intersect and there would be a single solution.',
+          'If \\( h = 9 \\), the lines would intersect and there would be a single solution.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: '13 is \\( p\\% \\) of 25. What is the value of \\( p \\)?',
+        correctAnswer: '52',
+        explanation: '<strong>Step-by-step:</strong> To find the percentage, divide the part by the whole and multiply by 100. \\( \\frac{13}{25} = 0.52 \\). Multiply by 100 to find \\( p = 52 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: '\\( \\sqrt{(x-2)^2} = \\sqrt{3x+34} \\)<br><br>What is the smallest solution to the given equation?',
+        correctAnswer: '-3',
+        explanation: '<strong>Step-by-step:</strong> Square both sides of the equation to remove the outer square roots: \\( (x-2)^2 = 3x + 34 \\). Expand the binomial: \\( x^2 - 4x + 4 = 3x + 34 \\). Group terms to form a quadratic: \\( x^2 - 7x - 30 = 0 \\). Factor the quadratic: \\( (x - 10)(x + 3) = 0 \\). The possible solutions are 10 and -3. Let\'s check for extraneous solutions. If \\( x = 10 \\), the original equation gives \\( \\sqrt{64} = \\sqrt{64} \\) (True). If \\( x = -3 \\), the original equation gives \\( \\sqrt{(-5)^2} = \\sqrt{-9+34} \\rightarrow \\sqrt{25} = \\sqrt{25} \\) (True). The question asks for the smallest solution, so the answer is -3.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is defined by \\( f(x) = 4x^2 + 64x + 262 \\). The function \\( g \\) is defined by \\( g(x) = f(x + 5) \\). For what value of \\( x \\) does \\( g(x) \\) reach its minimum?',
+        options: ['\\( -13 \\)', '\\( -8 \\)', '\\( -5 \\)', '\\( -3 \\)'],
+        correctAnswer: '\\( -13 \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the minimum (the x-coordinate of the vertex) for the original function \\( f(x) \\). Using the formula \\( x = -\\frac{b}{2a} \\), we get \\( -\\frac{64}{2(4)} = -\\frac{64}{8} = -8 \\). So, \\( f(x) \\) reaches its minimum at \\( x = -8 \\). The function \\( g(x) = f(x + 5) \\) is simply a horizontal shift of \\( f(x) \\) to the *left* by 5 units. Shifting the x-coordinate -8 to the left by 5 gives \\( -8 - 5 = -13 \\).',
+        incorrectExplanations: [
+          '',
+          'This is the value of \\( x \\) where the original function \\( f(x) \\) reaches its minimum.',
+          'This is an incorrect calculation.',
+          'This is where the minimum would be if \\( g(x) = f(x - 5) \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For \\( x > 0 \\), the function \\( f \\) is defined as follows:<br><br>\\( f(x) \\) equals 201% of \\( x \\)<br><br>Which of the following could describe this function?',
+        options: [
+          'Decreasing exponential', 
+          'Decreasing linear', 
+          'Increasing exponential', 
+          'Increasing linear'
+        ],
+        correctAnswer: 'Increasing linear',
+        explanation: '<strong>Step-by-step:</strong> If \\( f(x) \\) equals 201% of \\( x \\), we can write the function as \\( f(x) = 2.01x \\). This equation indicates that for every 1 unit increase in \\( x \\), the output increases by a constant 2.01. A function with a constant rate of change is linear, and since the slope (2.01) is positive, it is increasing.',
+        incorrectExplanations: [
+          'The function represents a straight line with a positive slope, not a decreasing curve.',
+          'The function represents a straight line with a positive slope, not a decreasing line.',
+          'This would describe the function \\( f(x) = 2.01^x \\), but this function is \\( 2.01x \\), making it linear.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'One gallon of stain will cover 170 square feet of a surface. A yard has a total fence area of \\( w \\) square feet. Which equation represents the total amount of stain \\( S \\), in gallons, needed to stain the fence in this yard twice?',
+        options: [
+          '\\( S = \\frac{w}{170} \\)', 
+          '\\( S = 170w \\)', 
+          '\\( S = 340w \\)', 
+          '\\( S = \\frac{w}{85} \\)'
+        ],
+        correctAnswer: '\\( S = \\frac{w}{85} \\)',
+        explanation: '<strong>Step-by-step:</strong> Since the fence is being stained twice, the total area that needs to be covered is \\( 2w \\). To find the gallons needed, divide the total area to cover by the coverage of one gallon (170). This gives \\( S = \\frac{2w}{170} \\). Simplifying the fraction by dividing the top and bottom by 2 yields \\( S = \\frac{w}{85} \\).',
+        incorrectExplanations: [
+          'This equation represents the stain needed to coat the fence only once, not twice.',
+          'This incorrectly multiplies the area by the coverage rate instead of dividing.',
+          'This incorrectly multiplies the area by double the coverage rate.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( \\frac{y + 12}{x - 8} + \\frac{y(x - 8)}{x^2y - 8xy} \\) ?',
+        options: [
+          '\\( \\frac{xy + y + 4}{x^3y - 16x^2y + 64xy} \\)', 
+          '\\( \\frac{xy + 9y + 12}{x^2y - 8xy + x - 8} \\)', 
+          '\\( \\frac{xy^2 + 13xy - 8y}{x^2y - 8xy} \\)', 
+          '\\( \\frac{xy^2 + 13xy - 8y}{x^3y - 16x^2y + 64xy} \\)'
+        ],
+        correctAnswer: '\\( \\frac{xy^2 + 13xy - 8y}{x^2y - 8xy} \\)',
+        explanation: '<strong>Step-by-step:</strong> Factoring the denominator in the second term gives \\( xy(x - 8) \\). To add the fractions, find a common denominator, which is \\( xy(x - 8) \\). Multiply the first term by \\( \\frac{xy}{xy} \\) to get \\( \\frac{xy(y + 12)}{xy(x - 8)} \\). Now add the numerators: \\( xy(y + 12) + y(x - 8) \\). Distributing the terms yields \\( xy^2 + 12xy + xy - 8y \\). Combining like terms (\\( 12xy + xy \\)) results in \\( xy^2 + 13xy - 8y \\). Place this over the expanded denominator (\\( x^2y - 8xy \\)) to get \\( \\frac{xy^2 + 13xy - 8y}{x^2y - 8xy} \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          '',
+          'This incorrectly multiplies the denominators together instead of finding the least common denominator.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The table shows the results of a poll. A total of 803 voters selected at random were asked which candidate they would vote for in the upcoming election.<br><br>Angel Cruz: 483<br>Terry Smith: 320<br><br>According to the poll, if 6,424 people vote in the election, by how many votes would Angel Cruz be expected to win?',
+        options: ['\\( 163 \\)', '\\( 1,304 \\)', '\\( 3,864 \\)', '\\( 5,621 \\)'],
+        correctAnswer: '\\( 1,304 \\)',
+        explanation: '<strong>Step-by-step:</strong> In the poll, Angel Cruz wins by a margin of \\( 483 - 320 = 163 \\) votes out of 803 total voters. This is a win margin ratio of \\( \\frac{163}{803} \\). To find the expected win margin for the entire population of 6,424 voters, multiply the total population by the ratio: \\( 6424 \\times \\frac{163}{803} \\). Notice that 6424 is exactly 8 times larger than 803. So this simplifies to \\( 8 \\times 163 = 1,304 \\).',
+        incorrectExplanations: [
+          'This is the difference in votes in the 803-person poll, not the expected difference for the total 6,424 voters.',
+          '',
+          'This is the total number of people expected to vote *for* Angel Cruz, not the margin of victory.',
+          'This is the total population minus the 803 people who took the poll, which makes no sense in this context.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'Right rectangular prism X is similar to right rectangular prism Y. The surface area of right rectangular prism X is 58 square centimeters (\\( \\text{cm}^2 \\)), and the surface area of right rectangular prism Y is 1,450 \\( \\text{cm}^2 \\). The volume of right rectangular prism Y is 1,250 cubic centimeters (\\( \\text{cm}^3 \\)). What is the sum of the volumes, in \\( \\text{cm}^3 \\), of right rectangular prism X and right rectangular prism Y?',
+        correctAnswer: '1260',
+        explanation: '<strong>Step-by-step:</strong> First, find the surface area scale factor from X to Y: \\( \\frac{1450}{58} = 25 \\). Because surface area scales by the *square* of the linear scale factor (\\( k^2 \\)), we know \\( k^2 = 25 \\), so the linear scale factor \\( k = 5 \\). Volume scales by the *cube* of the linear scale factor (\\( k^3 \\)), so \\( 5^3 = 125 \\). This means prism Y has a volume 125 times greater than prism X. Since Y\'s volume is 1250, divide by 125 to find X\'s volume: \\( \\frac{1250}{125} = 10 \\). Finally, the sum of their volumes is \\( 1250 + 10 = 1260 \\).'
+      },
       {
         category: 'math', type: 'free-response',
         text: 'The perimeter of an equilateral triangle is 624 centimeters. The height of this triangle is \\( k\\sqrt{3} \\) centimeters, where \\( k \\) is a constant. What is the value of \\( k \\)?',
