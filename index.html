@@ -18,6 +18,7 @@
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
     :root {
@@ -11474,6 +11475,8 @@
             }
         }
 
+        q.userCorrect = isCorrect;
+        
         if (isCorrect) {
           score++;
           let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
@@ -11549,6 +11552,67 @@
       }
     }
 
+function downloadResultsPDF() {
+      // 1. Create a hidden container for the PDF content
+      const element = document.createElement('div');
+      element.style.padding = '40px';
+      element.style.fontFamily = 'sans-serif';
+      element.style.color = '#2d3748';
+      element.style.width = '800px'; // Fixed width ensures clean formatting
+
+      // 2. Build the Header
+      let html = `
+        <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #2b6cb0; padding-bottom: 20px;">
+          <h1 style="color: #2b6cb0; margin-bottom: 10px; font-size: 32px;">SAT Practice Results</h1>
+          <p style="font-size: 22px; margin: 0; font-weight: bold;">Score: ${score} / ${activeQueue.length}</p>
+          <p style="color: #718096; margin-top: 10px;">Module: ${currentMode.toUpperCase()} &bull; Date: ${new Date().toLocaleDateString()}</p>
+        </div>
+      `;
+
+      // 3. Loop through the test and build the question blocks
+      activeQueue.forEach((q, index) => {
+        const statusColor = q.userCorrect ? '#48bb78' : '#e53e3e';
+        const statusIcon = q.userCorrect ? '✅ Correct' : '❌ Incorrect';
+        const displayAnswer = Array.isArray(q.correctAnswer) ? q.correctAnswer.join(' or ') : q.correctAnswer;
+        
+        html += `
+          <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid;">
+            <h3 style="margin-top: 0; margin-bottom: 15px; color: ${statusColor};">${index + 1}. ${statusIcon}</h3>
+            <div style="margin-bottom: 15px; font-size: 16px; line-height: 1.6;">${q.text}</div>
+            <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #cbd5e1;">
+              <div style="font-size: 16px; margin-bottom: 8px;"><strong>Correct Answer:</strong> ${displayAnswer}</div>
+              <div style="font-size: 14px; color: #4a5568; line-height: 1.5;">
+                ${q.explanation}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      element.innerHTML = html;
+      
+      // Temporarily attach it off-screen so MathJax can read and format it
+      element.style.position = 'absolute';
+      element.style.left = '-9999px';
+      document.body.appendChild(element);
+
+      // 4. Force MathJax to render the equations, then generate the PDF
+      MathJax.typesetPromise([element]).then(() => {
+        const opt = {
+          margin:       0.4,
+          filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
+          image:        { type: 'jpeg', quality: 0.98 },
+          html2canvas:  { scale: 2, useCORS: true },
+          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save().then(() => {
+          // Clean up the hidden element once the PDF triggers
+          document.body.removeChild(element);
+        });
+      });
+    }
+    
     function showSummary() {
       clearSessionOnComplete(); 
       document.getElementById('math-sidebar').classList.remove('open');
@@ -11586,6 +11650,7 @@
       document.getElementById('feedback-area').style.display = 'none';
       document.getElementById('submit-btn').style.display = 'none';
 
+      // ... existing code inside showSummary() ...
       const homeBtn = document.createElement('button');
       homeBtn.className = 'mode-btn';
       homeBtn.innerText = 'Return to Home Screen';
@@ -11595,6 +11660,31 @@
         document.getElementById('welcome-screen').style.display = 'block';
         renderInProgress();
       };
+      
+      // --- NEW PDF BUTTON CODE STARTS HERE ---
+      const downloadBtn = document.createElement('button');
+      downloadBtn.className = 'mode-btn';
+      downloadBtn.style.background = '#48bb78'; // Make it green!
+      downloadBtn.innerHTML = '&#128196; Download Full Report (PDF)';
+      downloadBtn.onclick = () => {
+        downloadBtn.innerText = 'Generating PDF... Please wait.';
+        downloadBtn.style.opacity = '0.7';
+        downloadBtn.disabled = true;
+        
+        // Brief timeout allows the UI to update the button text before freezing to build the PDF
+        setTimeout(() => {
+          downloadResultsPDF();
+          setTimeout(() => {
+            downloadBtn.innerHTML = '&#128196; Download Full Report (PDF)';
+            downloadBtn.style.opacity = '1';
+            downloadBtn.disabled = false;
+          }, 2500);
+        }, 100);
+      };
+      
+      // Add BOTH buttons to the screen
+      document.getElementById('input-area').appendChild(downloadBtn);
+      document.getElementById('input-area').appendChild(homeBtn);
       document.getElementById('input-area').appendChild(homeBtn);
     }
     
