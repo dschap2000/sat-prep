@@ -481,6 +481,7 @@
     </div>
 
   </div>
+  <script>
     /* ======================================================================
       TEST SETTINGS
     ====================================================================== */
@@ -7072,7 +7073,7 @@
     ]
   };
     
-    /* ======================================================================
+  /* ======================================================================
       APPLICATION & SMART SHUFFLE LOGIC
     ====================================================================== */
     let instantReveal = localStorage.getItem('instantReveal') === 'true';
@@ -7083,7 +7084,6 @@
     let currentMode = null;
     let sessionToDelete = null;
 
-    // Dynamically assign IDs so the app can track what has been seen
     window.onload = () => {
       ['reading', 'math'].forEach(category => {
         questionBank[category].forEach((q, idx) => {
@@ -7091,7 +7091,6 @@
         });
       });
       
-      // Initialize the toggle switches with the saved state
       const homeToggle = document.getElementById('instant-reveal-toggle-home');
       const quizToggle = document.getElementById('instant-reveal-toggle-quiz');
       if(homeToggle) homeToggle.checked = instantReveal;
@@ -7128,33 +7127,26 @@
       document.getElementById('math-sidebar').classList.toggle('open');
     }
 
-   // SMART MEMORY LOGIC
     function getSmartSubset(category, limit) {
       let seenIds = JSON.parse(localStorage.getItem('satSeenQuestions') || '[]');
       let missedIds = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
       let bank = questionBank[category];
       
-      // 1. Prioritize missed questions from this category
       let missedInCategory = bank.filter(q => missedIds.includes(q.id));
-      
-      // 2. Fallback to unseen questions
       let unseen = bank.filter(q => !seenIds.includes(q.id));
       
       let selected = [];
       
-      // Fill the test with missed questions first
       if (missedInCategory.length > 0) {
         selected = shuffleArray(missedInCategory).slice(0, limit);
       }
       
-      // If we still have room in our limit, fill the rest with new unseen questions
       if (selected.length < limit) {
         let needed = limit - selected.length;
         let newQuestions = shuffleArray(unseen).slice(0, needed);
         selected = selected.concat(newQuestions);
       }
       
-      // Record new selections as seen
       let newlySeen = selected.map(q => q.id);
       let updatedSeen = [...new Set([...seenIds, ...newlySeen])];
       localStorage.setItem('satSeenQuestions', JSON.stringify(updatedSeen));
@@ -7182,8 +7174,6 @@
       document.getElementById('reset-modal').style.display = 'none';
     }
 
-    /* ---------- CORE NAVIGATION ---------- */
-
     function startActivity(mode) {
       currentSessionId = Date.now(); 
       currentMode = mode;
@@ -7209,8 +7199,6 @@
       document.getElementById('quiz-screen').style.display = 'block';
       loadQuestion();
     }
-
-    /* ---------- SAVING & RESUMING ---------- */
 
     function saveSession(showAlert = false) {
       if (!currentSessionId) return;
@@ -7340,8 +7328,6 @@
         localStorage.setItem('satSessions', JSON.stringify(savedSessions));
       }
     }
-
-    /* ---------- QUIZ ENGINE ---------- */
 
     function loadQuestion() {
       const q = activeQueue[currentIndex];
@@ -7567,9 +7553,6 @@
       document.getElementById('input-area').appendChild(homeBtn);
     }
     
-    /* ======================================================================
-      BLUEBOOK ANNOTATION TOOLS (HIGHLIGHT & UNDERLINE)
-    ====================================================================== */
     const annoMenu = document.getElementById('annotation-menu');
 
     document.addEventListener('mouseup', function(e) {
