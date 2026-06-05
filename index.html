@@ -367,6 +367,26 @@
       font-weight: bold;
       color: var(--text);
     }
+
+  /* --- HELP ICON STYLES --- */
+    .help-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #94a3b8;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .help-icon:hover {
+      background-color: var(--primary);
+    }
   </style>
 </head>
 <body>
@@ -432,6 +452,16 @@
     </div>
   </div>
 
+  <div id="info-modal" class="modal-overlay">
+    <div class="modal-content">
+      <h2 style="margin-top: 0; color: var(--primary);">Instant Answer Reveal</h2>
+      <p style="text-align: left;">When enabled, getting a question wrong will immediately display the correct answer along with the explanation.<br><br>When disabled, the correct answer remains hidden so you can try solving it on your own again in a future session!</p>
+      <div class="modal-buttons">
+        <button class="modal-btn modal-cancel" onclick="closeInfoModal()">Got it!</button>
+      </div>
+    </div>
+  </div>
+
   <div id="math-sidebar">
     <button class="close-sidebar" onclick="toggleMathRef()">×</button>
     <h2>SAT Math Reference</h2>
@@ -478,12 +508,14 @@
         </button>
       </div>
 
+      <!-- Home Screen Toggle Widget -->
       <div class="setting-group">
         <label class="switch">
           <input type="checkbox" id="instant-reveal-toggle-home" onchange="syncRevealMode(this)">
           <span class="slider"></span>
         </label>
         <span>Instant Answer Reveal</span>
+        <span class="help-icon" onclick="showInfoModal()" title="What does this do?">?</span>
       </div>
 
       <button class="mode-btn" onclick="startActivity('math')">Math</button>
@@ -505,12 +537,14 @@
           <button class="util-btn" onclick="saveSession(true)">&#128190; Save Progress</button>
         </div>
         <div class="tool-group">
+          <!-- Quiz Screen Toggle Widget -->
           <div class="setting-group" style="margin-top: 0;">
              <label class="switch">
                <input type="checkbox" id="instant-reveal-toggle-quiz" onchange="syncRevealMode(this)">
                <span class="slider"></span>
              </label>
              <span style="font-size: 14px;">Instant Reveal</span>
+             <span class="help-icon" onclick="showInfoModal()" title="What does this do?">?</span>
           </div>
           <button id="math-toggle-btn" class="util-btn" onclick="toggleMathRef()">&#128208; Formulas</button>
           <a id="desmos-btn" class="util-btn" href="https://www.desmos.com/calculator" target="_blank">&#128306; Desmos Calculator</a>
@@ -7223,6 +7257,14 @@
 
     function closeResetModal() {
       document.getElementById('reset-modal').style.display = 'none';
+    }
+
+    function showInfoModal() {
+      document.getElementById('info-modal').style.display = 'flex';
+    }
+
+    function closeInfoModal() {
+      document.getElementById('info-modal').style.display = 'none';
     }
 
     function startActivity(mode) {
