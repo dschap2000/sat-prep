@@ -427,6 +427,14 @@
         </button>
       </div>
 
+      <div class="setting-group">
+        <label class="switch">
+          <input type="checkbox" id="instant-reveal-toggle-home" onchange="syncRevealMode(this)">
+          <span class="slider"></span>
+        </label>
+        <span>Instant Answer Reveal</span>
+      </div>
+
       <button class="mode-btn" onclick="startActivity('math')">Math</button>
       <button class="mode-btn" onclick="startActivity('reading')">Reading & Writing</button>
       <button class="mode-btn" style="background: #805ad5;" onclick="startActivity('combo')">Full Combo (Both Sections)</button>
@@ -446,6 +454,13 @@
           <button class="util-btn" onclick="saveSession(true)">&#128190; Save Progress</button>
         </div>
         <div class="tool-group">
+          <div class="setting-group" style="margin-top: 0;">
+             <label class="switch">
+               <input type="checkbox" id="instant-reveal-toggle-quiz" onchange="syncRevealMode(this)">
+               <span class="slider"></span>
+             </label>
+             <span style="font-size: 12px;">Instant Reveal</span>
+          </div>
           <button id="math-toggle-btn" class="util-btn" onclick="toggleMathRef()">&#128208; Formulas</button>
           <a id="desmos-btn" class="util-btn" href="https://www.desmos.com/calculator" target="_blank">&#128306; Desmos Calculator</a>
         </div>
@@ -466,8 +481,6 @@
     </div>
 
   </div>
-
-  <script>
     /* ======================================================================
       TEST SETTINGS
     ====================================================================== */
@@ -7062,6 +7075,7 @@
     /* ======================================================================
       APPLICATION & SMART SHUFFLE LOGIC
     ====================================================================== */
+    let instantReveal = localStorage.getItem('instantReveal') === 'true';
     let activeQueue = [];
     let currentIndex = 0;
     let score = 0;
@@ -7076,8 +7090,24 @@
           q.id = category + '_q' + idx;
         });
       });
+      
+      // Initialize the toggle switches with the saved state
+      const homeToggle = document.getElementById('instant-reveal-toggle-home');
+      const quizToggle = document.getElementById('instant-reveal-toggle-quiz');
+      if(homeToggle) homeToggle.checked = instantReveal;
+      if(quizToggle) quizToggle.checked = instantReveal;
+      
       renderInProgress();
     };
+
+    function syncRevealMode(checkbox) {
+      instantReveal = checkbox.checked;
+      localStorage.setItem('instantReveal', instantReveal);
+      const homeToggle = document.getElementById('instant-reveal-toggle-home');
+      const quizToggle = document.getElementById('instant-reveal-toggle-quiz');
+      if(homeToggle) homeToggle.checked = instantReveal;
+      if(quizToggle) quizToggle.checked = instantReveal;
+    }
 
     function renderMath() {
       if (window.MathJax) {
@@ -7133,24 +7163,17 @@
     }
 
     function resetQuestionHistory() {
-      // Reset the modal back to the question state in case they are opening it again
       document.getElementById('reset-content-question').style.display = 'block';
       document.getElementById('reset-content-success').style.display = 'none';
-      
-      // Show the modal overlay
       document.getElementById('reset-modal').style.display = 'flex';
     }
 
     function handleReset(action) {
       if (action === 'confirm') {
-        // Clear the memory
         localStorage.removeItem('satSeenQuestions');
-        
-        // Swap out the modal text to show the success message
         document.getElementById('reset-content-question').style.display = 'none';
         document.getElementById('reset-content-success').style.display = 'block';
       } else {
-        // They clicked cancel, so just close it
         closeResetModal();
       }
     }
@@ -7206,7 +7229,6 @@
       savedSessions.push(sessionData);
       localStorage.setItem('satSessions', JSON.stringify(savedSessions));
 
-      // Trigger the custom modal instead of the browser alert
       if (showAlert) {
         document.getElementById('save-modal').style.display = 'flex';
       }
@@ -7226,23 +7248,19 @@
     }
     
     function promptReturnHome() {
-      // Show the custom modal instead of the native browser popup
       document.getElementById('exit-modal').style.display = 'flex';
     }
 
     function handleExit(action) {
-      // Hide the modal
       document.getElementById('exit-modal').style.display = 'none';
 
       if (action === 'cancel') {
-        return; // Do nothing, let the student stay right where they are
+        return; 
       }
-
       if (action === 'save') {
         saveSession(false);
       }
 
-      // If they chose 'save' or 'discard', return to the home screen
       document.getElementById('quiz-screen').style.display = 'none';
       document.getElementById('welcome-screen').style.display = 'block';
       renderInProgress();
@@ -7276,7 +7294,6 @@
         delBtn.className = 'delete-btn';
         delBtn.innerText = 'Discard';
         delBtn.onclick = () => {
-          // Open the custom modal and remember the ID
           sessionToDelete = session.id;
           document.getElementById('discard-modal').style.display = 'flex';
         };
@@ -7306,7 +7323,7 @@
     function confirmDiscard() {
       if (sessionToDelete) {
         deleteSession(sessionToDelete);
-        sessionToDelete = null; // Clear it out after deleting
+        sessionToDelete = null;
       }
       closeDiscardModal();
     }
@@ -7374,7 +7391,7 @@
       try {
         const q = activeQueue[currentIndex];
         let userAnswer = '';
-        let selectedIndex = -1; // Tracks the exact option chosen for specific feedback
+        let selectedIndex = -1; 
 
         if (q.type === 'multiple-choice') {
           const selected = document.querySelector('input[name="answer"]:checked');
@@ -7399,7 +7416,6 @@
         let isCorrect = (cleanUser === cleanCorrect);
         let isUnsimplified = false;
 
-        // Numeric fallback logic
         const getGCD = (a, b) => {
           a = Math.abs(a); b = Math.abs(b);
           while (b) { let temp = b; b = a % b; a = temp; }
@@ -7430,7 +7446,6 @@
           }
         }
 
-        // Scoring & Smart Memory Storage
         if (isCorrect) {
           score++;
           let missedQuestions = JSON.parse(localStorage.getItem('satMissedQuestions') || '[]');
@@ -7443,7 +7458,6 @@
           }
         }
 
-        // Update UI
         const feedbackArea = document.getElementById('feedback-area');
         const statusTitle = document.getElementById('feedback-status');
         const explanationArea = document.getElementById('explanation');
@@ -7454,7 +7468,7 @@
         if (isCorrect) {
           statusTitle.innerText = '✅ Correct!';
           statusTitle.style.color = 'var(--success)';
-          explanationArea.innerHTML = q.explanation; // Only reveal the main explanation if they got it right
+          explanationArea.innerHTML = q.explanation;
         
         } else if (isUnsimplified) {
           statusTitle.innerHTML = `❌ Almost! Your fraction is mathematically equivalent, but not fully simplified.`;
@@ -7465,13 +7479,20 @@
           statusTitle.innerHTML = `❌ Incorrect.`;
           statusTitle.style.color = 'var(--error)';
           
-          // Graceful Fallback: Use specific feedback if it exists, otherwise use a generic message
-          let wrongFeedback = '<strong>Keep trying!</strong> This question has been saved to your Smart Memory and will appear again in a future session so you can try again.';
-          
-          if (q.type === 'multiple-choice' && q.incorrectExplanations && q.incorrectExplanations[selectedIndex]) {
-            wrongFeedback = `<strong>Why this option is incorrect:</strong> ${q.incorrectExplanations[selectedIndex]}<br><br><span style="font-size: 14px; color: var(--text-light);">This question has been saved to your Smart Memory and will appear again in a future session.</span>`;
+          let wrongFeedback = '';
+
+          // WIDGET LOGIC: Conditionally display correct answer based on global variable
+          if (instantReveal) {
+            wrongFeedback += `<strong>Correct Answer:</strong> ${q.correctAnswer}<br><br>`;
           }
           
+          if (q.type === 'multiple-choice' && q.incorrectExplanations && q.incorrectExplanations[selectedIndex]) {
+            wrongFeedback += `<strong>Why this option is incorrect:</strong> ${q.incorrectExplanations[selectedIndex]}<br><br>`;
+          } else {
+            wrongFeedback += '<strong>Keep trying!</strong> ';
+          }
+          
+          wrongFeedback += `<span style="font-size: 14px; color: var(--text-light);">This question has been saved to your Smart Memory and will appear again in a future session.</span>`;
           explanationArea.innerHTML = wrongFeedback;
         }
 
@@ -7504,26 +7525,25 @@
 
       document.getElementById('q-counter').innerText = 'Activity Complete';
       
-      // --- DYNAMIC EMOJI LOGIC ---
       let emoji = ''; 
       let scorePercentage = score / activeQueue.length;
       
       if (scorePercentage >= 0.99) {
-        emoji = '🏆'; // 100% 
+        emoji = '🏆'; 
       } else if (scorePercentage >= 0.89) {
-        emoji = '🥈'; // 90% - 99%
+        emoji = '🥈'; 
       } else if (scorePercentage >= 0.79) {
-        emoji = '🥉'; // 80% - 89%
+        emoji = '🥉'; 
       } else if (scorePercentage >= 0.69) {
-        emoji = '👏'; // 70% - 79%
+        emoji = '👏'; 
       } else if (scorePercentage >= 0.59) {
-        emoji = '🤔'; // 60% - 69%
+        emoji = '🤔'; 
       } else if (scorePercentage >= 0.49) {
-        emoji = '😐'; // 50% - 59%
+        emoji = '😐'; 
       } else if (scorePercentage > 0) {
-        emoji = '😕'; // 10% - 49%
+        emoji = '😕'; 
       } else {
-        emoji = '😔'; // 0%
+        emoji = '😔'; 
       }
 
       document.getElementById('q-text').innerHTML = `
@@ -7552,32 +7572,24 @@
     ====================================================================== */
     const annoMenu = document.getElementById('annotation-menu');
 
-    // Listen for mouse release to check for selected text
     document.addEventListener('mouseup', function(e) {
-      // Don't trigger if they are clicking the menu itself
       if (annoMenu.contains(e.target)) return;
 
       const selection = window.getSelection();
       const selectedText = selection.toString().trim();
       const qText = document.getElementById('q-text');
 
-      // Check if text is selected AND if the selection is inside the question block
       if (selectedText.length > 0 && qText.contains(selection.anchorNode)) {
-        // Just show the menu! CSS handles the fixed positioning now.
         annoMenu.style.display = 'flex';
       } else {
-        // Hide the menu if they click away
         annoMenu.style.display = 'none';
       }
     });
 
-    // The function that applies the styles
     function applyAnnotation(type) {
-      // Temporarily turn on document editing to apply native formatting
       document.designMode = "on";
       
       if (type === 'highlight') {
-        // Some browsers use hiliteColor, others use backColor for background highlighting
         if (!document.execCommand("hiliteColor", false, "#fef08a")) {
           document.execCommand("backColor", false, "#fef08a");
         }
@@ -7588,10 +7600,8 @@
         document.execCommand("backColor", false, "transparent");
       }
 
-      // Instantly turn editing back off so they can't delete the test text
       document.designMode = "off";
       
-      // Hide the menu and clear the blue selection highlight
       annoMenu.style.display = 'none';
       window.getSelection().removeAllRanges();
     }
