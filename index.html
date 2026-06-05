@@ -8468,6 +8468,371 @@
         correctAnswer: '284/3', // Accepts 94.66 or 94.67
         explanation: '<strong>Step-by-step:</strong> First, find the side length of the equilateral triangle: \\( 852 / 3 = 284 \\) cm. The triangle is inscribed in the circle. The formula for the circumradius \\( R \\) of an inscribed equilateral triangle with side length \\( s \\) is \\( R = \\frac{s\\sqrt{3}}{3} \\). Substituting 284 for \\( s \\) yields \\( R = \\frac{284\\sqrt{3}}{3} \\). The prompt states that the radius is \\( w\\sqrt{3} \\). Therefore, \\( w = \\frac{284}{3} \\). (Note: Decimal equivalents like 94.66 and 94.67 are also acceptable).'
       },
+      // ==========================================
+      // SAT TEST 8: MODULE 2 MATH QUESTIONS
+      // ==========================================
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test8-m2-q1.png" style="width: 100%; max-width: 400px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">What is the y-intercept of the line graphed?',
+        options: ['\\( (-5, 0) \\)', '\\( (0, 0) \\)', '\\( (0, 5) \\)', '\\( (0, 9) \\)'],
+        correctAnswer: '\\( (0, 5) \\)',
+        explanation: '<strong>Step-by-step:</strong> The y-intercept of a graph is the exact point where the line intersects the vertical y-axis. Looking at the graph, the line crosses the y-axis at the number 5. As a coordinate pair, where the x-value is 0, this is written as \\( (0, 5) \\).',
+        incorrectExplanations: [
+          'This is the x-intercept (where the line crosses the horizontal x-axis), not the y-intercept.',
+          'This is the origin, but the line does not pass through the origin.',
+          '',
+          'The line passes through \\( (4, 9) \\), not \\( (0, 9) \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For a certain region, the table shows the average number of store employees in 2016 by type of store.<br><br><table border="1" cellpadding="5" style="border-collapse:collapse; margin-top:10px; margin-bottom:15px; width:100%; max-width: 480px; text-align: center;"><tr><th>Type of store</th><th>Average number of employees</th></tr><tr><td>Warehouse store</td><td>365</td></tr><tr><td>Department store</td><td>213</td></tr><tr><td>Supermarket</td><td>130</td></tr></table><br>Based on the table, how much greater was the average number of store employees in warehouse stores than in supermarkets?',
+        options: ['\\( 83 \\)', '\\( 152 \\)', '\\( 235 \\)', '\\( 495 \\)'],
+        correctAnswer: '\\( 235 \\)',
+        explanation: '<strong>Step-by-step:</strong> The table shows that the average number of employees in a warehouse store was 365, and the average number of employees in a supermarket was 130. To find how much greater one is than the other, subtract the smaller value from the larger value: \\( 365 - 130 = 235 \\).',
+        incorrectExplanations: [
+          'This is the difference between department stores and supermarkets (\\( 213 - 130 = 83 \\)).',
+          'This is the difference between warehouse stores and department stores (\\( 365 - 213 = 152 \\)).',
+          '',
+          'This is the sum of warehouse stores and supermarkets (\\( 365 + 130 = 495 \\)).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<em>Note: Figure not drawn to scale.</em><br><br><img src="test8-m2-q3.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>In the figure, line \\( m \\) is parallel to line \\( n \\), and line \\( t \\) intersects both lines. What is the value of \\( x \\)?',
+        options: ['\\( 33 \\)', '\\( 57 \\)', '\\( 123 \\)', '\\( 147 \\)'],
+        correctAnswer: '\\( 147 \\)',
+        explanation: '<strong>Step-by-step:</strong> Line \\( t \\) acts as a transversal across parallel lines \\( m \\) and \\( n \\). The angle labeled \\( 33^\\circ \\) and the angle labeled \\( x^\\circ \\) are exterior angles on the same side of the transversal (same-side exterior angles). Same-side exterior angles are supplementary, meaning they add up to \\( 180^\\circ \\). Therefore, \\( x + 33 = 180 \\). Subtract 33 from both sides to find \\( x = 147 \\).',
+        incorrectExplanations: [
+          'This would be the value if the angles were alternate exterior angles, but they are on the same side of the transversal.',
+          'This is the result of an arithmetic error or confusing the angle relationships.',
+          'This is the result of incorrectly adding the angles instead of subtracting from 180.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Sean rents a tent at a cost of $11 per day plus a onetime insurance fee of $10. Which equation represents the total cost \\( c \\), in dollars, to rent the tent with insurance for \\( d \\) days?',
+        options: [
+          '\\( c = 11(d + 10) \\)', 
+          '\\( c = 10(d + 11) \\)', 
+          '\\( c = 11d + 10 \\)', 
+          '\\( c = 10d + 11 \\)'
+        ],
+        correctAnswer: '\\( c = 11d + 10 \\)',
+        explanation: '<strong>Step-by-step:</strong> The cost of renting the tent depends on the number of days \\( d \\). Because it costs $11 per day, the rental cost is \\( 11d \\). The $10 insurance fee is a "onetime" flat fee, so it is simply added to the daily cost. This gives the linear equation \\( c = 11d + 10 \\).',
+        incorrectExplanations: [
+          'This equation represents a situation where the $10 insurance fee is charged every single day.',
+          'This equation represents a situation where the fee is $10 per day plus an $11 daily fee.',
+          '',
+          'This equation incorrectly swaps the daily rate ($11) and the flat rate ($10).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<em>Note: Figure not drawn to scale.</em><br><br><img src="test8-m2-q5.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>For the right triangle shown, \\( a = 4 \\) and \\( b = 5 \\). Which expression represents the value of \\( c \\)?',
+        options: [
+          '\\( 4 + 5 \\)', 
+          '\\( \\sqrt{(4)(5)} \\)', 
+          '\\( \\sqrt{4 + 5} \\)', 
+          '\\( \\sqrt{4^2 + 5^2} \\)'
+        ],
+        correctAnswer: '\\( \\sqrt{4^2 + 5^2} \\)',
+        explanation: '<strong>Step-by-step:</strong> By the Pythagorean theorem, for any right triangle with legs \\( a \\) and \\( b \\) and hypotenuse \\( c \\), the relationship is \\( a^2 + b^2 = c^2 \\). To solve for \\( c \\), you take the square root of both sides, giving \\( c = \\sqrt{a^2 + b^2} \\). Substituting 4 for \\( a \\) and 5 for \\( b \\) yields \\( c = \\sqrt{4^2 + 5^2} \\).',
+        incorrectExplanations: [
+          'This incorrectly just adds the two legs together.',
+          'This incorrectly multiplies the legs and takes the square root, ignoring the Pythagorean theorem completely.',
+          'This incorrectly adds the legs without squaring them first.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The function \\( g \\) is defined by \\( g(x) = 6x \\). For what value of \\( x \\) is \\( g(x) = 54 \\)?',
+        correctAnswer: '9',
+        explanation: '<strong>Step-by-step:</strong> Substitute 54 for \\( g(x) \\) in the given equation to yield \\( 54 = 6x \\). To isolate \\( x \\), divide both sides by 6, which gives \\( x = 9 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The function \\( f \\) is defined by \\( f(x) = 8x^3 + 4 \\). What is the value of \\( f(2) \\)?',
+        correctAnswer: '68',
+        explanation: '<strong>Step-by-step:</strong> Substitute 2 for \\( x \\) everywhere it appears in the function: \\( f(2) = 8(2)^3 + 4 \\). First, evaluate the exponent: \\( 2^3 = 8 \\). Next, multiply: \\( 8(8) = 64 \\). Finally, add the constant: \\( 64 + 4 = 68 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is defined by \\( f(x) = \\frac{1}{10}x - 2 \\). What is the y-intercept of the graph of \\( y = f(x) \\) in the xy-plane?',
+        options: [
+          '\\( (-2, 0) \\)', 
+          '\\( (0, -2) \\)', 
+          '\\( (0, \\frac{1}{10}) \\)', 
+          '\\( (\\frac{1}{10}, 0) \\)'
+        ],
+        correctAnswer: '\\( (0, -2) \\)',
+        explanation: '<strong>Step-by-step:</strong> The equation is in slope-intercept form (\\( y = mx + b \\)), where \\( b \\) is the y-coordinate of the y-intercept. The y-intercept always occurs where \\( x = 0 \\). Substituting 0 for \\( x \\) yields \\( f(0) = \\frac{1}{10}(0) - 2 \\), which simplifies to \\( -2 \\). Therefore, the coordinate point is \\( (0, -2) \\).',
+        incorrectExplanations: [
+          'This incorrectly places the y-intercept value in the x-coordinate spot.',
+          '',
+          'This incorrectly uses the slope (\\( 1/10 \\)) as the y-intercept.',
+          'This incorrectly uses the slope (\\( 1/10 \\)) as the x-intercept.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A producer is creating a video with a length of 70 minutes. The video will consist of segments that are 1 minute long and segments that are 3 minutes long. Which equation represents this situation, where \\( x \\) represents the number of 1-minute segments and \\( y \\) represents the number of 3-minute segments?',
+        options: [
+          '\\( 4xy = 70 \\)', 
+          '\\( 4(x + y) = 70 \\)', 
+          '\\( 3x + y = 70 \\)', 
+          '\\( x + 3y = 70 \\)'
+        ],
+        correctAnswer: '\\( x + 3y = 70 \\)',
+        explanation: '<strong>Step-by-step:</strong> The total length of the video is 70 minutes. The length contributed by the 1-minute segments is \\( 1 \\times x \\), or simply \\( x \\). The length contributed by the 3-minute segments is \\( 3 \\times y \\), or \\( 3y \\). The sum of these two segment lengths must equal the total length, resulting in the equation \\( x + 3y = 70 \\).',
+        incorrectExplanations: [
+          'This equation incorrectly multiplies the number of segments together.',
+          'This equation incorrectly groups the variables and multiplies both by 4.',
+          'This equation incorrectly swaps the coefficients, attaching the 3 to the 1-minute segments (\\( x \\)) instead of the 3-minute segments (\\( y \\)).',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is defined by \\( f(x) = 7x^3 \\). In the xy-plane, the graph of \\( y = g(x) \\) is the result of shifting the graph of \\( y = f(x) \\) down 2 units. Which equation defines function \\( g \\)?',
+        options: [
+          '\\( g(x) = \\frac{7}{2}x^3 \\)', 
+          '\\( g(x) = 7x^{\\frac{3}{2}} \\)', 
+          '\\( g(x) = 7x^3 + 2 \\)', 
+          '\\( g(x) = 7x^3 - 2 \\)'
+        ],
+        correctAnswer: '\\( g(x) = 7x^3 - 2 \\)',
+        explanation: '<strong>Step-by-step:</strong> A vertical shift down by \\( k \\) units means you subtract \\( k \\) from the entire original function. So, \\( g(x) = f(x) - k \\). Since the graph is shifted down 2 units, \\( k = 2 \\). Substituting the original function in yields \\( g(x) = 7x^3 - 2 \\).',
+        incorrectExplanations: [
+          'This is a completely incorrect modification of the coefficient.',
+          'This incorrectly alters the exponent instead of shifting the function vertically.',
+          'This equation represents a vertical shift *up* 2 units, not down.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A system of equations is given below:<br><br>\\( y = -3x \\)<br>\\( 4x + y = 15 \\)<br><br>The solution to the given system of equations is \\( (x, y) \\). What is the value of \\( x \\)?',
+        options: ['\\( 1 \\)', '\\( 5 \\)', '\\( 15 \\)', '\\( 45 \\)'],
+        correctAnswer: '\\( 15 \\)',
+        explanation: '<strong>Step-by-step:</strong> Since the first equation is already solved for \\( y \\), use substitution. Plug \\( -3x \\) in for \\( y \\) in the second equation: \\( 4x + (-3x) = 15 \\). Combine like terms (\\( 4x - 3x \\)) to get \\( x = 15 \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          '',
+          'This is the absolute value of \\( y \\), not \\( x \\) (if \\( x = 15 \\), \\( y = -45 \\)).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<em>Note: Figure not drawn to scale.</em><br><br><img src="test8-m2-q12.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>In the right triangle shown, what is the value of \\( \\sin A \\)?',
+        options: [
+          '\\( \\frac{1}{171} \\)', 
+          '\\( \\frac{35}{171} \\)', 
+          '\\( \\frac{171}{35} \\)', 
+          '\\( 171 \\)'
+        ],
+        correctAnswer: '\\( \\frac{35}{171} \\)',
+        explanation: '<strong>Step-by-step:</strong> The sine of an angle in a right triangle is the ratio of the length of the side opposite that angle to the length of the hypotenuse (SOH). For angle A, the opposite side is BC, which has a length of 35. The hypotenuse is AB, which has a length of 171. Therefore, \\( \\sin A = \\frac{35}{171} \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          '',
+          'This is the ratio of the hypotenuse to the opposite side (cosecant), not sine.',
+          'This is just the length of the hypotenuse.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'What is the area, in square centimeters, of a rectangle with a length of 34 centimeters (cm) and a width of 29 cm?',
+        correctAnswer: '986',
+        explanation: '<strong>Step-by-step:</strong> The area of a rectangle is found by multiplying its length by its width (\\( A = l \\times w \\)). Substituting the given values yields \\( 34 \\times 29 = 986 \\) square centimeters.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'If \\( \\frac{x}{y} = 4 \\) and \\( \\frac{24x}{ny} = 4 \\), what is the value of \\( n \\)?',
+        correctAnswer: '24',
+        explanation: '<strong>Step-by-step:</strong> The second equation can be rewritten by pulling the fraction apart: \\( (\\frac{24}{n})(\\frac{x}{y}) = 4 \\). Since the first equation tells us that \\( \\frac{x}{y} = 4 \\), we can substitute 4 in for it: \\( (\\frac{24}{n})(4) = 4 \\). Divide both sides by 4 to get \\( \\frac{24}{n} = 1 \\). Multiply both sides by \\( n \\) to find \\( n = 24 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A bowl contains 20 ounces of water. When the bowl is uncovered, the amount of water in the bowl decreases by 1 ounce every 4 days. If 9 ounces of water remain in this bowl, for how many days has it been uncovered?',
+        options: ['\\( 3 \\)', '\\( 7 \\)', '\\( 36 \\)', '\\( 44 \\)'],
+        correctAnswer: '\\( 44 \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the total amount of water the bowl lost by subtracting the remaining water from the starting water: \\( 20 - 9 = 11 \\) ounces lost. Since the bowl loses 1 ounce every 4 days, multiply the total ounces lost by 4 days per ounce to find the total time: \\( 11 \\times 4 = 44 \\) days.',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          'This is the value of \\( t \\) if the bowl had lost 9 ounces, not if 9 ounces *remained*.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'If \\( 9(4 - 3x) + 2 = 8(4 - 3x) + 18 \\), what is the value of \\( 4 - 3x \\)?',
+        options: ['\\( -16 \\)', '\\( -4 \\)', '\\( 4 \\)', '\\( 16 \\)'],
+        correctAnswer: '\\( 16 \\)',
+        explanation: '<strong>Shortcut:</strong> Instead of distributing, treat the entire expression \\( (4 - 3x) \\) as a single variable, like \\( u \\). The equation becomes \\( 9u + 2 = 8u + 18 \\). Subtract \\( 8u \\) from both sides to get \\( u + 2 = 18 \\). Subtract 2 from both sides to find \\( u = 16 \\). Therefore, the value of \\( 4 - 3x \\) is 16.',
+        incorrectExplanations: [
+          'This is an incorrect calculation (perhaps from subtracting 18 instead of 2).',
+          'This is the value of \\( x \\), not the value of the entire expression \\( 4 - 3x \\).',
+          'This is an incorrect calculation.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A certain township consists of a 5-hectare industrial park and a 24-hectare neighborhood. The total number of trees in the township is 4,529. The equation \\( 5x + 24y = 4,529 \\) represents this situation. Which of the following is the best interpretation of \\( x \\) in this context?',
+        options: [
+          'The average number of trees per hectare in the industrial park', 
+          'The average number of trees per hectare in the neighborhood', 
+          'The total number of trees in the industrial park', 
+          'The total number of trees in the neighborhood'
+        ],
+        correctAnswer: 'The average number of trees per hectare in the industrial park',
+        explanation: '<strong>Why this is correct:</strong> The total number of trees is found by multiplying the size of an area by its tree density (trees per hectare). Since 5 is the size of the industrial park in hectares, multiplying it by \\( x \\) gives the total trees in the park. Therefore, \\( x \\) must be the tree density, or the average number of trees per hectare in the industrial park.',
+        incorrectExplanations: [
+          '',
+          'Since 24 is the size of the neighborhood, \\( y \\) represents the average number of trees per hectare in the neighborhood, not \\( x \\).',
+          'The expression \\( 5x \\) represents the total number of trees in the industrial park, not the variable \\( x \\) alone.',
+          'The expression \\( 24y \\) represents the total number of trees in the neighborhood.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( a^{\\frac{11}{12}} \\), where \\( a > 0 \\)?',
+        options: [
+          '\\( \\sqrt[12]{a^{132}} \\)', 
+          '\\( \\sqrt[144]{a^{132}} \\)', 
+          '\\( \\sqrt[121]{a^{132}} \\)', 
+          '\\( \\sqrt[11]{a^{132}} \\)'
+        ],
+        correctAnswer: '\\( \\sqrt[144]{a^{132}} \\)',
+        explanation: '<strong>Step-by-step:</strong> Fractional exponents follow the rule \\( x^{\\frac{n}{m}} = \\sqrt[m]{x^n} \\). Therefore, \\( a^{\\frac{11}{12}} \\) is equivalent to \\( \\sqrt[12]{a^{11}} \\). This is not an option. However, fractions can be multiplied by 1 to create equivalent fractions. Multiply the exponent by \\( \\frac{12}{12} \\): \\( \\frac{11}{12} \\times \\frac{12}{12} = \\frac{132}{144} \\). The expression becomes \\( a^{\\frac{132}{144}} \\). Converting this back to a radical yields \\( \\sqrt[144]{a^{132}} \\).',
+        incorrectExplanations: [
+          'This is equivalent to \\( a^{\\frac{132}{12}} \\), or \\( a^{11} \\).',
+          '',
+          'This is equivalent to \\( a^{\\frac{132}{121}} \\).',
+          'This is equivalent to \\( a^{\\frac{132}{11}} \\), or \\( a^{12} \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test8-m2-q19.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; display: block;">The dot plots represent the distributions of values in data sets A and B. Which of the following statements must be true?<br><br>I. The median of data set A is equal to the median of data set B.<br>II. The standard deviation of data set A is equal to the standard deviation of data set B.',
+        options: ['I only', 'II only', 'I and II', 'Neither I nor II'],
+        correctAnswer: 'I only',
+        explanation: '<strong>Step-by-step:</strong> Let\'s evaluate both statements. Both data sets are perfectly symmetric and have an odd number of values (9). In symmetric data sets with an odd number of values, the median is the exact middle dot. For both Set A and Set B, the middle dot sits squarely on 13. Therefore, statement I is true (the medians are equal). <br><br>Standard deviation measures the "spread" or distribution of data away from the mean. In Set A, the dots are grouped tightly around the center (13). In Set B, the dots are spread much further apart towards the outer edges (10 and 16). Because Set B is more spread out, it has a larger standard deviation than Set A. Therefore, statement II is false.',
+        incorrectExplanations: [
+          '',
+          'Statement I is true, and Statement II is false because the sets have different spreads.',
+          'Statement II is false because Data Set B is more spread out, meaning it has a larger standard deviation.',
+          'Statement I is true; both data sets have a median of 13.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A circle has center O, and points R and S lie on the circle. In triangle ORS, the measure of \\( \\angle ROS \\) is 88&deg;. What is the measure of \\( \\angle RSO \\), in degrees? (Disregard the degree symbol when entering your answer.)',
+        correctAnswer: '46',
+        explanation: '<strong>Step-by-step:</strong> Because O is the center of the circle and points R and S lie on the circle, the segments OR and OS are both radii. Because all radii of a circle are equal in length, triangle ORS is an isosceles triangle (two sides are equal). In an isosceles triangle, the angles opposite the equal sides are also equal, meaning \\( \\angle ORS = \\angle RSO \\). Let this angle be \\( x \\). The sum of angles in a triangle is 180&deg;. Therefore, \\( x + x + 88 = 180 \\), or \\( 2x = 92 \\). Divide by 2 to find \\( x = 46 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The regular price of a shirt at a store is $11.70. The sale price of the shirt is 80% less than the regular price, and the sale price is 30% greater than the store\'s cost for the shirt. What was the store\'s cost, in dollars, for the shirt? (Disregard the $ sign when entering your answer. For example, if your answer is $4.97, enter 4.97)',
+        correctAnswer: '1.80', // the script will accept 1.8 too
+        explanation: '<strong>Step-by-step:</strong> First, find the sale price. If the sale price is 80% less than the regular price, it means the sale price is 20% of the regular price. \\( 0.20 \\times 11.70 = 2.34 \\). The sale price is $2.34. We are told the sale price is 30% greater than the store\'s cost (\\( x \\)). This translates to the equation: \\( 1.30x = 2.34 \\). Divide 2.34 by 1.30 to find \\( x = 1.80 \\). The store\'s cost was $1.80.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A cube has an edge length of 68 inches. A solid sphere with a radius of 34 inches is inside the cube, such that the sphere touches the center of each face of the cube. To the nearest cubic inch, what is the volume of the space in the cube not taken up by the sphere?',
+        options: ['\\( 149,796 \\)', '\\( 164,500 \\)', '\\( 190,955 \\)', '\\( 310,800 \\)'],
+        correctAnswer: '\\( 149,796 \\)',
+        explanation: '<strong>Step-by-step:</strong> The volume of empty space is the volume of the cube minus the volume of the sphere. <br>Volume of cube = \\( s^3 = 68^3 = 314,432 \\). <br>Volume of sphere = \\( \\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi(34)^3 \\approx 164,636.21 \\). <br>Subtract the sphere\'s volume from the cube\'s volume: \\( 314,432 - 164,636.21 = 149,795.79 \\). Rounded to the nearest cubic inch, the answer is 149,796.',
+        incorrectExplanations: [
+          '',
+          'This is approximately the volume of the sphere, not the empty space left over.',
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'One of the equations in a system of two linear equations is \\( y = 6x + 18 \\). The system has no solution. Which equation could be the second equation in the system?',
+        options: [
+          '\\( -6x + y = 18 \\)', 
+          '\\( -6x + y = 22 \\)', 
+          '\\( -12x + y = 36 \\)', 
+          '\\( -12x + y = 18 \\)'
+        ],
+        correctAnswer: '\\( -6x + y = 22 \\)',
+        explanation: '<strong>Step-by-step:</strong> A system of linear equations has no solution if the two lines are parallel (they have the same slope but different y-intercepts). Let\'s put the choices in slope-intercept form (\\( y = mx + b \\)) to compare them to \\( y = 6x + 18 \\). <br>Choice A becomes \\( y = 6x + 18 \\) (This is the exact same line, meaning infinitely many solutions).<br>Choice B becomes \\( y = 6x + 22 \\) (Same slope, different y-intercept. Parallel lines! No solution).<br>Choice C becomes \\( y = 12x + 36 \\) (Different slope, will intersect once).<br>Choice D becomes \\( y = 12x + 18 \\) (Different slope, will intersect once).',
+        incorrectExplanations: [
+          'This equation is identical to the first one, meaning the system would have infinitely many solutions.',
+          '',
+          'This equation has a different slope (12), meaning the lines will intersect exactly once.',
+          'This equation has a different slope (12), meaning the lines will intersect exactly once.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Triangles PQR and LMN are graphed in the xy-plane. Triangle PQR has vertices P, Q, and R at (4, 5), (4, 7), and (6, 5), respectively. Triangle LMN has vertices L, M, and N at (4, 5), \\( (4, 7+k) \\), and \\( (6+k, 5) \\) respectively, where \\( k \\) is a positive constant. If the measure of \\( \\angle Q \\) is \\( t^\\circ \\), what is the measure of \\( \\angle N \\)?',
+        options: [
+          '\\( (90 - (t - k))^\\circ \\)', 
+          '\\( (90 - (t + k))^\\circ \\)', 
+          '\\( (90 - t)^\\circ \\)', 
+          '\\( (90 + k)^\\circ \\)'
+        ],
+        correctAnswer: '\\( (90 - t)^\\circ \\)',
+        explanation: '<strong>Step-by-step:</strong> Analyze Triangle PQR: P(4, 5) and Q(4, 7) form a vertical line of length 2. P(4, 5) and R(6, 5) form a horizontal line of length 2. Because the legs are equal, this is a right isosceles triangle (45-45-90). Angle P is 90&deg;, and angles Q and R are 45&deg;. Therefore, \\( t = 45 \\).<br><br>Analyze Triangle LMN: L(4, 5) and M(4, 7+k) form a vertical line of length \\( 2+k \\). L(4, 5) and N(6+k, 5) form a horizontal line of length \\( 2+k \\). Because these legs are also equal, this is *also* a right isosceles triangle! Thus, angle N is exactly 45&deg;. Which option equals 45&deg;? Since \\( t = 45 \\), \\( (90 - t) = 90 - 45 = 45^\\circ \\). Option C is correct.',
+        incorrectExplanations: [
+          'This incorrectly factors the scalar constant \\( k \\) into the angle measure.',
+          'This incorrectly factors the scalar constant \\( k \\) into the angle measure.',
+          '',
+          'This incorrectly adds the scalar constant \\( k \\) to 90.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A system of equations is given below:<br><br>\\( 2x + 3y = 7 \\)<br>\\( 10x + 15y = 35 \\)<br><br>For each real number \\( r \\), which of the following points lies on the graph of each equation in the xy-plane for the given system?',
+        options: [
+          '\\( (\\frac{r}{5} + 7, -\\frac{r}{5} + 35) \\)', 
+          '\\( (-\\frac{3r}{2} + \\frac{7}{2}, r) \\)', 
+          '\\( (r, \\frac{2r}{3} + \\frac{7}{3}) \\)', 
+          '\\( (r, -\\frac{3r}{2} + \\frac{7}{2}) \\)'
+        ],
+        correctAnswer: '\\( (-\\frac{3r}{2} + \\frac{7}{2}, r) \\)',
+        explanation: '<strong>Step-by-step:</strong> Notice that the second equation is exactly 5 times the first equation. This means they are the exact same line, and any point on the line is a solution to the system. Let the y-coordinate be the real number \\( r \\) (so \\( y = r \\)). Substitute \\( r \\) for \\( y \\) in the first equation: \\( 2x + 3r = 7 \\). Solve for \\( x \\) to find the x-coordinate: \\( 2x = -3r + 7 \\), which becomes \\( x = -\\frac{3r}{2} + \\frac{7}{2} \\). Therefore, the coordinate pair is \\( (-\\frac{3r}{2} + \\frac{7}{2}, r) \\).',
+        incorrectExplanations: [
+          'This is an incorrect manipulation that does not represent the equation of the line.',
+          '',
+          'This is an incorrect calculation that results from solving for \\( y \\) but failing to use negative signs.',
+          'This incorrectly swaps the calculated x-coordinate into the y-coordinate position.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( \\frac{x^2}{\\sqrt{x^2 - c^2}} = \\frac{c^2}{\\sqrt{x^2 - c^2}} + 39 \\)<br><br>In the given equation, \\( c \\) is a positive constant. Which of the following is one of the solutions to the given equation?',
+        options: [
+          '\\( -c \\)', 
+          '\\( -c^2 - 39^2 \\)', 
+          '\\( -\\sqrt{39^2 - c^2} \\)', 
+          '\\( -\\sqrt{c^2 + 39^2} \\)'
+        ],
+        correctAnswer: '\\( -\\sqrt{c^2 + 39^2} \\)',
+        explanation: '<strong>Step-by-step:</strong> First, isolate the fractions. Subtract \\( \\frac{c^2}{\\sqrt{x^2 - c^2}} \\) from both sides to yield \\( \\frac{x^2 - c^2}{\\sqrt{x^2 - c^2}} = 39 \\). Because any number divided by its own square root equals the square root of that number (i.e. \\( a / \\sqrt{a} = \\sqrt{a} \\)), the left side simplifies to \\( \\sqrt{x^2 - c^2} \\). So, \\( \\sqrt{x^2 - c^2} = 39 \\). Square both sides: \\( x^2 - c^2 = 1521 \\) (or \\( 39^2 \\)). Add \\( c^2 \\) to both sides: \\( x^2 = c^2 + 39^2 \\). Finally, take the square root of both sides: \\( x = \\pm\\sqrt{c^2 + 39^2} \\). Since \\( -\\sqrt{c^2 + 39^2} \\) is one of the options, that is the correct answer.',
+        incorrectExplanations: [
+          'If \\( x = -c \\), the denominator becomes \\( \\sqrt{0} \\), which is undefined.',
+          'This is an incorrect calculation.',
+          'This is the result of incorrectly subtracting \\( c^2 \\) instead of adding it.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The quadratic function \\( g \\) models the depth, in meters, below the surface of the water of a seal \\( t \\) minutes after the seal entered the water during a dive. The function estimates that the seal reached its maximum depth of 302.4 meters 6 minutes after it entered the water and then reached the surface of the water 12 minutes after it entered the water. Based on the function, what was the estimated depth, to the nearest meter, of the seal 10 minutes after it entered the water?',
+        correctAnswer: '168',
+        explanation: '<strong>Step-by-step:</strong> Because the path is quadratic, we can model it using vertex form: \\( g(t) = a(t - h)^2 + k \\). The maximum depth occurs at 6 minutes, so the vertex \\( (h, k) \\) is \\( (6, 302.4) \\). The equation is \\( g(t) = a(t - 6)^2 + 302.4 \\). We also know the seal hit the surface (depth 0) at 12 minutes, meaning the point is \\( (12, 0) \\). Plug this in to find \\( a \\): \\( 0 = a(12 - 6)^2 + 302.4 \\). This simplifies to \\( 0 = a(36) + 302.4 \\), so \\( 36a = -302.4 \\), meaning \\( a = -8.4 \\). The full equation is \\( g(t) = -8.4(t - 6)^2 + 302.4 \\). To find the depth at 10 minutes, plug in 10: \\( g(10) = -8.4(10 - 6)^2 + 302.4 \\), which is \\( -8.4(16) + 302.4 = -134.4 + 302.4 = 168 \\).'
+      },
       {
         category: 'math', type: 'multiple-choice',
         text: 'Which expression is equivalent to \\( (x^2 + 11)^2 + (x - 5)(x + 5) \\)?',
