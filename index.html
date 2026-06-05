@@ -8148,6 +8148,326 @@
         correctAnswer: '4',
         explanation: '<strong>Step-by-step:</strong> Solve for x by dividing both sides of the equation by 4 to get \\( x = 5 \\). Then substitute 5 into the second expression: \\( 5 - 1 = 4 \\).'
       },
+      // ==========================================
+      // SAT TEST 8: MODULE 1 MATH QUESTIONS
+      // ==========================================
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A bus is traveling at a constant speed along a straight portion of road. The equation \\( d = 30t \\) gives the distance \\( d \\), in feet from a road marker, that the bus will be \\( t \\) seconds after passing the marker. How many feet from the marker will the bus be 2 seconds after passing the marker?',
+        options: ['\\( 30 \\)', '\\( 32 \\)', '\\( 60 \\)', '\\( 90 \\)'],
+        correctAnswer: '\\( 60 \\)',
+        explanation: '<strong>Step-by-step:</strong> It\'s given that \\( t \\) represents the number of seconds after the bus passes the marker. Substituting 2 for \\( t \\) in the given equation \\( d = 30t \\) yields \\( d = 30(2) \\), or \\( d = 60 \\). Therefore, the bus will be 60 feet from the marker 2 seconds after passing it.',
+        incorrectExplanations: [
+          'This is the distance, in feet, the bus will be from the marker 1 second, not 2 seconds, after passing it.',
+          'This is an incorrect calculation.',
+          '',
+          'This is the distance, in feet, the bus will be from the marker 3 seconds, not 2 seconds, after passing it.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'For a particular machine that produces beads, 29 out of every 100 beads it produces have a defect. A bead produced by the machine will be selected at random. What is the probability of selecting a bead that has a defect?',
+        options: ['\\( \\frac{1}{2,900} \\)', '\\( \\frac{1}{29} \\)', '\\( \\frac{29}{100} \\)', '\\( \\frac{29}{10} \\)'],
+        correctAnswer: '\\( \\frac{29}{100} \\)',
+        explanation: '<strong>Step-by-step:</strong> The probability of selecting a bead with a defect is given by the ratio of defective beads to total beads produced. It is directly given that 29 out of every 100 beads have a defect. Therefore, the probability is simply \\( \\frac{29}{100} \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation of the probability.',
+          'This is an incorrect calculation of the probability.',
+          '',
+          'This represents a probability greater than 1, which is impossible.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test8-m1-q3.png" style="width: 100%; max-width: 400px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">What is the y-intercept of the graph shown?',
+        options: ['\\( (-8, 0) \\)', '\\( (-6, 0) \\)', '\\( (0, 6) \\)', '\\( (0, 8) \\)'],
+        correctAnswer: '\\( (0, 8) \\)',
+        explanation: '<strong>Step-by-step:</strong> The y-intercept of a graph in the xy-plane is the point at which the graph crosses the y-axis (where the x-coordinate is 0). The graph shown crosses the y-axis at the value of 8. Therefore, the y-intercept is \\( (0, 8) \\).',
+        incorrectExplanations: [
+          'This point is not the y-intercept.',
+          'This point is not the y-intercept.',
+          'The graph crosses the y-axis at 8, not 6.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( (2x^2 + x - 9) + (x^2 + 6x + 1) \\)?',
+        options: ['\\( 2x^2 + 7x + 10 \\)', '\\( 2x^2 + 6x - 8 \\)', '\\( 3x^2 + 7x - 10 \\)', '\\( 3x^2 + 7x - 8 \\)'],
+        correctAnswer: '\\( 3x^2 + 7x - 8 \\)',
+        explanation: '<strong>Step-by-step:</strong> To find the equivalent expression, combine the like terms. <br>Combine the \\( x^2 \\) terms: \\( 2x^2 + x^2 = 3x^2 \\). <br>Combine the \\( x \\) terms: \\( x + 6x = 7x \\). <br>Combine the constant terms: \\( -9 + 1 = -8 \\). <br>Adding these together yields \\( 3x^2 + 7x - 8 \\).',
+        incorrectExplanations: [
+          'This incorrectly combines the terms and makes sign errors.',
+          'This fails to add the \\( x^2 \\) and \\( x \\) terms properly.',
+          'This incorrectly combines the constant terms (-9 + 1 = -8, not -10).',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'An analyst collected data on the price of a carton of grape tomatoes at 30 locations selected at random in Utah. The mean price of a carton of grape tomatoes in Utah was estimated to be $4.23, with an associated margin of error of $0.08. Which of the following is a plausible statement about the mean price of a carton of grape tomatoes for all locations that sell this product in Utah?',
+        options: [
+          'It is between $4.15 and $4.31.', 
+          'It is either less than $4.15 or greater than $4.31.', 
+          'It is less than $4.15.', 
+          'It is greater than $4.31.'
+        ],
+        correctAnswer: 'It is between $4.15 and $4.31.',
+        explanation: '<strong>Step-by-step:</strong> A margin of error gives a range of plausible values around an estimated mean. To find the range, subtract the margin of error from the mean to find the minimum, and add the margin of error to the mean to find the maximum. <br>Minimum: \\( $4.23 - $0.08 = $4.15 \\). <br>Maximum: \\( $4.23 + $0.08 = $4.31 \\). <br>Therefore, it is highly plausible that the true mean price is between $4.15 and $4.31.',
+        incorrectExplanations: [
+          '',
+          'This range represents the values strictly *outside* the expected margin of error.',
+          'This claims the value is strictly below the lowest expected limit.',
+          'This claims the value is strictly above the highest expected limit.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: '\\( 2.6 + x = 2.8 \\)<br><br>What value of \\( x \\) is the solution to the given equation?',
+        correctAnswer: '0.2',
+        explanation: '<strong>Step-by-step:</strong> To isolate \\( x \\), subtract 2.6 from both sides of the equation. \\( x = 2.8 - 2.6 \\), which yields \\( x = 0.2 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'Out of 300 seeds that were planted, 80% sprouted. How many of these seeds sprouted?',
+        correctAnswer: '240',
+        explanation: '<strong>Step-by-step:</strong> To find 80% of 300, convert the percentage to a decimal (0.80) and multiply it by the total number of seeds. \\( 300 \\times 0.80 = 240 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( f(x) = 4x + b \\)<br><br>For the linear function \\( f \\), \\( b \\) is a constant and \\( f(7) = 28 \\). What is the value of \\( b \\)?',
+        options: ['\\( 0 \\)', '\\( 1 \\)', '\\( 4 \\)', '\\( 7 \\)'],
+        correctAnswer: '\\( 0 \\)',
+        explanation: '<strong>Step-by-step:</strong> Substitute 7 for \\( x \\) and 28 for \\( f(x) \\) in the given function: \\( 28 = 4(7) + b \\). This simplifies to \\( 28 = 28 + b \\). Subtracting 28 from both sides yields \\( 0 = b \\).',
+        incorrectExplanations: [
+          '',
+          'Substituting 1 for \\( b \\) yields \\( f(7) = 29 \\), not 28.',
+          'Substituting 4 for \\( b \\) yields \\( f(7) = 32 \\), not 28.',
+          'Substituting 7 for \\( b \\) yields \\( f(7) = 35 \\), not 28.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Right triangles LMN and PQR are similar, where L and M correspond to P and Q, respectively. Angle M has a measure of 53&deg;. What is the measure of angle Q?',
+        options: ['37&deg;', '53&deg;', '127&deg;', '143&deg;'],
+        correctAnswer: '53&deg;',
+        explanation: '<strong>Shortcut:</strong> Corresponding angles of similar triangles are exactly congruent (equal in measure). Since angle M corresponds to angle Q, they must be identical. If M is 53&deg;, then Q is also 53&deg;.',
+        incorrectExplanations: [
+          'This would be the measure of the third angle (the complement to 53&deg; in a right triangle), not the corresponding angle.',
+          '',
+          'This assumes the angles are supplementary (adding to 180&deg;), which is incorrect for similar triangles.',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'What is the equation of the line that passes through the point (0, 5) and is parallel to the graph of \\( y = 7x + 4 \\) in the xy-plane?',
+        options: ['\\( y = 5x \\)', '\\( y = 7x + 5 \\)', '\\( y = 7x \\)', '\\( y = 5x + 7 \\)'],
+        correctAnswer: '\\( y = 7x + 5 \\)',
+        explanation: '<strong>Step-by-step:</strong> Parallel lines have identical slopes. The given line \\( y = 7x + 4 \\) has a slope of 7, so our new line must also have a slope of 7. The line passes through \\( (0, 5) \\), which means its y-intercept (the \\( b \\) in \\( y = mx + b \\)) is exactly 5. Combining the slope of 7 and the y-intercept of 5 yields \\( y = 7x + 5 \\).',
+        incorrectExplanations: [
+          'This line has a slope of 5 and a y-intercept of 0.',
+          '',
+          'This line has a y-intercept of 0, not 5.',
+          'This line uses the y-intercept (5) as the slope, and the slope (7) as the y-intercept.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test8-m1-q11.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">Which of the following equations is the most appropriate linear model for the data shown in the scatterplot?',
+        options: ['\\( y = -1.9x - 10.1 \\)', '\\( y = -1.9x + 10.1 \\)', '\\( y = 1.9x - 10.1 \\)', '\\( y = 1.9x + 10.1 \\)'],
+        correctAnswer: '\\( y = -1.9x + 10.1 \\)',
+        explanation: '<strong>Step-by-step:</strong> Look at the line of best fit on the graph. The line is sloping downward from left to right, meaning the slope must be negative (eliminating choices C and D). The line also crosses the y-axis at a positive value (around 10), meaning the y-intercept must be positive (eliminating choice A). Therefore, \\( y = -1.9x + 10.1 \\) is the only equation with a negative slope and a positive y-intercept.',
+        incorrectExplanations: [
+          'This equation has a negative y-intercept, but the graph clearly crosses the y-axis above the origin.',
+          '',
+          'This equation has a positive slope, but the graph is trending downward.',
+          'This equation has a positive slope, but the graph is trending downward.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A model predicts that the population of Bergen was 15,000 in 2005. The model also predicts that each year for the next 5 years, the population \\( p \\) increased by 4% of the previous year\'s population. Which equation best represents this model, where \\( x \\) is the number of years after 2005, for \\( x \\le 5 \\)?',
+        options: ['\\( p = 0.96(15,000)^x \\)', '\\( p = 1.04(15,000)^x \\)', '\\( p = 15,000(0.96)^x \\)', '\\( p = 15,000(1.04)^x \\)'],
+        correctAnswer: '\\( p = 15,000(1.04)^x \\)',
+        explanation: '<strong>Step-by-step:</strong> The general form of an exponential growth equation is \\( p = a(b)^x \\). The initial value \\( a \\) is the starting population, which is 15,000. An annual increase of 4% means the population becomes 104% of the previous year\'s population. As a decimal multiplier, this gives a base \\( b \\) of 1.04. Plugging these in yields \\( p = 15,000(1.04)^x \\).',
+        incorrectExplanations: [
+          'This incorrectly applies the exponent to the initial value and uses a decay multiplier (0.96).',
+          'This incorrectly applies the exponent to the initial value instead of the growth multiplier.',
+          'A base of 0.96 represents a 4% population *decrease* (decay) each year.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A system of equations is given below:<br><br>\\( 2a + 8b = 198 \\)<br>\\( 2a + 4b = 98 \\)<br><br>The solution to the given system of equations is \\( (a, b) \\). What is the value of \\( b \\)?',
+        correctAnswer: '25',
+        explanation: '<strong>Step-by-step:</strong> Both equations have a \\( 2a \\) term. You can eliminate \\( a \\) entirely by subtracting the second equation from the first equation vertically. <br>\\( (2a - 2a) + (8b - 4b) = 198 - 98 \\)<br>This simplifies directly to \\( 4b = 100 \\). Divide by 4 to find \\( b = 25 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The expression \\( 90y^5 - 54y^4 \\) is equivalent to \\( ry^4(15y - 9) \\), where \\( r \\) is a constant. What is the value of \\( r \\)?',
+        correctAnswer: '6',
+        explanation: '<strong>Step-by-step:</strong> Apply the distributive property to the right side of the equivalence: \\( ry^4(15y - 9) \\) becomes \\( 15ry^5 - 9ry^4 \\). Set the corresponding terms from the two expressions equal to each other. For the \\( y^5 \\) term: \\( 90y^5 = 15ry^5 \\), meaning \\( 90 = 15r \\). Divide both sides by 15 to find \\( r = 6 \\). (You get the exact same answer checking the \\( y^4 \\) term: \\( -54 = -9r \\), so \\( r = 6 \\)).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test8-m1-q15.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">The graph of \\( y = f(x) \\) is shown, where the function \\( f \\) is defined by \\( f(x) = ax^3 + bx^2 + cx + d \\) and \\( a \\), \\( b \\), \\( c \\), and \\( d \\) are constants. For how many values of \\( x \\) does \\( f(x) = 0 \\)?',
+        options: ['One', 'Two', 'Three', 'Four'],
+        correctAnswer: 'Three',
+        explanation: '<strong>Step-by-step:</strong> The equation \\( f(x) = 0 \\) is asking for the roots, or x-intercepts, of the function. This is simply the number of times the graphed line crosses the horizontal x-axis. Looking at the graph, the line crosses the x-axis exactly 3 times (at approximately -1, 4, and 7). Therefore, there are three values of \\( x \\) where \\( f(x) = 0 \\).',
+        incorrectExplanations: [
+          'The graph crosses the x-axis more than once.',
+          'The graph crosses the x-axis more than twice.',
+          '',
+          'The graph only crosses the x-axis three times, not four.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The area \\( A \\), in square centimeters, of a rectangular cutting board can be represented by the expression \\( w(w + 9) \\) where \\( w \\) is the width, in centimeters, of the cutting board. Which expression represents the length, in centimeters, of the cutting board?',
+        options: ['\\( w(w + 9) \\)', '\\( w \\)', '\\( 9 \\)', '\\( (w + 9) \\)'],
+        correctAnswer: '\\( (w + 9) \\)',
+        explanation: '<strong>Step-by-step:</strong> The area of a rectangle is calculated by multiplying its length by its width (\\( A = l \\times w \\)). The expression for the area is given as \\( w(w + 9) \\). Since \\( w \\) explicitly represents the width, the remaining factor multiplied against it, \\( (w + 9) \\), must represent the length.',
+        incorrectExplanations: [
+          'This expression represents the total area, not the length.',
+          'This expression represents the width, not the length.',
+          'This is the difference between the length and the width, not the total length.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( p = \\frac{k}{4j + 9} \\)<br><br>The given equation relates the distinct positive numbers \\( p \\), \\( k \\), and \\( j \\). Which equation correctly expresses \\( 4j + 9 \\) in terms of \\( p \\) and \\( k \\)?',
+        options: [
+          '\\( 4j + 9 = \\frac{k}{p} \\)', 
+          '\\( 4j + 9 = kp \\)', 
+          '\\( 4j + 9 = k - p \\)', 
+          '\\( 4j + 9 = \\frac{p}{k} \\)'
+        ],
+        correctAnswer: '\\( 4j + 9 = \\frac{k}{p} \\)',
+        explanation: '<strong>Step-by-step:</strong> To isolate the expression \\( (4j + 9) \\), first multiply both sides of the equation by \\( (4j + 9) \\) to move it out of the denominator. This yields \\( p(4j + 9) = k \\). Next, divide both sides by \\( p \\) to isolate the expression completely, resulting in \\( 4j + 9 = \\frac{k}{p} \\).',
+        incorrectExplanations: [
+          '',
+          'This incorrectly multiplies the variables instead of dividing.',
+          'This incorrectly subtracts the variables instead of dividing.',
+          'This incorrectly divides \\( p \\) by \\( k \\) instead of \\( k \\) by \\( p \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Circle A has a radius of \\( 3n \\) and circle B has a radius of \\( 129n \\), where \\( n \\) is a positive constant. The area of circle B is how many times the area of circle A?',
+        options: ['\\( 43 \\)', '\\( 86 \\)', '\\( 129 \\)', '\\( 1,849 \\)'],
+        correctAnswer: '\\( 1,849 \\)',
+        explanation: '<strong>Step-by-step:</strong> The area of a circle is \\( A = \\pi r^2 \\). First, find the scale factor between the two radii: \\( \\frac{129n}{3n} = 43 \\). Since the radius of circle B is exactly 43 times larger than circle A, its area will be scaled by the *square* of that factor (because area is a two-dimensional measurement). \\( 43^2 = 1,849 \\). Therefore, the area of circle B is 1,849 times the area of circle A.',
+        incorrectExplanations: [
+          'This is how many times greater the *radius* is, but area scales by the square of the radius.',
+          'This is the result of multiplying the radius scale factor by 2, but area requires squaring the factor.',
+          'This is just the coefficient for circle B\'s radius.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The measure of angle R is \\( \\frac{2\\pi}{3} \\) radians. The measure of angle T is \\( \\frac{5\\pi}{12} \\) radians greater than the measure of angle R. What is the measure of angle T, in degrees?',
+        options: ['\\( 75 \\)', '\\( 120 \\)', '\\( 195 \\)', '\\( 390 \\)'],
+        correctAnswer: '\\( 195 \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the measure of angle T in radians. Angle T is \\( \\frac{2\\pi}{3} + \\frac{5\\pi}{12} \\). Find a common denominator to add the fractions: \\( \\frac{8\\pi}{12} + \\frac{5\\pi}{12} = \\frac{13\\pi}{12} \\). To convert radians to degrees, multiply by \\( \\frac{180}{\\pi} \\).<br>\\( \\frac{13\\pi}{12} \\times \\frac{180}{\\pi} = 13 \\times \\frac{180}{12} = 13 \\times 15 = 195^\\circ \\).',
+        incorrectExplanations: [
+          'This is the number of degrees that angle T is *greater* than angle R (\\( 5\\pi/12 \\) radians), not the total measure.',
+          'This is the measure of angle R in degrees.',
+          '',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: '\\( y = x^2 - 14x + 22 \\)<br><br>The given equation relates the variables \\( x \\) and \\( y \\). For what value of \\( x \\) does the value of \\( y \\) reach its minimum?',
+        correctAnswer: '7',
+        explanation: '<strong>Step-by-step:</strong> The given equation is a quadratic in standard form, \\( y = ax^2 + bx + c \\). The minimum value of a parabola opening upward occurs exactly at its vertex. The x-coordinate of the vertex can be found using the formula \\( x = -\\frac{b}{2a} \\). Here, \\( a = 1 \\) and \\( b = -14 \\). Substituting these values yields \\( x = -\\frac{-14}{2(1)} = \\frac{14}{2} = 7 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A small business owner budgets $2,200 to purchase candles. The owner must purchase a minimum of 200 candles to maintain the discounted pricing. If the owner pays $4.90 per candle to purchase small candles and $11.60 per candle to purchase large candles, what is the maximum number of large candles the owner can purchase to stay within the budget and maintain the discounted pricing?',
+        correctAnswer: '182',
+        explanation: '<strong>Step-by-step:</strong> Let \\( s \\) be small candles and \\( l \\) be large candles. <br>Budget inequality: \\( 4.90s + 11.60l \\le 2200 \\).<br>Count inequality: \\( s + l \\ge 200 \\).<br>To maximize large candles, we should buy exactly the minimum 200 total candles (so \\( s = 200 - l \\)).<br>Substitute into the budget inequality: \\( 4.90(200 - l) + 11.60l \\le 2200 \\).<br>Distribute: \\( 980 - 4.90l + 11.60l \\le 2200 \\).<br>Combine like terms: \\( 6.70l \\le 1220 \\).<br>Divide by 6.70: \\( l \\le 182.089 \\).<br>Since the owner cannot purchase a fraction of a candle, the maximum whole number of large candles is 182.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A system of inequalities is given below:<br><br>\\( y \\le x + 7 \\)<br>\\( y \\ge -2x - 1 \\)<br><br>Which point \\( (x, y) \\) is a solution to the given system of inequalities in the xy-plane?',
+        options: ['\\( (-14, 0) \\)', '\\( (0, -14) \\)', '\\( (0, 14) \\)', '\\( (14, 0) \\)'],
+        correctAnswer: '\\( (14, 0) \\)',
+        explanation: '<strong>Step-by-step:</strong> A point is a solution if it makes both inequalities true. Let\'s test the option \\( (14, 0) \\):<br>First inequality: \\( 0 \\le 14 + 7 \\) &rarr; \\( 0 \\le 21 \\) (True).<br>Second inequality: \\( 0 \\ge -2(14) - 1 \\) &rarr; \\( 0 \\ge -29 \\) (True).<br>Since it satisfies both conditions, \\( (14, 0) \\) is a solution.',
+        incorrectExplanations: [
+          'If \\( x=-14 \\) and \\( y=0 \\), the first inequality is \\( 0 \\le -14 + 7 \\), which is \\( 0 \\le -7 \\) (False).',
+          'If \\( x=0 \\) and \\( y=-14 \\), the second inequality is \\( -14 \\ge -1 \\) (False).',
+          'If \\( x=0 \\) and \\( y=14 \\), the first inequality is \\( 14 \\le 7 \\) (False).',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The frequency table summarizes a data set of the weights, rounded to the nearest pound, of 71 tortoises.<br><br><table border="1" cellpadding="5" style="border-collapse:collapse; margin-top:10px; margin-bottom:15px; width:100%; max-width: 300px; text-align: center;"><tr><th>Weight (pounds)</th><th>Frequency</th></tr><tr><td>13</td><td>12</td></tr><tr><td>14</td><td>8</td></tr><tr><td>15</td><td>5</td></tr><tr><td>16</td><td>7</td></tr><tr><td>17</td><td>9</td></tr><tr><td>18</td><td>10</td></tr><tr><td>19</td><td>13</td></tr><tr><td>20</td><td>7</td></tr></table><br>A weight of 39 pounds is added to the original data set, creating a new data set of the weights, rounded to the nearest pound, of 72 tortoises. Which statement best compares the mean and median of the new data set to the mean and median of the original data set?',
+        options: [
+          'The mean of the new data set is greater than the mean of the original data set, and the median of the new data set is greater than the median of the original data set.', 
+          'The mean of the new data set is greater than the mean of the original data set, and the medians of the two data sets are equal.', 
+          'The mean of the new data set is less than the mean of the original data set, and the median of the new data set is less than the median of the original data set.', 
+          'The mean of the new data set is less than the mean of the original data set, and the medians of the two data sets are equal.'
+        ],
+        correctAnswer: 'The mean of the new data set is greater than the mean of the original data set, and the medians of the two data sets are equal.',
+        explanation: '<strong>Step-by-step:</strong> The original data set has 71 values. The maximum value is 20. Adding a massive high outlier like 39 will mathematically pull the average (mean) upward, so the new mean is absolutely greater than the original. <br><br>Now for the median. With 71 values, the median is the 36th value. Counting down the frequencies: 12 + 8 + 5 + 7 = 32. The next tier (17 pounds) contains the 33rd through 41st values. Thus, the original median is 17. With 72 values, the new median is the average of the 36th and 37th values. Since both of those still comfortably fall within that same 17-pound tier, the new median remains 17. The medians are equal.',
+        incorrectExplanations: [
+          'The median does not change because the middle values remain firmly locked in the 17-pound frequency tier.',
+          '',
+          'Adding a high value pulls the mean upward, not downward.',
+          'Adding a high value pulls the mean upward, not downward.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( x - 29 = (x - a)(x - 29) \\)<br><br>Which of the following are solutions to the given equation, where \\( a \\) is a constant and \\( a > 30 \\)?<br><br>I. \\( a \\)<br>II. \\( a + 1 \\)<br>III. \\( 29 \\)',
+        options: ['I and II only', 'I and III only', 'II and III only', 'I, II, and III'],
+        correctAnswer: 'II and III only',
+        explanation: '<strong>Step-by-step:</strong> Notice that both sides of the equation share the factor \\( (x - 29) \\). If \\( x = 29 \\), the equation becomes \\( 0 = 0 \\), which is true. Therefore, 29 is a solution (III). <br><br>To find the other solution, assume \\( x \\neq 29 \\) and divide both sides by \\( (x - 29) \\). This yields \\( 1 = x - a \\). Add \\( a \\) to both sides to find \\( x = a + 1 \\). This proves \\( (a + 1) \\) is the other solution (II). <br><br>Test \\( a \\) (I) just to be sure: \\( a - 29 = (a - a)(a - 29) \\rightarrow a - 29 = 0 \\). Since \\( a > 30 \\), this is false. Therefore, only II and III are solutions.',
+        incorrectExplanations: [
+          'Value I (\\( a \\)) is not a solution.',
+          'Value II (\\( a + 1 \\)) is also a solution.',
+          '',
+          'Value I (\\( a \\)) is not a solution.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'In the xy-plane, the graph of the equation \\( y = -x^2 + 9x - 100 \\) intersects the line \\( y = c \\) at exactly one point. What is the value of \\( c \\)?',
+        options: ['\\( -\\frac{481}{4} \\)', '\\( -100 \\)', '\\( -\\frac{319}{4} \\)', '\\( -\\frac{9}{2} \\)'],
+        correctAnswer: '\\( -\\frac{319}{4} \\)',
+        explanation: '<strong>Step-by-step:</strong> A horizontal line \\( y = c \\) intersects a downward-opening parabola at exactly one point ONLY if that point is the absolute peak (the vertex) of the parabola. The x-coordinate of the vertex is \\( x = -\\frac{b}{2a} \\). Here, \\( a = -1 \\) and \\( b = 9 \\), so \\( x = -\\frac{9}{-2} = 4.5 \\).<br>To find the y-coordinate (which is \\( c \\)), plug 4.5 back into the equation: <br>\\( y = -(4.5)^2 + 9(4.5) - 100 \\)<br>\\( y = -20.25 + 40.5 - 100 \\)<br>\\( y = 20.25 - 100 = -79.75 \\).<br>Convert -79.75 to a fraction: \\( -\\frac{319}{4} \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation of the vertex y-coordinate.',
+          'This is the y-intercept of the parabola, not the vertex. A horizontal line at -100 would intersect the parabola twice.',
+          '',
+          'This is the x-coordinate of the vertex (with a negative sign), not the y-coordinate.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The functions \\( f \\) and \\( g \\) are defined by the given equations, where \\( x \\ge 0 \\). Which of the following equations displays, as a constant or coefficient, the maximum value of the function it defines, where \\( x \\ge 0 \\)?<br><br>I. \\( f(x) = 18(1.25)^x + 41 \\)<br>II. \\( g(x) = 9(0.73)^x \\)',
+        options: ['I only', 'II only', 'I and II', 'Neither I nor II'],
+        correctAnswer: 'II only',
+        explanation: '<strong>Step-by-step:</strong> <br>Function I: The base of the exponent is 1.25 (greater than 1), meaning this is an exponential *growth* function. As \\( x \\) increases, \\( f(x) \\) increases infinitely. It has no maximum value, so equation I fails. <br><br>Function II: The base is 0.73 (less than 1), meaning this is an exponential *decay* function. As \\( x \\) gets larger, the value shrinks closer to 0. Since \\( x \\ge 0 \\), the absolute highest value this function will ever output is at the very beginning when \\( x = 0 \\). Plugging in 0 yields \\( 9(0.73)^0 = 9(1) = 9 \\). Because the maximum value (9) is explicitly displayed as the coefficient in the equation, equation II succeeds.',
+        incorrectExplanations: [
+          'Function I represents exponential growth, meaning it increases infinitely and has no maximum value.',
+          '',
+          'Function I represents exponential growth and has no maximum value.',
+          'Equation II correctly displays its maximum value (9) as a coefficient.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The perimeter of an equilateral triangle is 852 centimeters. The three vertices of the triangle lie on a circle. The radius of the circle is \\( w\\sqrt{3} \\) centimeters. What is the value of \\( w \\)?',
+        correctAnswer: '284/3', // Accepts 94.66 or 94.67
+        explanation: '<strong>Step-by-step:</strong> First, find the side length of the equilateral triangle: \\( 852 / 3 = 284 \\) cm. The triangle is inscribed in the circle. The formula for the circumradius \\( R \\) of an inscribed equilateral triangle with side length \\( s \\) is \\( R = \\frac{s\\sqrt{3}}{3} \\). Substituting 284 for \\( s \\) yields \\( R = \\frac{284\\sqrt{3}}{3} \\). The prompt states that the radius is \\( w\\sqrt{3} \\). Therefore, \\( w = \\frac{284}{3} \\). (Note: Decimal equivalents like 94.66 and 94.67 are also acceptable).'
+      },
       {
         category: 'math', type: 'multiple-choice',
         text: 'Which expression is equivalent to \\( (x^2 + 11)^2 + (x - 5)(x + 5) \\)?',
