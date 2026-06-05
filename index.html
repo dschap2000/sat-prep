@@ -194,6 +194,14 @@
     .next-btn { background: #4a5568; display: none; }
     .next-btn:hover { background: #2d3748; }
 
+<div class="setting-group">
+  <label class="switch">
+    <input type="checkbox" id="instant-reveal-toggle-home" onchange="syncRevealMode(this)">
+    <span class="slider"></span>
+  </label>
+  <span>Instant Answer Reveal</span>
+</div>
+
     .feedback {
       margin-top: 25px;
       padding: 20px;
@@ -316,6 +324,15 @@
       opacity: 0 !important;
       clip: rect(0, 0, 0, 0) !important;
     }
+
+    /* Toggle Switch Styles */
+.switch { position: relative; display: inline-block; width: 40px; height: 20px; margin-right: 10px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+.slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(20px); }
+.setting-group { display: flex; align-items: center; justify-content: center; margin-top: 15px; font-weight: bold; color: var(--text); }
   </style>
 </head>
 <body>
@@ -448,6 +465,13 @@
         <div class="tool-group">
           <button id="math-toggle-btn" class="util-btn" onclick="toggleMathRef()">&#128208; Formulas</button>
           <a id="desmos-btn" class="util-btn" href="https://www.desmos.com/calculator" target="_blank">&#128306; Desmos Calculator</a>
+          <div class="setting-group" style="margin-top: 0;">
+  <label class="switch">
+    <input type="checkbox" id="instant-reveal-toggle-quiz" onchange="syncRevealMode(this)">
+    <span class="slider"></span>
+  </label>
+  <span style="font-size: 12px;">Instant Reveal</span>
+</div>
         </div>
       </div>
 
@@ -7374,7 +7398,7 @@
       try {
         const q = activeQueue[currentIndex];
         let userAnswer = '';
-        let selectedIndex = -1; // Tracks the exact option chosen for specific feedback
+        let selectedIndex = -1; 
 
         if (q.type === 'multiple-choice') {
           const selected = document.querySelector('input[name="answer"]:checked');
@@ -7454,7 +7478,7 @@
         if (isCorrect) {
           statusTitle.innerText = '✅ Correct!';
           statusTitle.style.color = 'var(--success)';
-          explanationArea.innerHTML = q.explanation; // Only reveal the main explanation if they got it right
+          explanationArea.innerHTML = q.explanation;
         
         } else if (isUnsimplified) {
           statusTitle.innerHTML = `❌ Almost! Your fraction is mathematically equivalent, but not fully simplified.`;
@@ -7465,13 +7489,20 @@
           statusTitle.innerHTML = `❌ Incorrect.`;
           statusTitle.style.color = 'var(--error)';
           
-          // Graceful Fallback: Use specific feedback if it exists, otherwise use a generic message
-          let wrongFeedback = '<strong>Keep trying!</strong> This question has been saved to your Smart Memory and will appear again in a future session so you can try again.';
-          
-          if (q.type === 'multiple-choice' && q.incorrectExplanations && q.incorrectExplanations[selectedIndex]) {
-            wrongFeedback = `<strong>Why this option is incorrect:</strong> ${q.incorrectExplanations[selectedIndex]}<br><br><span style="font-size: 14px; color: var(--text-light);">This question has been saved to your Smart Memory and will appear again in a future session.</span>`;
+          let wrongFeedback = '';
+
+          // INTEGRATED WIDGET LOGIC: Reveal Answer if toggled ON
+          if (instantReveal) {
+            wrongFeedback += `<strong>Correct Answer:</strong> ${q.correctAnswer}<br><br>`;
           }
           
+          if (q.type === 'multiple-choice' && q.incorrectExplanations && q.incorrectExplanations[selectedIndex]) {
+            wrongFeedback += `<strong>Why this option is incorrect:</strong> ${q.incorrectExplanations[selectedIndex]}<br><br>`;
+          } else {
+            wrongFeedback += '<strong>Keep trying!</strong> ';
+          }
+          
+          wrongFeedback += `<span style="font-size: 14px; color: var(--text-light);">This question has been saved to your Smart Memory and will appear again in a future session.</span>`;
           explanationArea.innerHTML = wrongFeedback;
         }
 
@@ -7508,23 +7539,14 @@
       let emoji = ''; 
       let scorePercentage = score / activeQueue.length;
       
-      if (scorePercentage >= 0.99) {
-        emoji = '🏆'; // 100% 
-      } else if (scorePercentage >= 0.89) {
-        emoji = '🥈'; // 90% - 99%
-      } else if (scorePercentage >= 0.79) {
-        emoji = '🥉'; // 80% - 89%
-      } else if (scorePercentage >= 0.69) {
-        emoji = '👏'; // 70% - 79%
-      } else if (scorePercentage >= 0.59) {
-        emoji = '🤔'; // 60% - 69%
-      } else if (scorePercentage >= 0.49) {
-        emoji = '😐'; // 50% - 59%
-      } else if (scorePercentage > 0) {
-        emoji = '😕'; // 10% - 49%
-      } else {
-        emoji = '😔'; // 0%
-      }
+      if (scorePercentage >= 0.99) emoji = '🏆';
+      else if (scorePercentage >= 0.89) emoji = '🥈';
+      else if (scorePercentage >= 0.79) emoji = '🥉';
+      else if (scorePercentage >= 0.69) emoji = '👏';
+      else if (scorePercentage >= 0.59) emoji = '🤔';
+      else if (scorePercentage >= 0.49) emoji = '😐';
+      else if (scorePercentage > 0) emoji = '😕';
+      else emoji = '😔';
 
       document.getElementById('q-text').innerHTML = `
         <div style="text-align: center; font-size: 90px; margin-bottom: 15px;">${emoji}</div>
