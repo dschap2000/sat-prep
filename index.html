@@ -4443,14 +4443,26 @@
           '\\( (x+15)^2 = 135 \\)'
         ],
         correctAnswer: '\\( (x+15)^2 = 0 \\)',
-        explanation: '<strong>Step-by-step:</strong> A squared linear expression equals a constant has exactly one real solution if and only if the constant on the other side is exactly 0. Taking the square root of 0 gives a single value: \\( x + 15 = 0 \\), resulting in exactly one distinct real solution (\\( x = -15 \\)). constants greater than 0 yield two real solutions, and constants less than 0 yield zero real solutions.'
+        explanation: '<strong>Step-by-step:</strong> A squared linear expression equals a constant has exactly one real solution if and only if the constant on the other side is exactly 0. Taking the square root of 0 gives a single value: \\( x + 15 = 0 \\), resulting in exactly one distinct real solution (\\( x = -15 \\)). constants greater than 0 yield two real solutions, and constants less than 0 yield zero real solutions.',
+        incorrectExplanations: [
+          '',
+          'A square cannot equal a negative number, meaning this has zero real solutions.',
+          'Since 45 is positive, taking the square root gives two distinct real solutions (positive and negative).',
+          'Since 135 is positive, this equation will have two distinct real solutions.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'Circle A in the xy-plane has the equation \\( (x+5)^2 + (y-5)^2 = 25 \\). Circle B has the same center as circle A. The radius of circle B is two times the radius of circle A. The equation defining circle B in the xy-plane is \\( (x+5)^2 + (y-5)^2 = k \\), where \\( k \\) is a constant. What is the value of \\( k \\)?',
         options: ['\\( 10 \\)', '\\( 25 \\)', '\\( 50 \\)', '\\( 100 \\)'],
         correctAnswer: '\\( 100 \\)',
-        explanation: '<strong>Step-by-step:</strong> From the standard equation of a circle, the right side represents the square of the radius, so \\( r_A^2 = 25 \\), meaning the radius of circle A is 5. Since the radius of circle B is twice as large, its radius is \\( 2 \\times 5 = 10 \\). The constant \\( k \\) in circle B\'s equation is the square of its radius, so \\( k = 10^2 = 100 \\).'
+        explanation: '<strong>Step-by-step:</strong> From the standard equation of a circle, the right side represents the square of the radius, so \\( r_A^2 = 25 \\), meaning the radius of circle A is 5. Since the radius of circle B is twice as large, its radius is \\( 2 \\times 5 = 10 \\). The constant \\( k \\) in circle B\'s equation is the square of its radius, so \\( k = 10^2 = 100 \\).',
+        incorrectExplanations: [
+          'This is the new radius, but \\( k \\) must be the radius squared.',
+          'This is the value of \\( k \\) for the original circle A, but circle B is larger.',
+          'This incorrectly doubles the \\( r^2 \\) value instead of squaring the doubled radius.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4462,7 +4474,13 @@
           '\\( f(x) = -3^x + 9 \\)'
         ],
         correctAnswer: '\\( f(x) = -3^x + 5 \\)',
-        explanation: '<strong>Step-by-step:</strong> The graph shows the function shifted vertically. Look at the y-intercept of the plotted function: at \\( x = 0 \\), \\( y = 9 \\). Therefore, substituting 0 into the graph\'s equation gives \\( f(0) + 4 = 9 \\), which means \\( f(0) = 5 \\). Testing the choices for \\( f(0) = 5 \\): for option B, \\( f(0) = -3^0 + 5 = -1 + 5 = 5 \\). This matches perfectly.'
+        explanation: '<strong>Step-by-step:</strong> The graph shows the function shifted vertically. Look at the y-intercept of the plotted function: at \\( x = 0 \\), \\( y = 9 \\). Therefore, substituting 0 into the graph\'s equation gives \\( f(0) + 4 = 9 \\), which means \\( f(0) = 5 \\). Testing the choices for \\( f(0) = 5 \\): for option B, \\( f(0) = -3^0 + 5 = -1 + 5 = 5 \\). This matches perfectly.',
+        incorrectExplanations: [
+          'If \\( f(x) = -3^x + 1 \\), then \\( y = -3^x + 5 \\), which has a y-intercept of 4, not 9.',
+          '',
+          'If \\( f(x) = -3^x + 8 \\), then \\( y = -3^x + 12 \\), which has a y-intercept of 11, not 9.',
+          'This is the equation of the graph shown, but you need the equation for \\( f(x) \\) before the "+4" shift.'
+        ]
       },
       
       // ==========================================
@@ -4478,28 +4496,52 @@
           '\\( 30x + 4y \\)'
         ],
         correctAnswer: '\\( 11x + 4y \\)',
-        explanation: '<strong>Step-by-step:</strong> Combine the like terms by adding their coefficients. The terms with \\( x \\) are \\( 6x \\) and \\( 5x \\), which combine to \\( (6+5)x = 11x \\). The term with \\( y \\) cannot be combined with the \\( x \\) terms. Thus, the simplified expression is \\( 11x + 4y \\).'
+        explanation: '<strong>Step-by-step:</strong> Combine the like terms by adding their coefficients. The terms with \\( x \\) are \\( 6x \\) and \\( 5x \\), which combine to \\( (6+5)x = 11x \\). The term with \\( y \\) cannot be combined with the \\( x \\) terms. Thus, the simplified expression is \\( 11x + 4y \\).',
+        incorrectExplanations: [
+          'You cannot combine terms with different variables (\\( x \\) and \\( y \\)).',
+          'You cannot combine terms with different variables, and the variable is not just \\( y \\).',
+          '',
+          'This multiplies the coefficients of \\( x \\) instead of adding them.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'A rectangle has a length of 56 inches and a width of 28 inches. What is the area, in square inches, of the rectangle?',
         options: ['\\( 28 \\)', '\\( 84 \\)', '\\( 168 \\)', '\\( 1,568 \\)'],
         correctAnswer: '\\( 1,568 \\)',
-        explanation: '<strong>Step-by-step:</strong> The area of a rectangle is calculated by multiplying its length by its width: \\( \\text{Area} = \\text{length} \\times \\text{width} \\). Substituting the given values yields \\( 56 \\times 28 = 1,568 \\) square inches.'
+        explanation: '<strong>Step-by-step:</strong> The area of a rectangle is calculated by multiplying its length by its width: \\( \\text{Area} = \\text{length} \\times \\text{width} \\). Substituting the given values yields \\( 56 \\times 28 = 1,568 \\) square inches.',
+        incorrectExplanations: [
+          'This is just the width of the rectangle.',
+          'This is the sum of the length and the width, not the area.',
+          'This is the perimeter of the rectangle, not the area.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'To study the characteristics of sea stars in a group of tide pools, researchers measured the diameter of the sea stars within the tide pools. The dot plot below gives the diameter, to the nearest inch, of each of the sea stars in these tide pools.<br><br><div style="text-align:center; margin: 15px 0;"><div style="display:inline-block; position:relative; width:200px; height:130px; border-bottom:2px solid #000; font-family:sans-serif;"><div style="position:absolute; bottom:0; left:10px; width:20px; text-align:center;">&bull;<br>&bull;<br>&bull;<br>&bull;<br>&bull;<br>&bull;<br><span style="display:inline-block; margin-top:5px; border-top:1px solid #000; padding-top:2px;">16</span></div><div style="position:absolute; bottom:0; left:50px; width:20px; text-align:center;">&bull;<br>&bull;<br>&bull;<br>&bull;<br><span style="display:inline-block; margin-top:5px; border-top:1px solid #000; padding-top:2px;">17</span></div><div style="position:absolute; bottom:0; left:90px; width:20px; text-align:center;">&bull;<br><span style="display:inline-block; margin-top:5px; border-top:1px solid #000; padding-top:2px;">18</span></div><div style="position:absolute; bottom:0; left:130px; width:20px; text-align:center;">&bull;<br>&bull;<br><span style="display:inline-block; margin-top:5px; border-top:1px solid #000; padding-top:2px;">19</span></div><div style="position:absolute; bottom:0; left:170px; width:20px; text-align:center;">&bull;<br>&bull;<br>&bull;<br><span style="display:inline-block; margin-top:5px; border-top:1px solid #000; padding-top:2px;">20</span></div></div><div style="margin-top:5px; font-weight:bold;">Diameter (inches)</div></div>Based on the dot plot, how many sea stars had a diameter, to the nearest inch, of 16 inches?',
         options: ['\\( 16 \\)', '\\( 6 \\)', '\\( 4 \\)', '\\( 1 \\)'],
         correctAnswer: '\\( 6 \\)',
-        explanation: '<strong>Step-by-step:</strong> In a dot plot, each dot directly stacked above a value represents one occurrence of that data value. Counting the dots vertically above the 16-inch mark reveals exactly 6 dots. Therefore, 6 sea stars had a diameter of 16 inches.'
+        explanation: '<strong>Step-by-step:</strong> In a dot plot, each dot directly stacked above a value represents one occurrence of that data value. Counting the dots vertically above the 16-inch mark reveals exactly 6 dots. Therefore, 6 sea stars had a diameter of 16 inches.',
+        incorrectExplanations: [
+          'This is the diameter size in inches, not the number of sea stars.',
+          '',
+          'This is the number of sea stars that had a diameter of 17 inches.',
+          'This is the number of sea stars that had a diameter of 18 inches.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The function \\( f \\) is defined by \\( f(x) = 9(2x + 3) \\). For what value of \\( x \\) does \\( f(x) = 63 \\)?',
         options: ['\\( 2 \\)', '\\( 5 \\)', '\\( 7 \\)', '\\( 30 \\)'],
         correctAnswer: '\\( 2 \\)',
-        explanation: '<strong>Step-by-step:</strong> Set the function expression equal to 63: \\( 9(2x + 3) = 63 \\). Divide both sides by 9 to simplify: \\( 2x + 3 = 7 \\). Subtract 3 from both sides to isolate the variable term: \\( 2x = 4 \\). Finally, divide by 2 to find \\( x = 2 \\).'
+        explanation: '<strong>Step-by-step:</strong> Set the function expression equal to 63: \\( 9(2x + 3) = 63 \\). Divide both sides by 9 to simplify: \\( 2x + 3 = 7 \\). Subtract 3 from both sides to isolate the variable term: \\( 2x = 4 \\). Finally, divide by 2 to find \\( x = 2 \\).',
+        incorrectExplanations: [
+          '',
+          'This is the result of adding 3 to 7 instead of subtracting 3.',
+          'This is the value of \\( 2x+3 \\), but you must solve for \\( x \\).',
+          'This is the result of multiplying 9 and 3 instead of dividing 63 by 9.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4511,7 +4553,13 @@
           '\\( 2.40c + 1.87t \\ge 15 \\)'
         ],
         correctAnswer: '\\( 1.87c + 2.40t \\le 15 \\)',
-        explanation: '<strong>Step-by-step:</strong> The total cost of purchasing \\( c \\) containers at $1.87 each is \\( 1.87c \\), and the total cost of \\( t \\) rolls of tape at $2.40 each is \\( 2.40t \\). The sum of these costs represents the grand total, which cannot exceed his total budget of $15. Therefore, it must be less than or equal to 15, yielding \\( 1.87c + 2.40t \\le 15 \\).'
+        explanation: '<strong>Step-by-step:</strong> The total cost of purchasing \\( c \\) containers at $1.87 each is \\( 1.87c \\), and the total cost of \\( t \\) rolls of tape at $2.40 each is \\( 2.40t \\). The sum of these costs represents the grand total, which cannot exceed his total budget of $15. Therefore, it must be less than or equal to 15, yielding \\( 1.87c + 2.40t \\le 15 \\).',
+        incorrectExplanations: [
+          '',
+          'This inequality implies Leo will spend *at least* $15, but he only has $15 total.',
+          'This incorrectly assigns the $2.40 price to containers and $1.87 to tape.',
+          'This swaps the prices and uses the wrong inequality sign.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4523,14 +4571,26 @@
           'Increasing linear'
         ],
         correctAnswer: 'Increasing exponential',
-        explanation: '<strong>Why this is correct:</strong> The graph shows a non-linear shape that curves up more rapidly as \\( x \\) increases, which is characteristic of an exponential function. Since it goes upward from left to right, it represents an increasing exponential model.'
+        explanation: '<strong>Why this is correct:</strong> The graph shows a non-linear shape that curves up more rapidly as \\( x \\) increases, which is characteristic of an exponential function. Since it goes upward from left to right, it represents an increasing exponential model.',
+        incorrectExplanations: [
+          'A decreasing exponential curve starts high and approaches the x-axis as it moves right.',
+          '',
+          'A decreasing linear graph is a straight line going downward.',
+          'An increasing linear graph is a straight line, not a curve.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: '\\( y = 3,600(a)^x \\)<br><br>The given equation, where \\( a \\) is a positive constant, gives the predicted number of bacteria, \\( y \\), in a growth medium \\( x \\) hours after the number of bacteria was initially measured. According to the equation, what was the predicted number of bacteria initially measured in the growth medium?',
         options: ['\\( 1 \\)', '\\( 3,600 \\)', '\\( 3,600a \\)', '\\( 3,600^a \\)'],
         correctAnswer: '\\( 3,600 \\)',
-        explanation: '<strong>Step-by-step:</strong> The initial measurement corresponds to the start of the timeframe, meaning \\( x = 0 \\) hours have elapsed. Substituting 0 for \\( x \\) in the equation yields \\( y = 3,600(a)^0 \\). Since any non-zero base raised to the power of 0 equals 1, this simplifies to \\( y = 3,600 \\times 1 = 3,600 \\).'
+        explanation: '<strong>Step-by-step:</strong> The initial measurement corresponds to the start of the timeframe, meaning \\( x = 0 \\) hours have elapsed. Substituting 0 for \\( x \\) in the equation yields \\( y = 3,600(a)^0 \\). Since any non-zero base raised to the power of 0 equals 1, this simplifies to \\( y = 3,600 \\times 1 = 3,600 \\).',
+        incorrectExplanations: [
+          'This is the value of \\( a^0 \\), but you must multiply it by 3,600.',
+          '',
+          'This is the predicted number of bacteria after 1 hour, not initially.',
+          'This incorrectly applies the constant \\( a \\) as an exponent to 3,600.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4542,7 +4602,13 @@
           '\\( p = 240(2)^r \\)'
         ],
         correctAnswer: '\\( p = 240(\\frac{1}{2})^r \\)',
-        explanation: '<strong>Step-by-step:</strong> In each single-elimination round, exactly half of the active players are eliminated and the other half advance. This represents an exponential decay situation with a decay factor of \\( \\frac{1}{2} \\). Starting with an initial player count of 240, the number of remaining players after \\( r \\) rounds is modeled by \\( p = 240(\\frac{1}{2})^r \\).'
+        explanation: '<strong>Step-by-step:</strong> In each single-elimination round, exactly half of the active players are eliminated and the other half advance. This represents an exponential decay situation with a decay factor of \\( \\frac{1}{2} \\). Starting with an initial player count of 240, the number of remaining players after \\( r \\) rounds is modeled by \\( p = 240(\\frac{1}{2})^r \\).',
+        incorrectExplanations: [
+          'This uses an incorrect initial value of 15 players.',
+          'This uses an incorrect initial value and represents exponential growth.',
+          '',
+          'This represents exponential growth (doubling) instead of elimination.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4554,7 +4620,13 @@
           '\\( y \\ge 36 \\)'
         ],
         correctAnswer: '\\( y \\ge 36 \\)',
-        explanation: '<strong>Step-by-step:</strong> A horizontal line represents a constant value for the vertical coordinate, \\( y \\). Since the line passes through 36, the boundary is \\( y = 36 \\). The shaded region covers the area physically above this boundary line, which represents the values greater than or equal to that height. Because the line is solid (not dashed), the boundary is included, resulting in \\( y \\ge 36 \\).'
+        explanation: '<strong>Step-by-step:</strong> A horizontal line represents a constant value for the vertical coordinate, \\( y \\). Since the line passes through 36, the boundary is \\( y = 36 \\). The shaded region covers the area physically above this boundary line, which represents the values greater than or equal to that height. Because the line is solid (not dashed), the boundary is included, resulting in \\( y \\ge 36 \\).',
+        incorrectExplanations: [
+          'This would shade the region to the left of a vertical line at \\( x = 36 \\).',
+          'This would shade the region to the right of a vertical line at \\( x = 36 \\).',
+          'This would shade the region *below* the horizontal line.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4566,7 +4638,13 @@
           '\\( y = 5x + 5 \\)'
         ],
         correctAnswer: '\\( y = 6x + 5 \\)',
-        explanation: '<strong>Step-by-step:</strong> Parallel lines must have identical slopes. Since line \\( k \\) has a slope of 6, line \\( j \\) must also have a slope of 6. The point \\( (0, 5) \\) provides the y-intercept directly as 5. Substituting these properties into slope-intercept form (\\( y = mx + b \\)) yields \\( y = 6x + 5 \\).'
+        explanation: '<strong>Step-by-step:</strong> Parallel lines must have identical slopes. Since line \\( k \\) has a slope of 6, line \\( j \\) must also have a slope of 6. The point \\( (0, 5) \\) provides the y-intercept directly as 5. Substituting these properties into slope-intercept form (\\( y = mx + b \\)) yields \\( y = 6x + 5 \\).',
+        incorrectExplanations: [
+          '',
+          'This uses the y-intercept as the slope with a negative sign.',
+          'Parallel lines have the same slope, not opposite slopes.',
+          'This incorrectly uses the y-intercept as the slope.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4578,7 +4656,13 @@
           'The maximum estimated boiling point for normal paraffins corresponds to a paraffin with a molecular weight of 149.02 grams per mole and an estimated boiling point of 186.05 degrees Celsius.'
         ],
         correctAnswer: 'A normal paraffin with a molecular weight of 149.02 grams per mole has an estimated boiling point of 186.05 degrees Celsius.',
-        explanation: '<strong>Step-by-step:</strong> Any point on a graph is written as \\( (x, y) \\). The prompt specifies that the x-axis represents the molecular weight in grams per mole, and the y-axis represents the estimated boiling point in degrees Celsius. Therefore, the coordinate \\( (149.02, 186.05) \\) means that when the molecular weight (\\( x \\)) is 149.02, the estimated boiling point (\\( y \\)) is 186.05.'
+        explanation: '<strong>Step-by-step:</strong> Any point on a graph is written as \\( (x, y) \\). The prompt specifies that the x-axis represents the molecular weight in grams per mole, and the y-axis represents the estimated boiling point in degrees Celsius. Therefore, the coordinate \\( (149.02, 186.05) \\) means that when the molecular weight (\\( x \\)) is 149.02, the estimated boiling point (\\( y \\)) is 186.05.',
+        incorrectExplanations: [
+          'This swaps the x and y values.',
+          '',
+          'There is no indication this point is the minimum value.',
+          'There is no indication this point is the maximum value.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4590,14 +4674,26 @@
           '\\( f(x) = -6(x - 7)(x - 3) \\)'
         ],
         correctAnswer: '\\( f(x) = -6(x - 5)^2 + 24 \\)',
-        explanation: '<strong>Step-by-step:</strong> To display the maximum or minimum value of a quadratic function as a constant, the equation must be written in **vertex form**, which is \\( f(x) = a(x - h)^2 + k \\), where \\( (h, k) \\) is the vertex. Since the coefficient \\( a \\) is negative (-6), the parabola opens downward, making the vertex a maximum point. The constant \\( k = 24 \\) explicitly shows this maximum value. Thus, \\( f(x) = -6(x - 5)^2 + 24 \\) is the correct form.'
+        explanation: '<strong>Step-by-step:</strong> To display the maximum or minimum value of a quadratic function as a constant, the equation must be written in **vertex form**, which is \\( f(x) = a(x - h)^2 + k \\), where \\( (h, k) \\) is the vertex. Since the coefficient \\( a \\) is negative (-6), the parabola opens downward, making the vertex a maximum point. The constant \\( k = 24 \\) explicitly shows this maximum value. Thus, \\( f(x) = -6(x - 5)^2 + 24 \\) is the correct form.',
+        incorrectExplanations: [
+          'This expands the middle term but does not reveal the maximum value as a constant.',
+          'This is a partially factored form, not vertex form.',
+          '',
+          'This is the fully factored form, revealing the x-intercepts, not the maximum value.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The histogram summarizes data set A, which represents the number of points per player earned by 50 players of a game. A new player earns 18 points playing the game, and this number of points is added to data set A to create data set B with 51 values. Which of the following must be true?<br><br><img src="histogram-data-A.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>I. The median number of points per player for data set B is less than the median number of points per player for data set A.<br>II. The mean number of points per player for data set B is less than the mean number of points per player for data set A.',
         options: ['I only', 'II only', 'I and II', 'Neither I nor II'],
         correctAnswer: 'II only',
-        explanation: '<strong>Step-by-step:</strong> The histogram shows that all 50 original players scored between 30 and 70 points. The new score being added is 18 points, which is strictly less than every value in the original data set. Adding a value that is much lower than the current minimum will automatically pull the average (mean) down, so statement II must be true. However, because 50 is a large sample size, adding a single outlier at the bottom might not change the exact middle value (the median) at all, meaning statement I is not guaranteed to be true.'
+        explanation: '<strong>Step-by-step:</strong> The histogram shows that all 50 original players scored between 30 and 70 points. The new score being added is 18 points, which is strictly less than every value in the original data set. Adding a value that is much lower than the current minimum will automatically pull the average (mean) down, so statement II must be true. However, because 50 is a large sample size, adding a single outlier at the bottom might not change the exact middle value (the median) at all, meaning statement I is not guaranteed to be true.',
+        incorrectExplanations: [
+          'Adding an outlier does not necessarily change the median, especially in a large dataset.',
+          '',
+          'While II is definitely true, statement I is not guaranteed to be true.',
+          'Statement II must be true because the low outlier will definitively drag the mean down.'
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -4610,14 +4706,26 @@
         text: 'In triangle XYZ, the measure of angle X is 90&deg;. Point W lies on segment YZ, and segment WX is perpendicular to segment YZ. The length of segment WY is 572, and the length of segment WX is 429. What is the value of \\( \\tan Z \\)?',
         options: ['\\( 3/5 \\)', '\\( 3/4 \\)', '\\( 4/5 \\)', '\\( 4/3 \\)'],
         correctAnswer: '\\( 4/3 \\)',
-        explanation: '<strong>Step-by-step:</strong> Because \\( \\angle X \\) is 90&deg; and \\( WX \\perp YZ \\), \\( \\triangle WXY \\) and \\( \\triangle WXZ \\) are similar to \\( \\triangle XYZ \\). Specifically, \\( \\angle Z \\) in \\( \\triangle XYZ \\) is equal to \\( \\angle X \\) in \\( \\triangle WXY \\). In \\( \\triangle WXY \\), \\( \\tan X = \\frac{\\text{Opposite}}{\\text{Adjacent}} = \\frac{WY}{WX} \\). Substituting the values: \\( \\frac{572}{429} \\). Dividing both by 143 yields \\( 4/3 \\).'
+        explanation: '<strong>Step-by-step:</strong> Because \\( \\angle X \\) is 90&deg; and \\( WX \\perp YZ \\), \\( \\triangle WXY \\) and \\( \\triangle WXZ \\) are similar to \\( \\triangle XYZ \\). Specifically, \\( \\angle Z \\) in \\( \\triangle XYZ \\) is equal to \\( \\angle X \\) in \\( \\triangle WXY \\). In \\( \\triangle WXY \\), \\( \\tan X = \\frac{\\text{Opposite}}{\\text{Adjacent}} = \\frac{WY}{WX} \\). Substituting the values: \\( \\frac{572}{429} \\). Dividing both by 143 yields \\( 4/3 \\).',
+        incorrectExplanations: [
+          'This is \\( \\cos Z \\) or \\( \\sin X \\), assuming the hypotenuse is 5 parts.',
+          'This is \\( \\tan X \\) in the smaller triangle, which is the reciprocal of \\( \\tan Z \\).',
+          'This is \\( \\sin Z \\) or \\( \\cos X \\), assuming the hypotenuse is 5 parts.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'What is the value of \\( \\tan(\\frac{92\\pi}{3}) \\) ?',
         options: ['\\( -\\sqrt{3} \\)', '\\( -\\frac{\\sqrt{3}}{3} \\)', '\\( \\frac{\\sqrt{3}}{3} \\)', '\\( \\sqrt{3} \\)'],
         correctAnswer: '\\( -\\sqrt{3} \\)',
-        explanation: '<strong>Step-by-step:</strong> First, find the coterminal angle by subtracting multiples of \\( 2\\pi \\). \\( \\frac{92\\pi}{3} = 30\\pi + \\frac{2\\pi}{3} \\). Since \\( 30\\pi \\) represents 15 full rotations, the angle is coterminal with \\( \\frac{2\\pi}{3} \\). The tangent of \\( \\frac{2\\pi}{3} \\) is \\( -\\sqrt{3} \\).'
+        explanation: '<strong>Step-by-step:</strong> First, find the coterminal angle by subtracting multiples of \\( 2\\pi \\). \\( \\frac{92\\pi}{3} = 30\\pi + \\frac{2\\pi}{3} \\). Since \\( 30\\pi \\) represents 15 full rotations, the angle is coterminal with \\( \\frac{2\\pi}{3} \\). The tangent of \\( \\frac{2\\pi}{3} \\) is \\( -\\sqrt{3} \\).',
+        incorrectExplanations: [
+          '',
+          'This is the tangent of \\( 5\\pi/6 \\) or similar angles with a reference angle of \\( \\pi/6 \\).',
+          'This is the tangent of \\( \\pi/6 \\) or \\( 7\\pi/6 \\).',
+          'This is the tangent of \\( \\pi/3 \\) or \\( 4\\pi/3 \\).'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4629,14 +4737,26 @@
           '\\( 360t \\)'
         ],
         correctAnswer: '\\( 48 + 318t \\)',
-        explanation: '<strong>Step-by-step:</strong> First, find the width of the base. Since \\( \\text{Area} = \\text{length} \\times \\text{width} \\), we have \\( 24t = (\\frac{3}{8})w \\), so \\( w = 64t \\). The surface area of a prism is \\( 2(lw) + 2(lh) + 2(wh) \\). Substituting the values: \\( 2(24t) + 2(\\frac{3}{8} \\times 15) + 2(64t \\times 15) \\). Simplifying this gives \\( 48t + 11.25 + 1920t \\). (Note: Depending on the specific variable setup, the standard form for this specific test question is \\( 48 + 318t \\)).'
+        explanation: '<strong>Step-by-step:</strong> First, find the width of the base. Since \\( \\text{Area} = \\text{length} \\times \\text{width} \\), we have \\( 24t = (\\frac{3}{8})w \\), so \\( w = 64t \\). The surface area of a prism is \\( 2(lw) + 2(lh) + 2(wh) \\). Substituting the values: \\( 2(24t) + 2(\\frac{3}{8} \\times 15) + 2(64t \\times 15) \\). Simplifying this gives \\( 48t + 11.25 + 1920t \\). (Note: Depending on the specific variable setup, the standard form for this specific test question is \\( 48 + 318t \\)).',
+        incorrectExplanations: [
+          'This incorrectly calculates the lateral area components.',
+          '',
+          'This is an incorrect calculation of the surface area.',
+          'This is the volume of the prism (\\( 24t \\times 15 \\)), not the surface area.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The equation \\( 29x + y = 7 \\) is one equation in a system of two linear equations. If the system has at least one solution, which of the following could be the other equation in the system?<br><br>I. \\( 31x + y = 35.105 \\)<br>II. \\( 31x - y = 35.105 \\)',
         options: ['I only', 'II only', 'I and II', 'Neither I nor II'],
         correctAnswer: 'I and II',
-        explanation: '<strong>Step-by-step:</strong> A system has at least one solution if the lines intersect (different slopes) or if they are the same line (infinitely many solutions). Equation I is a scalar multiple of the original, meaning they are the same line (infinitely many solutions). Equation II has a different slope than the original, meaning they intersect at exactly one point. Therefore, both could be the other equation in the system.'
+        explanation: '<strong>Step-by-step:</strong> A system has at least one solution if the lines intersect (different slopes) or if they are the same line (infinitely many solutions). Equation I is a scalar multiple of the original, meaning they are the same line (infinitely many solutions). Equation II has a different slope than the original, meaning they intersect at exactly one point. Therefore, both could be the other equation in the system.',
+        incorrectExplanations: [
+          'Equation II also works because it has a different slope, meaning it intersects at exactly one point.',
+          'Equation I also works because it is a scalar multiple, creating infinitely many solutions.',
+          '',
+          'Both equations represent valid systems with at least one solution.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4648,7 +4768,13 @@
           '\\( 180^\\circ \\)'
         ],
         correctAnswer: '\\( (-18x + 280)^\\circ \\)',
-        explanation: '<strong>Step-by-step:</strong> When two lines intersect, the angles are either congruent (vertical angles) or supplementary (adjacent angles). The adjacent angle is \\( 180 - (9x - 140) = 320 - 9x \\). The possible sums of two angles are: 1) The sum of two vertical acute angles: \\( 2(9x - 140) = 18x - 280 \\). 2) The sum of two supplementary angles: \\( 180 \\). 3) The sum of two vertical obtuse angles: \\( 2(320 - 9x) = 640 - 18x \\), or \\( -18x + 640 \\). Comparing these results to the options, \\( -18x + 280 \\) is not one of the mathematically possible sums.'
+        explanation: '<strong>Step-by-step:</strong> When two lines intersect, the angles are either congruent (vertical angles) or supplementary (adjacent angles). The adjacent angle is \\( 180 - (9x - 140) = 320 - 9x \\). The possible sums of two angles are: 1) The sum of two vertical acute angles: \\( 2(9x - 140) = 18x - 280 \\). 2) The sum of two supplementary angles: \\( 180 \\). 3) The sum of two vertical obtuse angles: \\( 2(320 - 9x) = 640 - 18x \\), or \\( -18x + 640 \\). Comparing these results to the options, \\( -18x + 280 \\) is not one of the mathematically possible sums.',
+        incorrectExplanations: [
+          '',
+          'This is the valid sum of the two obtuse vertical angles.',
+          'This is the valid sum of the two acute vertical angles.',
+          'This is the valid sum of two adjacent supplementary angles.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4660,38 +4786,65 @@
           '\\( (0, 8) \\)'
         ],
         correctAnswer: '\\( (0, 8) \\)',
-        explanation: '<strong>Step-by-step:</strong> The y-intercept of a graph is the point where the graph intersects the y-axis. The graph of function \\( f \\) shown intersects the y-axis at the point (0, 8). Therefore, the y-intercept of the graph of \\( f \\) is (0, 8).'
+        explanation: '<strong>Step-by-step:</strong> The y-intercept of a graph is the point where the graph intersects the y-axis. The graph of function \\( f \\) shown intersects the y-axis at the point (0, 8). Therefore, the y-intercept of the graph of \\( f \\) is (0, 8).',
+        incorrectExplanations: [
+          'This is the origin, which the graph does not pass through.',
+          'This is an incorrect calculation.',
+          'This uses the correct absolute value, but the intercept is on the positive y-axis.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The equation \\( x + y = 1,440 \\) represents the number of minutes of daylight (between sunrise and sunset), \\( x \\), and the number of minutes of non-daylight, \\( y \\), on a particular day. If this day has 670 minutes of daylight, how many minutes of non-daylight does it have?',
         options: ['\\( 670 \\)', '\\( 770 \\)', '\\( 1373 \\)', '\\( 1440 \\)'],
         correctAnswer: '\\( 770 \\)',
-        explanation: '<strong>Step-by-step:</strong> Substitute 670 for \\( x \\) in the equation: \\( 670 + y = 1440 \\). Subtract 670 from both sides to find \\( y = 770 \\).'
+        explanation: '<strong>Step-by-step:</strong> Substitute 670 for \\( x \\) in the equation: \\( 670 + y = 1440 \\). Subtract 670 from both sides to find \\( y = 770 \\).',
+        incorrectExplanations: [
+          'This is the number of daylight minutes (\\( x \\)).',
+          '',
+          'This is an incorrect subtraction.',
+          'This is the total minutes in the day, not the non-daylight minutes.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'What is the slope of the line in the xy-plane defined by the equation \\( 2x - 3y = 6 \\)?',
         options: ['\\( -\\frac{3}{2} \\)', '\\( -\\frac{2}{3} \\)', '\\( \\frac{2}{3} \\)', '\\( \\frac{3}{2} \\)'],
         correctAnswer: '\\( \\frac{2}{3} \\)',
-        explanation: '<strong>Step-by-step:</strong> Convert the equation to slope-intercept form (\\( y = mx + b \\)). Subtract \\( 2x \\) from both sides to get \\( -3y = -2x + 6 \\). Divide every term by -3 to get \\( y = \\frac{2}{3}x - 2 \\). The slope \\( m \\) is \\( \\frac{2}{3} \\).'
-},
-      // ==========================================
-      // PRACTICE TEST 5 ADDITIONS (MATH BATCH 2)
-      // ==========================================
+        explanation: '<strong>Step-by-step:</strong> Convert the equation to slope-intercept form (\\( y = mx + b \\)). Subtract \\( 2x \\) from both sides to get \\( -3y = -2x + 6 \\). Divide every term by -3 to get \\( y = \\frac{2}{3}x - 2 \\). The slope \\( m \\) is \\( \\frac{2}{3} \\).',
+        incorrectExplanations: [
+          'This is the inverse of the slope with the wrong sign.',
+          'This misses the sign change when dividing by -3.',
+          '',
+          'This incorrectly divides the x-coefficient by 2 instead of 3.'
+        ]
+      },
       {
         category: 'math', type: 'multiple-choice',
         text: 'On the first day of a semester, a film club has 90 members. Each day after the first day of the semester, 10 new members join the film club. If no members leave the film club, how many total members will the film club have 4 days after the first day of the semester?',
         options: ['\\( 90 \\)', '\\( 94 \\)', '\\( 130 \\)', '\\( 400 \\)'],
         correctAnswer: '\\( 130 \\)',
-        explanation: '<strong>Step-by-step:</strong> 4 days of 10 new members equals 40 new members. Adding this to the original 90 members yields 130.'
+        explanation: '<strong>Step-by-step:</strong> 4 days of 10 new members equals 40 new members. Adding this to the original 90 members yields 130.',
+        incorrectExplanations: [
+          'This is the starting amount on day 0.',
+          'This adds 4 members instead of 4 days of 10 members.',
+          '',
+          'This multiplies 90 by 4 and adds 40, which is incorrect.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'What is the solution \\( (r, s) \\) to the given system of equations?<br><br>\\( s + 7r = 27 \\)<br>\\( r = 3 \\)',
         options: ['\\( (3, 6) \\)', '\\( (6, 3) \\)', '\\( (3, 27) \\)', '\\( (27, 3) \\)'],
         correctAnswer: '\\( (3, 6) \\)',
-        explanation: '<strong>Step-by-step:</strong> Substitute 3 for \\( r \\) in the first equation to get \\( s + 7(3) = 27 \\). This simplifies to \\( s + 21 = 27 \\), so \\( s = 6 \\). The solution \\( (r, s) \\) is \\( (3, 6) \\).'
+        explanation: '<strong>Step-by-step:</strong> Substitute 3 for \\( r \\) in the first equation to get \\( s + 7(3) = 27 \\). This simplifies to \\( s + 21 = 27 \\), so \\( s = 6 \\). The solution \\( (r, s) \\) is \\( (3, 6) \\).',
+        incorrectExplanations: [
+          '',
+          'This incorrectly assigns 6 to \\( r \\) and 3 to \\( s \\).',
+          'This uses the total sum 27 as the value for \\( s \\).',
+          'This uses 27 for \\( r \\) and 3 for \\( s \\).'
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -4716,7 +4869,13 @@
         text: 'Scott selected 20 employees at random from all 400 employees at a company. He found that 16 of the employees in this sample are enrolled in exactly three professional development courses this year. Based on Scott\'s findings, which of the following is the best estimate of the number of employees at the company who are enrolled in exactly three professional development courses this year?',
         options: ['\\( 4 \\)', '\\( 320 \\)', '\\( 380 \\)', '\\( 384 \\)'],
         correctAnswer: '\\( 320 \\)',
-        explanation: '<strong>Step-by-step:</strong> 16 out of 20 is \\( \\frac{16}{20} = 0.80 \\), or 80%. Applying this proportion to the entire company of 400 employees: \\( 0.80 \\times 400 = 320 \\).'
+        explanation: '<strong>Step-by-step:</strong> 16 out of 20 is \\( \\frac{16}{20} = 0.80 \\), or 80%. Applying this proportion to the entire company of 400 employees: \\( 0.80 \\times 400 = 320 \\).',
+        incorrectExplanations: [
+          'This is the number of employees in the sample who were NOT enrolled.',
+          '',
+          'This incorrectly subtracts 20 from 400.',
+          'This incorrectly calculates 400 - 16.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4728,7 +4887,13 @@
           'The value of \\( x \\) cannot be determined.'
         ],
         correctAnswer: 'The value of \\( x \\) is equal to 145.',
-        explanation: '<strong>Step-by-step:</strong> Vertical angles, or angles that are opposite each other when two lines intersect, are congruent. It is given that line \\( k \\) intersects line \\( n \\). Based on the figure, the angle with measure \\( x^\\circ \\) and the angle with measure \\( 145^\\circ \\) are vertical angles. Therefore, the value of \\( x \\) is exactly equal to 145.'
+        explanation: '<strong>Step-by-step:</strong> Vertical angles, or angles that are opposite each other when two lines intersect, are congruent. It is given that line \\( k \\) intersects line \\( n \\). Based on the figure, the angle with measure \\( x^\\circ \\) and the angle with measure \\( 145^\\circ \\) are vertical angles. Therefore, the value of \\( x \\) is exactly equal to 145.',
+        incorrectExplanations: [
+          'Vertical angles are always strictly equal.',
+          'Vertical angles are always strictly equal.',
+          '',
+          'The value can easily be determined because vertical angles are congruent.'
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -4741,35 +4906,65 @@
         text: 'The graph of the given equation is a circle in the xy-plane. The point \\( (a, b) \\) lies on the circle. Which of the following is a possible value for \\( a \\)?<br><br>\\( (x + 4)^2 + (y - 19)^2 = 121 \\)',
         options: ['\\( -16 \\)', '\\( -14 \\)', '\\( 11 \\)', '\\( 19 \\)'],
         correctAnswer: '\\( -14 \\)',
-        explanation: '<strong>Step-by-step:</strong> The circle\'s equation is in the form \\( (x - h)^2 + (y - k)^2 = r^2 \\), meaning its center is at (-4, 19) and its radius is 11 (since \\( \\sqrt{121} = 11 \\)). The x-coordinate of any point on the circle must lie between \\( -4 - 11 \\) and \\( -4 + 11 \\), or between -15 and 7. Only -14 falls within this range.'
+        explanation: '<strong>Step-by-step:</strong> The circle\'s equation is in the form \\( (x - h)^2 + (y - k)^2 = r^2 \\), meaning its center is at (-4, 19) and its radius is 11 (since \\( \\sqrt{121} = 11 \\)). The x-coordinate of any point on the circle must lie between \\( -4 - 11 \\) and \\( -4 + 11 \\), or between -15 and 7. Only -14 falls within this range.',
+        incorrectExplanations: [
+          'This value is outside the circle; the minimum x-value is \\( -4 - 11 = -15 \\).',
+          '',
+          'This is the radius of the circle, not a valid x-coordinate.',
+          'This is the y-coordinate of the center, not a valid x-coordinate.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The result of increasing the quantity \\( x \\) by 400% is 60. What is the value of \\( x \\)?',
         options: ['\\( 12 \\)', '\\( 15 \\)', '\\( 240 \\)', '\\( 340 \\)'],
         correctAnswer: '\\( 12 \\)',
-        explanation: '<strong>Step-by-step:</strong> Increasing a quantity by 400% means adding 400% of it to its original 100%, effectively multiplying it by 5 (500%). Setting up the equation: \\( 5x = 60 \\), which solves to \\( x = 12 \\).'
+        explanation: '<strong>Step-by-step:</strong> Increasing a quantity by 400% means adding 400% of it to its original 100%, effectively multiplying it by 5 (500%). Setting up the equation: \\( 5x = 60 \\), which solves to \\( x = 12 \\).',
+        incorrectExplanations: [
+          '',
+          'This is the result of dividing 60 by 4, which is a 300% increase, not 400%.',
+          'This is the result of multiplying 60 by 4.',
+          'This is an incorrect calculation.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'What is 20% of 440?',
         options: ['\\( 44 \\)', '\\( 88 \\)', '\\( 880 \\)', '\\( 1,760 \\)'],
         correctAnswer: '\\( 88 \\)',
-        explanation: '<strong>Step-by-step:</strong> Convert 20% to a decimal (0.20) and multiply by 440: \\( 0.20 \\times 440 = 88 \\).'
+        explanation: '<strong>Step-by-step:</strong> Convert 20% to a decimal (0.20) and multiply by 440: \\( 0.20 \\times 440 = 88 \\).',
+        incorrectExplanations: [
+          'This is 10% of 440, not 20%.',
+          '',
+          'This is 200% of 440.',
+          'This is 400% of 440.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The function \\( f \\) is defined by \\( f(x) = 8x \\). For what value of \\( x \\) does \\( f(x) = 72 \\)?',
         options: ['\\( 8 \\)', '\\( 9 \\)', '\\( 64 \\)', '\\( 80 \\)'],
         correctAnswer: '\\( 9 \\)',
-        explanation: '<strong>Step-by-step:</strong> Substituting 72 for \\( f(x) \\) in the given function yields \\( 72 = 8x \\). Dividing each side of this equation by 8 yields \\( x = 9 \\). Therefore, \\( f(x) = 72 \\) when the value of \\( x \\) is 9.'
+        explanation: '<strong>Step-by-step:</strong> Substituting 72 for \\( f(x) \\) in the given function yields \\( 72 = 8x \\). Dividing each side of this equation by 8 yields \\( x = 9 \\). Therefore, \\( f(x) = 72 \\) when the value of \\( x \\) is 9.',
+        incorrectExplanations: [
+          'This is the coefficient, not the value of x.',
+          '',
+          'This is the result of subtracting 8 from 72 instead of dividing.',
+          'This is the result of adding 8 to 72.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: '<em>Note: Figure not drawn to scale.</em><br><br>In the figure, two lines intersect at a point. Angle 1 and angle 2 are vertical angles. The measure of angle 1 is 72&deg;. What is the measure of angle 2?<br><br><img src="vertical-angles.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
         options: ['72&deg;', '108&deg;', '144&deg;', '288&deg;'],
         correctAnswer: '72&deg;',
-        explanation: '<strong>Step-by-step:</strong> It is given that angle 1 and angle 2 are vertical angles, and the measure of angle 1 is 72&deg;. Vertical angles have equal measures. Therefore, the measure of angle 2 is also 72&deg;.'
+        explanation: '<strong>Step-by-step:</strong> It is given that angle 1 and angle 2 are vertical angles, and the measure of angle 1 is 72&deg;. Vertical angles have equal measures. Therefore, the measure of angle 2 is also 72&deg;.',
+        incorrectExplanations: [
+          '',
+          'This is the measure of the supplementary adjacent angle (180 - 72).',
+          'This is the sum of angles 1 and 2.',
+          'This is an incorrect calculation.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4781,7 +4976,13 @@
           '\\( \\frac{7}{7} \\)'
         ],
         correctAnswer: '\\( \\frac{2}{7} \\)',
-        explanation: '<strong>Step-by-step:</strong> If a house from the street is selected at random, the probability of selecting a house that is blue is equal to the number of houses on the street that are blue divided by the total number of houses on the street. Since there are 2 blue houses on a street with 7 total houses, the probability of selecting a house that is blue from this street is \\( \\frac{2}{7} \\).'
+        explanation: '<strong>Step-by-step:</strong> If a house from the street is selected at random, the probability of selecting a house that is blue is equal to the number of houses on the street that are blue divided by the total number of houses on the street. Since there are 2 blue houses on a street with 7 total houses, the probability of selecting a house that is blue from this street is \\( \\frac{2}{7} \\).',
+        incorrectExplanations: [
+          'This is the probability of selecting one specific house.',
+          '',
+          'This is the probability of selecting a house that is NOT blue.',
+          'This is 100%, meaning every house is blue.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4793,7 +4994,13 @@
           'Decreasing exponential'
         ],
         correctAnswer: 'Increasing linear',
-        explanation: '<strong>Step-by-step:</strong> The graph of function \\( f \\) shows that as \\( x \\) increases, \\( f(x) \\) also increases, which means \\( f(x) \\) is an increasing function. The graph of \\( f \\) is a line, which indicates a constant rate of change. A function that has a constant rate of change is a linear function. Therefore, function \\( f \\) can be described as increasing linear.'
+        explanation: '<strong>Step-by-step:</strong> The graph of function \\( f \\) shows that as \\( x \\) increases, \\( f(x) \\) also increases, which means \\( f(x) \\) is an increasing function. The graph of \\( f \\) is a line, which indicates a constant rate of change. A function that has a constant rate of change is a linear function. Therefore, function \\( f \\) can be described as increasing linear.',
+        incorrectExplanations: [
+          '',
+          'The graph is going up from left to right, not down.',
+          'The graph is a straight line with a constant rate of change, not a curve.',
+          'The graph is an increasing straight line.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4805,21 +5012,39 @@
           '\\( (0, 4) \\)'
         ],
         correctAnswer: '\\( (0, -4) \\)',
-        explanation: '<strong>Step-by-step:</strong> The y-intercept of a graph is the point where the graph intersects the y-axis. The graph of function \\( f \\) shown intersects the y-axis at the point (0, -4). Therefore, the y-intercept of the graph is (0, -4).'
+        explanation: '<strong>Step-by-step:</strong> The y-intercept of a graph is the point where the graph intersects the y-axis. The graph of function \\( f \\) shown intersects the y-axis at the point (0, -4). Therefore, the y-intercept of the graph is (0, -4).',
+        incorrectExplanations: [
+          'This point is not the y-intercept of the line shown.',
+          '',
+          'This is the x-intercept, not the y-intercept.',
+          'This point is on the positive y-axis, but the line crosses at the negative y-axis.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The function \\( f \\) is defined by \\( f(x) = 4x - 3 \\). What is the value of \\( f(10) \\)?',
         options: ['\\( -30 \\)', '\\( 37 \\)', '\\( 40 \\)', '\\( 43 \\)'],
         correctAnswer: '\\( 37 \\)',
-        explanation: '<strong>Step-by-step:</strong> Substitute 10 for \\( x \\) in the given function: \\( f(10) = 4(10) - 3 = 40 - 3 = 37 \\).'
+        explanation: '<strong>Step-by-step:</strong> Substitute 10 for \\( x \\) in the given function: \\( f(10) = 4(10) - 3 = 40 - 3 = 37 \\).',
+        incorrectExplanations: [
+          'This incorrectly multiplies 10 by -3.',
+          '',
+          'This is just 4 times 10; you forgot to subtract 3.',
+          'This incorrectly adds 3 instead of subtracting 3.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The graph models the number of active projects a company was working on \\( x \\) months after the end of November 2012, where \\( 0 \\le x \\le 6 \\). According to the model, what is the predicted number of active projects the company was working on at the end of November 2012?<br><br><img src="active-projects-graph.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;">',
         options: ['\\( 0 \\)', '\\( 5 \\)', '\\( 8 \\)', '\\( 9 \\)'],
         correctAnswer: '\\( 5 \\)',
-        explanation: '<strong>Step-by-step:</strong> It is given that the graph models the number of active projects a company was working on \\( x \\) months after the end of November 2012. Therefore, the value of \\( x \\) that corresponds to the end of November 2012 is 0. The point at which \\( x = 0 \\) is the y-intercept of the graph. The y-intercept of the graph shown is the point (0, 5). Therefore, according to the model, the predicted number of active projects the company was working on at the end of November 2012 is 5.'
+        explanation: '<strong>Step-by-step:</strong> It is given that the graph models the number of active projects a company was working on \\( x \\) months after the end of November 2012. Therefore, the value of \\( x \\) that corresponds to the end of November 2012 is 0. The point at which \\( x = 0 \\) is the y-intercept of the graph. The y-intercept of the graph shown is the point (0, 5). Therefore, according to the model, the predicted number of active projects the company was working on at the end of November 2012 is 5.',
+        incorrectExplanations: [
+          'This is the x-value (months), not the number of projects.',
+          '',
+          'This is a later point on the graph, not the starting point.',
+          'This is the maximum number of projects, not the initial number.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4831,21 +5056,39 @@
           '\\( C = 19 - \\frac{P}{N} \\)'
         ],
         correctAnswer: '\\( C = 19 - \\frac{P}{N} \\)',
-        explanation: '<strong>Step-by-step:</strong> It is given that the values of \\( P \\), \\( N \\), and \\( C \\) are positive. First, divide each side of the given equation by \\( N \\) to isolate the group with \\( C \\), yielding \\( \\frac{P}{N} = 19 - C \\). Next, subtract 19 from each side to get \\( \\frac{P}{N} - 19 = -C \\). Finally, divide or multiply each side by -1 to isolate \\( C \\), which yields \\( -\\frac{P}{N} + 19 = C \\), or \\( C = 19 - \\frac{P}{N} \\).'
+        explanation: '<strong>Step-by-step:</strong> It is given that the values of \\( P \\), \\( N \\), and \\( C \\) are positive. First, divide each side of the given equation by \\( N \\) to isolate the group with \\( C \\), yielding \\( \\frac{P}{N} = 19 - C \\). Next, subtract 19 from each side to get \\( \\frac{P}{N} - 19 = -C \\). Finally, divide or multiply each side by -1 to isolate \\( C \\), which yields \\( -\\frac{P}{N} + 19 = C \\), or \\( C = 19 - \\frac{P}{N} \\).',
+        incorrectExplanations: [
+          'This incorrectly adds 19 instead of subtracting it during the algebraic rearrangement.',
+          'This is the value of -C, not C. You missed a final sign change.',
+          'This incorrectly divides N by P instead of P by N.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'The table shown summarizes the number of employees at each of the 17 restaurants in a town.<br><br><table border="1" cellpadding="5" style="border-collapse:collapse; margin-top:10px; margin-bottom:15px; width:100%; max-width: 480px; text-align: center;"><tr><th>Number of employees</th><th>Number of restaurants</th></tr><tr><td>2 to 7</td><td>2</td></tr><tr><td>8 to 13</td><td>4</td></tr><tr><td>14 to 19</td><td>2</td></tr><tr><td>20 to 25</td><td>7</td></tr><tr><td>26 to 31</td><td>2</td></tr></table><br>Which of the following could be the median number of employees for the restaurants in this town?',
         options: ['\\( 2 \\)', '\\( 9 \\)', '\\( 15 \\)', '\\( 21 \\)'],
         correctAnswer: '\\( 21 \\)',
-        explanation: '<strong>Step-by-step:</strong> Since there are 17 restaurants (an odd number) and the numbers of employees are listed in ascending order, the median will be represented by the middle value, which is the 9th restaurant in the list. The first 2 restaurants are in the 2–7 range. The next 4 are in the 8–13 range (bringing the total to 6 restaurants). The next 2 are in the 14–19 range (bringing the total to 8). The 9th restaurant falls into the next group, which is the 20–25 range. Of the given choices, the only number of employees in the 20 to 25 range is 21.'
+        explanation: '<strong>Step-by-step:</strong> Since there are 17 restaurants (an odd number) and the numbers of employees are listed in ascending order, the median will be represented by the middle value, which is the 9th restaurant in the list. The first 2 restaurants are in the 2–7 range. The next 4 are in the 8–13 range (bringing the total to 6 restaurants). The next 2 are in the 14–19 range (bringing the total to 8). The 9th restaurant falls into the next group, which is the 20–25 range. Of the given choices, the only number of employees in the 20 to 25 range is 21.',
+        incorrectExplanations: [
+          'This is the number of restaurants in the first tier, not the median number of employees.',
+          'This is the index position of the median restaurant, not the number of employees.',
+          'This value falls in the 14-19 range, which represents the 7th and 8th restaurants, not the 9th (median).',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'Which expression is equivalent to \\( 16x^3y^2 + 14xy \\) ?',
         options: ['\\( 2xy(8xy + 7) \\)', '\\( 2xy(8x^2y + 7) \\)', '\\( 14xy(2x^2y + 1) \\)', '\\( 14xy(8x^2y + 1) \\)'],
         correctAnswer: '\\( 2xy(8x^2y + 7) \\)',
-        explanation: '<strong>Step-by-step:</strong> Find the greatest common factor between the two terms, which is \\( 2xy \\). Factoring \\( 2xy \\) out of both terms yields \\( 2xy(8x^2y + 7) \\).'
+        explanation: '<strong>Step-by-step:</strong> Find the greatest common factor between the two terms, which is \\( 2xy \\). Factoring \\( 2xy \\) out of both terms yields \\( 2xy(8x^2y + 7) \\).',
+        incorrectExplanations: [
+          'This incorrectly reduces the \\( x^3 \\) term to \\( x \\) inside the parentheses.',
+          '',
+          'You cannot factor out 14 from 16.',
+          'You cannot factor out 14 from 16.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
@@ -4857,14 +5100,26 @@
           '\\( 14 \\)'
         ],
         correctAnswer: '\\( 5 \\)',
-        explanation: '<strong>Step-by-step:</strong> To find the median, first list the 8 data values in ascending order: 4, 4, 4, 5, 5, 6, 10, 18. Since there is an even number of data values, the median is the average of the two middle values. The two middle values (the 4th and 5th values in the ordered list) are both 5. The average of 5 and 5 is 5. Therefore, the median is 5.'
+        explanation: '<strong>Step-by-step:</strong> To find the median, first list the 8 data values in ascending order: 4, 4, 4, 5, 5, 6, 10, 18. Since there is an even number of data values, the median is the average of the two middle values. The two middle values (the 4th and 5th values in the ordered list) are both 5. The average of 5 and 5 is 5. Therefore, the median is 5.',
+        incorrectExplanations: [
+          'This is the mode (most common number), not the median.',
+          '',
+          'This is the mean (average), not the median.',
+          'This is the range (18 - 4), not the median.'
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'A veterinarian recommends that each day a certain rabbit should eat 25 calories per pound of the rabbit\'s weight, plus an additional 11 calories. Which equation represents this situation, where \\( c \\) is the total number of calories the veterinarian recommends the rabbit should eat each day if the rabbit\'s weight is \\( x \\) pounds?',
         options: ['\\( c = 25x \\)', '\\( c = 36x \\)', '\\( c = 11x + 25 \\)', '\\( c = 25x + 11 \\)'],
         correctAnswer: '\\( c = 25x + 11 \\)',
-        explanation: '<strong>Step-by-step:</strong> Multiply the rabbit\'s weight (\\( x \\)) by 25 calories per pound, then add the flat 11 additional calories. This results in the linear equation \\( c = 25x + 11 \\).'
+        explanation: '<strong>Step-by-step:</strong> Multiply the rabbit\'s weight (\\( x \\)) by 25 calories per pound, then add the flat 11 additional calories. This results in the linear equation \\( c = 25x + 11 \\).',
+        incorrectExplanations: [
+          'This misses the flat additional 11 calories.',
+          'This incorrectly adds the 25 and 11 to create a single rate.',
+          'This swaps the rate and the flat constant.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -4877,14 +5132,26 @@
         text: 'Line \\( r \\) in the xy-plane has a slope of 4 and passes through the point (0, 6). Which equation defines line \\( r \\)?',
         options: ['\\( y = -6x + 4 \\)', '\\( y = 6x + 4 \\)', '\\( y = 4x - 6 \\)', '\\( y = 4x + 6 \\)'],
         correctAnswer: '\\( y = 4x + 6 \\)',
-        explanation: '<strong>Step-by-step:</strong> Use the slope-intercept form \\( y = mx + b \\), where \\( m \\) is the slope and \\( b \\) is the y-intercept. The point (0, 6) gives a y-intercept of 6. Substituting 4 for \\( m \\) and 6 for \\( b \\) yields \\( y = 4x + 6 \\).'
+        explanation: '<strong>Step-by-step:</strong> Use the slope-intercept form \\( y = mx + b \\), where \\( m \\) is the slope and \\( b \\) is the y-intercept. The point (0, 6) gives a y-intercept of 6. Substituting 4 for \\( m \\) and 6 for \\( b \\) yields \\( y = 4x + 6 \\).',
+        incorrectExplanations: [
+          'This swaps the slope and y-intercept and makes the slope negative.',
+          'This swaps the slope and the y-intercept.',
+          'This incorrectly uses -6 as the y-intercept.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'At a movie theater, there are a total of 350 customers. Each customer is located in either theater A, theater B, or theater C. If one of these customers is selected at random, the probability of selecting a customer who is located in theater A is 0.48, and the probability of selecting a customer who is located in theater B is 0.24. How many customers are located in theater C?',
         options: ['\\( 28 \\)', '\\( 40 \\)', '\\( 84 \\)', '\\( 98 \\)'],
         correctAnswer: '\\( 98 \\)',
-        explanation: '<strong>Step-by-step:</strong> The total probability of selecting someone in A or B is \\( 0.48 + 0.24 = 0.72 \\). This leaves a probability of \\( 1 - 0.72 = 0.28 \\) for theater C. Multiply this probability by the total number of customers: \\( 0.28 \\times 350 = 98 \\).'
+        explanation: '<strong>Step-by-step:</strong> The total probability of selecting someone in A or B is \\( 0.48 + 0.24 = 0.72 \\). This leaves a probability of \\( 1 - 0.72 = 0.28 \\) for theater C. Multiply this probability by the total number of customers: \\( 0.28 \\times 350 = 98 \\).',
+        incorrectExplanations: [
+          'This is the percentage of customers in theater C (28%), not the raw number of customers.',
+          'This is an incorrect calculation.',
+          'This is the number of customers in theater B (24% of 350).',
+          ''
+        ]
       },
       {
         category: 'math', type: 'free-response',
@@ -4908,14 +5175,26 @@
           '\\( 1.1856 \\)'
         ],
         correctAnswer: '\\( 1.1856 \\)',
-        explanation: '<strong>Step-by-step:</strong> Earning 14% more in 2008 means multiplying the 2007 amount by 1.14. Earning 4% more in 2009 means multiplying the 2008 amount by 1.04. To find the total growth multiplier from 2007 to 2009, multiply these two factors together: \\( 1.14 \\times 1.04 = 1.1856 \\). Therefore, she earned 1.1856 times as much in 2009.'
+        explanation: '<strong>Step-by-step:</strong> Earning 14% more in 2008 means multiplying the 2007 amount by 1.14. Earning 4% more in 2009 means multiplying the 2008 amount by 1.04. To find the total growth multiplier from 2007 to 2009, multiply these two factors together: \\( 1.14 \\times 1.04 = 1.1856 \\). Therefore, she earned 1.1856 times as much in 2009.',
+        incorrectExplanations: [
+          'This is an incorrect product of the percentages.',
+          'This is an incorrect calculation.',
+          'This incorrectly adds the percentages (14 + 4) instead of multiplying the growth factors.',
+          ''
+        ]
       },
       {
         category: 'math', type: 'multiple-choice',
         text: 'Which expression is equivalent to \\( (8x^3 + 8) - (x^3 - 2) \\)?',
         options: ['\\( 8x^3 + 6 \\)', '\\( 7x^3 + 10 \\)', '\\( 8x^3 + 10 \\)', '\\( 7x^3 + 6 \\)'],
         correctAnswer: '\\( 7x^3 + 10 \\)',
-        explanation: '<strong>Step-by-step:</strong> Distribute the negative sign to both terms inside the second set of parentheses: \\( 8x^3 + 8 - x^3 + 2 \\). Combine the like terms to get \\( 7x^3 + 10 \\).'
+        explanation: '<strong>Step-by-step:</strong> Distribute the negative sign to both terms inside the second set of parentheses: \\( 8x^3 + 8 - x^3 + 2 \\). Combine the like terms to get \\( 7x^3 + 10 \\).',
+        incorrectExplanations: [
+          'You forgot to subtract \\( x^3 \\) from \\( 8x^3 \\).',
+          '',
+          'You forgot to subtract \\( x^3 \\) from \\( 8x^3 \\).',
+          'You subtracted 2 from 8 instead of adding it (because of the double negative).'
+        ]
       }
     ]
   };
