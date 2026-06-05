@@ -11086,6 +11086,7 @@
     let currentSessionId = null;
     let currentMode = null;
     let sessionToDelete = null;
+    let hasUnsavedChanges = false;
 
     window.onload = () => {
       ['reading', 'math'].forEach(category => {
@@ -11194,6 +11195,7 @@
       score = 0;
       currentIndex = 0;
       activeQueue = [];
+      hasUnsavedChanges = true;
 
       if (mode === 'math') {
         activeQueue = getSmartSubset('math', MATH_Q_LIMIT);
@@ -11231,6 +11233,8 @@
       savedSessions.push(sessionData);
       localStorage.setItem('satSessions', JSON.stringify(savedSessions));
 
+      hasUnsavedChanges = false;
+
       if (showAlert) {
         document.getElementById('save-modal').style.display = 'flex';
       }
@@ -11250,7 +11254,15 @@
     }
     
     function promptReturnHome() {
-      document.getElementById('exit-modal').style.display = 'flex';
+      if (hasUnsavedChanges) {
+        // If there are changes, show the warning modal
+        document.getElementById('exit-modal').style.display = 'flex';
+      } else {
+        // If nothing has changed, bypass the modal and go straight home
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('welcome-screen').style.display = 'block';
+        renderInProgress();
+      }
     }
 
     function handleExit(action) {
@@ -11312,6 +11324,7 @@
       activeQueue = session.activeQueue;
       currentIndex = session.currentIndex;
       score = session.score;
+      hasUnsavedChanges = false;
       transitionToQuiz();
     }
 
@@ -11472,7 +11485,9 @@
             localStorage.setItem('satMissedQuestions', JSON.stringify(missedQuestions));
           }
         }
-
+        
+        hasUnsavedChanges = true;
+        
         const feedbackArea = document.getElementById('feedback-area');
         const statusTitle = document.getElementById('feedback-status');
         const explanationArea = document.getElementById('explanation');
@@ -11526,6 +11541,7 @@
     
     function nextQuestion() {
       currentIndex++;
+      hasUnsavedChanges = true; // <-- ADD THIS LINE
       if (currentIndex < activeQueue.length) {
         loadQuestion();
       } else {
