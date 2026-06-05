@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAT Practice Module</title>
   
+  <script>
+    window.MathJax = {
+      options: {
+        enableMenu: false, // Disables the background context menu
+        menuOptions: {
+          settings: {
+            assistiveMml: false // Disables the hidden top-left box causing the flash
+          }
+        }
+      }
+    };
+  </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
@@ -293,10 +305,16 @@
     .anno-hl { border-bottom: 3px solid #fef08a; }
     .anno-ul { text-decoration: underline; }
     .anno-clear { color: #f87171; }
-/* Fix for MathJax initialization outline flash */
-    #MathJax_Message, #MathJax_Hidden {
+/* Fix for MathJax 3 initialization top-left box flash */
+    mjx-container, 
+    mjx-assistive-mml {
       outline: none !important;
+    }
+    
+    mjx-assistive-mml {
       display: none !important;
+      opacity: 0 !important;
+      clip: rect(0, 0, 0, 0) !important;
     }
   </style>
 </head>
