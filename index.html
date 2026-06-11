@@ -6,23 +6,23 @@
   <title>SAT Practice Module</title>
 
   <style>
+    /* 1. THIS APPLIES TO THE SCREEN (Final Score Page) */
+    #report-container img {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    /* 2. THIS APPLIES ONLY TO THE PDF */
     @media print {
-      /* Hide absolutely everything on the page by default */
       body * {
         visibility: hidden;
       }
-
-      /* Remove image outlines specifically on the Final Score page */
-    #report-container img {
-      border: none !important;
-    }
       
-      /* Make ONLY the report container and its contents visible */
       #report-container, #report-container * {
         visibility: visible;
       }
       
-      /* Move the report to the absolute top-left of the printed page */
       #report-container {
         position: absolute;
         left: 0;
@@ -33,7 +33,6 @@
         border: none !important;
       }
 
-      /* Hide the download/home buttons so they don't print */
       button {
         display: none !important;
       }
