@@ -4,6 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAT Practice Module</title>
+
+  <style>
+    @media print {
+      /* Hide absolutely everything on the page by default */
+      body * {
+        visibility: hidden;
+      }
+      
+      /* Make ONLY the report container and its contents visible */
+      #report-container, #report-container * {
+        visibility: visible;
+      }
+      
+      /* Move the report to the absolute top-left of the printed page */
+      #report-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none !important;
+      }
+
+      /* Hide the download/home buttons so they don't print */
+      button {
+        display: none !important;
+      }
+    }
+  </style>
   
   <script>
     window.MathJax = {
@@ -18,7 +48,6 @@
     };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
     :root {
@@ -11657,45 +11686,10 @@
     }
 
     function downloadResultsPDF(btnElement) {
-      const element = document.getElementById('report-container');
-      
-      // Explicitly set a white background before taking the snapshot
-      element.style.backgroundColor = '#ffffff';
-      element.style.padding = '20px'; // Adds a little breathing room to the edges
-
-      const opt = {
-        margin:       0.4,
-        filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { 
-          scale: 2, 
-          useCORS: true, 
-          allowTaint: true,
-          windowWidth: 850, 
-          onclone: function(clonedDoc) {
-            // Target the specific floating elements directly by ID/Class!
-            // This prevents the PDF generator from crashing on MathJax's SVG nodes.
-            const sidebar = clonedDoc.getElementById('math-sidebar');
-            if (sidebar) sidebar.style.display = 'none';
-            
-            const utilityBar = clonedDoc.querySelector('.utility-bar');
-            if (utilityBar) utilityBar.style.display = 'none';
-          }
-        },
-        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-      };
-
-      html2pdf().set(opt).from(element).save().then(() => {
-        // Reset the button once the PDF successfully downloads
-        btnElement.innerHTML = '&#128196; Download Full Report (PDF)';
-        btnElement.style.opacity = '1';
-        btnElement.disabled = false;
-        
-        // Remove the temporary padding
-        element.style.padding = '0px';
-      });
+      // Triggers the native browser print/Save-as-PDF dialog!
+      window.print();
     }
-
+    
     function applyAnnotation(type) {
       document.designMode = "on";
       
