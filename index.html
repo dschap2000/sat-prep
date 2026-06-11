@@ -9661,6 +9661,213 @@
     ],
     math: [
       // ==========================================
+      // SAT TEST 3: MODULE 1 MATH QUESTIONS (NEW ONLY)
+      // ==========================================
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( k + 12 = 336 \\)<br><br>What is the solution to the given equation?',
+        options: [
+          '28',
+          '324',
+          '348',
+          '4,032'
+        ],
+        correctAnswer: '324',
+        explanation: '<strong>Step-by-step:</strong> To isolate the variable \\( k \\), you must subtract 12 from both sides of the equation. \\( 336 - 12 = 324 \\). Therefore, \\( k = 324 \\).',
+        incorrectExplanations: [
+          'This is the result of incorrectly dividing 336 by 12.',
+          '',
+          'This is the result of incorrectly adding 12 to 336 instead of subtracting.',
+          'This is the result of incorrectly multiplying 336 by 12.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( f \\) is defined by \\( f(x) = x^3 + 15 \\). What is the value of \\( f(2) \\)?',
+        options: [
+          '20',
+          '21',
+          '23',
+          '24'
+        ],
+        correctAnswer: '23',
+        explanation: '<strong>Step-by-step:</strong> Substitute 2 for \\( x \\) everywhere it appears in the function: \\( f(2) = (2)^3 + 15 \\). First, evaluate the exponent: \\( 2^3 = 8 \\). Next, add the constant: \\( 8 + 15 = 23 \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is the result of calculating \\( (2 \\times 3) + 15 \\) instead of evaluating the exponent.',
+          '',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<em>Note: Figure not drawn to scale.</em><br><br><img src="test3-m1-q4.png" style="width: 100%; max-width: 300px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>In the figure shown, line \\( m \\) is parallel to line \\( n \\). What is the value of \\( x \\)?',
+        options: [
+          '13',
+          '26',
+          '52',
+          '154'
+        ],
+        correctAnswer: '154',
+        explanation: '<strong>Step-by-step:</strong> The transversal line intersects parallel lines \\( m \\) and \\( n \\), creating pairs of angles. The angle marked \\( 26^\\circ \\) is an acute angle. The angle marked \\( x^\\circ \\) is an obtuse angle located on the same side of the transversal between the parallel lines. Same-side interior angles are supplementary, meaning they add up to \\( 180^\\circ \\). Therefore, \\( x + 26 = 180 \\). Subtracting 26 from both sides yields \\( x = 154 \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This would be the value if \\( x \\) and 26&deg; were corresponding or alternate interior angles, but one is clearly obtuse and the other is acute.',
+          'This is the result of multiplying 26 by 2.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'If \\( y = 5x + 10 \\), what is the value of \\( y \\) when \\( x = 8 \\)?',
+        correctAnswer: '50',
+        explanation: '<strong>Step-by-step:</strong> Substitute 8 for \\( x \\) in the given equation: \\( y = 5(8) + 10 \\). Multiply first to get \\( y = 40 + 10 \\). Add to find \\( y = 50 \\).'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: '<img src="test3-m1-q7.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; display: block;"><br>The bar graph shows the distribution of 419 cans collected by 10 different groups for a food drive. How many cans were collected by group 6?',
+        correctAnswer: '40',
+        explanation: '<strong>Step-by-step:</strong> Look at the horizontal axis (Group) and find the number 6. Trace the bar above group 6 up to its peak. The top of the bar aligns perfectly with the 40 mark on the vertical axis (Number of cans). Therefore, group 6 collected 40 cans.'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Square X has a side length of 12 centimeters. The perimeter of square Y is 2 times the perimeter of square X. What is the length, in centimeters, of one side of square Y?',
+        options: [
+          '6',
+          '10',
+          '14',
+          '24'
+        ],
+        correctAnswer: '24',
+        explanation: '<strong>Step-by-step:</strong> First, find the perimeter of square X. Since all four sides of a square are equal, the perimeter of X is \\( 4 \\times 12 = 48 \\) cm. The perimeter of square Y is 2 times the perimeter of square X, so its perimeter is \\( 2 \\times 48 = 96 \\) cm. To find the length of one side of square Y, divide its perimeter by 4: \\( 96 / 4 = 24 \\) cm. (Alternatively, because perimeter scales linearly, you can just multiply the side length of X by 2 to immediately get 24).',
+        incorrectExplanations: [
+          'This is half the side length of square X, not double.',
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test3-m1-q9.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; display: block;"><br>The graph represents the total charge, in dollars, by an electrician for \\( x \\) hours of work. The electrician charges a onetime fee plus an hourly rate. What is the best interpretation of the slope of the graph?',
+        options: [
+          'The electrician\'s hourly rate',
+          'The electrician\'s onetime fee',
+          'The maximum amount that the electrician charges',
+          'The total amount that the electrician charges'
+        ],
+        correctAnswer: 'The electrician\'s hourly rate',
+        explanation: '<strong>Why this is correct:</strong> The graph represents a linear function in the form \\( y = mx + b \\). The total charge (\\( y \\)) increases steadily as the hours of work (\\( x \\)) increase. The slope (\\( m \\)) represents the constant rate of change—how much the total charge increases for each additional hour of work. Therefore, the slope represents the electrician\'s hourly rate.',
+        incorrectExplanations: [
+          '',
+          'The onetime fee is represented by the y-intercept (where \\( x = 0 \\)), not the slope.',
+          'The graph has a positive slope and extends upward continuously, showing no maximum amount.',
+          'The total amount charged is represented by the y-value at any given point on the graph, not the slope.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'In the linear function \\( h \\), \\( h(0) = 41 \\) and \\( h(1) = 40 \\). Which equation defines \\( h \\)?',
+        options: [
+          '\\( h(x) = -x + 41 \\)',
+          '\\( h(x) = -x \\)',
+          '\\( h(x) = -41x \\)',
+          '\\( h(x) = -41 \\)'
+        ],
+        correctAnswer: '\\( h(x) = -x + 41 \\)',
+        explanation: '<strong>Step-by-step:</strong> A linear function can be written as \\( h(x) = mx + b \\), where \\( m \\) is the slope and \\( b \\) is the y-intercept. The value \\( h(0) = 41 \\) tells us the y-intercept (\\( b \\)) is 41. The value \\( h(1) = 40 \\) tells us that when \\( x \\) increases by 1, the output decreases by 1 (from 41 to 40). This means the slope (\\( m \\)) is -1. Putting these together yields the equation \\( h(x) = -1x + 41 \\), which is written as \\( h(x) = -x + 41 \\).',
+        incorrectExplanations: [
+          '',
+          'This equation correctly identifies the slope as -1, but it is missing the y-intercept of 41.',
+          'This equation uses the y-intercept as the negative slope, which is incorrect.',
+          'This equation represents a horizontal line where the output is always -41, regardless of \\( x \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( 14j + 5k = m \\)<br><br>The given equation relates the numbers \\( j \\), \\( k \\), and \\( m \\). Which equation correctly expresses \\( k \\) in terms of \\( j \\) and \\( m \\)?',
+        options: [
+          '\\( k = \\frac{m - 14j}{5} \\)',
+          '\\( k = \\frac{1}{5}m - 14j \\)',
+          '\\( k = \\frac{14j - m}{5} \\)',
+          '\\( k = 5m - 14j \\)'
+        ],
+        correctAnswer: '\\( k = \\frac{m - 14j}{5} \\)',
+        explanation: '<strong>Step-by-step:</strong> To isolate \\( k \\), first subtract \\( 14j \\) from both sides of the equation to get \\( 5k = m - 14j \\). Next, divide both sides of the equation by 5 to completely isolate \\( k \\). This results in \\( k = \\frac{m - 14j}{5} \\).',
+        incorrectExplanations: [
+          '',
+          'This incorrectly divides only the \\( m \\) term by 5 instead of the entire right side.',
+          'This incorrectly subtracts \\( m \\) from \\( 14j \\) instead of subtracting \\( 14j \\) from \\( m \\).',
+          'This incorrectly multiplies the \\( m \\) term by 5 instead of dividing the entire expression by 5.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The function \\( f \\) is defined by \\( f(x) = (x - 6)(x - 2)(x + 6) \\). In the xy-plane, the graph of \\( y = g(x) \\) is the result of translating the graph of \\( y = f(x) \\) left 4 units. What is the value of \\( g(0) \\)?',
+        correctAnswer: '-40',
+        explanation: '<strong>Step-by-step:</strong> Shifting the graph left 4 units means you add 4 to the input variable \\( x \\) inside the function. So, \\( g(x) = f(x + 4) \\). To find the value of \\( g(0) \\), we substitute 0 for \\( x \\), which means we need to evaluate \\( f(0 + 4) \\), or \\( f(4) \\). Now substitute 4 into the original function: \\( f(4) = (4 - 6)(4 - 2)(4 + 6) \\). Simplify the parentheses: \\( f(4) = (-2)(2)(10) \\). Multiply to find the final value: \\( -40 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The product of two positive integers is 546. If the first integer is 11 greater than twice the second integer, what is the smaller of the two integers?',
+        options: [
+          '7',
+          '14',
+          '39',
+          '78'
+        ],
+        correctAnswer: '14',
+        explanation: '<strong>Step-by-step:</strong> Let the second (smaller) integer be \\( y \\). The first (larger) integer is \\( 2y + 11 \\). The product of these two integers is 546, giving the equation \\( y(2y + 11) = 546 \\). Expanding this yields \\( 2y^2 + 11y - 546 = 0 \\). You can factor this or simply test the given answer choices for \\( y \\). <br>If \\( y = 14 \\), the first integer is \\( 2(14) + 11 = 28 + 11 = 39 \\). The product is \\( 14 \\times 39 = 546 \\). Therefore, the smaller integer is 14.',
+        incorrectExplanations: [
+          'If the smaller integer is 7, the larger integer is \\( 2(7) + 11 = 25 \\). The product is \\( 7 \\times 25 = 175 \\), not 546.',
+          '',
+          'This is the value of the *larger* integer, not the smaller one.',
+          'If the smaller integer is 78, the product will be massively larger than 546.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A sample of oak has a density of 807 kilograms per cubic meter. The sample is in the shape of a cube, where each edge has a length of 0.90 meters. To the nearest whole number, what is the mass, in kilograms, of this sample?',
+        options: [
+          '588',
+          '726',
+          '897',
+          '1,107'
+        ],
+        correctAnswer: '588',
+        explanation: '<strong>Step-by-step:</strong> The formula relating density, mass, and volume is \\( \\text{Mass} = \\text{Density} \\times \\text{Volume} \\). First, find the volume of the cubic sample. The volume of a cube is the edge length cubed: \\( 0.90^3 = 0.729 \\) cubic meters. Next, multiply this volume by the given density: \\( 807 \\times 0.729 = 588.303 \\). Rounded to the nearest whole number, the mass is 588 kilograms.',
+        incorrectExplanations: [
+          '',
+          'This is the result of multiplying the density by the surface area of one face (\\( 0.90^2 \\)) instead of the volume.',
+          'This is an incorrect calculation.',
+          'This is the result of dividing the density by the volume instead of multiplying.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The rational function \\( f \\) is defined by an equation in the form \\( f(x) = \\frac{a}{x + b} \\), where \\( a \\) and \\( b \\) are constants. The partial graph of \\( y = f(x) \\) is shown.<br><br><img src="test3-m1-q24.png" style="width:100%; max-width:480px; margin-bottom:15px; border-radius:8px; border:1px solid #e2e8f0; display:block;"><br>If \\( g(x) = f(x + 4) \\), which equation could define function \\( g \\)?',
+        options: [
+          '\\( g(x) = \\frac{6}{x} \\)',
+          '\\( g(x) = \\frac{6}{x + 4} \\)',
+          '\\( g(x) = \\frac{6}{x + 8} \\)',
+          '\\( g(x) = \\frac{6(x + 4)}{x + 4} \\)'
+        ],
+        correctAnswer: '\\( g(x) = \\frac{6}{x + 8} \\)',
+        explanation: '<strong>Step-by-step:</strong> First, determine the equation for the graphed function \\( f(x) \\). The graph passes through the points \\( (-2, 3) \\) and \\( (-1, 2) \\). It also clearly has a vertical asymptote at \\( x = -4 \\) (the curve approaches infinity as it gets closer to -4 but never crosses it). The vertical asymptote of \\( f(x) = \\frac{a}{x + b} \\) occurs where the denominator is zero. Since the asymptote is at \\( x = -4 \\), \\( x + b = 0 \\) when \\( x = -4 \\), meaning \\( b = 4 \\). <br>The function is \\( f(x) = \\frac{a}{x + 4} \\). Use the point \\( (-2, 3) \\) to find \\( a \\): \\( 3 = \\frac{a}{-2 + 4} \\rightarrow 3 = \\frac{a}{2} \\rightarrow a = 6 \\). Therefore, \\( f(x) = \\frac{6}{x + 4} \\).<br><br>The question asks for \\( g(x) = f(x + 4) \\). Substitute \\( (x + 4) \\) in place of \\( x \\) in the original function: \\( g(x) = \\frac{6}{(x + 4) + 4} \\), which simplifies to \\( g(x) = \\frac{6}{x + 8} \\).',
+        incorrectExplanations: [
+          'This would be the equation if \\( g(x) \\) was \\( f(x - 4) \\), not \\( f(x + 4) \\).',
+          'This is the equation for the original function \\( f(x) \\) shown in the graph, not the translated function \\( g(x) \\).',
+          '',
+          'This is an incorrect calculation that incorrectly places \\( (x + 4) \\) in the numerator.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The graph of \\( x^2 + x + y^2 + y = \\frac{199}{2} \\) in the xy-plane is a circle. What is the length of the circle\'s radius?',
+        correctAnswer: '10',
+        explanation: '<strong>Step-by-step:</strong> The standard equation of a circle is \\( (x - h)^2 + (y - k)^2 = r^2 \\). To find the radius \\( r \\), complete the square for both \\( x \\) and \\( y \\). <br>Start with: \\( (x^2 + x) + (y^2 + y) = \\frac{199}{2} \\).<br>To complete the square for \\( x \\), add \\( (\\frac{1}{2})^2 = \\frac{1}{4} \\) to both sides.<br>To complete the square for \\( y \\), add \\( (\\frac{1}{2})^2 = \\frac{1}{4} \\) to both sides.<br>The equation becomes: \\( (x + \\frac{1}{2})^2 + (y + \\frac{1}{2})^2 = \\frac{199}{2} + \\frac{1}{4} + \\frac{1}{4} \\).<br>Convert \\( \\frac{199}{2} \\) to \\( \\frac{398}{4} \\) to add the fractions: \\( \\frac{398}{4} + \\frac{1}{4} + \\frac{1}{4} = \\frac{400}{4} = 100 \\).<br>Since \\( r^2 = 100 \\), taking the square root gives \\( r = 10 \\).'
+      },
+      // ==========================================
       // SAT TEST 10: MODULE 1 MATH QUESTIONS
       // ==========================================
       // --- QUESTION 1 ---
