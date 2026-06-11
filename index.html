@@ -17,7 +17,7 @@
       }
     };
   </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -11657,19 +11657,34 @@
     }
 
     function downloadResultsPDF(btnElement) {
-      // Target the container that is ALREADY visible and loaded on the screen
       const element = document.getElementById('report-container');
 
       const opt = {
         margin:       0.4,
         filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
         image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true, allowTaint: true },
+        html2canvas:  { 
+          scale: 2, 
+          useCORS: true, 
+          allowTaint: true,
+          windowWidth: 850, // Forces a consistent width so the layout never squishes
+          onclone: function(clonedDoc) {
+            // This runs on the invisible "snapshot" right before the PDF is generated
+            // It finds any floating/sticky elements (like the sidebar) and hides them
+            const allElements = clonedDoc.querySelectorAll('*');
+            allElements.forEach(el => {
+              const style = clonedDoc.defaultView.getComputedStyle(el);
+              if (style.position === 'fixed' || style.position === 'sticky') {
+                el.style.display = 'none';
+              }
+            });
+          }
+        },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
 
       html2pdf().set(opt).from(element).save().then(() => {
-        // Reset the button once the PDF downloads
+        // Reset the button once the PDF successfully downloads
         btnElement.innerHTML = '&#128196; Download Full Report (PDF)';
         btnElement.style.opacity = '1';
         btnElement.disabled = false;
