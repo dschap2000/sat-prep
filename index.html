@@ -11592,6 +11592,7 @@
       document.querySelector('.utility-bar').style.display = 'none';
       document.getElementById('q-counter').innerText = 'Activity Complete';
       
+      // Keep all the emoji calculation logic exactly as it was!
       let emoji = ''; 
       let scorePercentage = score / activeQueue.length;
       
@@ -11604,27 +11605,28 @@
       else if (scorePercentage > 0) emoji = '😕'; 
       else emoji = '😔'; 
 
-      // 1. Build the Summary Header
-      document.getElementById('q-text').innerHTML = `
-        <div style="text-align: center; font-size: 90px; margin-bottom: 15px;">${emoji}</div>
-        <h2 style="text-align: center; margin-top: 0;">You scored ${score} out of ${activeQueue.length}!</h2>
-      `;
+      // Clear the top text area
+      document.getElementById('q-text').innerHTML = '';
       
       const inputArea = document.getElementById('input-area');
       inputArea.innerHTML = '';
       document.getElementById('feedback-area').style.display = 'none';
       document.getElementById('submit-btn').style.display = 'none';
 
-      // 2. Build the Full Report VISIBLY on the screen
+      // Build the Full Report VISIBLY on the screen
       const reportContainer = document.createElement('div');
       reportContainer.id = 'report-container';
-      reportContainer.style.marginTop = '40px';
+      reportContainer.style.marginTop = '20px';
       reportContainer.style.paddingTop = '20px';
       reportContainer.style.borderTop = '3px solid var(--border)';
       reportContainer.style.textAlign = 'left';
 
+      // The emoji and score are now securely inside the printable report block!
       let html = `
         <div style="text-align: center; margin-bottom: 40px;">
+          <div style="font-size: 80px; margin-bottom: 10px;">${emoji}</div>
+          <h2 style="margin-top: 0; margin-bottom: 30px;">You scored ${score} out of ${activeQueue.length}!</h2>
+          
           <h2 style="color: var(--primary); margin-bottom: 5px;">SAT Practice Results</h2>
           <p style="color: var(--text-light); margin-top: 0;">Module: ${currentMode.toUpperCase()} &bull; Date: ${new Date().toLocaleDateString()}</p>
         </div>
@@ -11654,7 +11656,6 @@
 
       // Force MathJax to render the equations on the screen
       MathJax.typesetPromise([reportContainer]).then(() => {
-        // Once rendered, add the buttons at the very bottom
         
         const btnContainer = document.createElement('div');
         btnContainer.style.display = 'flex';
@@ -11667,11 +11668,7 @@
         downloadBtn.style.background = '#48bb78';
         downloadBtn.innerHTML = '&#128196; Download Full Report (PDF)';
         downloadBtn.onclick = () => {
-          downloadBtn.innerText = 'Generating PDF... Please wait.';
-          downloadBtn.style.opacity = '0.7';
-          downloadBtn.disabled = true;
-          
-          setTimeout(() => downloadResultsPDF(downloadBtn), 100);
+          downloadResultsPDF(downloadBtn);
         };
 
         const homeBtn = document.createElement('button');
