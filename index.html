@@ -11658,6 +11658,10 @@
 
     function downloadResultsPDF(btnElement) {
       const element = document.getElementById('report-container');
+      
+      // Explicitly set a white background before taking the snapshot
+      element.style.backgroundColor = '#ffffff';
+      element.style.padding = '20px'; // Adds a little breathing room to the edges
 
       const opt = {
         margin:       0.4,
@@ -11667,17 +11671,15 @@
           scale: 2, 
           useCORS: true, 
           allowTaint: true,
-          windowWidth: 850, // Forces a consistent width so the layout never squishes
+          windowWidth: 850, 
           onclone: function(clonedDoc) {
-            // This runs on the invisible "snapshot" right before the PDF is generated
-            // It finds any floating/sticky elements (like the sidebar) and hides them
-            const allElements = clonedDoc.querySelectorAll('*');
-            allElements.forEach(el => {
-              const style = clonedDoc.defaultView.getComputedStyle(el);
-              if (style.position === 'fixed' || style.position === 'sticky') {
-                el.style.display = 'none';
-              }
-            });
+            // Target the specific floating elements directly by ID/Class!
+            // This prevents the PDF generator from crashing on MathJax's SVG nodes.
+            const sidebar = clonedDoc.getElementById('math-sidebar');
+            if (sidebar) sidebar.style.display = 'none';
+            
+            const utilityBar = clonedDoc.querySelector('.utility-bar');
+            if (utilityBar) utilityBar.style.display = 'none';
           }
         },
         jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
@@ -11688,6 +11690,9 @@
         btnElement.innerHTML = '&#128196; Download Full Report (PDF)';
         btnElement.style.opacity = '1';
         btnElement.disabled = false;
+        
+        // Remove the temporary padding
+        element.style.padding = '0px';
       });
     }
 
