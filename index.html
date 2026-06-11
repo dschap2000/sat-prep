@@ -11551,37 +11551,58 @@
         showSummary();
       }
     }
-
-function downloadResultsPDF() {
-      const element = document.createElement('div');
-      element.id = 'pdf-container';
-      element.style.padding = '40px';
-      element.style.fontFamily = 'sans-serif';
-      element.style.color = '#2d3748';
-      element.style.width = '800px';
-      element.style.backgroundColor = '#ffffff'; // Explicitly set white background
+    
+    function showSummary() {
+      clearSessionOnComplete(); 
+      document.getElementById('math-sidebar').classList.remove('open');
+      document.querySelector('.utility-bar').style.display = 'none';
+      document.getElementById('q-counter').innerText = 'Activity Complete';
       
-      // Move it far off-screen instead of using visibility: hidden
-      // This ensures the browser draws its true dimensions
-      element.style.position = 'absolute';
-      element.style.left = '-9999px';
-      element.style.top = '0';
+      let emoji = ''; 
+      let scorePercentage = score / activeQueue.length;
+      
+      if (scorePercentage >= 0.99) emoji = '🏆'; 
+      else if (scorePercentage >= 0.89) emoji = '🥈'; 
+      else if (scorePercentage >= 0.79) emoji = '🥉'; 
+      else if (scorePercentage >= 0.69) emoji = '👏'; 
+      else if (scorePercentage >= 0.59) emoji = '🤔'; 
+      else if (scorePercentage >= 0.49) emoji = '😐'; 
+      else if (scorePercentage > 0) emoji = '😕'; 
+      else emoji = '😔'; 
+
+      // 1. Build the Summary Header
+      document.getElementById('q-text').innerHTML = `
+        <div style="text-align: center; font-size: 90px; margin-bottom: 15px;">${emoji}</div>
+        <h2 style="text-align: center; margin-top: 0;">You scored ${score} out of ${activeQueue.length}!</h2>
+      `;
+      
+      const inputArea = document.getElementById('input-area');
+      inputArea.innerHTML = '';
+      document.getElementById('feedback-area').style.display = 'none';
+      document.getElementById('submit-btn').style.display = 'none';
+
+      // 2. Build the Full Report VISIBLY on the screen
+      const reportContainer = document.createElement('div');
+      reportContainer.id = 'report-container';
+      reportContainer.style.marginTop = '40px';
+      reportContainer.style.paddingTop = '20px';
+      reportContainer.style.borderTop = '3px solid var(--border)';
+      reportContainer.style.textAlign = 'left';
 
       let html = `
-        <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #2b6cb0; padding-bottom: 20px;">
-          <h1 style="color: #2b6cb0; margin-bottom: 10px; font-size: 32px;">SAT Practice Results</h1>
-          <p style="font-size: 22px; margin: 0; font-weight: bold;">Score: ${score} / ${activeQueue.length}</p>
-          <p style="color: #718096; margin-top: 10px;">Module: ${currentMode.toUpperCase()} &bull; Date: ${new Date().toLocaleDateString()}</p>
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h2 style="color: var(--primary); margin-bottom: 5px;">SAT Practice Results</h2>
+          <p style="color: var(--text-light); margin-top: 0;">Module: ${currentMode.toUpperCase()} &bull; Date: ${new Date().toLocaleDateString()}</p>
         </div>
       `;
 
       activeQueue.forEach((q, index) => {
-        const statusColor = q.userCorrect ? '#48bb78' : '#e53e3e';
+        const statusColor = q.userCorrect ? 'var(--success)' : 'var(--error)';
         const statusIcon = q.userCorrect ? '✅ Correct' : '❌ Incorrect';
         const displayAnswer = Array.isArray(q.correctAnswer) ? q.correctAnswer.join(' or ') : q.correctAnswer;
         
         html += `
-          <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; page-break-inside: avoid;">
+          <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border); page-break-inside: avoid;">
             <h3 style="margin-top: 0; margin-bottom: 15px; color: ${statusColor};">${index + 1}. ${statusIcon}</h3>
             <div style="margin-bottom: 15px; font-size: 16px; line-height: 1.6;">${q.text}</div>
             <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid #cbd5e1;">
@@ -11594,134 +11615,66 @@ function downloadResultsPDF() {
         `;
       });
 
-      element.innerHTML = html;
-      document.body.appendChild(element);
+      reportContainer.innerHTML = html;
+      inputArea.appendChild(reportContainer);
 
-      // 1. Force MathJax to render the equations
-      MathJax.typesetPromise([element]).then(() => {
+      // Force MathJax to render the equations on the screen
+      MathJax.typesetPromise([reportContainer]).then(() => {
+        // Once rendered, add the buttons at the very bottom
         
-        // 2. WAIT FOR ALL IMAGES TO LOAD BEFORE GENERATING PDF
-        const images = element.querySelectorAll('img');
-        const imagePromises = Array.from(images).map(img => {
-          if (img.complete) return Promise.resolve();
-          return new Promise(resolve => {
-            img.onload = resolve;
-            img.onerror = resolve; // Resolve even on error so it doesn't freeze the app if an image is missing
-          });
-        });
+        const btnContainer = document.createElement('div');
+        btnContainer.style.display = 'flex';
+        btnContainer.style.flexDirection = 'column';
+        btnContainer.style.gap = '15px';
+        btnContainer.style.marginTop = '40px';
 
-        // 3. Once every single image is loaded, take the snapshot
-        Promise.all(imagePromises).then(() => {
-          const opt = {
-            margin:       0.4,
-            filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { 
-              scale: 2, 
-              useCORS: true, 
-              allowTaint: true 
-            },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-          };
+        const downloadBtn = document.createElement('button');
+        downloadBtn.className = 'mode-btn';
+        downloadBtn.style.background = '#48bb78';
+        downloadBtn.innerHTML = '&#128196; Download Full Report (PDF)';
+        downloadBtn.onclick = () => {
+          downloadBtn.innerText = 'Generating PDF... Please wait.';
+          downloadBtn.style.opacity = '0.7';
+          downloadBtn.disabled = true;
+          
+          setTimeout(() => downloadResultsPDF(downloadBtn), 100);
+        };
 
-          html2pdf().set(opt).from(element).save().then(() => {
-            // Clean up the off-screen element when finished
-            document.body.removeChild(element);
-          });
-        });
+        const homeBtn = document.createElement('button');
+        homeBtn.className = 'mode-btn';
+        homeBtn.innerText = 'Return to Home Screen';
+        homeBtn.onclick = () => {
+          document.querySelector('.utility-bar').style.display = 'flex'; 
+          document.getElementById('quiz-screen').style.display = 'none';
+          document.getElementById('welcome-screen').style.display = 'block';
+          renderInProgress();
+        };
+
+        btnContainer.appendChild(downloadBtn);
+        btnContainer.appendChild(homeBtn);
+        inputArea.appendChild(btnContainer);
       });
     }
-    
-    function showSummary() {
-      clearSessionOnComplete(); 
-      document.getElementById('math-sidebar').classList.remove('open');
-      document.querySelector('.utility-bar').style.display = 'none';
 
-      document.getElementById('q-counter').innerText = 'Activity Complete';
-      
-      let emoji = ''; 
-      let scorePercentage = score / activeQueue.length;
-      
-      if (scorePercentage >= 0.99) {
-        emoji = '🏆'; 
-      } else if (scorePercentage >= 0.89) {
-        emoji = '🥈'; 
-      } else if (scorePercentage >= 0.79) {
-        emoji = '🥉'; 
-      } else if (scorePercentage >= 0.69) {
-        emoji = '👏'; 
-      } else if (scorePercentage >= 0.59) {
-        emoji = '🤔'; 
-      } else if (scorePercentage >= 0.49) {
-        emoji = '😐'; 
-      } else if (scorePercentage > 0) {
-        emoji = '😕'; 
-      } else {
-        emoji = '😔'; 
-      }
+    function downloadResultsPDF(btnElement) {
+      // Target the container that is ALREADY visible and loaded on the screen
+      const element = document.getElementById('report-container');
 
-      document.getElementById('q-text').innerHTML = `
-        <div style="text-align: center; font-size: 90px; margin-bottom: 15px;">${emoji}</div>
-        <h2 style="text-align: center; margin-top: 0;">You scored ${score} out of ${activeQueue.length}!</h2>
-      `;
-      
-      document.getElementById('input-area').innerHTML = '';
-      document.getElementById('feedback-area').style.display = 'none';
-      document.getElementById('submit-btn').style.display = 'none';
-
-      // ... existing code inside showSummary() ...
-      const homeBtn = document.createElement('button');
-      homeBtn.className = 'mode-btn';
-      homeBtn.innerText = 'Return to Home Screen';
-      homeBtn.onclick = () => {
-        document.querySelector('.utility-bar').style.display = 'flex'; 
-        document.getElementById('quiz-screen').style.display = 'none';
-        document.getElementById('welcome-screen').style.display = 'block';
-        renderInProgress();
+      const opt = {
+        margin:       0.4,
+        filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, allowTaint: true },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
       };
-      
-      // --- NEW PDF BUTTON CODE STARTS HERE ---
-      const downloadBtn = document.createElement('button');
-      downloadBtn.className = 'mode-btn';
-      downloadBtn.style.background = '#48bb78'; // Make it green!
-      downloadBtn.innerHTML = '&#128196; Download Full Report (PDF)';
-      downloadBtn.onclick = () => {
-        downloadBtn.innerText = 'Generating PDF... Please wait.';
-        downloadBtn.style.opacity = '0.7';
-        downloadBtn.disabled = true;
-        
-        // Brief timeout allows the UI to update the button text before freezing to build the PDF
-        setTimeout(() => {
-          downloadResultsPDF();
-          setTimeout(() => {
-            downloadBtn.innerHTML = '&#128196; Download Full Report (PDF)';
-            downloadBtn.style.opacity = '1';
-            downloadBtn.disabled = false;
-          }, 2500);
-        }, 100);
-      };
-      
-      // Add BOTH buttons to the screen
-      document.getElementById('input-area').appendChild(downloadBtn);
-      document.getElementById('input-area').appendChild(homeBtn);
-      document.getElementById('input-area').appendChild(homeBtn);
+
+      html2pdf().set(opt).from(element).save().then(() => {
+        // Reset the button once the PDF downloads
+        btnElement.innerHTML = '&#128196; Download Full Report (PDF)';
+        btnElement.style.opacity = '1';
+        btnElement.disabled = false;
+      });
     }
-    
-    const annoMenu = document.getElementById('annotation-menu');
-
-    document.addEventListener('mouseup', function(e) {
-      if (annoMenu.contains(e.target)) return;
-
-      const selection = window.getSelection();
-      const selectedText = selection.toString().trim();
-      const qText = document.getElementById('q-text');
-
-      if (selectedText.length > 0 && qText.contains(selection.anchorNode)) {
-        annoMenu.style.display = 'flex';
-      } else {
-        annoMenu.style.display = 'none';
-      }
-    });
 
     function applyAnnotation(type) {
       document.designMode = "on";
