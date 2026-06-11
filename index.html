@@ -11554,17 +11554,18 @@
 
 function downloadResultsPDF() {
       const element = document.createElement('div');
-      element.id = 'pdf-container'; // Added an ID for the clone step
+      element.id = 'pdf-container';
       element.style.padding = '40px';
       element.style.fontFamily = 'sans-serif';
       element.style.color = '#2d3748';
       element.style.width = '800px';
+      element.style.backgroundColor = '#ffffff'; // Explicitly set white background
       
-      // Keep it hidden on the main screen, but attach it to the body
+      // Move it far off-screen instead of using visibility: hidden
+      // This ensures the browser draws its true dimensions
       element.style.position = 'absolute';
+      element.style.left = '-9999px';
       element.style.top = '0';
-      element.style.zIndex = '-1'; 
-      element.style.visibility = 'hidden';
 
       let html = `
         <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #2b6cb0; padding-bottom: 20px;">
@@ -11596,26 +11597,37 @@ function downloadResultsPDF() {
       element.innerHTML = html;
       document.body.appendChild(element);
 
-      // Force MathJax to render the equations
+      // 1. Force MathJax to render the equations
       MathJax.typesetPromise([element]).then(() => {
-        const opt = {
-          margin:       0.4,
-          filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
-          image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { 
-            scale: 2, 
-            useCORS: true, 
-            allowTaint: true, // Crucial for GitHub: allows rendering even if images throw warnings
-            onclone: function(clonedDoc) {
-                // Ensures the hidden element becomes visible to the PDF camera
-                clonedDoc.getElementById('pdf-container').style.visibility = 'visible';
-            }
-          },
-          jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
+        
+        // 2. WAIT FOR ALL IMAGES TO LOAD BEFORE GENERATING PDF
+        const images = element.querySelectorAll('img');
+        const imagePromises = Array.from(images).map(img => {
+          if (img.complete) return Promise.resolve();
+          return new Promise(resolve => {
+            img.onload = resolve;
+            img.onerror = resolve; // Resolve even on error so it doesn't freeze the app if an image is missing
+          });
+        });
 
-        html2pdf().set(opt).from(element).save().then(() => {
-          document.body.removeChild(element);
+        // 3. Once every single image is loaded, take the snapshot
+        Promise.all(imagePromises).then(() => {
+          const opt = {
+            margin:       0.4,
+            filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { 
+              scale: 2, 
+              useCORS: true, 
+              allowTaint: true 
+            },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+          };
+
+          html2pdf().set(opt).from(element).save().then(() => {
+            // Clean up the off-screen element when finished
+            document.body.removeChild(element);
+          });
         });
       });
     }
