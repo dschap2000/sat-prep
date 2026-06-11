@@ -11553,14 +11553,19 @@
     }
 
 function downloadResultsPDF() {
-      // 1. Create a hidden container for the PDF content
       const element = document.createElement('div');
+      element.id = 'pdf-container'; // Added an ID for the clone step
       element.style.padding = '40px';
       element.style.fontFamily = 'sans-serif';
       element.style.color = '#2d3748';
-      element.style.width = '800px'; // Fixed width ensures clean formatting
+      element.style.width = '800px';
+      
+      // Keep it hidden on the main screen, but attach it to the body
+      element.style.position = 'absolute';
+      element.style.top = '0';
+      element.style.zIndex = '-1'; 
+      element.style.visibility = 'hidden';
 
-      // 2. Build the Header
       let html = `
         <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #2b6cb0; padding-bottom: 20px;">
           <h1 style="color: #2b6cb0; margin-bottom: 10px; font-size: 32px;">SAT Practice Results</h1>
@@ -11569,7 +11574,6 @@ function downloadResultsPDF() {
         </div>
       `;
 
-      // 3. Loop through the test and build the question blocks
       activeQueue.forEach((q, index) => {
         const statusColor = q.userCorrect ? '#48bb78' : '#e53e3e';
         const statusIcon = q.userCorrect ? '✅ Correct' : '❌ Incorrect';
@@ -11590,24 +11594,27 @@ function downloadResultsPDF() {
       });
 
       element.innerHTML = html;
-      
-      // Temporarily attach it off-screen so MathJax can read and format it
-      element.style.position = 'absolute';
-      element.style.left = '-9999px';
       document.body.appendChild(element);
 
-      // 4. Force MathJax to render the equations, then generate the PDF
+      // Force MathJax to render the equations
       MathJax.typesetPromise([element]).then(() => {
         const opt = {
           margin:       0.4,
           filename:     `SAT_Results_${currentMode}_${Date.now()}.pdf`,
           image:        { type: 'jpeg', quality: 0.98 },
-          html2canvas:  { scale: 2, useCORS: true },
+          html2canvas:  { 
+            scale: 2, 
+            useCORS: true, 
+            allowTaint: true, // Crucial for GitHub: allows rendering even if images throw warnings
+            onclone: function(clonedDoc) {
+                // Ensures the hidden element becomes visible to the PDF camera
+                clonedDoc.getElementById('pdf-container').style.visibility = 'visible';
+            }
+          },
           jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
 
         html2pdf().set(opt).from(element).save().then(() => {
-          // Clean up the hidden element once the PDF triggers
           document.body.removeChild(element);
         });
       });
