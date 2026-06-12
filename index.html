@@ -6,6 +6,45 @@
   <title>SAT Practice Module</title>
 
   <style>
+    /* Text-to-Speech Button Styles */
+.tts-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-width: 32px;
+  height: 32px;
+}
+
+.tts-btn:hover {
+  background: #e2e8f0;
+}
+
+.tts-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Animation for when it's actively reading */
+.tts-playing {
+  color: #10b981; /* Green */
+  animation: pulse-audio 1.5s infinite;
+}
+
+@keyframes pulse-audio {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+    
     /* 1. THIS APPLIES TO THE SCREEN (Final Score Page) */
     #report-container img {
       border: none !important;
@@ -585,14 +624,26 @@
       </div>
 
       <div class="question-meta" id="q-counter">Question 1 of X</div>
-      <div id="q-text" class="question-text">Loading...</div>
+      <div class="question-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;">
+  <div id="q-text" class="question-text" style="flex: 1; margin-bottom: 0;">Loading...</div>
+  <button class="tts-btn" onclick="readAloud('q-text', this)" title="Read out loud">
+    <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+  </button>
+</div>
       <div id="input-area"></div>
 
       <button id="submit-btn" class="submit-btn" onclick="checkAnswer()">Submit Answer</button>
+      
       <div id="feedback-area" class="feedback">
-        <h3 id="feedback-status" style="margin-top: 0;"></h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+          <h3 id="feedback-status" style="margin-top: 0; margin-bottom: 0;"></h3>
+          <button class="tts-btn" onclick="readAloud('explanation', this)" title="Read out loud">
+            <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        
         <div id="explanation" class="explanation"></div>
-        <button id="next-btn" class="next-btn" onclick="nextQuestion()">Next Question</button>
+        <button id="next-btn" class="next-btn" onclick="nextQuestion()" style="margin-top: 20px;">Next Question</button>
       </div>
     </div>
   </div>
@@ -18263,6 +18314,54 @@
   /* ======================================================================
       APPLICATION & SMART SHUFFLE LOGIC
     ====================================================================== */
+    // --- TEXT TO SPEECH ENGINE ---
+let isPlaying = false;
+let currentTtsBtn = null;
+
+function readAloud(elementId, btnElement) {
+  // If clicking the button that is already playing, stop the audio.
+  if (isPlaying && currentTtsBtn === btnElement) {
+    stopSpeech();
+    return;
+  }
+
+  // Stop any previous speech before starting a new one
+  stopSpeech();
+
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  
+  // Clone element to strip out math formatting issues
+  const clone = el.cloneNode(true);
+  
+  // Clean text: Get plain text to avoid reading HTML tags aloud
+  let textToRead = clone.textContent || clone.innerText;
+  
+  const utterance = new SpeechSynthesisUtterance(textToRead);
+  utterance.rate = 0.95; // Slightly slower than default for better comprehension
+  
+  utterance.onstart = () => {
+    isPlaying = true;
+    currentTtsBtn = btnElement;
+    btnElement.classList.add('tts-playing');
+  };
+
+  utterance.onend = stopSpeech;
+  utterance.onerror = stopSpeech;
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function stopSpeech() {
+  window.speechSynthesis.cancel();
+  isPlaying = false;
+  if (currentTtsBtn) {
+    currentTtsBtn.classList.remove('tts-playing');
+  }
+  currentTtsBtn = null;
+}
+// -----------------------------
+    
     let instantReveal = localStorage.getItem('instantReveal') === 'true';
     let activeQueue = [];
     let currentIndex = 0;
@@ -18566,9 +18665,12 @@
         let optionsHtml = '';
         q.options.forEach((opt, index) => {
           optionsHtml += `
-            <label class="option-label">
-              <input type="radio" name="answer" value="${index}">
-              <span>${opt}</span>
+            <label class="option-label" style="display: flex; align-items: center; width: 100%;">
+              <input type="radio" name="answer" value="${index}" style="margin-right: 15px;">
+              <span id="opt-text-${index}" style="flex: 1;">${opt}</span>
+              <button type="button" class="tts-btn" title="Read option out loud" onclick="event.preventDefault(); event.stopPropagation(); readAloud('opt-text-${index}', this)">
+                <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+              </button>
             </label>
           `;
         });
@@ -18585,6 +18687,8 @@
     }
 
     function checkAnswer() {
+      stopSpeech(); // <--- This immediately stops the audio when they submit!
+      
       try {
         const q = activeQueue[currentIndex];
         let userAnswer = '';
@@ -18726,8 +18830,10 @@
     }
     
     function nextQuestion() {
+      stopSpeech(); // <--- This stops the audio when you click next!
+
       currentIndex++;
-      hasUnsavedChanges = true; // <-- ADD THIS LINE
+      hasUnsavedChanges = true; // <-- KEEP THIS LINE
       if (currentIndex < activeQueue.length) {
         loadQuestion();
       } else {
@@ -18736,6 +18842,8 @@
     }
     
     function showSummary() {
+      stopSpeech(); // <--- ADD THIS LINE HERE
+
       clearSessionOnComplete(); 
       document.getElementById('math-sidebar').classList.remove('open');
       document.querySelector('.utility-bar').style.display = 'none';
@@ -18822,7 +18930,10 @@
         const homeBtn = document.createElement('button');
         homeBtn.className = 'mode-btn';
         homeBtn.innerText = 'Return to Home Screen';
+        
         homeBtn.onclick = () => {
+          stopSpeech(); // <--- ADD THIS LINE HERE
+          
           document.querySelector('.utility-bar').style.display = 'flex'; 
           document.getElementById('quiz-screen').style.display = 'none';
           document.getElementById('welcome-screen').style.display = 'block';
