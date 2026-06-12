@@ -18318,27 +18318,112 @@
 let isPlaying = false;
 let currentTtsBtn = null;
 
+// This translator intercepts LaTeX and tricky words and turns them into spoken English
+function cleanTextForSpeech(text) {
+  if (!text) return "";
+
+  // 1. Fix pronunciation quirks (do this before stripping tags)
+  text = text.replace(/\bxy-plane\b/gi, "x y plane");
+
+  // 2. Convert <br> tags into periods so the voice pauses naturally
+  text = text.replace(/<br\s*\/?>/gi, '. ');
+
+  // 3. Strip all standard HTML tags (<img>, <strong>, etc.)
+  text = text.replace(/<[^>]+>/g, ' ');
+
+  // 4. Translate LaTeX blocks into spoken words
+  // This finds anything inside \( ... \) or \[ ... \]
+  text = text.replace(/\\\((.*?)\\\)|\\\[(.*?)\\\]/g, (match, p1, p2) => {
+    let math = p1 || p2;
+
+    // Structural Math
+    math = math.replace(/\\sqrt\{([^}]+)\}/g, " the square root of $1 ");
+    math = math.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, " $1 over $2 ");
+    math = math.replace(/\^2/g, " squared ");
+    math = math.replace(/\^3/g, " cubed ");
+    math = math.replace(/\^\{([^}]+)\}/g, " to the power of $1 ");
+
+    // Symbols & Variables
+    math = math.replace(/\\le/g, " less than or equal to ");
+    math = math.replace(/\\ge/g, " greater than or equal to ");
+    math = math.replace(/\\pm/g, " plus or minus ");
+    math = math.replace(/\\neq/g, " not equal to ");
+    math = math.replace(/\\times/g, " times ");
+    math = math.replace(/\\cdot/g, " times ");
+    math = math.replace(/\\pi/g, " pi ");
+    math = math.replace(/\\circ/g, " degrees ");
+    math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
+
+    // Operators
+    math = math.replace(/=/g, " equals ");
+    math = math.replace(/\+/g, " plus ");
+    math = math.replace(/-/g, " minus ");
+    math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
+
+    // Clean up remaining LaTeX braces and backslashes
+    math = math.replace(/[{}]/g, " ");
+    math = math.replace(/\\/g, " ");
+
+    return math;
+  });
+
+  // 5. Decode HTML entities (like &deg; or &lt;) into plain text
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(text, 'text/html');
+  return doc.body.textContent || "";
+}
+
 function readAloud(elementId, btnElement) {
-  // If clicking the button that is already playing, stop the audio.
   if (isPlaying && currentTtsBtn === btnElement) {
     stopSpeech();
     return;
   }
 
-  // Stop any previous speech before starting a new one
   stopSpeech();
 
-  const el = document.getElementById(elementId);
-  if (!el) return;
-  
-  // Clone element to strip out math formatting issues
-  const clone = el.cloneNode(true);
-  
-  // Clean text: Get plain text to avoid reading HTML tags aloud
-  let textToRead = clone.textContent || clone.innerText;
-  
+  let rawText = "";
+  // We pull the raw string straight from the data array so MathJax SVG drawings don't trick us
+  const q = typeof activeQueue !== 'undefined' ? activeQueue[currentIndex] : null;
+
+  if (q) {
+    if (elementId === 'q-text') {
+      rawText = q.text;
+    } 
+    else if (elementId.startsWith('opt-text-')) {
+      const optIndex = parseInt(elementId.replace('opt-text-', ''));
+      rawText = q.options[optIndex];
+    } 
+    else if (elementId === 'explanation') {
+      // Reconstruct the explanation text based on whether they got it right or wrong
+      if (q.userCorrect) {
+        rawText = q.explanation;
+      } else {
+        if (typeof instantReveal !== 'undefined' && instantReveal) {
+           let displayAns = Array.isArray(q.correctAnswer) ? q.correctAnswer.join(' or ') : q.correctAnswer;
+           rawText += `Correct Answer: ${displayAns}. `;
+        }
+        const selected = document.querySelector('input[name="answer"]:checked');
+        if (selected && q.type === 'multiple-choice' && q.incorrectExplanations) {
+           const sIndex = parseInt(selected.value);
+           rawText += q.incorrectExplanations[sIndex] ? `Why this is incorrect: ${q.incorrectExplanations[sIndex]}` : "Keep trying!";
+        } else {
+           rawText += "Keep trying!";
+        }
+      }
+    }
+  }
+
+  // Fallback just in case
+  if (!rawText) {
+    const el = document.getElementById(elementId);
+    rawText = el ? (el.textContent || el.innerText) : "";
+  }
+
+  // Run the text through our custom math translator
+  let textToRead = cleanTextForSpeech(rawText);
+
   const utterance = new SpeechSynthesisUtterance(textToRead);
-  utterance.rate = 0.95; // Slightly slower than default for better comprehension
+  utterance.rate = 0.95; 
   
   utterance.onstart = () => {
     isPlaying = true;
@@ -18360,7 +18445,6 @@ function stopSpeech() {
   }
   currentTtsBtn = null;
 }
-// -----------------------------
     
     let instantReveal = localStorage.getItem('instantReveal') === 'true';
     let activeQueue = [];
