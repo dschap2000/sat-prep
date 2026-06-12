@@ -18354,6 +18354,15 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\circ/g, " degrees ");
     math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
 
+    // --- NEW RULES FOR VARIABLES ---
+    // Separate numbers from letters (e.g., forces "14x" to become "14 x")
+    math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
+    
+    // Spell out common variables phonetically so 'x' is never read as 'times'
+    math = math.replace(/\bx\b/gi, " ex ");
+    math = math.replace(/\by\b/gi, " why ");
+    // -------------------------------
+
     // Operators
     math = math.replace(/=/g, " equals ");
     math = math.replace(/\+/g, " plus ");
