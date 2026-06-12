@@ -18325,6 +18325,13 @@ function cleanTextForSpeech(text) {
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
 
+  // --- CURRENCY & PERCENTAGE FIX ---
+  // Catches $13,400 or \$13,400 and rearranges it to "13,400 dollars"
+  text = text.replace(/\\?\$([0-9,.]+)/g, " $1 dollars ");
+  // Catches 10% or 10\% and turns it into "10 percent"
+  text = text.replace(/([0-9,.]+)\\?%/g, " $1 percent ");
+  // ---------------------------------
+
   // 2. Convert <br> tags into periods so the voice pauses naturally
   text = text.replace(/<br\s*\/?>/gi, '. ');
 
@@ -18407,7 +18414,6 @@ function cleanTextForSpeech(text) {
   
   return finalText.trim();
 }
-
 function readAloud(elementId, btnElement) {
   if (isPlaying && currentTtsBtn === btnElement) {
     stopSpeech();
