@@ -18361,7 +18361,7 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\le/g, " is less than or equal to ");
     math = math.replace(/\\ge/g, " is greater than or equal to ");
     math = math.replace(/\\pm/g, " plus or minus ");
-    math = math.replace(/\\approx/g, " is approximately "); // Added for your screenshot!
+    math = math.replace(/\\approx/g, " is approximately "); 
     math = math.replace(/\\neq/g, " is not equal to ");
     math = math.replace(/\\times/g, " times ");
     math = math.replace(/\\cdot/g, " times ");
@@ -18377,12 +18377,15 @@ function cleanTextForSpeech(text) {
     math = math.replace(/-/g, " minus ");
     math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
 
-    // --- RULES FOR VARIABLES ---
+    // --- RULES FOR VARIABLES & MULTIPLICATION ---
     // 0. Function Notations (Must happen before variable splitting)
-    // UPGRADED: Now catches ANY letter or number inside the parentheses! (e.g. f(34))
     math = math.replace(/f\s*\(\s*([^)]+)\s*\)/gi, " eff of $1 ");
     math = math.replace(/g\s*\(\s*([^)]+)\s*\)/gi, " jee of $1 ");
     math = math.replace(/h\s*\(\s*([^)]+)\s*\)/gi, " aitch of $1 ");
+
+    // 0.5 IMPLICIT MULTIPLICATION FIX (e.g. 240(2) -> 240 times 2)
+    math = math.replace(/([0-9])\s*\(/g, "$1 times (");
+    math = math.replace(/\)\s*\(/g, ") times (");
 
     // 1. Separate numbers from letters (forces "42ak" -> "42 ak")
     math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
@@ -18400,10 +18403,11 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\bb\b/gi, " bee ");
     math = math.replace(/\bc\b/gi, " see ");
     math = math.replace(/\bn\b/gi, " en ");
+    math = math.replace(/\br\b/gi, " are "); // Added "r" for your exponent!
     // -------------------------------
 
-    // Clean up remaining LaTeX braces and backslashes
-    math = math.replace(/[{}]/g, " ");
+    // UPGRADED: Clean up remaining LaTeX braces, backslashes AND parentheses!
+    math = math.replace(/[{()}]/g, " ");
     math = math.replace(/\\/g, " ");
 
     return math;
