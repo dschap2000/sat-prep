@@ -18442,10 +18442,18 @@ function readAloud(elementId, btnElement) {
       rawText = q.options[optIndex];
     } 
     else if (elementId === 'explanation') {
-      // Reconstruct the explanation text based on whether they got it right or wrong
+      // 1. Grab the Correct/Incorrect header text and strip the emojis
+      const statusEl = document.getElementById('feedback-status');
+      let statusText = statusEl ? statusEl.innerText.replace(/✅|❌/g, '').trim() : "";
+
+      // 2. Reconstruct the explanation text based on whether they got it right or wrong
       if (q.userCorrect) {
-        rawText = q.explanation;
+        // Adds exclamation points for excited inflection
+        rawText = statusText + "!! " + q.explanation;
       } else {
+        // Adds a period for a flat, neutral tone
+        rawText = statusText + ". ";
+        
         if (typeof instantReveal !== 'undefined' && instantReveal) {
            let displayAns = Array.isArray(q.correctAnswer) ? q.correctAnswer.join(' or ') : q.correctAnswer;
            rawText += `Correct Answer: ${displayAns}. `;
@@ -18472,6 +18480,15 @@ function readAloud(elementId, btnElement) {
 
   const utterance = new SpeechSynthesisUtterance(textToRead);
   utterance.rate = 0.95; 
+  
+  // --- CELEBRATORY TONE FIX ---
+  // If they got it right, raise the pitch of the voice to sound bright and happy!
+  if (elementId === 'explanation' && q && q.userCorrect) {
+    utterance.pitch = 1.3; 
+  } else {
+    utterance.pitch = 1.0; // Standard flat tone
+  }
+  // ----------------------------
   
   utterance.onstart = () => {
     isPlaying = true;
