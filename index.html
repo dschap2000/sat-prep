@@ -18340,7 +18340,11 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, " $1 over $2 ");
     math = math.replace(/\^2/g, " squared ");
     math = math.replace(/\^3/g, " cubed ");
-    math = math.replace(/\^\{([^}]+)\}/g, " to the power of $1 ");
+    
+    // --- EXPONENT FIX ---
+    math = math.replace(/\^\{([^}]+)\}/g, " to the power of $1 "); // Catches ^{x}
+    math = math.replace(/\^/g, " to the power of ");               // Catches ^x
+    // --------------------
 
     // Symbols
     math = math.replace(/\\le/g, " is less than or equal to ");
@@ -18362,6 +18366,11 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
 
     // --- RULES FOR VARIABLES ---
+    // 0. Function Notations (Must happen before variable splitting)
+    math = math.replace(/f\s*\(\s*x\s*\)/gi, " eff of x ");
+    math = math.replace(/g\s*\(\s*x\s*\)/gi, " jee of x ");
+    math = math.replace(/h\s*\(\s*x\s*\)/gi, " aitch of x ");
+
     // 1. Separate numbers from letters (forces "42ak" -> "42 ak")
     math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
     
@@ -18393,8 +18402,8 @@ function cleanTextForSpeech(text) {
   let finalText = doc.body.textContent || "";
   
   // 6. Clean up weird hanging punctuation and extra spaces from stripped tags
-  finalText = finalText.replace(/^[.\s,]+/, ""); // Deletes leading periods/commas/spaces
-  finalText = finalText.replace(/\s+/g, " ");    // Collapses giant gaps into a single space
+  finalText = finalText.replace(/^[.\s,]+/, ""); 
+  finalText = finalText.replace(/\s+/g, " ");    
   
   return finalText.trim();
 }
