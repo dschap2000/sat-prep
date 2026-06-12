@@ -18411,12 +18411,12 @@
 
   // 3. Slice the selected number of questions (Notice we removed 'let' here!)
   if (mode === 'reading') {
-    selectedQuestions = shuffledReading.slice(0, questionsPerModule);
+    selectedQuestions = shuffledReading.slice(0, window.questionsPerModule);
   } else if (mode === 'math') {
-    selectedQuestions = shuffledMath.slice(0, questionsPerModule);
+    selectedQuestions = shuffledMath.slice(0, window.questionsPerModule);
   } else if (mode === 'combo') {
-    const readingHalf = shuffledReading.slice(0, questionsPerModule);
-    const mathHalf = shuffledMath.slice(0, questionsPerModule);
+    const readingHalf = shuffledReading.slice(0, window.questionsPerModule);
+    const mathHalf = shuffledMath.slice(0, window.questionsPerModule);
     selectedQuestions = [...readingHalf, ...mathHalf];
   }
 
@@ -18898,71 +18898,64 @@
       window.getSelection().removeAllRanges();
     }
 
-    let questionsPerModule = 8; // Default to 8 questions
+    // 1. Define the variable globally attached to the window
+window.questionsPerModule = 8; 
 
-const qCountBtns = document.querySelectorAll('.q-count-btn');
-const customQInput = document.getElementById('custom-q-count');
-const comboNote = document.getElementById('combo-note');
+// 2. Wait until the HTML is fully loaded before attaching the events
+document.addEventListener("DOMContentLoaded", function() {
+  const qCountBtns = document.querySelectorAll('.q-count-btn');
+  const customQInput = document.getElementById('custom-q-count');
+  const comboNote = document.getElementById('combo-note');
 
-// Updates the text below the buttons for Combo Mode
-function updateComboNote() {
-  if(comboNote) {
-    comboNote.innerText = `(Combo Mode will have ${questionsPerModule * 2} total questions)`;
-  }
-}
-
-// 1. Handle preset button clicks (8, 10, 12)
-qCountBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    // Remove active state from all buttons & clear input
-    qCountBtns.forEach(b => b.classList.remove('active'));
-    customQInput.value = ''; 
-    
-    // Set clicked button to active and update variable
-    e.target.classList.add('active');
-    questionsPerModule = parseInt(e.target.getAttribute('data-val'));
-    updateComboNote();
-  });
-});
-
-// 2. Handle typing in the custom input box
-customQInput.addEventListener('input', (e) => {
-  let val = parseInt(e.target.value);
-  
-  if (!isNaN(val)) {
-    // Deselect preset buttons
-    qCountBtns.forEach(b => b.classList.remove('active'));
-    
-    // Cap at 100 immediately while typing
-    if (val > 100) {
-      val = 100;
-      e.target.value = 100;
-    }
-    
-    if (val >= 4) {
-      questionsPerModule = val;
-      updateComboNote();
+  function updateComboNote() {
+    if(comboNote) {
+      comboNote.innerText = `(Combo Mode will have ${window.questionsPerModule * 2} total questions)`;
     }
   }
-});
 
-// 3. Enforce the minimum of 4 when the user clicks out of the box
-customQInput.addEventListener('blur', (e) => {
-  let val = parseInt(e.target.value);
-  
-  // If they leave it completely blank, revert back to default 8
-  if (e.target.value === '') {
-     questionsPerModule = 8;
-     document.querySelector('.q-count-btn[data-val="8"]').classList.add('active');
-     updateComboNote();
-     return;
+  // Handle preset button clicks
+  if (qCountBtns.length > 0) {
+    qCountBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        qCountBtns.forEach(b => b.classList.remove('active'));
+        if(customQInput) customQInput.value = ''; 
+        
+        e.target.classList.add('active');
+        window.questionsPerModule = parseInt(e.target.getAttribute('data-val'));
+        updateComboNote();
+      });
+    });
   }
 
-  // If they typed something less than 4, snap it to 4
-  if (isNaN(val) || val < 4) {
-    e.target.value = 4;
-    questionsPerModule = 4;
-    updateComboNote();
+  // Handle custom input
+  if (customQInput) {
+    customQInput.addEventListener('input', (e) => {
+      let val = parseInt(e.target.value);
+      if (!isNaN(val)) {
+        qCountBtns.forEach(b => b.classList.remove('active'));
+        if (val > 100) { val = 100; e.target.value = 100; }
+        if (val >= 4) {
+          window.questionsPerModule = val;
+          updateComboNote();
+        }
+      }
+    });
+
+    customQInput.addEventListener('blur', (e) => {
+      let val = parseInt(e.target.value);
+      if (e.target.value === '') {
+         window.questionsPerModule = 8;
+         const defaultBtn = document.querySelector('.q-count-btn[data-val="8"]');
+         if(defaultBtn) defaultBtn.classList.add('active');
+         updateComboNote();
+         return;
+      }
+      if (isNaN(val) || val < 4) {
+        e.target.value = 4;
+        window.questionsPerModule = 4;
+        updateComboNote();
+      }
+    });
   }
 });
   </script>
