@@ -18317,6 +18317,12 @@
     // --- TEXT TO SPEECH ENGINE ---
 let isPlaying = false;
 let currentTtsBtn = null;
+let availableVoices = []; // <--- NEW
+
+// Fetch the voices as soon as they are loaded by the browser
+window.speechSynthesis.onvoiceschanged = () => { // <--- NEW
+  availableVoices = window.speechSynthesis.getVoices();
+};
 
 // This translator intercepts LaTeX and tricky words and turns them into spoken English
 function cleanTextForSpeech(text) {
@@ -18502,6 +18508,21 @@ function readAloud(elementId, btnElement) {
 
   utterance.onend = stopSpeech;
   utterance.onerror = stopSpeech;
+
+  // --- PREMIUM VOICE SELECTOR ---
+  // Look for specific high-quality voices (Google, Apple, or Microsoft premium)
+  const preferredVoice = availableVoices.find(voice => 
+    voice.name.includes('Google US English') || 
+    voice.name.includes('Samantha') || 
+    voice.name.includes('Daniel') ||
+    voice.name.includes('Microsoft Mark')
+  );
+
+  // If it finds a premium voice, use it! Otherwise, it just uses the default.
+  if (preferredVoice) {
+    utterance.voice = preferredVoice;
+  }
+  // ------------------------------
 
   window.speechSynthesis.speak(utterance);
 }
