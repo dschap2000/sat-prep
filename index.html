@@ -18343,31 +18343,43 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\^3/g, " cubed ");
     math = math.replace(/\^\{([^}]+)\}/g, " to the power of $1 ");
 
-    // Symbols & Variables
-    math = math.replace(/\\le/g, " less than or equal to ");
-    math = math.replace(/\\ge/g, " greater than or equal to ");
+    // Symbols
+    math = math.replace(/\\le/g, " is less than or equal to ");
+    math = math.replace(/\\ge/g, " is greater than or equal to ");
     math = math.replace(/\\pm/g, " plus or minus ");
-    math = math.replace(/\\neq/g, " not equal to ");
+    math = math.replace(/\\neq/g, " is not equal to ");
     math = math.replace(/\\times/g, " times ");
     math = math.replace(/\\cdot/g, " times ");
     math = math.replace(/\\pi/g, " pi ");
     math = math.replace(/\\circ/g, " degrees ");
     math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
 
-    // --- NEW RULES FOR VARIABLES ---
-    // Separate numbers from letters (e.g., forces "14x" to become "14 x")
-    math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
-    
-    // Spell out common variables phonetically so 'x' is never read as 'times'
-    math = math.replace(/\bx\b/gi, " ex ");
-    math = math.replace(/\by\b/gi, " why ");
-    // -------------------------------
-
-    // Operators
+    // Operators (Added > and <)
+    math = math.replace(/>/g, " is greater than ");
+    math = math.replace(/</g, " is less than ");
     math = math.replace(/=/g, " equals ");
     math = math.replace(/\+/g, " plus ");
     math = math.replace(/-/g, " minus ");
     math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
+
+    // --- RULES FOR VARIABLES ---
+    // 1. Separate numbers from letters (forces "42ak" -> "42 ak")
+    math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
+    
+    // 2. Break apart common clustered variables ("ak" -> "a k")
+    math = math.replace(/\bak\b/gi, " a k ");
+    math = math.replace(/\bxy\b/gi, " x y ");
+    math = math.replace(/\bab\b/gi, " a b ");
+    
+    // 3. Spell out isolated variables phonetically
+    math = math.replace(/\bx\b/gi, " ex ");
+    math = math.replace(/\by\b/gi, " why ");
+    math = math.replace(/\ba\b/gi, " ay ");
+    math = math.replace(/\bk\b/gi, " kay ");
+    math = math.replace(/\bb\b/gi, " bee ");
+    math = math.replace(/\bc\b/gi, " see ");
+    math = math.replace(/\bn\b/gi, " en ");
+    // -------------------------------
 
     // Clean up remaining LaTeX braces and backslashes
     math = math.replace(/[{}]/g, " ");
