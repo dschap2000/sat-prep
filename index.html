@@ -564,7 +564,6 @@
     </div>
 
     <div id="quiz-screen" class="card">
-      
       <div class="utility-bar">
         <div class="nav-group">
           <button class="util-btn" onclick="promptReturnHome()">&larr; Home</button>
@@ -586,19 +585,16 @@
       </div>
 
       <div class="question-meta" id="q-counter">Question 1 of X</div>
-      
       <div id="q-text" class="question-text">Loading...</div>
       <div id="input-area"></div>
 
       <button id="submit-btn" class="submit-btn" onclick="checkAnswer()">Submit Answer</button>
-
       <div id="feedback-area" class="feedback">
         <h3 id="feedback-status" style="margin-top: 0;"></h3>
         <div id="explanation" class="explanation"></div>
         <button id="next-btn" class="next-btn" onclick="nextQuestion()">Next Question</button>
       </div>
     </div>
-
   </div>
   <script>
     /* ======================================================================
@@ -608,6 +604,281 @@
     const READING_Q_LIMIT = 10;
     const questionBank = {
       reading: [
+      // ==========================================
+      // SAT TEST 1: MODULE 1 RW QUESTIONS (NEW ONLY)
+      // ==========================================
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Following the principles of community-based participatory research, tribal nations and research institutions are equal partners in health studies conducted on reservations. A collaboration between the Crow Tribe and Montana State University ______ this model: tribal citizens worked alongside scientists to design the methodology and continue to assist in data collection.<br><br>Which choice completes the text with the most logical and precise word or phrase?',
+        options: [
+          'circumvents',
+          'eclipses',
+          'fabricates',
+          'exemplifies'
+        ],
+        correctAnswer: 'exemplifies',
+        explanation: '<strong>Why this is correct:</strong> In this context, "exemplifies" means demonstrates. The text conveys how the Crow Tribe-Montana State University collaboration serves to illustrate the model of community-based participatory research introduced earlier in the text.',
+        incorrectExplanations: [
+          'Referring to "circumvents," or avoids, wouldn\'t make sense in context. The text suggests that the collaboration serves as an example of the principles of community-based participatory research, not that the collaboration evades this model.',
+          'Referring to "eclipses," or overshadows, wouldn\'t make sense in context. The text describes the collaboration as an equal partnership, indicating that it\'s an example of the model, not that it overshadows the model.',
+          'Saying that the collaboration "fabricates," or creates, the model wouldn\'t make sense in context. The text indicates that the collaboration serves as an example of the model, not that it created the model.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Given that the conditions in binary star systems should make planetary formation nearly impossible, it\'s not surprising that the existence of planets in such systems has lacked ______ explanation. Roman Rafikov and Kedron Silsbee shed light on the subject when they used modeling to determine a complex set of factors that could support planets\' development.<br><br>Which choice completes the text with the most logical and precise word or phrase?',
+        options: [
+          'a discernible',
+          'a straightforward',
+          'an inconclusive',
+          'an unbiased'
+        ],
+        correctAnswer: 'a straightforward',
+        explanation: '<strong>Why this is correct:</strong> As used in this context, describing an explanation as "a straightforward" one would mean that the explanation is direct and uncomplicated. The text asserts that since it should be "nearly impossible" for planets to form in binary star systems, it\'s "not surprising" that there isn\'t a straightforward explanation for the existence of planets in such systems; the fact that one potential approach involves "complex" factors offers further contextual support for this idea.',
+        incorrectExplanations: [
+          'It would not make sense in context to say that there isn\'t "a discernible" explanation—meaning an explanation capable of being perceived—for the existence of planets in binary star systems. The text discusses just such an explanation offered by Roman Rafikov and Kedron Silsbee, which indicates that their explanation can be discerned.',
+          'The text emphasizes how difficult it is to explain the existence of planets in binary star systems, suggesting that the situation isn\'t marked by the lack of "an inconclusive" explanation—an explanation that does not resolve the issue—but rather that if any explanations have been offered, they\'ve likely been inconclusive ones.',
+          'Nothing in the text suggests that there is a lack of "an unbiased," or impartial and unprejudiced, explanation for the existence of planets in binary star systems. There is no evidence that explanations from Roman Rafikov and Kedron Silsbee or others are biased.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Seminole/Muscogee director Sterlin Harjo ______ television\'s tendency to situate Native characters in the distant past: this rejection is evident in his series <em>Reservation Dogs</em>, which revolves around teenagers who dress in contemporary styles and whose dialogue is laced with current slang.<br><br>Which choice completes the text with the most logical and precise word or phrase?',
+        options: [
+          'repudiates',
+          'proclaims',
+          'foretells',
+          'recants'
+        ],
+        correctAnswer: 'repudiates',
+        explanation: '<strong>Why this is correct:</strong> As used in this context, "repudiates" means rejects or refuses to have anything to do with. The text indicates that television shows tend to depict Native characters as living long ago, but that Harjo\'s series focuses on Native teenagers in the present day, representing a "rejection" of the typical approach to depicting Native characters.',
+        incorrectExplanations: [
+          'The text describes Harjo\'s "rejection" of the typical approach to representing Native characters on television, so it wouldn\'t make sense to say that Harjo "proclaims," or declares or affirms, television\'s general tendency regarding Native characters.',
+          'The text describes television\'s tendency to represent Native characters in the distant past as something that is already occurring, not as something that Harjo "foretells," or predicts will happen in the future.',
+          'Saying that Harjo "recants" something would mean that he withdraws a previously held belief, and it wouldn\'t make sense to say that Harjo recants television\'s tendency to represent Native characters as living in the past. No beliefs previously held by Harjo are mentioned.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'A study by a team including finance professor Madhu Veeraraghavan suggests that exposure to sunshine during the workday can lead to overly optimistic behavior. <u>Using data spanning from 1994 to 2010 for a set of US companies, the team compared over 29,000 annual earnings forecasts to the actual earnings later reported by those companies.</u> The team found that the greater the exposure to sunshine at work in the two weeks before a manager submitted an earnings forecast, the more the manager\'s forecast exceeded what the company actually earned that year.<br><br>Which choice best states the function of the underlined sentence in the overall structure of the text?',
+        options: [
+          'To summarize the results of the team\'s analysis',
+          'To present a specific example that illustrates the study\'s findings',
+          'To explain part of the methodology used in the team\'s study',
+          'To call out a challenge the team faced in conducting its analysis'
+        ],
+        correctAnswer: 'To explain part of the methodology used in the team\'s study',
+        explanation: '<strong>Why this is correct:</strong> The first sentence presents the implications of Veeraraghavan\'s team\'s study: sunshine exposure during work hours can cause overly optimistic behavior. The underlined sentence then describes the data the team consulted and how they were used (comparing predictions about earnings to what the companies actually earned), and the final sentence presents what the team found in their examination of the data. Thus, the underlined sentence mainly functions to explain part of the methodology used in the team\'s study.',
+        incorrectExplanations: [
+          'The underlined sentence explains in part how the team conducted their analysis of the effect of sunshine but doesn\'t address what the team found; a broad summary is instead given in the other two sentences.',
+          'The underlined sentence doesn\'t present any specific examples from the team\'s comparisons of 29,000 earnings predictions to actual earnings; it simply explains in part how the team conducted their analysis.',
+          'The underlined sentence simply explains in part how the team conducted their analysis; the text never mentions any challenges that the team encountered in their study.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The following text is adapted from Edith Nesbit\'s 1906 novel <em>The Railway Children</em>.<br><br>Mother did not spend all her time in paying dull [visits] to dull ladies, and sitting dully at home waiting for dull ladies to pay [visits] to her. She was almost always there, ready to play with the children, and read to them, and help them to do their home-lessons. Besides this she used to write stories for them while they were at school, and read them aloud after tea, and she always made up funny pieces of poetry for their birthdays and for other great occasions.<br><br>According to the text, what is true about Mother?',
+        options: [
+          'She wishes that more ladies would visit her.',
+          'Birthdays are her favorite special occasion.',
+          'She creates stories and poems for her children.',
+          'Reading to her children is her favorite activity.'
+        ],
+        correctAnswer: 'She creates stories and poems for her children.',
+        explanation: '<strong>Why this is correct:</strong> The text indicates that in addition to other activities, Mother writes stories for her children while they are at school and makes up "funny pieces of poetry" for certain occasions.',
+        incorrectExplanations: [
+          'The text suggests that Mother prefers to spend her time with her children and doesn\'t sit at home hoping that ladies will visit her.',
+          'The text says only that Mother makes up poetry for the children\'s birthdays, not that she likes birthdays more than other special occasions.',
+          'The text doesn\'t suggest that Mother prefers reading to her children over the other activities she does with them, such as playing with them and writing stories and poems for them.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'The following text is from Maggie Pogue Johnson\'s 1910 poem "Poet of Our Race." In this poem, the speaker is addressing Paul Laurence Dunbar, a Black author.<br><br>Thou, with stroke of mighty pen,<br>Hast told of joy and mirth,<br>And read the hearts and souls of men<br>As cradled from their birth.<br>The language of the flowers,<br>Thou hast read them all,<br>And e\'en the little brook<br>Responded to thy call.<br><br>Which choice best states the main purpose of the text?',
+        options: [
+          'To praise a certain writer for being especially perceptive regarding people and nature',
+          'To establish that a certain writer has read extensively about a variety of topics',
+          'To call attention to a certain writer\'s careful and elaborately detailed writing process',
+          'To recount fond memories of an afternoon spent in nature with a certain writer'
+        ],
+        correctAnswer: 'To praise a certain writer for being especially perceptive regarding people and nature',
+        explanation: '<strong>Why this is correct:</strong> In the first part of the text, the speaker addresses Paul Laurence Dunbar\'s ability to understand people (he has "read the hearts and souls of men" and written of their "joy and mirth"). In the second part of the text, the speaker describes Dunbar\'s thorough understanding of the natural world (he has read "the language of the flowers" and engaged with "the little brook"). Thus, the text mainly praises Dunbar for being especially perceptive about people and nature.',
+        incorrectExplanations: [
+          'The speaker describes Dunbar as having read the "hearts and souls of men" and the "language of flowers" to convey Dunbar\'s ability to comprehend people and nature, not to suggest that Dunbar has literally read any of these things or has read a great deal about them.',
+          'The text notes how well Dunbar has made sense of the topics he\'s written about but doesn\'t address any specific parts of Dunbar\'s writing process beyond the suggestion that he used a pen.',
+          'Nothing in the text suggests that the speaker is recalling a particular afternoon actually spent in nature with Dunbar; even if there had been a shared experience, the text isn\'t focused on reminiscing.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '"To You" is an 1856 poem by Walt Whitman. In the poem, Whitman suggests that readers, whom he addresses directly, have not fully understood themselves, writing, ______<br><br>Which quotation from "To You" most effectively illustrates the claim?',
+        options: [
+          '"You have not known what you are, you have slumber\'d upon yourself / all your life, / Your eyelids have been the same as closed most of the time."',
+          '"These immense meadows, these interminable rivers, you are immense / and interminable as they."',
+          '"I should have made my way straight to you long ago, / I should have blabb\'d nothing but you, I should have chanted nothing / but you."',
+          '"I will leave all and come and make the hymns of you, / None has understood you, but I understand you."'
+        ],
+        correctAnswer: '"You have not known what you are, you have slumber\'d upon yourself / all your life, / Your eyelids have been the same as closed most of the time."',
+        explanation: '<strong>Why this is correct:</strong> This quotation makes the point directly by saying to readers, "You have not known what you are." The quotation goes on to reinforce this point using a metaphor of sleep, saying that readers have "slumber\'d" and that their "eyelids have been the same as closed most of the time."',
+        incorrectExplanations: [
+          'This quotation doesn\'t suggest that readers haven\'t fully understood themselves but instead characterizes readers as "immense" and "interminable."',
+          'This quotation doesn\'t suggest that readers haven\'t fully understood themselves but instead conveys the speaker\'s regret over not having celebrated readers sooner.',
+          'This quotation makes the point that the speaker has understood readers and is determined to create "hymns" about them, not that the readers haven\'t fully understood themselves.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: '<div style="display:flex; justify-content:center; margin-bottom:15px;"><table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff; width:100%; max-width:700px;"><tr style="background:#f7fafc; border-bottom:2px solid var(--border);"><th style="padding:8px;">Individual</th><th style="padding:8px;">Number of films known and commonly credited</th><th style="padding:8px;">Years active</th></tr><tr><td>James Young Deer</td><td>33 (actor), 35 (director), 10 (writer)</td><td>1909–1924</td></tr><tr><td>Dark Cloud</td><td>35 (actor), 1 (writer)</td><td>1910–1920</td></tr><tr><td>Edwin Carewe</td><td>47 (actor), 58 (director), 20 (producer), 4 (writer)</td><td>1912–1934</td></tr><tr><td>Lillian St. Cyr (Red Wing)</td><td>66 (actor)</td><td>1908–1921</td></tr></table></div>Some researchers studying Indigenous actors and filmmakers in the United States have turned their attention to the early days of cinema, particularly the 1910s and 1920s, when people like James Young Deer, Dark Cloud, Edwin Carewe, and Lillian St. Cyr (known professionally as Red Wing) were involved in one way or another with numerous films. In fact, so many films and associated records for this era have been lost that counts of those four figures\' output should be taken as bare minimums rather than totals; it\'s entirely possible, for example, that ______<br><br>Which choice most effectively uses data from the table to complete the example?',
+        options: [
+          'Dark Cloud acted in significantly fewer films than did Lillian St. Cyr, who is credited with 66 performances.',
+          'Edwin Carewe\'s 47 credited acting roles includes only films made after 1934.',
+          'Lillian St. Cyr acted in far more than 66 films and Edwin Carewe directed more than 58.',
+          'James Young Deer actually directed 33 films and acted in only 10.'
+        ],
+        correctAnswer: 'Lillian St. Cyr acted in far more than 66 films and Edwin Carewe directed more than 58.',
+        explanation: '<strong>Why this is correct:</strong> The table indicates that Lillian St. Cyr has 66 film credits as an actor and that Edwin Carewe has 58 film credits as a director; it follows that if some films and records for the era were lost, it\'s possible that Lillian St. Cyr acted in far more than 66 films and that Edwin Carewe directed more than 58 films. This effectively exemplifies the idea that the film outputs should be considered bare minimums.',
+        incorrectExplanations: [
+          'Rather than addressing the idea that the individuals likely had higher outputs than those presented in the table, this choice simply compares data from the table to make the point that Dark Cloud has fewer credited acting roles than Lillian St. Cyr.',
+          'The table indicates that Edwin Carewe was active from 1912 to 1934, meaning that his 47 credited acting roles were in films made before or during 1934, not after that time.',
+          'Instead of addressing the idea that the individuals likely had higher outputs than those recorded, this choice suggests that James Young Deer actually acted in and directed fewer films than presented in the table.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Herbivorous sauropod dinosaurs could grow more than 100 feet long and weigh up to 80 tons, and some researchers have attributed the evolution of sauropods to such massive sizes to increased plant production resulting from high levels of atmospheric carbon dioxide during the Mesozoic era. However, there is no evidence of significant spikes in carbon dioxide levels coinciding with relevant periods in sauropod evolution, such as when the first large sauropods appeared, when several sauropod lineages underwent further evolution toward gigantism, or when sauropods reached their maximum known sizes, suggesting that ______<br><br>Which choice most logically completes the text?',
+        options: [
+          'fluctuations in atmospheric carbon dioxide affected different sauropod lineages differently.',
+          'the evolution of larger body sizes in sauropods did not depend on increased atmospheric carbon dioxide.',
+          'atmospheric carbon dioxide was higher when the largest known sauropods lived than it was when the first sauropods appeared.',
+          'sauropods probably would not have evolved to such immense sizes if atmospheric carbon dioxide had been even slightly higher.'
+        ],
+        correctAnswer: 'the evolution of larger body sizes in sauropods did not depend on increased atmospheric carbon dioxide.',
+        explanation: '<strong>Why this is correct:</strong> The text establishes that sauropods evolved to reach enormous sizes, and it notes that some scientists have asserted that the cause of this phenomenon was increased plant production that resulted from increased atmospheric carbon dioxide. The text goes on to state, however, that atmospheric carbon dioxide levels didn\'t increase around the time of important periods in sauropods\' evolution of larger body sizes. If significant periods of sauropod evolution toward larger sizes occurred without increased atmospheric carbon dioxide levels, that suggests that the evolution of larger sizes didn\'t depend on increased carbon dioxide in the atmosphere.',
+        incorrectExplanations: [
+          'The text doesn\'t describe any fluctuations in atmospheric carbon dioxide, so there\'s no evidence in the text to support the conclusion that such fluctuations had different effects on different sauropod lineages.',
+          'The text indicates that there weren\'t significant increases in atmospheric carbon dioxide around the time of important periods in sauropods\' evolution toward larger body sizes, not that atmospheric carbon dioxide was higher when the largest sauropods lived than when sauropods first appeared.',
+          'The text indicates that atmospheric carbon dioxide levels didn\'t increase at important periods in sauropod evolution, not that higher levels would have affected that evolution.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In ancient Greece, an Epicurean was a follower of Epicurus, a philosopher whose beliefs revolved around the pursuit of pleasure. Epicurus defined pleasure as "the absence of pain in the body and of trouble in the ______ that all life\'s virtues derived from this absence.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: [
+          'soul," positing',
+          'soul": positing',
+          'soul"; positing',
+          'soul." Positing'
+        ],
+        correctAnswer: 'soul," positing',
+        explanation: '<strong>Why this is correct:</strong> This choice correctly uses a comma to mark the boundary between the main clause ("Epicurus... \'soul\'") and the participial phrase ("positing... absence") that provides additional information about how Epicurus defined pleasure.',
+        incorrectExplanations: [
+          'A colon can\'t be used in this way to join a main clause and a participial phrase.',
+          'A semicolon can\'t be used in this way to join a main clause and a participial phrase.',
+          'It results in a rhetorically unacceptable sentence fragment beginning with "positing."'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In 1937, Chinese American screen actor Anna May Wong, who had portrayed numerous villains and secondary characters but never a heroine, finally got a starring role in Paramount Pictures\' <em>Daughter of Shanghai</em>, a film that ______ "expanded the range of possibilities for Asian images on screen."<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: [
+          'critic, Stina Chyn, claims',
+          'critic, Stina Chyn, claims,',
+          'critic Stina Chyn claims',
+          'critic Stina Chyn, claims,'
+        ],
+        correctAnswer: 'critic Stina Chyn claims',
+        explanation: '<strong>Why this is correct:</strong> No punctuation is needed to set off the proper noun "Stina Chyn" from the title that describes Chyn, "critic." Because "Stina Chyn" is essential information identifying the "critic," no punctuation is necessary. Further, no punctuation is needed between the verb "claims" and the following quotation because the quotation is integrated into the structure of the sentence.',
+        incorrectExplanations: [
+          'No punctuation is needed before or after the proper noun "Stina Chyn." Setting the critic\'s name off with commas suggests that it could be removed without affecting the coherence of the sentence, which isn\'t the case.',
+          'No punctuation is needed before or after the proper noun "Stina Chyn." Additionally, no punctuation is needed between "claims" and the integrated quotation.',
+          'No punctuation is needed between the verb "claims" and its subject, "critic Stina Chyn." Additionally, no punctuation is needed between the verb "claims" and the integrated quotation.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In 1637, the price of tulips skyrocketed in Amsterdam, with single bulbs of rare varieties selling for up to the equivalent of $200,000 in today\'s US dollars. Some historians ______ that this "tulip mania" was the first historical instance of an asset bubble, which occurs when investors drive prices to highs not supported by actual demand.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: [
+          'claiming',
+          'claim',
+          'having claimed',
+          'to claim'
+        ],
+        correctAnswer: 'claim',
+        explanation: '<strong>Why this is correct:</strong> A main clause requires a finite verb to perform the action of the subject (in this case, "some historians"), and this choice supplies the finite present tense verb "claim" to indicate what some historians do.',
+        incorrectExplanations: [
+          'The nonfinite participle "claiming" doesn\'t supply the main clause with a finite verb.',
+          'The nonfinite participle "having claimed" doesn\'t supply the main clause with a finite verb.',
+          'The nonfinite to-infinitive "to claim" doesn\'t supply the main clause with a finite verb.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'Scientists believe that, unlike most other species of barnacle, turtle barnacles (<em>Chelonibia testudinari</em>) can dissolve the cement-like secretions they use to attach ______ to a sea turtle shell, enabling the barnacles to move short distances across the shell\'s surface.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: [
+          'it',
+          'themselves',
+          'them',
+          'itself'
+        ],
+        correctAnswer: 'themselves',
+        explanation: '<strong>Why this is correct:</strong> The plural reflexive pronoun "themselves" agrees in number with the plural antecedent "turtle barnacles," correctly indicating what is attached to a sea turtle shell.',
+        incorrectExplanations: [
+          'The singular pronoun "it" doesn\'t agree in number with the plural antecedent "turtle barnacles."',
+          'Using the object pronoun "them" results in an unclear and confusing sentence. In this context, it\'s unclear what the plural pronoun "them" refers to.',
+          'The singular reflexive pronoun "itself" doesn\'t agree in number with the plural antecedent "turtle barnacles."'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'In 1453, English King Henry VI became unfit to rule after falling gravely ill. As a result, Parliament appointed Richard, Third Duke of York, who had a strong claim to the English throne, to rule as Lord Protector. Upon recovering two years later, ______ forcing an angered Richard from the royal court and precipitating a series of battles later known as the Wars of the Roses.<br><br>Which choice completes the text so that it conforms to the conventions of Standard English?',
+        options: [
+          'Henry resumed his reign,',
+          'the reign of Henry resumed,',
+          'Henry\'s reign resumed,',
+          'it was Henry who resumed his reign,'
+        ],
+        correctAnswer: 'Henry resumed his reign,',
+        explanation: '<strong>Why this is correct:</strong> This choice ensures that the introductory phrase "upon recovering two years later" appears immediately before the noun it modifies ("Henry"), clearly establishing that Henry recovered two years later.',
+        incorrectExplanations: [
+          'It results in a dangling modifier. The placement of the noun phrase "the reign of Henry" immediately after the introductory phrase illogically suggests that the reign of Henry recovered two years later.',
+          'It results in a dangling modifier. The placement of the noun phrase "Henry\'s reign" immediately after the introductory phrase illogically suggests that Henry\'s reign recovered two years later.',
+          'It results in a dangling modifier. The placement of the function word "it" immediately after the introductory phrase illogically suggests that "it" recovered two years later.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• Pterosaurs were flying reptiles that existed millions of years ago.<br>• In a 2021 study, Anusuya Chinsamy-Turan analyzed fragments of pterosaur jawbones located in the Sahara Desert.<br>• She was initially unsure if the bones belonged to juvenile or adult pterosaurs.<br>• She used advanced microscope techniques to determine that the bones had few growth lines relative to the bones of fully grown pterosaurs.<br>• She concluded that the bones belonged to juveniles.<br><br>The student wants to present the study and its findings. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'In 2021, Chinsamy-Turan studied pterosaur jawbones and was initially unsure if the bones belonged to juveniles or adults.',
+          'Pterosaur jawbones located in the Sahara Desert were the focus of a 2021 study.',
+          'In a 2021 study, Chinsamy-Turan used advanced microscope techniques to analyze the jawbones of pterosaurs, flying reptiles that existed millions of years ago.',
+          'In a 2021 study, Chinsamy-Turan determined that pterosaur jawbones located in the Sahara Desert had few growth lines relative to the bones of fully grown pterosaurs and thus belonged to juveniles.'
+        ],
+        correctAnswer: 'In a 2021 study, Chinsamy-Turan determined that pterosaur jawbones located in the Sahara Desert had few growth lines relative to the bones of fully grown pterosaurs and thus belonged to juveniles.',
+        explanation: '<strong>Why this is correct:</strong> The sentence presents both the study and its findings, noting the study\'s date and the researcher\'s name as well as describing what the researcher determined about the jawbones and how she determined it.',
+        incorrectExplanations: [
+          'While the sentence describes the study and the researcher\'s initial assessment, it doesn\'t present the study\'s findings.',
+          'While the sentence describes the study and its focus, it doesn\'t present the study\'s findings or the name of the researcher who conducted it.',
+          'While the sentence mentions the study\'s methodology and provides information about pterosaurs, it doesn\'t present the study\'s findings.'
+        ]
+      },
+      {
+        category: 'reading', type: 'multiple-choice',
+        text: 'While researching a topic, a student has taken the following notes:<br>• African American women played prominent roles in the Civil Rights Movement, including at the famous 1963 March on Washington.<br>• Civil rights activist Anna Hedgeman, one of the march\'s organizers, was a political adviser who had worked for President Truman.<br>• Civil rights activist Daisy Bates was a well-known journalist and advocate for school desegregation.<br>• Hedgeman worked behind the scenes to make sure a woman was included in the lineup of speakers at the march.<br>• Bates was the sole woman to speak, delivering a brief but memorable address to the cheering crowd.<br><br>The student wants to compare the two women\'s contributions to the March on Washington. Which choice most effectively uses relevant information from the notes to accomplish this goal?',
+        options: [
+          'Hedgeman and Bates contributed to the march in different ways; Bates, for example, delivered a brief but memorable address.',
+          'Hedgeman worked in politics and helped organize the march, while Bates was a journalist and school desegregation advocate.',
+          'Although Hedgeman worked behind the scenes to make sure a woman speaker was included, Bates was the sole woman to speak at the march.',
+          'Many African American women, including Bates and Hedgeman, fought for civil rights, but only one spoke at the march.'
+        ],
+        correctAnswer: 'Although Hedgeman worked behind the scenes to make sure a woman speaker was included, Bates was the sole woman to speak at the march.',
+        explanation: '<strong>Why this is correct:</strong> The sentence compares the two women\'s contributions to the march: Hedgeman worked behind the scenes to make sure a woman speaker was included, whereas Bates actually spoke at the event.',
+        incorrectExplanations: [
+          'While it acknowledges that the two women both contributed to the march, it doesn\'t indicate what Hedgeman did, so no comparison is made.',
+          'While the sentence provides information about the two women, it doesn\'t mention anything about Bates\'s contribution to the march.',
+          'While the sentence indicates that the two women both fought for civil rights, it doesn\'t compare their individual contributions to the march.'
+        ]
+      },
       // ==========================================
       // SAT TEST 2: MODULE 1 RW QUESTIONS (NEW ONLY)
       // ==========================================
