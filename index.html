@@ -18332,7 +18332,6 @@ function cleanTextForSpeech(text) {
   text = text.replace(/<[^>]+>/g, ' ');
 
   // 4. Translate LaTeX blocks into spoken words
-  // This finds anything inside \( ... \) or \[ ... \]
   text = text.replace(/\\\((.*?)\\\)|\\\[(.*?)\\\]/g, (match, p1, p2) => {
     let math = p1 || p2;
 
@@ -18354,7 +18353,7 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\circ/g, " degrees ");
     math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
 
-    // Operators (Added > and <)
+    // Operators
     math = math.replace(/>/g, " is greater than ");
     math = math.replace(/</g, " is less than ");
     math = math.replace(/=/g, " equals ");
@@ -18391,7 +18390,13 @@ function cleanTextForSpeech(text) {
   // 5. Decode HTML entities (like &deg; or &lt;) into plain text
   const parser = new DOMParser();
   const doc = parser.parseFromString(text, 'text/html');
-  return doc.body.textContent || "";
+  let finalText = doc.body.textContent || "";
+  
+  // 6. Clean up weird hanging punctuation and extra spaces from stripped tags
+  finalText = finalText.replace(/^[.\s,]+/, ""); // Deletes leading periods/commas/spaces
+  finalText = finalText.replace(/\s+/g, " ");    // Collapses giant gaps into a single space
+  
+  return finalText.trim();
 }
 
 function readAloud(elementId, btnElement) {
