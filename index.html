@@ -39,14 +39,15 @@
     }
 
     .q-count-btn {
-  padding: 10px 20px;
+  padding: 15px 25px; /* Increased padding makes them much larger */
   background: white;
   border: 2px solid #ccc;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;    /* Larger text */
   font-weight: bold;
   transition: all 0.2s ease;
+  min-width: 60px;    /* Ensures they don't get too thin */
 }
 
 .q-count-btn:hover {
@@ -576,11 +577,11 @@
 
       <div class="settings-group" style="margin-bottom: 30px; text-align: center;">
   <h2>Questions per Module</h2>
-  <div class="question-count-selector" style="display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 15px;">
+  <div class="question-count-selector" style="display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 15px; padding: 10px;">
     <button type="button" class="q-count-btn active" data-val="8">8</button>
     <button type="button" class="q-count-btn" data-val="10">10</button>
     <button type="button" class="q-count-btn" data-val="12">12</button>
-    <input type="number" id="custom-q-count" placeholder="Custom (Min 4, Max 100)" min="4" max="100" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 190px; font-size: 16px;">
+    <input type="number" id="custom-q-count" placeholder="Custom (Min 4, Max 100)" min="4" max="100" style="padding: 13px; border-radius: 12px; border: 2px solid #ccc; width: 200px; font-size: 16px; text-align: center;">
   </div>
   <p id="combo-note" style="font-size: 0.9em; color: #666; margin-top: 10px;">(Combo Mode will have 16 total questions)</p>
 </div>
