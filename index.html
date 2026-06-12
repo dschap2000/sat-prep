@@ -18324,6 +18324,10 @@ function cleanTextForSpeech(text) {
 
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
+  
+  // --- THE "AT" FIX ---
+  // Forces the engine to fully enunciate "at" by adding a micro-pause
+  text = text.replace(/\bat\b/gi, "at, ");
 
   // --- CURRENCY & PERCENTAGE FIX ---
   // Catches $13,400 or \$13,400 and rearranges it to "13,400 dollars"
@@ -18357,6 +18361,7 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\le/g, " is less than or equal to ");
     math = math.replace(/\\ge/g, " is greater than or equal to ");
     math = math.replace(/\\pm/g, " plus or minus ");
+    math = math.replace(/\\approx/g, " is approximately "); // Added for your screenshot!
     math = math.replace(/\\neq/g, " is not equal to ");
     math = math.replace(/\\times/g, " times ");
     math = math.replace(/\\cdot/g, " times ");
@@ -18374,9 +18379,10 @@ function cleanTextForSpeech(text) {
 
     // --- RULES FOR VARIABLES ---
     // 0. Function Notations (Must happen before variable splitting)
-    math = math.replace(/f\s*\(\s*x\s*\)/gi, " eff of x ");
-    math = math.replace(/g\s*\(\s*x\s*\)/gi, " jee of x ");
-    math = math.replace(/h\s*\(\s*x\s*\)/gi, " aitch of x ");
+    // UPGRADED: Now catches ANY letter or number inside the parentheses! (e.g. f(34))
+    math = math.replace(/f\s*\(\s*([^)]+)\s*\)/gi, " eff of $1 ");
+    math = math.replace(/g\s*\(\s*([^)]+)\s*\)/gi, " jee of $1 ");
+    math = math.replace(/h\s*\(\s*([^)]+)\s*\)/gi, " aitch of $1 ");
 
     // 1. Separate numbers from letters (forces "42ak" -> "42 ak")
     math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
@@ -18414,6 +18420,7 @@ function cleanTextForSpeech(text) {
   
   return finalText.trim();
 }
+    
 function readAloud(elementId, btnElement) {
   if (isPlaying && currentTtsBtn === btnElement) {
     stopSpeech();
