@@ -18401,28 +18401,35 @@
     }
 
     function startQuiz(mode) {
-    // Hide welcome screen, show quiz screen...
-    
-    let selectedQuestions = [];
-    
-    // Shuffle the question banks
-    const shuffledReading = shuffleArray([...questionBank.reading]);
-    const shuffledMath = shuffleArray([...questionBank.math]);
+  // 1. Hide the welcome screen and show the quiz screen
+  document.getElementById('welcome-screen').style.display = 'none';
+  document.getElementById('quiz-screen').style.display = 'block';
+  
+  // 2. Shuffle the question banks
+  const shuffledReading = shuffleArray([...questionBank.reading]);
+  const shuffledMath = shuffleArray([...questionBank.math]);
 
-    // Use the dynamic 'questionsPerModule' variable here!
-    if (mode === 'reading') {
-        selectedQuestions = shuffledReading.slice(0, questionsPerModule);
-    } 
-    else if (mode === 'math') {
-        selectedQuestions = shuffledMath.slice(0, questionsPerModule);
-    } 
-    else if (mode === 'combo') {
-        const readingHalf = shuffledReading.slice(0, questionsPerModule);
-        const mathHalf = shuffledMath.slice(0, questionsPerModule);
-        selectedQuestions = [...readingHalf, ...mathHalf];
-    }
-    
-    // Reset quiz variables and load the first question...
+  // 3. Slice the selected number of questions (Notice we removed 'let' here!)
+  if (mode === 'reading') {
+    selectedQuestions = shuffledReading.slice(0, questionsPerModule);
+  } else if (mode === 'math') {
+    selectedQuestions = shuffledMath.slice(0, questionsPerModule);
+  } else if (mode === 'combo') {
+    const readingHalf = shuffledReading.slice(0, questionsPerModule);
+    const mathHalf = shuffledMath.slice(0, questionsPerModule);
+    selectedQuestions = [...readingHalf, ...mathHalf];
+  }
+
+  // 4. Reset quiz progress variables
+  currentQuestionIndex = 0;
+  score = 0;
+  
+  // If your app uses an array to track answers, reset it here:
+  if (typeof userAnswers !== 'undefined') userAnswers = []; 
+  if (typeof answers !== 'undefined') answers = [];
+
+  // 5. Load the very first question!
+  loadQuestion();
 }
 
     function transitionToQuiz() {
