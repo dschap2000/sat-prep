@@ -18773,6 +18773,10 @@ function stopSpeech() {
 
     function loadQuestion() {
       const q = activeQueue[currentIndex];
+
+      // ADD THESE TWO LINES: Makes sure the question header is visible again for new tests
+      const qHeader = document.querySelector('.question-header');
+      if (qHeader) qHeader.style.display = 'flex';
       
       const sectionName = q.category === 'math' ? "Math" : "Reading & Writing";
       document.getElementById('q-counter').innerText = `${sectionName} | Question ${currentIndex + 1} of ${activeQueue.length}`;
@@ -18980,6 +18984,9 @@ function stopSpeech() {
       document.getElementById('math-sidebar').classList.remove('open');
       document.querySelector('.utility-bar').style.display = 'none';
       document.getElementById('q-counter').innerText = 'Activity Complete';
+
+      // ADD THIS LINE: Hides the leftover question header and speaker icon
+      document.querySelector('.question-header').style.display = 'none';
       
       // Keep all the emoji calculation logic exactly as it was!
       let emoji = ''; 
@@ -19013,7 +19020,13 @@ function stopSpeech() {
       let html = `
         <div style="text-align: center; margin-bottom: 40px;">
           <div style="font-size: 80px; margin-bottom: 10px;">${emoji}</div>
-          <h2 style="margin-top: 0; margin-bottom: 30px;">You scored ${score} out of ${activeQueue.length}!</h2>
+          
+          <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 30px;">
+            <h2 id="final-score" style="margin: 0;">You scored ${score} out of ${activeQueue.length}!</h2>
+            <button class="tts-btn" onclick="readAloud('final-score', this)" title="Read out loud">
+              <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+            </button>
+          </div>
           
           <h2 style="color: var(--primary); margin-bottom: 5px;">SAT Practice Results</h2>
           <p style="color: var(--text-light); margin-top: 0;">Module: ${currentMode.toUpperCase()} &bull; Date: ${new Date().toLocaleDateString()}</p>
