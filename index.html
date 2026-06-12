@@ -11468,6 +11468,267 @@
     ],
     math: [
       // ==========================================
+      // SAT TEST 1: MODULE 1 MATH QUESTIONS (NEW ONLY)
+      // ==========================================
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'What is 10% of 470?',
+        options: [
+          '37',
+          '47',
+          '423',
+          '460'
+        ],
+        correctAnswer: '47',
+        explanation: '<strong>Step-by-step:</strong> 10% of a quantity means \\( \\frac{10}{100} \\) times the quantity. Therefore, 10% of 470 can be represented as \\( 0.10(470) \\), which is 47.',
+        incorrectExplanations: [
+          'This is 10% of 370, not 10% of 470.',
+          '',
+          'This is 90% of 470, not 10% of 470.',
+          'This is the result of subtracting 10 from 470 (\\( 470 - 10 \\)), not finding 10% of 470.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The function \\( g \\) is defined by \\( g(x) = x^2 + 9 \\). For which value of \\( x \\) is \\( g(x) = 25 \\)?',
+        options: [
+          '4',
+          '5',
+          '9',
+          '13'
+        ],
+        correctAnswer: '4',
+        explanation: '<strong>Step-by-step:</strong> Substitute 25 for \\( g(x) \\) in the equation: \\( 25 = x^2 + 9 \\). Subtract 9 from both sides of the equation to get \\( 16 = x^2 \\). Taking the square root of both sides yields \\( x = \\pm 4 \\). It follows that \\( g(x) = 25 \\) when the value of \\( x \\) is 4 or -4. Only 4 is listed among the choices.',
+        incorrectExplanations: [
+          '',
+          'This is the square root of 25, which would be the answer if the equation were \\( g(x) = x^2 \\).',
+          'This is the value of the constant in the function, not the solution for \\( x \\).',
+          'This is an incorrect calculation.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( 4x + 6 = 18 \\)<br><br>Which equation has the same solution as the given equation?',
+        options: [
+          '\\( 4x = 108 \\)',
+          '\\( 4x = 24 \\)',
+          '\\( 4x = 12 \\)',
+          '\\( 4x = 3 \\)'
+        ],
+        correctAnswer: '\\( 4x = 12 \\)',
+        explanation: '<strong>Step-by-step:</strong> To isolate the \\( 4x \\) term on the left side of the equation, subtract 6 from both sides of \\( 4x + 6 = 18 \\). This yields \\( 4x = 12 \\). Since this equation is algebraically equivalent to the given equation, it has the exact same solution.',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is the result of adding 6 to 18 instead of subtracting it.',
+          '',
+          'This is the value of \\( x \\), but the question asks for an equivalent equation in terms of \\( 4x \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'The total cost, in dollars, to rent a surfboard consists of a $25 service fee and a $10 per hour rental fee. A person rents a surfboard for \\( t \\) hours and intends to spend a maximum of $75 to rent the surfboard. Which inequality represents this situation?',
+        options: [
+          '\\( 10t \\le 75 \\)',
+          '\\( 10 + 25t \\le 75 \\)',
+          '\\( 25t \\le 75 \\)',
+          '\\( 25 + 10t \\le 75 \\)'
+        ],
+        correctAnswer: '\\( 25 + 10t \\le 75 \\)',
+        explanation: '<strong>Step-by-step:</strong> The cost of the rental fee depends on the number of hours the surfboard is rented. Multiplying \\( t \\) hours by 10 dollars per hour yields a rental fee of \\( 10t \\) dollars. The total cost of the rental consists of the rental fee plus the $25 service fee, which yields a total cost of \\( 25 + 10t \\) dollars. Since the person intends to spend a maximum of 75 dollars, the total cost must be at most 75 dollars. Therefore, the inequality \\( 25 + 10t \\le 75 \\) represents this situation.',
+        incorrectExplanations: [
+          'This represents a situation where the rental fee, not the total cost, is at most 75 dollars. It completely ignores the $25 service fee.',
+          'This incorrectly assigns the $25 fee as an hourly rate, and the $10 fee as a flat charge.',
+          'This represents a situation where the service fee is charged per hour, and completely ignores the $10 hourly rate.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Each face of a fair 14-sided die is labeled with a number from 1 through 14, with a different number appearing on each face. If the die is rolled one time, what is the probability of rolling a 2?',
+        options: [
+          '\\( \\frac{1}{14} \\)',
+          '\\( \\frac{2}{14} \\)',
+          '\\( \\frac{12}{14} \\)',
+          '\\( \\frac{13}{14} \\)'
+        ],
+        correctAnswer: '\\( \\frac{1}{14} \\)',
+        explanation: '<strong>Step-by-step:</strong> The total number of possible outcomes for rolling a fair 14-sided die is 14. The number of possible outcomes for rolling a 2 is 1 (because only one face has the number 2). The probability of rolling a 2 is the number of possible outcomes for rolling a 2 divided by the total number of possible outcomes, or \\( \\frac{1}{14} \\).',
+        incorrectExplanations: [
+          '',
+          'This is the probability of rolling a number no greater than 2 (e.g., rolling a 1 or a 2).',
+          'This is the probability of rolling a number strictly greater than 2.',
+          'This is the probability of rolling any number *other* than a 2.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A printer produces posters at a constant rate of 42 posters per minute. At what rate, in posters per hour, does the printer produce the posters?',
+        correctAnswer: '2520',
+        explanation: '<strong>Step-by-step:</strong> There are 60 minutes in one hour. At a rate of 42 posters per minute, the number of posters produced in one hour can be determined by multiplying the per-minute rate by 60: \\( 42 \\times 60 = 2,520 \\) posters per hour.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'The function \\( f \\) is defined by the equation \\( f(x) = 7x + 2 \\). What is the value of \\( f(x) \\) when \\( x = 4 \\)?',
+        correctAnswer: '30',
+        explanation: '<strong>Step-by-step:</strong> The value of \\( f(x) \\) when \\( x = 4 \\) can be found by substituting 4 for \\( x \\) in the given equation \\( f(x) = 7x + 2 \\). This yields \\( f(4) = 7(4) + 2 \\), or \\( f(4) = 30 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A teacher is creating an assignment worth 70 points. The assignment will consist of questions worth 1 point and questions worth 3 points. Which equation represents this situation, where \\( x \\) represents the number of 1-point questions and \\( y \\) represents the number of 3-point questions?',
+        options: [
+          '\\( 4xy = 70 \\)',
+          '\\( 4(x + y) = 70 \\)',
+          '\\( 3x + y = 70 \\)',
+          '\\( x + 3y = 70 \\)'
+        ],
+        correctAnswer: '\\( x + 3y = 70 \\)',
+        explanation: '<strong>Step-by-step:</strong> Since \\( x \\) represents the number of 1-point questions, the total points from these questions is \\( 1 \\cdot x \\) (or just \\( x \\)). Since \\( y \\) represents the number of 3-point questions, the total points from these questions is \\( 3 \\cdot y \\) (or \\( 3y \\)). The entire assignment is worth a total of \\( x + 3y \\) points. Setting this equal to the 70 total points gives the equation \\( x + 3y = 70 \\).',
+        incorrectExplanations: [
+          'This equation incorrectly multiplies the number of 1-point questions, 3-point questions, and their combined point values together.',
+          'This equation incorrectly groups the variables and multiplies both by 4 (the total possible points for a single question of each type).',
+          'This equation incorrectly swaps the coefficients, assigning 3 points to the \\( x \\) questions and 1 point to the \\( y \\) questions.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '\\( y = -3x \\)<br>\\( 4x + y = 15 \\)<br><br>The solution to the given system of equations is \\( (x, y) \\). What is the value of \\( x \\)?',
+        options: [
+          '1',
+          '5',
+          '15',
+          '45'
+        ],
+        correctAnswer: '15',
+        explanation: '<strong>Step-by-step:</strong> The given system of linear equations can be solved by the substitution method. Substituting \\( -3x \\) for \\( y \\) from the first equation into the second equation yields \\( 4x + (-3x) = 15 \\). Combining like terms results directly in \\( x = 15 \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          '',
+          'This is the absolute value of \\( y \\) (since \\( y = -45 \\)), not the value of \\( x \\).'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test1-m1-q11.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>Which of the following equations is the most appropriate linear model for the data shown in the scatterplot?',
+        options: [
+          '\\( y = -1.9x - 10.1 \\)',
+          '\\( y = -1.9x + 10.1 \\)',
+          '\\( y = 1.9x - 10.1 \\)',
+          '\\( y = 1.9x + 10.1 \\)'
+        ],
+        correctAnswer: '\\( y = -1.9x + 10.1 \\)',
+        explanation: '<strong>Step-by-step:</strong> The equation representing a linear model can be written in the form \\( y = mx + b \\), where \\( m \\) is the slope and \\( b \\) is the y-intercept. The scatterplot shows that as the x-values increase, the y-values decrease, which means the line of best fit has a negative slope (eliminating choices C and D). The scatterplot also shows that the data points cross the y-axis at a positive value of y (just above 10). Therefore, the y-intercept must be positive (eliminating choice A). Only \\( y = -1.9x + 10.1 \\) has a negative slope and a positive y-intercept.',
+        incorrectExplanations: [
+          'The graph of this model has a negative y-intercept, but the scatterplot crosses the y-axis at a positive value.',
+          '',
+          'The graph of this model has a positive slope, not a negative slope, and a negative y-intercept.',
+          'The graph of this model has a positive slope, not a negative slope.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<img src="test1-m1-q12.png" style="width: 100%; max-width: 480px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #e2e8f0; display: block;"><br>The graph of \\( y = f(x) \\) is shown, where the function \\( f \\) is defined by \\( f(x) = ax^3 + bx^2 + cx + d \\) and \\( a, b, c, \\) and \\( d \\) are constants. For how many values of \\( x \\) does \\( f(x) = 0 \\)?',
+        options: [
+          'One',
+          'Two',
+          'Three',
+          'Four'
+        ],
+        correctAnswer: 'Three',
+        explanation: '<strong>Step-by-step:</strong> If a value of \\( x \\) satisfies \\( f(x) = 0 \\), the graph of \\( y = f(x) \\) will contain a point \\( (x, 0) \\) and thus touch or intersect the horizontal x-axis. Since there are exactly 3 points at which this graph intersects the x-axis (at \\( x = -1, 4, \\text{and } 7 \\)), there are exactly 3 values of \\( x \\) for which \\( f(x) = 0 \\).',
+        incorrectExplanations: [
+          'The graph touches the x-axis more than once.',
+          'The graph touches the x-axis more than twice.',
+          '',
+          'The graph only touches the x-axis three times, not four.'
+        ]
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'Vivian bought party hats and cupcakes for $71. Each package of party hats cost $3, and each cupcake cost $1. If Vivian bought 10 packages of party hats, how many cupcakes did she buy?',
+        correctAnswer: '41',
+        explanation: '<strong>Step-by-step:</strong> First, find the amount Vivian spent on party hats by multiplying the cost per package by the number of packages: \\( 10 \\times \\$3 = \\$30 \\). Next, subtract the amount spent on hats from her total budget to find the amount left for cupcakes: \\( \\$71 - \\$30 = \\$41 \\). Since each cupcake costs exactly $1, it follows that Vivian bought 41 cupcakes.'
+      },
+      {
+        category: 'math', type: 'free-response',
+        text: 'A list of 10 data values is shown.<br><br>6, 8, 16, 4, 17, 26, 8, 5, 5, 5<br><br>What is the mean of these data?',
+        correctAnswer: '10',
+        explanation: '<strong>Step-by-step:</strong> The mean of a data set is calculated by dividing the sum of the data values by the number of data values in the data set. For this data set, the sum is \\( 6 + 8 + 16 + 4 + 17 + 26 + 8 + 5 + 5 + 5 \\), which equals 100. Divide this by the number of values (10): \\( \\frac{100}{10} = 10 \\).'
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Bacteria are growing in a liquid growth medium. There were 300,000 cells per milliliter during an initial observation. The number of cells per milliliter doubles every 3 hours. How many cells per milliliter will there be 15 hours after the initial observation?',
+        options: [
+          '1,500,000',
+          '2,400,000',
+          '4,500,000',
+          '9,600,000'
+        ],
+        correctAnswer: '9,600,000',
+        explanation: '<strong>Step-by-step:</strong> Since the population doubles every 3 hours, the number of doubling periods in 15 hours is \\( \\frac{15}{3} = 5 \\). The exponential equation is \\( y = 300,000(2)^5 \\). Evaluating the exponent yields \\( y = 300,000(32) \\), which results in 9,600,000 cells per milliliter.',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          ''
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'Which expression is equivalent to \\( 6x^8y^2 + 12x^2y^2 \\)?',
+        options: [
+          '\\( 6x^2y^2(2x^6) \\)',
+          '\\( 6x^2y^2(x^4) \\)',
+          '\\( 6x^2y^2(x^6 + 2) \\)',
+          '\\( 6x^2y^2(x^4 + 2) \\)'
+        ],
+        correctAnswer: '\\( 6x^2y^2(x^6 + 2) \\)',
+        explanation: '<strong>Step-by-step:</strong> Find the greatest common factor between the two terms. Both terms share a coefficient factor of 6, an \\( x^2 \\) factor, and a \\( y^2 \\) factor. Factoring out \\( 6x^2y^2 \\) leaves \\( x^6 \\) from the first term (because \\( x^8 / x^2 = x^6 \\)) and 2 from the second term. Therefore, the expression is equivalent to \\( 6x^2y^2(x^6 + 2) \\).',
+        incorrectExplanations: [
+          'This expression is equivalent to \\( 12x^8y^2 \\), not the original expression.',
+          'This expression is equivalent to \\( 6x^6y^2 \\), not the original expression.',
+          '',
+          'This expression is equivalent to \\( 6x^6y^2 + 12x^2y^2 \\), missing two powers of \\( x \\) from the first term.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: 'A neighborhood consists of a 2-hectare park and a 35-hectare residential area. The total number of trees in the neighborhood is 3,934. The equation \\( 2x + 35y = 3,934 \\) represents this situation. Which of the following is the best interpretation of \\( x \\) in this context?',
+        options: [
+          'The average number of trees per hectare in the park',
+          'The average number of trees per hectare in the residential area',
+          'The total number of trees in the park',
+          'The total number of trees in the residential area'
+        ],
+        correctAnswer: 'The average number of trees per hectare in the park',
+        explanation: '<strong>Step-by-step:</strong> Since the total number of trees for a given area is found by multiplying the number of hectares by the average number of trees per hectare, the terms \\( 2x \\) and \\( 35y \\) correspond to the number of trees in the park and in the residential area, respectively. Because \\( 2x \\) corresponds to the total trees in the park, and 2 is the size of the park in hectares, \\( x \\) must represent the average number of trees per hectare in the park.',
+        incorrectExplanations: [
+          '',
+          'The variable \\( y \\) represents the average number of trees per hectare in the residential area, not \\( x \\).',
+          'The entire expression \\( 2x \\) represents the total number of trees in the park, not just \\( x \\).',
+          'The entire expression \\( 35y \\) represents the total number of trees in the residential area.'
+        ]
+      },
+      {
+        category: 'math', type: 'multiple-choice',
+        text: '<div style="display:flex; justify-content:center; margin-bottom:15px;"><table border="1" cellpadding="5" style="border-collapse:collapse; text-align:center; background:#fff;"><tr style="border-bottom:2px solid var(--border);"><th style="padding:8px 20px;">\\( x \\)</th><th style="padding:8px 20px;">\\( y \\)</th></tr><tr><td>18</td><td>130</td></tr><tr><td>23</td><td>160</td></tr><tr><td>26</td><td>178</td></tr></table></div><br>For line \\( h \\), the table shows three values of \\( x \\) and their corresponding values of \\( y \\). Line \\( k \\) is the result of translating line \\( h \\) down 5 units in the xy-plane. What is the x-intercept of line \\( k \\)?',
+        options: [
+          '\\( (-\\frac{26}{3}, 0) \\)',
+          '\\( (-\\frac{9}{2}, 0) \\)',
+          '\\( (-\\frac{11}{3}, 0) \\)',
+          '\\( (-\\frac{17}{6}, 0) \\)'
+        ],
+        correctAnswer: '\\( (-\\frac{17}{6}, 0) \\)',
+        explanation: '<strong>Step-by-step:</strong> First, find the equation for line \\( h \\) in slope-intercept form (\\( y = mx + b \\)). Use two points from the table, (18, 130) and (23, 160), to find the slope: \\( m = \\frac{160 - 130}{23 - 18} = \\frac{30}{5} = 6 \\). Next, substitute the slope and one point into the equation: \\( 130 = 6(18) + b \\). This yields \\( 130 = 108 + b \\), so \\( b = 22 \\). The equation of line \\( h \\) is \\( y = 6x + 22 \\).<br><br>Line \\( k \\) is translated down 5 units, so subtract 5 from the equation: \\( y = 6x + 22 - 5 \\), which gives \\( y = 6x + 17 \\). To find the x-intercept of line \\( k \\), set \\( y = 0 \\): \\( 0 = 6x + 17 \\). Subtract 17 from both sides to get \\( -17 = 6x \\), so \\( x = -\\frac{17}{6} \\). The x-intercept is \\( (-\\frac{17}{6}, 0) \\).',
+        incorrectExplanations: [
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          'This is an incorrect calculation.',
+          ''
+        ]
+      },
+      // ==========================================
       // SAT TEST 3: MODULE 1 MATH QUESTIONS (NEW ONLY)
       // ==========================================
       {
