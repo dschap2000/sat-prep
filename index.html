@@ -37,6 +37,28 @@
         display: none !important;
       }
     }
+
+    .q-count-btn {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.q-count-btn:hover {
+  background: #f1f5f9;
+}
+
+/* Highlights the currently selected button */
+.q-count-btn.active {
+  background: #2b6cb0; /* Adjust to match your app's primary color */
+  color: white;
+  border-color: #2b6cb0;
+}
   </style>
   
   <script>
@@ -552,6 +574,17 @@
         <span class="help-icon" onclick="showInfoModal()" title="What does this do?">?</span>
       </div>
 
+      <div class="settings-group" style="margin-bottom: 30px; text-align: center;">
+  <h2>Questions per Module</h2>
+  <div class="question-count-selector" style="display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 15px;">
+    <button type="button" class="q-count-btn active" data-val="8">8</button>
+    <button type="button" class="q-count-btn" data-val="10">10</button>
+    <button type="button" class="q-count-btn" data-val="12">12</button>
+    <input type="number" id="custom-q-count" placeholder="Custom (Min 4, Max 100)" min="4" max="100" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; width: 190px; font-size: 16px;">
+  </div>
+  <p id="combo-note" style="font-size: 0.9em; color: #666; margin-top: 10px;">(Combo Mode will have 16 total questions)</p>
+</div>
+      
       <button class="mode-btn" onclick="startActivity('math')">Math</button>
       <button class="mode-btn" onclick="startActivity('reading')">Reading & Writing</button>
       <button class="mode-btn" style="background: #805ad5;" onclick="startActivity('combo')">Full Combo (Both Sections)</button>
@@ -18367,26 +18400,30 @@
       document.getElementById('info-modal').style.display = 'none';
     }
 
-    function startActivity(mode) {
-      currentSessionId = Date.now(); 
-      currentMode = mode;
-      score = 0;
-      currentIndex = 0;
-      activeQueue = [];
-      hasUnsavedChanges = true;
+    function startQuiz(mode) {
+    // Hide welcome screen, show quiz screen...
+    
+    let selectedQuestions = [];
+    
+    // Shuffle the question banks
+    const shuffledReading = shuffleArray([...questionBank.reading]);
+    const shuffledMath = shuffleArray([...questionBank.math]);
 
-      if (mode === 'math') {
-        activeQueue = getSmartSubset('math', MATH_Q_LIMIT);
-      } else if (mode === 'reading') {
-        activeQueue = getSmartSubset('reading', READING_Q_LIMIT);
-      } else if (mode === 'combo') {
-        const rwSubset = getSmartSubset('reading', READING_Q_LIMIT);
-        const mathSubset = getSmartSubset('math', MATH_Q_LIMIT);
-        activeQueue = rwSubset.concat(mathSubset);
-      }
-
-      transitionToQuiz();
+    // Use the dynamic 'questionsPerModule' variable here!
+    if (mode === 'reading') {
+        selectedQuestions = shuffledReading.slice(0, questionsPerModule);
+    } 
+    else if (mode === 'math') {
+        selectedQuestions = shuffledMath.slice(0, questionsPerModule);
+    } 
+    else if (mode === 'combo') {
+        const readingHalf = shuffledReading.slice(0, questionsPerModule);
+        const mathHalf = shuffledMath.slice(0, questionsPerModule);
+        selectedQuestions = [...readingHalf, ...mathHalf];
     }
+    
+    // Reset quiz variables and load the first question...
+}
 
     function transitionToQuiz() {
       document.getElementById('welcome-screen').style.display = 'none';
@@ -18853,6 +18890,74 @@
       annoMenu.style.display = 'none';
       window.getSelection().removeAllRanges();
     }
+
+    let questionsPerModule = 8; // Default to 8 questions
+
+const qCountBtns = document.querySelectorAll('.q-count-btn');
+const customQInput = document.getElementById('custom-q-count');
+const comboNote = document.getElementById('combo-note');
+
+// Updates the text below the buttons for Combo Mode
+function updateComboNote() {
+  if(comboNote) {
+    comboNote.innerText = `(Combo Mode will have ${questionsPerModule * 2} total questions)`;
+  }
+}
+
+// 1. Handle preset button clicks (8, 10, 12)
+qCountBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    // Remove active state from all buttons & clear input
+    qCountBtns.forEach(b => b.classList.remove('active'));
+    customQInput.value = ''; 
+    
+    // Set clicked button to active and update variable
+    e.target.classList.add('active');
+    questionsPerModule = parseInt(e.target.getAttribute('data-val'));
+    updateComboNote();
+  });
+});
+
+// 2. Handle typing in the custom input box
+customQInput.addEventListener('input', (e) => {
+  let val = parseInt(e.target.value);
+  
+  if (!isNaN(val)) {
+    // Deselect preset buttons
+    qCountBtns.forEach(b => b.classList.remove('active'));
+    
+    // Cap at 100 immediately while typing
+    if (val > 100) {
+      val = 100;
+      e.target.value = 100;
+    }
+    
+    if (val >= 4) {
+      questionsPerModule = val;
+      updateComboNote();
+    }
+  }
+});
+
+// 3. Enforce the minimum of 4 when the user clicks out of the box
+customQInput.addEventListener('blur', (e) => {
+  let val = parseInt(e.target.value);
+  
+  // If they leave it completely blank, revert back to default 8
+  if (e.target.value === '') {
+     questionsPerModule = 8;
+     document.querySelector('.q-count-btn[data-val="8"]').classList.add('active');
+     updateComboNote();
+     return;
+  }
+
+  // If they typed something less than 4, snap it to 4
+  if (isNaN(val) || val < 4) {
+    e.target.value = 4;
+    questionsPerModule = 4;
+    updateComboNote();
+  }
+});
   </script>
 </body>
 </html>
