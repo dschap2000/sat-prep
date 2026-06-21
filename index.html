@@ -18353,6 +18353,12 @@ function cleanTextForSpeech(text) {
     let math = p1 || p2;
 
     // Structural Math
+    // --- NEW: Catches nth roots like \sqrt[5]{x} ---
+    math = math.replace(/\\sqrt\[([^\]]+)\]\{([^}]+)\}/g, (match, degree, radicand) => {
+      let ordinal = degree === "3" ? "cube" : degree + "th";
+      return ` the ${ordinal} root of ${radicand} `;
+    });
+    // -----------------------------------------------
     math = math.replace(/\\sqrt\{([^}]+)\}/g, " the square root of $1 ");
     math = math.replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, " $1 over $2 ");
     math = math.replace(/\^2/g, " squared ");
