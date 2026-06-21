@@ -18403,7 +18403,7 @@ function cleanTextForSpeech(text) {
     math = math.replace(/-/g, " minus ");
     math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
 
-    // --- RULES FOR VARIABLES & MULTIPLICATION ---
+// --- RULES FOR VARIABLES & MULTIPLICATION ---
     // 0. Function Notations (Must happen before variable splitting)
     math = math.replace(/f\s*\(\s*([^)]+)\s*\)/gi, " eff of $1 ");
     math = math.replace(/g\s*\(\s*([^)]+)\s*\)/gi, " jee of $1 ");
@@ -18416,10 +18416,15 @@ function cleanTextForSpeech(text) {
     // 1. Separate numbers from letters (forces "42ak" -> "42 ak")
     math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
     
-    // 2. Break apart common clustered variables ("ak" -> "a k")
+    // 2. Break apart common clustered variables
     math = math.replace(/\bak\b/gi, " a k ");
     math = math.replace(/\bxy\b/gi, " x y ");
     math = math.replace(/\bab\b/gi, " a b ");
+    // --- NEW: Polynomial variables ---
+    math = math.replace(/\bax\b/gi, " a x "); 
+    math = math.replace(/\bbx\b/gi, " b x "); 
+    math = math.replace(/\bcx\b/gi, " c x "); 
+    // ---------------------------------
     
     // 3. Spell out isolated variables phonetically
     math = math.replace(/\bx\b/gi, " ex ");
@@ -18428,8 +18433,9 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\bk\b/gi, " kay ");
     math = math.replace(/\bb\b/gi, " bee ");
     math = math.replace(/\bc\b/gi, " see ");
+    math = math.replace(/\bd\b/gi, " dee "); // Added "d" for your constant!
     math = math.replace(/\bn\b/gi, " en ");
-    math = math.replace(/\br\b/gi, " are "); // Added "r" for your exponent!
+    math = math.replace(/\br\b/gi, " are "); 
     // -------------------------------
 
     // UPGRADED: Clean up remaining LaTeX braces, backslashes AND parentheses!
