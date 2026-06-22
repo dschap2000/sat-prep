@@ -13489,7 +13489,7 @@
           '\\( \\frac{26}{5} \\)'
         ],
         correctAnswer: '\\( \\frac{26}{5} \\)',
-        explanation: '<strong>Step-by-step:</strong> An absolute value equation yields two scenarios: \\( -5x + 13 = 73 \\) and \\( -5x + 13 = -73 \\). Solve the first: \\( -5x = 60 \\rightarrow x = -12 \\). Solve the second: \\( -5x = -86 \\rightarrow x = 86/5 \\). To find the sum of the solutions, add them together: \\( -12 + 86/5 \\). Convert -12 to a common denominator (\\( -60/5 \\)), resulting in \\( -60/5 + 86/5 = 26/5 \\).',
+        explanation: '<strong>Step-by-step:</strong> An absolute value equation yields two scenarios: \( -5x + 13 = 73 \) and \( -5x + 13 = -73 \). Solve the first: \( -5x = 60 \rightarrow x = -12 \). Solve the second: \( -5x = -86 \rightarrow x = \frac{86}{5} \). To find the sum of the solutions, add them together: \( -12 + \frac{86}{5} \). Convert \( -12 \) to a common denominator (\( -\frac{60}{5} \)), resulting in \( -\frac{60}{5} + \frac{86}{5} = \frac{26}{5} \).
         incorrectExplanations: [
           'This is an incorrect calculation likely caused by a sign error.',
           'This is only one of the solutions, not the sum of both.',
@@ -18486,6 +18486,10 @@ function cleanTextForSpeech(text) {
     // --------------------------------------------------
 
     // Operators (Happen after the negative check)
+    // --- ARROW FIX ---
+    math = math.replace(/\\rightarrow|\\to|->/g, " therefore ");
+    // -----------------
+    
     math = math.replace(/>/g, " is greater than ");
     math = math.replace(/</g, " is less than ");
     math = math.replace(/=/g, " equals ");
