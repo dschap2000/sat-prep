@@ -18478,8 +18478,8 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
 
     // --- NEGATIVE VS MINUS FIX (Must happen FIRST!) ---
-    // If a dash is at the start, or follows a (, =, <, >, or comma, it's a negative number!
-    math = math.replace(/(^|[(=<>,])\s*-/g, "$1 negative ");
+    // If a dash is at the start, or follows a (, =, <, >, comma, or | (absolute value), it's a negative!
+    math = math.replace(/(^|[(=<>,|])\s*-/g, "$1 negative ");
     
     // All remaining dashes are standard subtraction signs
     math = math.replace(/-/g, " minus ");
@@ -18503,6 +18503,15 @@ function cleanTextForSpeech(text) {
     // 0.5 IMPLICIT MULTIPLICATION FIX (e.g. 240(2) -> 240 times 2)
     math = math.replace(/([0-9])\s*\(/g, "$1 times (");
     math = math.replace(/\)\s*\(/g, ") times (");
+
+    // --- STRICT NUMBER GRAMMAR ---
+    // Forces the engine to read 3-digit numbers strictly without adding "and"
+    // e.g., 146 -> "1 hundred 46"
+    math = math.replace(/\b([1-9])([0-9]{2})\b/g, (match, hundreds, rest) => {
+      let remainder = parseInt(rest, 10);
+      return remainder > 0 ? `${hundreds} hundred ${remainder}` : `${hundreds} hundred`;
+    });
+    // -----------------------------
 
     // 1. Separate numbers from letters (forces "42ak" -> "42 ak")
     math = math.replace(/([0-9])([a-zA-Z])/g, "$1 $2");
