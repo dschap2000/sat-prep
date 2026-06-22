@@ -18345,10 +18345,14 @@ function cleanTextForSpeech(text) {
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
   text = text.replace(/\barchitect\b/gi, "ark i tect"); 
+  
+  // --- INCHES FIX ---
+  // Deletes quotation marks so numbers like 243" aren't read as inches
+  text = text.replace(/"/g, " ");
+  // ------------------
 
   // --- ROMAN NUMERAL & MULTIPLE CHOICE FIX ---
   // Translates SAT-style Roman numeral lists and options into numbers
-  // UPDATED: Added commas instead of periods to force a distinct pause!
   text = text.replace(/\bI\.\s/g, "One, ");
   text = text.replace(/\bII\.\s/g, "Two, ");
   text = text.replace(/\bIII\.\s/g, "Three, ");
