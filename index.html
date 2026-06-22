@@ -18370,10 +18370,13 @@ function cleanTextForSpeech(text) {
 
   // --- UNWRAPPED VARIABLE FALLBACKS ---
   // Catches unwrapped variables in common SAT phrasing (in case they missed the LaTeX tags)
-  text = text.replace(/\bwhere a is\b/gi, "where ay is");
-  text = text.replace(/\bwhere a and\b/gi, "where ay and");
-  text = text.replace(/\bconstant a\b/gi, "constant ay");
-  text = text.replace(/\b(One|Two|Three),\s*a\b/g, "$1, ay"); // UPDATED: Looks for the new comma
+  text = text.replace(/\bwhere a is\b/gi, "where A is");
+  text = text.replace(/\bwhere a and\b/gi, "where A and");
+  text = text.replace(/\bconstant a\b/gi, "constant A");
+  text = text.replace(/\b(One|Two|Three),\s*a\b/gi, "$1, A");
+  text = text.replace(/\bfunction a\b/gi, "function A"); 
+  text = text.replace(/\bdefine a\b/gi, "define A");     
+  text = text.replace(/\bequation a\b/gi, "equation A"); 
   // ------------------------------------
   
   // --- THE "AT" FIX ---
@@ -18439,6 +18442,7 @@ function cleanTextForSpeech(text) {
     math = math.replace(/f\s*\(\s*([^)]+)\s*\)/gi, " eff of $1 ");
     math = math.replace(/g\s*\(\s*([^)]+)\s*\)/gi, " jee of $1 ");
     math = math.replace(/h\s*\(\s*([^)]+)\s*\)/gi, " aitch of $1 ");
+    math = math.replace(/a\s*\(\s*([^)]+)\s*\)/gi, " A of $1 "); // NEW: Catches A(t)
 
     // 0.5 IMPLICIT MULTIPLICATION FIX (e.g. 240(2) -> 240 times 2)
     math = math.replace(/([0-9])\s*\(/g, "$1 times (");
@@ -18451,22 +18455,21 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\bak\b/gi, " a k ");
     math = math.replace(/\bxy\b/gi, " x y ");
     math = math.replace(/\bab\b/gi, " a b ");
-    // --- NEW: Polynomial variables ---
     math = math.replace(/\bax\b/gi, " a x "); 
     math = math.replace(/\bbx\b/gi, " b x "); 
     math = math.replace(/\bcx\b/gi, " c x "); 
-    // ---------------------------------
     
     // 3. Spell out isolated variables phonetically
     math = math.replace(/\bx\b/gi, " ex ");
     math = math.replace(/\by\b/gi, " why ");
-    math = math.replace(/\ba\b/gi, " ay ");
+    math = math.replace(/\ba\b/gi, " A "); // CHANGED: "ay" to "A" to prevent the "eye" pronunciation!
     math = math.replace(/\bk\b/gi, " kay ");
     math = math.replace(/\bb\b/gi, " bee ");
     math = math.replace(/\bc\b/gi, " see ");
-    math = math.replace(/\bd\b/gi, " dee "); // Added "d" for your constant!
+    math = math.replace(/\bd\b/gi, " dee "); 
     math = math.replace(/\bn\b/gi, " en ");
     math = math.replace(/\br\b/gi, " are "); 
+    math = math.replace(/\bt\b/gi, " tee "); // ADDED: "t" for the new question!
     // -------------------------------
 
     /// UPGRADED: Clean up remaining LaTeX braces, backslashes AND parentheses!
