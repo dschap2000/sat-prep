@@ -18330,11 +18330,6 @@
   /* ======================================================================
       APPLICATION & SMART SHUFFLE LOGIC
     ====================================================================== */
-    // --- TEXT TO SPEECH ENGINE ---
-let isPlaying = false;
-let currentTtsBtn = null;
-let availableVoices = []; // <--- NEW
-
 // Fetch the voices as soon as they are loaded by the browser
 window.speechSynthesis.onvoiceschanged = () => { // <--- NEW
   availableVoices = window.speechSynthesis.getVoices();
