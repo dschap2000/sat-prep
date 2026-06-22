@@ -18348,9 +18348,10 @@ function cleanTextForSpeech(text) {
 
   // --- ROMAN NUMERAL & MULTIPLE CHOICE FIX ---
   // Translates SAT-style Roman numeral lists and options into numbers
-  text = text.replace(/\bI\.\s/g, "One. ");
-  text = text.replace(/\bII\.\s/g, "Two. ");
-  text = text.replace(/\bIII\.\s/g, "Three. ");
+  // UPDATED: Added commas instead of periods to force a distinct pause!
+  text = text.replace(/\bI\.\s/g, "One, ");
+  text = text.replace(/\bII\.\s/g, "Two, ");
+  text = text.replace(/\bIII\.\s/g, "Three, ");
   
   text = text.replace(/\bI only\b/g, "One only");
   text = text.replace(/\bII only\b/g, "Two only");
@@ -18368,7 +18369,7 @@ function cleanTextForSpeech(text) {
   text = text.replace(/\bwhere a is\b/gi, "where ay is");
   text = text.replace(/\bwhere a and\b/gi, "where ay and");
   text = text.replace(/\bconstant a\b/gi, "constant ay");
-  text = text.replace(/\b(One|Two|Three)\.\s*a\b/g, "$1. ay"); // Catches "I. a"
+  text = text.replace(/\b(One|Two|Three),\s*a\b/g, "$1, ay"); // UPDATED: Looks for the new comma
   // ------------------------------------
   
   // --- THE "AT" FIX ---
@@ -18472,9 +18473,12 @@ function cleanTextForSpeech(text) {
   });
 
   // --- GRAMMAR POLISH ---
-  // Fixes verb tenses when the translated math is preceded by "does", "let", or "make"
-  // e.g., "does g of x equals 25" -> "does g of x equal 25"
+  // Fixes verb tenses when the translated math is preceded by specific verbs
+  // 1. "does g of x equals 25" -> "does g of x equal 25"
   text = text.replace(/\b(does|let|make)\b([^.?!]*?)\bequals\b/gi, "$1$2equal");
+  
+  // 2. "is g of x equals 25" -> "is g of x equal to 25"
+  text = text.replace(/\bis\b([^.?!]*?)\bequals\b/gi, "is$1equal to");
   // ----------------------
 
   // 5. Decode HTML entities (like &deg; or &lt;) into plain text
