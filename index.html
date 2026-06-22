@@ -18463,6 +18463,14 @@ function cleanTextForSpeech(text) {
       math = math.replace(/\b[aA]\b/g, "ay"); 
       // -------------------------------
 
+      // --- INEQUALITY SYMBOLS FIX ---
+      // Explicitly translates inequalities into words so the engine doesn't mistake them for HTML tags
+      math = math.replace(/>=/g, " is greater than or equal to ");
+      math = math.replace(/<=/g, " is less than or equal to ");
+      math = math.replace(/>/g, " is greater than ");
+      math = math.replace(/</g, " is less than ");
+      // ------------------------------
+
       // --- NEW: Structural formatting inside Math Blocks ---
       // Turns LaTeX line breaks into a pause, AND deletes custom spacing like [1em] so the voice ignores it
       math = math.replace(/\\\\(\s*\[.*?\])?/g, "... "); 
