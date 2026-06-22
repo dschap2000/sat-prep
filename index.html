@@ -18463,11 +18463,9 @@ function cleanTextForSpeech(text) {
       math = math.replace(/\b[aA]\b/g, "ay"); 
       // -------------------------------
 
-      // --- NEW: // --- NEW: Structural formatting inside Math Blocks ---
+      // --- NEW: Structural formatting inside Math Blocks ---
       // Turns LaTeX line breaks into a pause, AND deletes custom spacing like [1em] so the voice ignores it
-      math = math.replace(/\\\\(\s*\[.*?\])?/g, "... "); inside Math Blocks ---
-      // Turns LaTeX line breaks into a long pause (fixes system of equations)
-      math = math.replace(/\\\\/g, "... "); 
+      math = math.replace(/\\\\(\s*\[.*?\])?/g, "... "); 
       // Catches (x, y) or (a, b) and removes the comma so it reads fast ("ex why")
       math = math.replace(/\(\s*([a-zA-Z])\s*,\s*([a-zA-Z])\s*\)/g, " $1 $2 ");
     
