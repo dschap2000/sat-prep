@@ -18703,8 +18703,18 @@ function stopSpeech() {
   currentTtsBtn = null;
 }
     
-    let instantReveal = localStorage.getItem('instantReveal') === 'true';
-    let activeQueue = [];
+    // --- TTS VARIABLES & VOICE LOADING ---
+  let isPlaying = false;
+  let currentTtsBtn = null;
+  let availableVoices = [];
+  
+  window.speechSynthesis.onvoiceschanged = () => {
+    availableVoices = window.speechSynthesis.getVoices();
+  };
+  // -------------------------------------
+
+  let instantReveal = localStorage.getItem('instantReveal') === 'true';
+  let activeQueue = [];
     let currentIndex = 0;
     let score = 0;
     let currentSessionId = null;
