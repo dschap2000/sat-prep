@@ -18446,7 +18446,11 @@ function cleanTextForSpeech(text) {
     // Turns LaTeX line breaks into a long pause (fixes system of equations)
     math = math.replace(/\\\\/g, "... "); 
     // Catches (x, y) or (a, b) and removes the comma so it reads fast ("ex why")
-    math = math.replace(/\(\s*([a-zA-Z])\s*,\s*([a-zA-Z])\s*\)/g, " $1 $2 "); 
+    math = math.replace(/\(\s*([a-zA-Z])\s*,\s*([a-zA-Z])\s*\)/g, " $1 $2 ");
+    
+    // --- STROKE / FRACTION FIX ---
+    // Catches any remaining slashes (like 86/5 or x/y) and forces the engine to read "over"
+    math = math.replace(/([0-9a-zA-Z]+)\s*\/\s*([0-9a-zA-Z]+)/g, " $1 over $2 ");
     // ---------------------------------------------------
 
     // Structural Math
