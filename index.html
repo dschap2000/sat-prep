@@ -18384,23 +18384,36 @@ function cleanTextForSpeech(text) {
   text = text.replace(/\bat\b/gi, "at, ");
 
   // --- CURRENCY & PERCENTAGE FIX ---
-  // Smart Currency: Catches $68,071.93 and translates to "68,071 dollars and 93 cents"
+  // Smart Currency: Translates $68,071.93 to strict grammatical English
   text = text.replace(/\\?\$([0-9,]+)(?:\.([0-9]{1,2}))?/g, (match, dollars, cents) => {
+    
+    // 1. Break the number at the commas to force strict pronunciation without "and"
+    let parts = dollars.split(',');
+    let spokenDollars = dollars; // Fallback
+    
+    // Handles Thousands (e.g., 68,071 -> 68 thousand 71)
+    if (parts.length === 2) {
+      let remainder = parseInt(parts[1], 10);
+      spokenDollars = `${parts[0]} thousand ${remainder > 0 ? remainder : ""}`.trim();
+    } 
+    // Handles Millions (e.g., 1,036,100 -> 1 million 36 thousand 100)
+    else if (parts.length === 3) {
+      let thousands = parseInt(parts[1], 10);
+      let remainder = parseInt(parts[2], 10);
+      spokenDollars = `${parts[0]} million ${thousands > 0 ? thousands + " thousand " : ""}${remainder > 0 ? remainder : ""}`.trim();
+    }
+    
+    // 2. Handle the cents
     if (cents) {
       let centsValue = parseInt(cents, 10);
+      if (cents.length === 1) centsValue *= 10; // fixes .5 to 50 cents
       
-      // If it's a single decimal like .5, treat it as 50 cents
-      if (cents.length === 1) {
-        centsValue *= 10; 
-      }
-      
-      // Only add the "cents" phrasing if the value is greater than 0
       if (centsValue > 0) {
-        return ` ${dollars} dollars and ${centsValue} cents `;
+        return ` ${spokenDollars} dollars and ${centsValue} cents `;
       }
     }
-    // Handles flat amounts or amounts ending in .00
-    return ` ${dollars} dollars `; 
+    
+    return ` ${spokenDollars} dollars `; 
   });
 
   // Catches 10% or 10\% and turns it into "10 percent"
