@@ -18345,6 +18345,10 @@ function cleanTextForSpeech(text) {
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
   
+  // --- NEW: Forces a hard 'T' in architect ---
+  text = text.replace(/\barchitect\b/gi, "ark i tect"); 
+  // -------------------------------------------
+  
   // --- THE "AT" FIX ---
   // Forces the engine to fully enunciate "at" by adding a micro-pause
   text = text.replace(/\bat\b/gi, "at, ");
