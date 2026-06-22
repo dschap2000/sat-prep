@@ -18344,10 +18344,32 @@ function cleanTextForSpeech(text) {
 
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
-  
-  // --- NEW: Forces a hard 'T' in architect ---
   text = text.replace(/\barchitect\b/gi, "ark i tect"); 
+
+  // --- ROMAN NUMERAL & MULTIPLE CHOICE FIX ---
+  // Translates SAT-style Roman numeral lists and options into numbers
+  text = text.replace(/\bI\.\s/g, "One. ");
+  text = text.replace(/\bII\.\s/g, "Two. ");
+  text = text.replace(/\bIII\.\s/g, "Three. ");
+  
+  text = text.replace(/\bI only\b/g, "One only");
+  text = text.replace(/\bII only\b/g, "Two only");
+  text = text.replace(/\bIII only\b/g, "Three only");
+  
+  text = text.replace(/\bI and II\b/g, "One and Two");
+  text = text.replace(/\bI and III\b/g, "One and Three");
+  text = text.replace(/\bII and III\b/g, "Two and Three");
+  
+  text = text.replace(/\bI,\s*II,\s*and\s*III\b/g, "One, Two, and Three");
   // -------------------------------------------
+
+  // --- UNWRAPPED VARIABLE FALLBACKS ---
+  // Catches unwrapped variables in common SAT phrasing (in case they missed the LaTeX tags)
+  text = text.replace(/\bwhere a is\b/gi, "where ay is");
+  text = text.replace(/\bwhere a and\b/gi, "where ay and");
+  text = text.replace(/\bconstant a\b/gi, "constant ay");
+  text = text.replace(/\b(One|Two|Three)\.\s*a\b/g, "$1. ay"); // Catches "I. a"
+  // ------------------------------------
   
   // --- THE "AT" FIX ---
   // Forces the engine to fully enunciate "at" by adding a micro-pause
