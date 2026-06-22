@@ -18357,6 +18357,22 @@ function cleanTextForSpeech(text) {
 
   // 3. Strip all remaining standard HTML tags (<img>, <strong>, etc.)
   text = text.replace(/<[^>]+>/g, ' ');
+
+  // --- PHONETIC PRONUNCIATION FIXES ---
+    // 1. Fixes the pronoun "I" being read instead of the Roman numeral
+    text = text.replace(/\b([Ss]tatement)\s+I\b/g, "$1 one");
+    text = text.replace(/\b([Ss]tatement)\s+II\b/g, "$1 two");
+    text = text.replace(/\b([Ss]tatement)\s+III\b/g, "$1 three");
+
+    // 2. Catches the Roman numeral list items at the start of sentences (e.g., "I. The median...")
+    text = text.replace(/\bI\.(?=\s)/g, "one. ");
+    text = text.replace(/\bII\.(?=\s)/g, "two. ");
+    text = text.replace(/\bIII\.(?=\s)/g, "three. ");
+    
+    // 3. Forces the standalone math variable "a" to be read as "ay" instead of "uh"
+    // (Make sure this runs on your 'math' variable inside the LaTeX extraction block)
+    math = math.replace(/\b[aA]\b/g, "ay"); 
+    // ------------------------------------
   
   // --- INCHES FIX ---
   // Deletes quotation marks so numbers like 243" aren't read as inches
