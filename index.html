@@ -18477,19 +18477,19 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\circ/g, " degrees ");
     math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
 
-    // Operators
-    math = math.replace(/>/g, " is greater than ");
-    math = math.replace(/</g, " is less than ");
-    math = math.replace(/=/g, " equals ");
-    math = math.replace(/\+/g, " plus ");
-    
-    // --- NEGATIVE VS MINUS FIX ---
+    // --- NEGATIVE VS MINUS FIX (Must happen FIRST!) ---
     // If a dash is at the start, or follows a (, =, <, >, or comma, it's a negative number!
     math = math.replace(/(^|[(=<>,])\s*-/g, "$1 negative ");
     
     // All remaining dashes are standard subtraction signs
     math = math.replace(/-/g, " minus ");
-    // -----------------------------
+    // --------------------------------------------------
+
+    // Operators (Happen after the negative check)
+    math = math.replace(/>/g, " is greater than ");
+    math = math.replace(/</g, " is less than ");
+    math = math.replace(/=/g, " equals ");
+    math = math.replace(/\+/g, " plus ");
     
     math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
 
