@@ -18384,8 +18384,25 @@ function cleanTextForSpeech(text) {
   text = text.replace(/\bat\b/gi, "at, ");
 
   // --- CURRENCY & PERCENTAGE FIX ---
-  // Catches $13,400 or \$13,400 and rearranges it to "13,400 dollars"
-  text = text.replace(/\\?\$([0-9,.]+)/g, " $1 dollars ");
+  // Smart Currency: Catches $68,071.93 and translates to "68,071 dollars and 93 cents"
+  text = text.replace(/\\?\$([0-9,]+)(?:\.([0-9]{1,2}))?/g, (match, dollars, cents) => {
+    if (cents) {
+      let centsValue = parseInt(cents, 10);
+      
+      // If it's a single decimal like .5, treat it as 50 cents
+      if (cents.length === 1) {
+        centsValue *= 10; 
+      }
+      
+      // Only add the "cents" phrasing if the value is greater than 0
+      if (centsValue > 0) {
+        return ` ${dollars} dollars and ${centsValue} cents `;
+      }
+    }
+    // Handles flat amounts or amounts ending in .00
+    return ` ${dollars} dollars `; 
+  });
+
   // Catches 10% or 10\% and turns it into "10 percent"
   text = text.replace(/([0-9,.]+)\\?%/g, " $1 percent ");
   // ---------------------------------
