@@ -18442,12 +18442,18 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\br\b/gi, " are "); 
     // -------------------------------
 
-    // UPGRADED: Clean up remaining LaTeX braces, backslashes AND parentheses!
+    /// UPGRADED: Clean up remaining LaTeX braces, backslashes AND parentheses!
     math = math.replace(/[{()}]/g, " ");
     math = math.replace(/\\/g, " ");
 
     return math;
   });
+
+  // --- GRAMMAR POLISH ---
+  // Fixes verb tenses when the translated math is preceded by "does", "let", or "make"
+  // e.g., "does g of x equals 25" -> "does g of x equal 25"
+  text = text.replace(/\b(does|let|make)\b([^.?!]*?)\bequals\b/gi, "$1$2equal");
+  // ----------------------
 
   // 5. Decode HTML entities (like &deg; or &lt;) into plain text
   const parser = new DOMParser();
