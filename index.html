@@ -18483,8 +18483,9 @@ function cleanTextForSpeech(text) {
     math = math.replace(/\\text\{([^}]+)\}/g, " $1 ");
 
     // --- NEGATIVE VS MINUS FIX (Must happen FIRST!) ---
-    // If a dash is at the start, or follows a (, =, <, >, comma, |, or space, it's a negative!
-    math = math.replace(/(^|[(=<>,|\s])\s*-/g, "$1 negative ");
+    // Specifically looks for a dash followed by a number, regardless of spaces.
+    // This catches: "-12", " = -12", "(-12)", etc.
+    math = math.replace(/(^|[(=<>,|\s])\s*-\s*(\d+)/g, "$1 negative $2");
     
     // All remaining dashes are standard subtraction signs
     math = math.replace(/-/g, " minus ");
