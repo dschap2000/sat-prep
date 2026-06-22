@@ -18344,6 +18344,11 @@ window.speechSynthesis.onvoiceschanged = () => { // <--- NEW
 function cleanTextForSpeech(text) {
   if (!text) return "";
 
+  // --- REMOVE VISUALS FROM AUDIO ---
+  // Deletes SVG graphics from the text string so the voice engine doesn't crash trying to read the raw coordinate code!
+  text = text.replace(/<svg[\s\S]*?<\/svg>/gi, "");
+  // ---------------------------------
+
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
   text = text.replace(/\barchitect\b/gi, "ark i tect");
