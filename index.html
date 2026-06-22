@@ -480,8 +480,9 @@
       <h2 style="margin-top: 0;">Return to Home</h2>
       <p>Would you like to save your current progress before leaving?</p>
       <div class="modal-buttons">
-        <button class="modal-btn modal-save" onclick="handleExit('save')">&#128190; Save & Return Home</button>
-        <button class="modal-btn modal-discard" onclick="handleExit('discard')">Return Without Saving</button>
+        <button class="modal-btn modal-save" onclick="stopSpeech(); handleExit('save')">&#128190; Save & Return Home</button>
+        <button class="modal-btn modal-discard" onclick="stopSpeech(); handleExit('discard')">Return Without Saving</button>
+        
         <button class="modal-btn modal-cancel" onclick="handleExit('cancel')">Cancel (Stay on Quiz)</button>
       </div>
     </div>
@@ -18481,7 +18482,15 @@ function cleanTextForSpeech(text) {
     math = math.replace(/</g, " is less than ");
     math = math.replace(/=/g, " equals ");
     math = math.replace(/\+/g, " plus ");
+    
+    // --- NEGATIVE VS MINUS FIX ---
+    // If a dash is at the start, or follows a (, =, <, >, or comma, it's a negative number!
+    math = math.replace(/(^|[(=<>,])\s*-/g, "$1 negative ");
+    
+    // All remaining dashes are standard subtraction signs
     math = math.replace(/-/g, " minus ");
+    // -----------------------------
+    
     math = math.replace(/\|([^|]+)\|/g, " the absolute value of $1 ");
 
 // --- RULES FOR VARIABLES & MULTIPLICATION ---
