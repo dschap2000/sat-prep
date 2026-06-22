@@ -18819,16 +18819,20 @@ function stopSpeech() {
     }
     
     function promptReturnHome() {
-      if (hasUnsavedChanges) {
-        // If there are changes, show the warning modal
-        document.getElementById('exit-modal').style.display = 'flex';
-      } else {
-        // If nothing has changed, bypass the modal and go straight home
-        document.getElementById('quiz-screen').style.display = 'none';
-        document.getElementById('welcome-screen').style.display = 'block';
-        renderInProgress();
-      }
-    }
+  if (hasUnsavedChanges) {
+    // If there are changes, show the warning modal
+    document.getElementById('exit-modal').style.display = 'flex';
+  } else {
+    // --- NEW: Stop the audio right before leaving the screen! ---
+    stopSpeech(); 
+    // ------------------------------------------------------------
+    
+    // If nothing has changed, bypass the modal and go straight home
+    document.getElementById('quiz-screen').style.display = 'none';
+    document.getElementById('welcome-screen').style.display = 'block';
+    renderInProgress();
+  }
+}
 
     function handleExit(action) {
       document.getElementById('exit-modal').style.display = 'none';
@@ -18901,11 +18905,18 @@ function stopSpeech() {
     }
 
     function confirmDiscard() {
+      // --- NEW: Stop the audio since the test is being discarded! ---
+      stopSpeech(); 
+      // ------------------------------------------------------------
+      
       if (sessionToDelete) {
         deleteSession(sessionToDelete);
         sessionToDelete = null;
       }
       closeDiscardModal();
+      
+      // Note: Make sure whatever logic you use to physically return to 
+      // the home screen (like hiding the quiz-screen) is also firing here!
     }
 
     function closeDiscardModal() {
