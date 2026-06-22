@@ -18344,7 +18344,16 @@ function cleanTextForSpeech(text) {
 
   // 1. Fix pronunciation quirks (do this before stripping tags)
   text = text.replace(/\bxy-plane\b/gi, "x y plane");
-  text = text.replace(/\barchitect\b/gi, "ark i tect"); 
+  text = text.replace(/\barchitect\b/gi, "ark i tect");
+
+  // 2. Enforce natural pauses for punctuation and formatting
+  text = text.replace(/:/g, ". "); // Forces a hard stop after colons
+  text = text.replace(/<br\s*\/?>/gi, '. '); // Pauses at HTML line breaks
+  text = text.replace(/<\/(div|p)>/gi, '. '); // Pauses at the end of HTML block elements
+  text = text.replace(/\n/g, '. '); // Pauses at raw text newlines
+
+  // 3. Strip all remaining standard HTML tags (<img>, <strong>, etc.)
+  text = text.replace(/<[^>]+>/g, ' ');
   
   // --- INCHES FIX ---
   // Deletes quotation marks so numbers like 243" aren't read as inches
