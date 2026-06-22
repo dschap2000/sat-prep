@@ -18537,11 +18537,13 @@ function cleanTextForSpeech(text) {
 
   // --- GRAMMAR POLISH ---
   // Fixes verb tenses when the translated math is preceded by specific verbs
+  // UPDATED: Added a comma into the bracket [^.,?!] so the rule doesn't jump across clauses!
+  
   // 1. "does g of x equals 25" -> "does g of x equal 25"
-  text = text.replace(/\b(does|let|make)\b([^.?!]*?)\bequals\b/gi, "$1$2equal");
+  text = text.replace(/\b(does|let|make)\b([^.,?!]*?)\bequals\b/gi, "$1$2equal");
   
   // 2. "is g of x equals 25" -> "is g of x equal to 25"
-  text = text.replace(/\bis\b([^.?!]*?)\bequals\b/gi, "is$1equal to");
+  text = text.replace(/\bis\b([^.,?!]*?)\bequals\b/gi, "is$1equal to");
   // ----------------------
 
   // 5. Decode HTML entities (like &deg; or &lt;) into plain text
